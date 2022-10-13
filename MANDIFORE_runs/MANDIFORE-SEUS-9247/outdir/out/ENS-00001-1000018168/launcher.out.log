@@ -1,0 +1,35 @@
+Executing ./job.sh of every 28th line starting with line 23 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 24 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 25 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 27 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 21 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 26 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 22 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 19 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 7 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 12 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 15 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 2 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 14 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+[1] could not change directory to /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00002-1000018168.
+Executing ./job.sh of every 28th line starting with line 20 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 11 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 13 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 5 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 9 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+[4] could not change directory to /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00005-1000018168.
+Executing ./job.sh of every 28th line starting with line 4 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 16 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+[3] could not change directory to /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00004-1000018168.
+Executing ./job.sh of every 28th line starting with line 17 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 8 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 6 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 10 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 1 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+[0] cwd=/groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168 exec=./job.sh 2>stderr.txt >stdout.txt
+Executing ./job.sh of every 28th line starting with line 3 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+Executing ./job.sh of every 28th line starting with line 18 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+[2] could not change directory to /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00003-1000018168.
+Executing ./job.sh of every 28th line starting with line 28 of /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/joblist.txt
+[0] returned 35584 as exit status.
+Detailed performance metrics for this job will be available at https://metrics.hpc.arizona.edu/#job_viewer?action=show&realm=SUPREMM&resource_id=73&local_job_id=4897228 by 8am on 2022/10/14.

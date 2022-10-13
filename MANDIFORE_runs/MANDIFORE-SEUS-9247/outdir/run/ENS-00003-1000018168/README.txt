@@ -1,0 +1,16 @@
+runtype     : ensemble
+ workflow id :  2022-10-13-18-01-42 
+ ensemble id :  NA 
+ run         :  3 / 5 
+ run id      :  ENS-00003-1000018168 
+ pft names   :  SetariaWT broadleaf_evergreen_tropical_tree tempconif temperate.Evergreen_Hardwood ebifarm.liqui ebifarm.quru ebifarm.acru 
+ model       :  ED2 
+ model id    :  14 
+ site        :  MANDIFORE-SEUS-9247 
+ site  id    :  1000018168 
+ met data    :  /data/sites/mandifore/NARR_ED2_site_1-18168/ED_MET_DRIVER_HEADER 
+ start date  :  2001-01-01 
+ end date    :  2003-12-31 
+ hostname    :  puma 
+ rundir      :  /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00003-1000018168 
+ outdir      :  /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/out/ENS-00003-1000018168 

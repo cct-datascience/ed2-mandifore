@@ -1,0 +1,191 @@
+Logging on 2022/10/13_11:11:14
+Lmod has detected the following error: The following module(s) are unknown:
+"singularity"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore-cache load "singularity"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+/groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168
++---------------- MPI parallel info: --------------------+
++  - Machnum  =      0
++  - Machsize =      1
++---------------- OMP parallel info: --------------------+
++  - thread  use:       1
++  - threads max:       1
++  - cpu     use:       1
++  - cpus    max:       1
++  Note: Max vals are for node, not sockets.
++--------------------------------------------------------+
+ + Read namelist information.
+ + Copy most namelist variables.
+ + Check whether to restore the run.
+ + Copy initialisation-dependent variables.
++------------------------------------------------------------+
+|           Ecosystem Demography Model, version 2.2           
++------------------------------------------------------------+
+|  Input namelist filename is ED2IN
+|
+|  Single process execution on INITIAL run.
++------------------------------------------------------------+
+  => Generating the land/sea mask.
+ + Work allocation, node     1;
+ + Polygon array allocation, node     1;
+ + Memory successfully allocated on none     1;
+ [+] Init_random_seed...
+ [+] Load_Ed_Ecosystem_Params...
+----------------------------------------
+  Treefall disturbance parameters:
+  - LAMBDA_REF  =  1.25000E-02
+  - LAMBDA_EFF  =  1.25000E-02
+  - TIME2CANOPY =  0.00000E+00
+----------------------------------------
+ [+] Checking for XML config...
+ count xml pft : /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/config.xml
+ NPFT =            7
+ MAXPFT =           11
+ Opening ED2 XML Config file/groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00001-1000018168/config.xml
+ EXTERN READ FROM FILE ::           0
+ MET READ FROM FILE ::           0
+ CAN_AIR READ FROM FILE ::           0
+ MISC READ FROM FILE ::           0
+ ED_MISC READ FROM FILE ::           1
+ Number of land use types to be read from file =     0
+ NPFT =            7
+ PFT's READ FROM FILE ::           7
+ PFTCONST READ FROM FILE ::           0
+ HYDROLOGY READ FROM FILE ::           0
+ SCENARIO READ FROM FILE ::           0
+ LAPSE READ FROM FILE ::           0
+ CANOPY RADIATION READ FROM FILE ::           1
+ BUDGET READ FROM FILE ::           0
+ SOIL READ FROM FILE ::           0
+ DECOMPOSITION READ FROM FILE ::           0
+ FUSEFISS READ FROM FILE ::           0
+ HORIZONTAL SHADING READ FROM FILE ::           0
+ DISTURBANCE READ FROM FILE ::           0
+ PHENOLOGY READ FROM FILE ::           0
+ PHYSIOLOGY READ FROM FILE ::           0
+ INITCOND READ FROM FILE ::           0
+ TOPMODEL enabled, setting ISOILBC to 0
+ [+] Init_derived_params_after_xml...
+ [+] Write parameters to xml...
+ Wrote Config Record:/groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/out/ENS-00001-1000018168/history.xml
+ [+] Alloc_Soilgrid...
+ [+] Set_Polygon_Coordinates...
+ [+] Sfcdata_ED...
+ [+] Load_Ecosystem_State...
+ + Doing sequential initialization over nodes.
+ + Initializing from ED restart file. Node: 001
+ [-] filelist_f: Checking prefix:  /data/sites/mandifore/FIA_ED2_site_1-18168/siteid1000018168.fia2000.radius0.075.
+                 Prefix length:       80
+ +  Showing all     3 files:
+   [-] File #:      1 /data/sites/mandifore/FIA_ED2_site_1-18168/siteid1000018168.fia2000.radius0.075.lat35.4979lon-81.0724.css
+   [-] File #:      2 /data/sites/mandifore/FIA_ED2_site_1-18168/siteid1000018168.fia2000.radius0.075.lat35.4979lon-81.0724.pss
+   [-] File #:      3 /data/sites/mandifore/FIA_ED2_site_1-18168/siteid1000018168.fia2000.radius0.075.lat35.5lon-81.5.site
+Using patch file: /data/sites/mandifore/FIA_ED2_site_1-18168/siteid1000018168.fia2000.radius0.075.lat35.4979lon-81.0724.pss
+Using cohort file: /data/sites/mandifore/FIA_ED2_site_1-18168/siteid1000018168.fia2000.radius0.075.lat35.4979lon-81.0724.css
+ + Initializing phenology. Node: 001
+ - Reading thermal sums.
+ + Initializing anthropogenic disturbance forcing. Node: 001
+ 
+   -------------------------------------------------------
+ Soil information:
+ 
+ Polygon name               : history
+ Longitude                  :     -81.072
+ Latitude                   :      35.498
+ Prescribed sand and clay   :           T
+ # of sites                 :           1
+ 
+ Site :           1
+   - Type :           3
+   - Clay fraction            =  1.10000E-01
+   - Sand fraction            =  6.60000E-01
+   - Silt fraction            =  2.30000E-01
+   - SOC content              =  6.00000E-02
+   - Soil pH                  =  6.00000E+00
+   - Cation exchange capacity =  5.00000E-01
+   - Dry bulk density         =  1.33000E+03
+   - Heat capacity            =  1.29587E+06
+   - Saturated hydr. conduct. =  1.02266E-05
+   - SLBS                     =  4.62900E+00
+   - SLNM                     =  2.16029E-01
+   - SLTT                     =  1.00000E+00
+ + Matric potential [m]: 
+   - Dry air soil             = -3.16112E+02
+   - Wilting point            = -1.52957E+02
+   - Fire point               = -1.42760E+02
+   - Leaf-shedding point      = -1.22366E+02
+   - Field capacity           = -3.53284E+00
+   - Bubbling point           = -1.14262E-01
+   - Saturation               = -1.14262E-01
+   - Porosity                 = -1.14262E-01
+ + Volumetric soil moisture [m3/m3]: 
+   - Residual                 =  7.34950E-02
+   - Dry air soil             =  7.34950E-02
+   - Wilting point            =  8.59737E-02
+   - Fire point               =  8.72647E-02
+   - Leaf-shedding point      =  9.02196E-02
+   - Field capacity           =  1.94038E-01
+   - Bubbling point           =  4.07210E-01
+   - Saturation               =  4.07210E-01
+   - Porosity                 =  4.07210E-01
+   -------------------------------------------------------
+ 
+ [+] Init_Met_Drivers...
+ [+] Read_Met_Drivers_Init...
+------------------------------
+ - METCYC1 =         2000
+ - METCYCF =         2015
+ - NYEARS  =            4
+------------------------------
+        IYEAR     YEAR_USE
+            1         2001
+            2         2002
+            3         2003
+            4         2004
+------------------------------
+ 
+ [+] Update_met_drivers...
+ [+] Ed_Init_Atm...
+Grid:      1 Poly:      1 Lon:  -81.0724 Lat:    35.4979 Nplants:    0.1729 Avg. LAI:    4.26 Avg. AGB: ******* NPatches:      9 NCohorts: ******
+ [+] initHydrology...
+initHydrology | mynum=         1 ngrids=         1 mpolys=         1 msites=         1
+Allocated | mynum=         1 ngrids=         1 mpolys=         1 msites=         1
+Updated | mynum=         1 ngrids=         1 mpolys=         1 msites=         1
+Deallocated | mynum=         1 ngrids=         1 mpolys=         1 msites=         1
+ [+] Filltab_Alltypes...
+ [+] Find frqsum...
+
+ === Finish initialization; CPU(sec)=2910.10; Wall(sec)=2909.88; Time integration starts (ed_master) ===
+
+ === Time integration starts (model) ===
+ - Simulating:   01/01/2001 00:00:00 UTC
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x2b0b5047ad5a
+#1  0x2b0b50479ef5
+#2  0x2b0b508fd08f
+#3  0x2b0b50a45bc0
+#4  0x55d0d608895f
+#5  0x55d0d600381c
+#6  0x55d0d6006fc3
+#7  0x55d0d5d4d375
+#8  0x55d0d5ce7b13
+#9  0x55d0d5ce6ace
+#10  0x2b0b508de082
+#11  0x55d0d5ce6afd
+#12  0xffffffffffffffff
+/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-dev.sh: line 12: 14334 Segmentation fault      singularity run --pwd=$(pwd) --contain -B /groups/dlebauer/ed2_results/pecan_remote:/groups/dlebauer/ed2_results/pecan_remote -B /groups/dlebauer/data/sites:/data/sites -B /groups/dlebauer/ed2_results/inputs/julianp/ed_inputs:/data/ed_inputs -B /groups/dlebauer/ed2_results/inputs/julianp/faoOLD:/data/faoOLD -B /groups/dlebauer/ed2_results/inputs/julianp/oge2OLD:/data/oge2OLD -B /groups/dlebauer/ed2_results/inputs/julianp/tests/ed2:/data/tests/ed2 /groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-dev.sif /usr/local/bin/ed.git -s
+ERROR IN MODEL RUN
+Logfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/out/ENS-00001-1000018168/logfile.txt'
+************************************************* End Log 2022/10/13_11:11:14
+
