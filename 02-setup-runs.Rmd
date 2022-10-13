@@ -169,8 +169,7 @@ write.settings(settings, outputfile = "settings_checked.xml")
 ```{r}
 workflow <- readLines(file.path(wd, "workflow.R"))
 checked_settings_path <-
-  file.path("ED2",
-            "MANDIFORE_runs",
+  file.path("MANDIFORE_runs",
             s$sitename,
             "outdir",
             "settings_checked.xml")

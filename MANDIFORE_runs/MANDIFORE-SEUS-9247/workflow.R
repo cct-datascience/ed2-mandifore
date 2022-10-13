@@ -4,11 +4,12 @@
 
 # Load packages -----------------------------------------------------------
 library(PEcAn.all)
+library(purrr)
 
 # Read in settings --------------------------------------------------------
 
 #edit this path
-inputfile <- "ED2/MANDIFORE_runs/MANDIFORE-SEUS-9247/outdir/settings_checked.xml"
+inputfile <- "MANDIFORE_runs/MANDIFORE-SEUS-9247/outdir/settings_checked.xml"
 
 #check that inputfile exists, because read.settings() doesn't do that!
 if (file.exists(inputfile)) {
