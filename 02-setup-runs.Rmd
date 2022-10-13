@@ -39,8 +39,10 @@ dir.create(wd)
 Copy templates
 
 ```{r}
-file.copy(file.path("templates", "pecan_template.xml"), file.path(wd, "pecan.xml"))
-file.copy(file.path("templates", "workflow_template.R"), file.path(wd, "workflow.R"))
+file.copy(file.path("templates", "pecan_template.xml"),
+          file.path(wd, "pecan.xml"))
+file.copy(file.path("templates", "workflow_template.R"),
+          file.path(wd, "workflow.R"))
 ```
 
 
@@ -66,15 +68,16 @@ dir.create(settings$outdir)
 
 ```{r}
 settings$info$notes <- s$sitename
-
 settings$run$site$id <- s$site_id
 ```
 
 ## MET data
 
 ```{r}
-settings$run$site$met.start <- format(s$met_start_date, "%Y-%m-%d %H:%M:%S")
-settings$run$site$met.end <- format(s$met_end_date, "%Y-%m-%d %H:%M:%S")
+settings$run$site$met.start <-
+  format(s$met_start_date, "%Y-%m-%d %H:%M:%S")
+settings$run$site$met.end <-
+  format(s$met_end_date, "%Y-%m-%d %H:%M:%S")
 ```
 
 Need to edit ED_MET_DRIVER_HEADER to point to correct path
@@ -90,9 +93,13 @@ file.copy(
   copy.mode = FALSE
 )
 
-met_driver_path <- file.path("/data/sites/mandifore", s$met_filename, "ED_MET_DRIVER_HEADER")
+met_driver_path <-
+  file.path("/data/sites/mandifore",
+            s$met_filename,
+            "ED_MET_DRIVER_HEADER")
 met_driver <- readLines(met_driver_path) #read in
-met_driver <- str_replace(met_driver, "/data/input/", "/data/sites/mandifore/") #fix path
+met_driver <-
+  str_replace(met_driver, "/data/input/", "/data/sites/mandifore/") #fix path
 write_lines(met_driver, met_driver_path)
 ```
 
@@ -158,9 +165,15 @@ write.settings(settings, outputfile = "settings_checked.xml")
 
 ```{r}
 workflow <- readLines(file.path(wd, "workflow.R"))
-checked_settings_path <- file.path("ED2", "MANDIFORE_runs", s$sitename, "outdir", "settings_checked.xml")
+checked_settings_path <-
+  file.path("ED2",
+            "MANDIFORE_runs",
+            s$sitename,
+            "outdir",
+            "settings_checked.xml")
 repl <- paste0('inputfile <- \"', checked_settings_path, '\"')
-workflow <- str_replace(workflow, 'inputfile <- .*', replacement = repl)
+workflow <-
+  str_replace(workflow, 'inputfile <- .*', replacement = repl)
 writeLines(workflow, file.path(wd, "workflow.R"))
 ```
 
