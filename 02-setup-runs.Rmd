@@ -22,7 +22,7 @@ Need to:
 To figure out how to automate all this, start by picking a site (literally at random) and setting up a run:
 
 ```{r}
-new_site <- read_csv("data/mandifore_sites.csv")
+new_sites <- read_csv("data/mandifore_sites.csv")
 set.seed(123)
 (s <- slice_sample(new_sites, n = 1))
 ```
@@ -134,7 +134,10 @@ css <-
 pfts <- tibble(ED = unique(css$pft))
 
 #TODO: this matches multiple PEcAn PFTs per ED PFT number.  So this is likely not going to work without some additional data or by manually specifying.  For now as proof of concept I'll just pick the first match
-pfts <- left_join(pfts, PEcAn.ED2::pftmapping, by = "ED") %>% group_by(ED) %>% slice(1)
+pfts <-
+  left_join(pfts, PEcAn.ED2::pftmapping, by = "ED") %>%
+  group_by(ED) %>% 
+  slice(1)
 
 for (i in 1:nrow(pfts)) {
   new_pft <- list(
@@ -193,3 +196,6 @@ PEcAn.remote::remote.copy.to(
   dst = "/groups/dlebauer/data/sites/mandifore"
 )
 ```
+
+# TODO: turn the above code into a function
+lapply it to all sites to set up all runs at once.
