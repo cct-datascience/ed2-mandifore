@@ -137,7 +137,7 @@
  <host>
   <name>puma</name>
   <folder>/groups/dlebauer/ed2_results/pecan_remote</folder>
-  <qsub>sbatch --job-name=@NAME@ --account=dlebauer --ntasks=28 --nodes=3 --time=25:00:00 -o @STDOUT@ -e @STDERR@</qsub>
+  <qsub>sbatch --job-name=@NAME@ --account=dlebauer --ntasks=28 --nodes=3 --mem-per-cpu=5gb --time=25:00:00 -o @STDOUT@ -e @STDERR@</qsub>
   <qsub.jobid>.* ([0-9]+)</qsub.jobid>
   <qstat>&apos;squeue --job @JOBID@ &amp;&gt; /dev/null || echo DONE&apos;</qstat>
   <modellauncher>
@@ -146,8 +146,8 @@
    <mpirun>module load openmpi3; mpirun</mpirun>
   </modellauncher>
   <prerun>module load openmpi3 R</prerun>
-  <rundir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run</rundir>
-  <outdir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/out</outdir>
+  <rundir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/run</rundir>
+  <outdir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/out</outdir>
  </host>
  <settings.info>
   <deprecated.settings.fixed>TRUE</deprecated.settings.fixed>
@@ -155,7 +155,7 @@
   <checked>TRUE</checked>
  </settings.info>
  <workflow>
-  <id>2022-10-13-18-01-42</id>
+  <id>2022-10-17-18-04-32</id>
  </workflow>
  <rundir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-SEUS-9247/outdir/run</rundir>
  <modeloutdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-SEUS-9247/outdir/out</modeloutdir>

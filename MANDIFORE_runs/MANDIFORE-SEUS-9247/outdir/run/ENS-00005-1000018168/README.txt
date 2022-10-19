@@ -1,5 +1,5 @@
 runtype     : ensemble
- workflow id :  2022-10-13-18-01-42 
+ workflow id :  2022-10-17-18-04-32 
  ensemble id :  NA 
  run         :  5 / 5 
  run id      :  ENS-00005-1000018168 
@@ -12,5 +12,5 @@ runtype     : ensemble
  start date  :  2001-01-01 
  end date    :  2003-12-31 
  hostname    :  puma 
- rundir      :  /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/run/ENS-00005-1000018168 
- outdir      :  /groups/dlebauer/ed2_results/pecan_remote/2022-10-13-18-01-42/out/ENS-00005-1000018168 
+ rundir      :  /groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/run/ENS-00005-1000018168 
+ outdir      :  /groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/out/ENS-00005-1000018168 

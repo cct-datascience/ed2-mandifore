@@ -11,7 +11,7 @@ Also make sure that all modulefiles written in TCL start with the string
 
 
 
-/groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/run/ENS-00001-1000018168
+/groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/run/ENS-00004-1000018168
 +---------------- MPI parallel info: --------------------+
 +  - Machnum  =      0
 +  - Machsize =      1
@@ -46,10 +46,10 @@ Also make sure that all modulefiles written in TCL start with the string
   - TIME2CANOPY =  0.00000E+00
 ----------------------------------------
  [+] Checking for XML config...
- count xml pft : /groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/run/ENS-00001-1000018168/config.xml
+ count xml pft : /groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/run/ENS-00004-1000018168/config.xml
  NPFT =            7
  MAXPFT =           11
- Opening ED2 XML Config file/groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/run/ENS-00001-1000018168/config.xml
+ Opening ED2 XML Config file/groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/run/ENS-00004-1000018168/config.xml
  EXTERN READ FROM FILE ::           0
  MET READ FROM FILE ::           0
  CAN_AIR READ FROM FILE ::           0
@@ -75,7 +75,7 @@ Also make sure that all modulefiles written in TCL start with the string
  TOPMODEL enabled, setting ISOILBC to 0
  [+] Init_derived_params_after_xml...
  [+] Write parameters to xml...
- Wrote Config Record:/groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/out/ENS-00001-1000018168/history.xml
+ Wrote Config Record:/groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/out/ENS-00004-1000018168/history.xml
  [+] Alloc_Soilgrid...
  [+] Set_Polygon_Coordinates...
  [+] Sfcdata_ED...

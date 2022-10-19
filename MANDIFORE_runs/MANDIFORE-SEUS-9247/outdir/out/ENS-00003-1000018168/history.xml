@@ -92,13 +92,13 @@
                    3
       </restart_mode>
       <output_filepath>
-         /groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/out/ENS-00001-1000018168/analysis
+         /groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/out/ENS-00003-1000018168/analysis
       </output_filepath>
       <input_filepath>
          /data/sites/mandifore/FIA_ED2_site_1-18168/siteid1000018168.fia2000.radius0.075.
       </input_filepath>
       <history_out_filepath>
-         /groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/out/ENS-00001-1000018168/history
+         /groups/dlebauer/ed2_results/pecan_remote/2022-10-17-18-04-32/out/ENS-00003-1000018168/history
       </history_out_filepath>
       <ivegt_dynamics>
                    1
@@ -195,7 +195,7 @@
                    4
       </photosyn_pathway>
       <quantum_efficiency>
-                                     0.0551525354
+                                     0.0508996136
       </quantum_efficiency>
       <curvpar_electron>
                                      0.6999999881
@@ -204,7 +204,7 @@
                                      0.6250000000
       </qyield_psII>
       <Vm0>
-                                    19.5408172607
+                                    12.9001312256
       </Vm0>
       <Vm0_v0>
                                     12.5000000000
@@ -213,7 +213,7 @@
                                      0.0000000000
       </Vm0_v1>
       <Vm_low_temp>
-                                    10.1188526154
+                                     7.4780635834
       </Vm_low_temp>
       <Vm_high_temp>
                                     45.0000000000
@@ -231,13 +231,13 @@
                                      2.4000000954
       </vm_q10>
       <kplastic_vm0>
-                                    -0.1206195727
+                                    -0.0960359499
       </kplastic_vm0>
       <Jm0>
-                                    48.8520431519
+                                    32.2503280640
       </Jm0>
       <Jm_low_temp>
-                                    10.1188526154
+                                     7.4780635834
       </Jm_low_temp>
       <Jm_high_temp>
                                     45.0000000000
@@ -267,7 +267,7 @@
                                      0.0350000001
       </dark_respiration_factor>
       <kplastic_rd0>
-                                    -0.1206195727
+                                    -0.0960359499
       </kplastic_rd0>
       <Rd0>
                                      0.4375000000
@@ -294,25 +294,25 @@
                                      0.0160000008
       </D0>
       <stomatal_slope>
-                                     4.6541213989
+                                     4.4150280952
       </stomatal_slope>
       <cuticular_cond>
-                                 16080.2158203125
+                                  3768.4169921875
       </cuticular_cond>
       <water_conductance>
                                      0.0000285199
       </water_conductance>
       <leaf_width>
-                                     0.0047929497
+                                     0.0025571987
       </leaf_width>
       <branch_diam>
                                      0.0500000007
       </branch_diam>
       <growth_resp_factor>
-                                     0.4062757194
+                                     0.1512161940
       </growth_resp_factor>
       <leaf_turnover_rate>
-                                     2.4940423965
+                                     4.3583135605
       </leaf_turnover_rate>
       <eplastic_vm0>
                                     -1.0999500751
@@ -321,10 +321,10 @@
                                     -1.1800000668
       </eplastic_sla>
       <kplastic_LL>
-                                     0.1151978821
+                                     0.1498050690
       </kplastic_LL>
       <root_turnover_rate>
-                                     0.2590371668
+                                     0.7144157290
       </root_turnover_rate>
       <bark_turnover_rate>
                                      0.4000000060
@@ -363,7 +363,7 @@
                                      2.4000000954
       </srf_q10>
       <root_respiration_factor>
-                                     2.2274992466
+                                     1.2346388102
       </root_respiration_factor>
       <rrf_low_temp>
                                      8.0000000000
@@ -393,7 +393,7 @@
                                      2.0000000000
       </mort1>
       <mort2>
-                                    39.5075950623
+                                    39.3799667358
       </mort2>
       <mort3>
                                      0.0000000000
@@ -408,7 +408,7 @@
                                     -1.0628256798
       </cbr_severe_stress>
       <seedling_mortality>
-                                     0.9920043349
+                                     0.7950037718
       </seedling_mortality>
       <treefall_s_gt>
                                      0.0000000000
@@ -447,7 +447,7 @@
                                      0.2000000030
       </rho>
       <SLA>
-                                    80.2983169556
+                                    89.4885101318
       </SLA>
       <sla_s0>
                                     22.7000007629
@@ -456,7 +456,7 @@
                                      0.0000000000
       </sla_s1>
       <kplastic_sla>
-                                    -0.0813942552
+                                    -0.0948202014
       </kplastic_sla>
       <lma_slope>
                                      0.0149999997
@@ -465,7 +465,7 @@
                                      6.0000000000
       </laimax_plastic>
       <q>
-                                     2.2788283825
+                                     1.5314794779
       </q>
       <sapwood_ratio>
                                   3900.0000000000
@@ -708,7 +708,7 @@
                                      1.0000000000
       </b2Cl>
       <r_fract>
-                                     0.1125240996
+                                     0.1944017112
       </r_fract>
       <r_cv50>
                                      0.3333333433
@@ -720,13 +720,13 @@
                                      0.0000000000
       </st_fract>
       <nonlocal_dispersal>
-                                     0.1653152853
+                                     0.2495246679
       </nonlocal_dispersal>
       <repro_min_h>
                                      0.5000000000
       </repro_min_h>
       <min_recruit_size>
-                                     0.0011290162
+                                     0.0008719059
       </min_recruit_size>
       <storage_reflush_times>
                                      0.0000000000
@@ -767,7 +767,7 @@
                            0.80000001192092895508
       </clumping_factor>
       <orient_factor>
-                           0.06538444012403488159
+                           0.42115020751953125000
       </orient_factor>
       <leaf_emiss_tir>
                            0.94999999999999995559
@@ -776,28 +776,28 @@
                            0.90000000000000002220
       </wood_emiss_tir>
       <leaf_reflect_vis>
-                           0.06095691025257110596
+                           0.19730429351329803467
       </leaf_reflect_vis>
       <leaf_reflect_nir>
-                           0.07951548695564270020
+                           0.18782329559326171875
       </leaf_reflect_nir>
       <wood_reflect_vis>
-                           0.14906880259513854980
+                           0.20831921696662902832
       </wood_reflect_vis>
       <wood_reflect_nir>
-                           0.28768488764762878418
+                           0.19342282414436340332
       </wood_reflect_nir>
       <leaf_trans_vis>
-                           0.03858782351016998291
+                           0.08617776632308959961
       </leaf_trans_vis>
       <leaf_trans_nir>
-                           0.58215886354446411133
+                           0.24671059846878051758
       </leaf_trans_nir>
       <wood_trans_vis>
-                           0.00200296542607247829
+                           0.00169726274907588959
       </wood_trans_vis>
       <wood_trans_nir>
-                           0.00256794667802751064
+                           0.00356529024429619312
       </wood_trans_nir>
       <photosyn_pathway>
                    3
@@ -812,7 +812,7 @@
                                      0.8500000238
       </qyield_psII>
       <Vm0>
-                                     7.9427318573
+                                    34.2924957275
       </Vm0>
       <Vm0_v0>
                                     12.5000000000
@@ -839,10 +839,10 @@
                                      2.4000000954
       </vm_q10>
       <kplastic_vm0>
-                                    -0.0809367821
+                                    -0.2008115053
       </kplastic_vm0>
       <Jm0>
-                                    19.8568305969
+                                    85.7312393188
       </Jm0>
       <Jm_low_temp>
                                      8.0000000000
@@ -875,7 +875,7 @@
                                      0.0144999996
       </dark_respiration_factor>
       <kplastic_rd0>
-                                    -0.0809367821
+                                    -0.2008115053
       </kplastic_rd0>
       <Rd0>
                                      0.1812499911
@@ -908,19 +908,19 @@
                                  10000.0000000000
       </cuticular_cond>
       <water_conductance>
-                                     1.8057154417
+                                     0.0110522397
       </water_conductance>
       <leaf_width>
-                                     0.0849073008
+                                     0.0694102570
       </leaf_width>
       <branch_diam>
                                      0.1000000015
       </branch_diam>
       <growth_resp_factor>
-                                     0.1935080290
+                                     0.4139926136
       </growth_resp_factor>
       <leaf_turnover_rate>
-                                     0.2883595824
+                                     0.6386404037
       </leaf_turnover_rate>
       <eplastic_vm0>
                                     -1.0999500751
@@ -929,10 +929,10 @@
                                     -1.1800000668
       </eplastic_sla>
       <kplastic_LL>
-                                    -0.0185641348
+                                     0.0307341367
       </kplastic_LL>
       <root_turnover_rate>
-                                     1.3200299740
+                                     0.6953468919
       </root_turnover_rate>
       <bark_turnover_rate>
                                      0.4000000060
@@ -1004,7 +1004,7 @@
                                     15.0000000000
       </mort2>
       <mort3>
-                                     0.0119726313
+                                     0.0066166115
       </mort3>
       <hydro_mort0>
                                      0.0000000000
@@ -1055,7 +1055,7 @@
                                      0.7099999785
       </rho>
       <SLA>
-                                    23.7826938629
+                                     9.2104272842
       </SLA>
       <sla_s0>
                                     16.0179424286
@@ -1064,7 +1064,7 @@
                                      0.4600000083
       </sla_s1>
       <kplastic_sla>
-                                     0.0693660975
+                                     0.1869003773
       </kplastic_sla>
       <lma_slope>
                                      0.0149999997
@@ -1073,7 +1073,7 @@
                                      6.0000000000
       </laimax_plastic>
       <q>
-                                     1.0704349279
+                                     1.8392454386
       </q>
       <sapwood_ratio>
                                   3900.0000000000
@@ -1289,7 +1289,7 @@
           1.0000000E+19
       </init_laimax>
       <c2n_leaf>
-                                    63.7985267639
+                                   233.9591827393
       </c2n_leaf>
       <phenology>
                    1
@@ -1316,7 +1316,7 @@
                                      1.0980000496
       </b2Cl>
       <r_fract>
-                                     0.7094104290
+                                     0.3071708977
       </r_fract>
       <r_cv50>
                                      0.3333333433
@@ -1328,13 +1328,13 @@
                                      0.0000000000
       </st_fract>
       <nonlocal_dispersal>
-                                     0.4727923572
+                                     0.5544729829
       </nonlocal_dispersal>
       <repro_min_h>
                                     18.0000000000
       </repro_min_h>
       <min_recruit_size>
-                                     0.0014047250
+                                     0.0019203197
       </min_recruit_size>
       <storage_reflush_times>
                                      0.0000000000
@@ -1411,7 +1411,7 @@
                    3
       </photosyn_pathway>
       <quantum_efficiency>
-                                     0.0540711023
+                                     0.0556735285
       </quantum_efficiency>
       <curvpar_electron>
                                      0.6999999881
@@ -1420,7 +1420,7 @@
                                      0.8500000238
       </qyield_psII>
       <Vm0>
-                                   331.5541076660
+                                   242.0037689209
       </Vm0>
       <Vm0_v0>
                                     11.3500003815
@@ -1447,10 +1447,10 @@
                                      2.4000000954
       </vm_q10>
       <kplastic_vm0>
-                                 -5740.4331054688
+                                  -261.0053710938
       </kplastic_vm0>
       <Jm0>
-                                   828.8853149414
+                                   605.0094604492
       </Jm0>
       <Jm_low_temp>
                                      4.7136998177
@@ -1480,10 +1480,10 @@
                                      0.0000000000
       </triose_phosphate_factor>
       <dark_respiration_factor>
-                                     0.0188474003
+                                     0.0324856788
       </dark_respiration_factor>
       <kplastic_rd0>
-                                 -5740.4331054688
+                                  -261.0053710938
       </kplastic_rd0>
       <Rd0>
                                      0.1645749956
@@ -1510,25 +1510,25 @@
                                      0.0160000008
       </D0>
       <stomatal_slope>
-                                     8.6931409836
+                                     5.1036577225
       </stomatal_slope>
       <cuticular_cond>
                                   1000.0000000000
       </cuticular_cond>
       <water_conductance>
-                                     0.0029486315
+                                     0.0045860661
       </water_conductance>
       <leaf_width>
-                                     0.0359912626
+                                     0.0471939296
       </leaf_width>
       <branch_diam>
                                      0.0500000007
       </branch_diam>
       <growth_resp_factor>
-                                     0.3305112720
+                                     0.4713493884
       </growth_resp_factor>
       <leaf_turnover_rate>
-                                     0.7038086653
+                                     1.1128237247
       </leaf_turnover_rate>
       <eplastic_vm0>
                                     -1.0999500751
@@ -1537,16 +1537,16 @@
                                     -1.1800000668
       </eplastic_sla>
       <kplastic_LL>
-                                     0.0367583632
+                                     0.0651636273
       </kplastic_LL>
       <root_turnover_rate>
-                                     1.0705096722
+                                     0.7766144276
       </root_turnover_rate>
       <bark_turnover_rate>
                                      0.4000000060
       </bark_turnover_rate>
       <storage_turnover_rate>
-                                     0.4672077000
+                                     0.5751627088
       </storage_turnover_rate>
       <f_labile_leaf>
                                      0.7900000215
@@ -1579,7 +1579,7 @@
                                      2.4000000954
       </srf_q10>
       <root_respiration_factor>
-                                     2.2265269756
+                                     3.0252127647
       </root_respiration_factor>
       <rrf_low_temp>
                                      4.7136998177
@@ -1609,7 +1609,7 @@
                                      1.0000000000
       </mort1>
       <mort2>
-                                    21.4915180206
+                                     4.2446026802
       </mort2>
       <mort3>
                                      0.0043000001
@@ -1663,7 +1663,7 @@
                                      0.0000000000
       </rho>
       <SLA>
-                                     4.6024761200
+                                    29.7438488007
       </SLA>
       <sla_s0>
                                      9.0000000000
@@ -1672,7 +1672,7 @@
                                      0.0000000000
       </sla_s1>
       <kplastic_sla>
-                                     0.2728549838
+                                     0.0416541398
       </kplastic_sla>
       <lma_slope>
                                      0.0149999997
@@ -1681,7 +1681,7 @@
                                      6.0000000000
       </laimax_plastic>
       <q>
-                                     1.8463441133
+                                     0.7332676053
       </q>
       <sapwood_ratio>
                                   3900.0000000000
@@ -1924,7 +1924,7 @@
                                      1.0980000496
       </b2Cl>
       <r_fract>
-                                     0.5592582226
+                                     0.2803178728
       </r_fract>
       <r_cv50>
                                      0.3333333433
@@ -1936,13 +1936,13 @@
                                      0.0000000000
       </st_fract>
       <nonlocal_dispersal>
-                                     0.3057204187
+                                     0.9395037293
       </nonlocal_dispersal>
       <repro_min_h>
                                     18.0000000000
       </repro_min_h>
       <min_recruit_size>
-                                     0.0004728926
+                                     0.0003583475
       </min_recruit_size>
       <storage_reflush_times>
                                      0.0000000000
@@ -2019,7 +2019,7 @@
                    3
       </photosyn_pathway>
       <quantum_efficiency>
-                                     0.0447187982
+                                     0.0502467752
       </quantum_efficiency>
       <curvpar_electron>
                                      0.6999999881
@@ -2028,7 +2028,7 @@
                                      0.8500000238
       </qyield_psII>
       <Vm0>
-                                    56.8082351685
+                                    60.0643501282
       </Vm0>
       <Vm0_v0>
                                      4.5399999619
@@ -2037,7 +2037,7 @@
                                      0.0000000000
       </Vm0_v1>
       <Vm_low_temp>
-                                     2.9324927330
+                                     4.0790710449
       </Vm_low_temp>
       <Vm_high_temp>
                                     45.0000000000
@@ -2055,13 +2055,13 @@
                                      2.4000000954
       </vm_q10>
       <kplastic_vm0>
-                                    -0.4373522699
+                                    -0.4892927408
       </kplastic_vm0>
       <Jm0>
-                                   142.0205841064
+                                   150.1608734131
       </Jm0>
       <Jm_low_temp>
-                                     2.9324927330
+                                     4.0790710449
       </Jm_low_temp>
       <Jm_high_temp>
                                     45.0000000000
@@ -2088,10 +2088,10 @@
                                      0.0000000000
       </triose_phosphate_factor>
       <dark_respiration_factor>
-                                     0.0172174983
+                                     0.0321637280
       </dark_respiration_factor>
       <kplastic_rd0>
-                                    -0.4373522699
+                                    -0.4892927408
       </kplastic_rd0>
       <Rd0>
                                      0.0658299997
@@ -2118,25 +2118,25 @@
                                      0.0160000008
       </D0>
       <stomatal_slope>
-                                     7.3382730484
+                                    13.8740472794
       </stomatal_slope>
       <cuticular_cond>
-                                  2605.2321777344
+                                  9852.2939453125
       </cuticular_cond>
       <water_conductance>
-                                     0.3130802512
+                                     0.0028776496
       </water_conductance>
       <leaf_width>
-                                     0.0449963212
+                                     0.1354191750
       </leaf_width>
       <branch_diam>
                                      0.0500000007
       </branch_diam>
       <growth_resp_factor>
-                                     0.5395030379
+                                     0.3813749254
       </growth_resp_factor>
       <leaf_turnover_rate>
-                                     0.9854158759
+                                     0.7995477319
       </leaf_turnover_rate>
       <eplastic_vm0>
                                     -1.0999500751
@@ -2145,10 +2145,10 @@
                                     -1.1800000668
       </eplastic_sla>
       <kplastic_LL>
-                                     0.0576249063
+                                     0.0446658134
       </kplastic_LL>
       <root_turnover_rate>
-                                     7.6615490913
+                                     0.7666997910
       </root_turnover_rate>
       <bark_turnover_rate>
                                      0.4000000060
@@ -2157,7 +2157,7 @@
                                      0.0000000000
       </storage_turnover_rate>
       <f_labile_leaf>
-                                     0.5774078369
+                                     0.3527466357
       </f_labile_leaf>
       <f_labile_stem>
                                      0.0000000000
@@ -2187,7 +2187,7 @@
                                      2.4000000954
       </srf_q10>
       <root_respiration_factor>
-                                    28.8344764709
+                                    17.9595031738
       </root_respiration_factor>
       <rrf_low_temp>
                                      4.7136998177
@@ -2214,13 +2214,13 @@
                                      0.0000000000
       </mort0>
       <mort1>
-                                     1.0286350250
+                                     1.1330111027
       </mort1>
       <mort2>
-                                    53.4178733826
+                                    10.7947797775
       </mort2>
       <mort3>
-                                     0.0015716468
+                                     0.0151223233
       </mort3>
       <hydro_mort0>
                                      0.0000000000
@@ -2232,7 +2232,7 @@
                                     -0.7971192598
       </cbr_severe_stress>
       <seedling_mortality>
-                                     0.8853281736
+                                     0.9611589909
       </seedling_mortality>
       <treefall_s_gt>
                                      0.0000000000
@@ -2265,13 +2265,13 @@
                                     -1.0000000000
       </fire_s_slope>
       <plant_min_temp>
-                                   -42.2202949524
+                                   -86.7992172241
       </plant_min_temp>
       <rho>
                                      0.0000000000
       </rho>
       <SLA>
-                                    10.5414361954
+                                    55.8969001770
       </SLA>
       <sla_s0>
                                     10.0000000000
@@ -2280,7 +2280,7 @@
                                      0.0000000000
       </sla_s1>
       <kplastic_sla>
-                                     0.1701766551
+                                    -0.0365127325
       </kplastic_sla>
       <lma_slope>
                                      0.0149999997
@@ -2289,7 +2289,7 @@
                                      6.0000000000
       </laimax_plastic>
       <q>
-                                     1.0039582253
+                                     1.5572805405
       </q>
       <sapwood_ratio>
                                   3900.0000000000
@@ -2394,10 +2394,10 @@
                                      0.0500000007
       </leaf_shed_rate>
       <b1Ht>
-                                    57.4741783142
+                                    81.4997787476
       </b1Ht>
       <b2Ht>
-                                    -0.1363517642
+                                    -0.1195921749
       </b2Ht>
       <hgt_ref>
                                      1.2999999523
@@ -2412,16 +2412,16 @@
                                      0.1983015537
       </min_dbh>
       <dbh_crit>
-                                     3.4295370579
+                                     2.5562973022
       </dbh_crit>
       <dbh_bigleaf>
                                     21.3466854095
       </dbh_bigleaf>
       <b1Bl>
-                                     0.0074192020
+                                     0.2951987088
       </b1Bl>
       <b2Bl>
-                                    -1.8522683382
+                                     0.3345299959
       </b2Bl>
       <b1Bs_small>
                                      0.1616999954
@@ -2439,13 +2439,13 @@
                                      0.0024797136
       </min_bdead>
       <bdead_crit>
-                                     1.1491141319
+                                     0.6102557182
       </bdead_crit>
       <b1Ca>
-                                   565.8349609375
+                                     0.6467393041
       </b1Ca>
       <b2Ca>
-                                     1.2675511837
+                                     1.8392570019
       </b2Ca>
       <b1WAI>
                                      0.0276500005
@@ -2505,7 +2505,7 @@
           1.0000000E+19
       </init_laimax>
       <c2n_leaf>
-                                   218.0510253906
+                                   267.6647338867
       </c2n_leaf>
       <phenology>
                    0
@@ -2532,7 +2532,7 @@
                                      1.0980000496
       </b2Cl>
       <r_fract>
-                                     0.2722818851
+                                     0.2087144107
       </r_fract>
       <r_cv50>
                                      0.3333333433
@@ -2544,13 +2544,13 @@
                                      0.0000000000
       </st_fract>
       <nonlocal_dispersal>
-                                     0.0798944980
+                                     0.2095674276
       </nonlocal_dispersal>
       <repro_min_h>
                                     18.0000000000
       </repro_min_h>
       <min_recruit_size>
-                                     1.3259578943
+                                     0.0206126273
       </min_recruit_size>
       <storage_reflush_times>
                                      0.0000000000
@@ -2627,7 +2627,7 @@
                    3
       </photosyn_pathway>
       <quantum_efficiency>
-                                     0.0426859260
+                                     0.0458108522
       </quantum_efficiency>
       <curvpar_electron>
                                      0.6999999881
@@ -2636,7 +2636,7 @@
                                      0.8500000238
       </qyield_psII>
       <Vm0>
-                                    57.1997680664
+                                    54.5694236755
       </Vm0>
       <Vm0_v0>
                                     20.3870754242
@@ -2663,10 +2663,10 @@
                                      2.4000000954
       </vm_q10>
       <kplastic_vm0>
-                                    -0.4431700110
+                                    -0.4047095180
       </kplastic_vm0>
       <Jm0>
-                                   142.9994201660
+                                   136.4235687256
       </Jm0>
       <Jm_low_temp>
                                      4.7136998177
@@ -2696,10 +2696,10 @@
                                      0.0000000000
       </triose_phosphate_factor>
       <dark_respiration_factor>
-                                     0.0100840330
+                                     0.0210263226
       </dark_respiration_factor>
       <kplastic_rd0>
-                                    -0.4431700110
+                                    -0.4047095180
       </kplastic_rd0>
       <Rd0>
                                      0.2956125736
@@ -2726,25 +2726,25 @@
                                      0.0160000008
       </D0>
       <stomatal_slope>
-                                     5.9471211433
+                                     7.0968194008
       </stomatal_slope>
       <cuticular_cond>
                                  10000.0000000000
       </cuticular_cond>
       <water_conductance>
-                                     0.0070952708
+                                     0.0024872208
       </water_conductance>
       <leaf_width>
-                                     0.0499560758
+                                     0.0590988100
       </leaf_width>
       <branch_diam>
                                      0.1000000015
       </branch_diam>
       <growth_resp_factor>
-                                     0.5862681866
+                                     0.3813076317
       </growth_resp_factor>
       <leaf_turnover_rate>
-                                     1.4109307528
+                                     0.2740514278
       </leaf_turnover_rate>
       <eplastic_vm0>
                                     -1.0999500751
@@ -2753,10 +2753,10 @@
                                     -1.1800000668
       </eplastic_sla>
       <kplastic_LL>
-                                     0.0798792690
+                                    -0.0217194706
       </kplastic_LL>
       <root_turnover_rate>
-                                     1.1960833073
+                                     1.0520355701
       </root_turnover_rate>
       <bark_turnover_rate>
                                      0.4000000060
@@ -2765,7 +2765,7 @@
                                      0.0000000000
       </storage_turnover_rate>
       <f_labile_leaf>
-                                     0.2237826884
+                                     0.2822013199
       </f_labile_leaf>
       <f_labile_stem>
                                      0.0000000000
@@ -2795,7 +2795,7 @@
                                      2.4000000954
       </srf_q10>
       <root_respiration_factor>
-                                     3.6890332699
+                                     3.6510822773
       </root_respiration_factor>
       <rrf_low_temp>
                                      4.7136998177
@@ -2825,7 +2825,7 @@
                                      1.0000000000
       </mort1>
       <mort2>
-                                    42.6814346313
+                                     8.5560512543
       </mort2>
       <mort3>
                                      0.0061440002
@@ -2879,7 +2879,7 @@
                                      0.0000000000
       </rho>
       <SLA>
-                                    31.8689537048
+                                    32.9928436279
       </SLA>
       <sla_s0>
                                     30.0000000000
@@ -2888,7 +2888,7 @@
                                      0.0000000000
       </sla_s1>
       <kplastic_sla>
-                                     0.0331037939
+                                     0.0288096070
       </kplastic_sla>
       <lma_slope>
                                      0.0149999997
@@ -2897,7 +2897,7 @@
                                      6.0000000000
       </laimax_plastic>
       <q>
-                                     0.5231459141
+                                     0.6143811941
       </q>
       <sapwood_ratio>
                                   3900.0000000000
@@ -3140,7 +3140,7 @@
                                      1.0980000496
       </b2Cl>
       <r_fract>
-                                     0.1266449988
+                                     0.2672874331
       </r_fract>
       <r_cv50>
                                      0.3333333433
@@ -3152,13 +3152,13 @@
                                      0.0000000000
       </st_fract>
       <nonlocal_dispersal>
-                                     0.8234692216
+                                     0.4438313246
       </nonlocal_dispersal>
       <repro_min_h>
                                     18.0000000000
       </repro_min_h>
       <min_recruit_size>
-                                     0.0000638092
+                                     0.0000673900
       </min_recruit_size>
       <storage_reflush_times>
                                      0.0000000000
@@ -3235,7 +3235,7 @@
                    3
       </photosyn_pathway>
       <quantum_efficiency>
-                                     0.0399522036
+                                     0.0362845808
       </quantum_efficiency>
       <curvpar_electron>
                                      0.6999999881
@@ -3244,7 +3244,7 @@
                                      0.8500000238
       </qyield_psII>
       <Vm0>
-                                    47.2960166931
+                                    41.0441970825
       </Vm0>
       <Vm0_v0>
                                     17.4546871185
@@ -3271,10 +3271,10 @@
                                      2.4000000954
       </vm_q10>
       <kplastic_vm0>
-                                    -0.3148620129
+                                    -0.2537522912
       </kplastic_vm0>
       <Jm0>
-                                   118.2400436401
+                                   102.6104965210
       </Jm0>
       <Jm_low_temp>
                                      4.7136998177
@@ -3304,10 +3304,10 @@
                                      0.0000000000
       </triose_phosphate_factor>
       <dark_respiration_factor>
-                                     0.0131898439
+                                     0.0209658351
       </dark_respiration_factor>
       <kplastic_rd0>
-                                    -0.3148620129
+                                    -0.2537522912
       </kplastic_rd0>
       <Rd0>
                                      0.2530929446
@@ -3334,25 +3334,25 @@
                                      0.0160000008
       </D0>
       <stomatal_slope>
-                                     4.8975234032
+                                     6.9803347588
       </stomatal_slope>
       <cuticular_cond>
                                  10000.0000000000
       </cuticular_cond>
       <water_conductance>
-                                     0.0034335710
+                                     0.0048534595
       </water_conductance>
       <leaf_width>
-                                     0.0713381842
+                                     0.0514626577
       </leaf_width>
       <branch_diam>
                                      0.1000000015
       </branch_diam>
       <growth_resp_factor>
-                                     0.5685516596
+                                     0.3783559501
       </growth_resp_factor>
       <leaf_turnover_rate>
-                                     2.2824757099
+                                     7.8720722198
       </leaf_turnover_rate>
       <eplastic_vm0>
                                     -1.0999500751
@@ -3361,10 +3361,10 @@
                                     -1.1800000668
       </eplastic_sla>
       <kplastic_LL>
-                                     0.1097019464
+                                     0.1864617020
       </kplastic_LL>
       <root_turnover_rate>
-                                     0.6035800576
+                                     0.4046282172
       </root_turnover_rate>
       <bark_turnover_rate>
                                      0.4000000060
@@ -3373,7 +3373,7 @@
                                      0.0000000000
       </storage_turnover_rate>
       <f_labile_leaf>
-                                     0.7102153301
+                                     0.5393655300
       </f_labile_leaf>
       <f_labile_stem>
                                      0.0000000000
@@ -3403,7 +3403,7 @@
                                      2.4000000954
       </srf_q10>
       <root_respiration_factor>
-                                     2.9869029522
+                                     2.3986694813
       </root_respiration_factor>
       <rrf_low_temp>
                                      4.7136998177
@@ -3433,7 +3433,7 @@
                                      1.0000000000
       </mort1>
       <mort2>
-                                    23.7513599396
+                                    40.7791976929
       </mort2>
       <mort3>
                                      0.0038079999
@@ -3487,7 +3487,7 @@
                                      0.0000000000
       </rho>
       <SLA>
-                                    22.6274471283
+                                    23.2216243744
       </SLA>
       <sla_s0>
                                     24.2000007629
@@ -3496,7 +3496,7 @@
                                      0.0000000000
       </sla_s1>
       <kplastic_sla>
-                                     0.0755356252
+                                     0.0723241270
       </kplastic_sla>
       <lma_slope>
                                      0.0149999997
@@ -3505,7 +3505,7 @@
                                      6.0000000000
       </laimax_plastic>
       <q>
-                                     2.1230125427
+                                     0.7597473860
       </q>
       <sapwood_ratio>
                                   3900.0000000000
@@ -3721,7 +3721,7 @@
           1.0000000E+19
       </init_laimax>
       <c2n_leaf>
-                                   179.1806793213
+                                     9.7415256500
       </c2n_leaf>
       <phenology>
                    2
@@ -3748,7 +3748,7 @@
                                      1.0980000496
       </b2Cl>
       <r_fract>
-                                     0.4714323580
+                                     0.7778417468
       </r_fract>
       <r_cv50>
                                      0.3333333433
@@ -3760,13 +3760,13 @@
                                      0.0000000000
       </st_fract>
       <nonlocal_dispersal>
-                                     0.2501827180
+                                     0.3791961670
       </nonlocal_dispersal>
       <repro_min_h>
                                     18.0000000000
       </repro_min_h>
       <min_recruit_size>
-                                     0.0011415555
+                                     0.0006840822
       </min_recruit_size>
       <storage_reflush_times>
                                      0.0000000000
@@ -3843,7 +3843,7 @@
                    3
       </photosyn_pathway>
       <quantum_efficiency>
-                                     0.0932467207
+                                     0.0762292519
       </quantum_efficiency>
       <curvpar_electron>
                                      0.6999999881
@@ -3852,7 +3852,7 @@
                                      0.8500000238
       </qyield_psII>
       <Vm0>
-                                    61.1808052063
+                                    49.9074859619
       </Vm0>
       <Vm0_v0>
                                      6.9818749428
@@ -3879,10 +3879,10 @@
                                      2.4000000954
       </vm_q10>
       <kplastic_vm0>
-                                    -0.5084441304
+                                    -0.3445595801
       </kplastic_vm0>
       <Jm0>
-                                   152.9520111084
+                                   124.7687149048
       </Jm0>
       <Jm_low_temp>
                                      4.7136998177
@@ -3912,13 +3912,13 @@
                                      0.0000000000
       </triose_phosphate_factor>
       <dark_respiration_factor>
-                                     0.0125826346
+                                     0.0123869171
       </dark_respiration_factor>
       <kplastic_rd0>
-                                    -0.5084441304
+                                    -0.3445595801
       </kplastic_rd0>
       <Rd0>
-                                     0.7698157430
+                                     0.6181998849
       </Rd0>
       <Rd_low_temp>
                                      4.7136998177
@@ -3942,13 +3942,13 @@
                                      0.0160000008
       </D0>
       <stomatal_slope>
-                                    10.2998704910
+                                     2.8195641041
       </stomatal_slope>
       <cuticular_cond>
                                  10000.0000000000
       </cuticular_cond>
       <water_conductance>
-                                     0.0045601903
+                                     0.0031038409
       </water_conductance>
       <leaf_width>
                                      0.1000000015
@@ -3957,7 +3957,7 @@
                                      0.1000000015
       </branch_diam>
       <growth_resp_factor>
-                                     0.2288878113
+                                     0.4190148413
       </growth_resp_factor>
       <leaf_turnover_rate>
                                      0.0000000000
@@ -3972,7 +3972,7 @@
                                      0.0000000000
       </kplastic_LL>
       <root_turnover_rate>
-                                     1.2835035324
+                                     0.5042250156
       </root_turnover_rate>
       <bark_turnover_rate>
                                      0.4000000060
@@ -4011,7 +4011,7 @@
                                      2.4000000954
       </srf_q10>
       <root_respiration_factor>
-                                     7.2573289871
+                                     3.2932598591
       </root_respiration_factor>
       <rrf_low_temp>
                                      4.7136998177
@@ -4041,7 +4041,7 @@
                                      1.0000000000
       </mort1>
       <mort2>
-                                    20.8140335083
+                                    28.3692665100
       </mort2>
       <mort3>
                                      0.0042800000
@@ -4095,7 +4095,7 @@
                                      0.0000000000
       </rho>
       <SLA>
-                                    32.3467140198
+                                    34.0068206787
       </SLA>
       <sla_s0>
                                     60.0000000000
@@ -4104,7 +4104,7 @@
                                      0.0000000000
       </sla_s1>
       <kplastic_sla>
-                                     0.0312601328
+                                     0.0250591040
       </kplastic_sla>
       <lma_slope>
                                      0.0149999997
@@ -4113,7 +4113,7 @@
                                      6.0000000000
       </laimax_plastic>
       <q>
-                                     1.1124131680
+                                     1.0306200981
       </q>
       <sapwood_ratio>
                                   3900.0000000000
@@ -4356,7 +4356,7 @@
                                      1.0980000496
       </b2Cl>
       <r_fract>
-                                     0.7054974437
+                                     0.2456835657
       </r_fract>
       <r_cv50>
                                      0.3333333433
@@ -4374,7 +4374,7 @@
                                     18.0000000000
       </repro_min_h>
       <min_recruit_size>
-                                     0.0003371516
+                                     0.0003313914
       </min_recruit_size>
       <storage_reflush_times>
                                      0.0000000000
