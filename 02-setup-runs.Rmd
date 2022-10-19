@@ -23,7 +23,7 @@ To figure out how to automate all this, start by picking a site (literally at ra
 
 ```{r}
 new_sites <- read_csv("data/mandifore_sites.csv")
-set.seed(123)
+set.seed(352)
 (s <- slice_sample(new_sites, n = 1))
 ```
 
@@ -82,7 +82,7 @@ settings$run$site$met.end <-
 
 Need to edit ED_MET_DRIVER_HEADER to point to correct path
 
-Change `/data/input/NARR_ED2_site_1-18168/` to `/data/sites/mandifore/NARR_ED2_site_1-18168/`
+E.g. change `/data/input/NARR_ED2_site_1-18168/` to `/data/sites/mandifore/NARR_ED2_site_1-18168/`
 
 ```{r}
 #need to copy without permissions (copy.mode = FALSE) to a new directory to edit
@@ -105,6 +105,8 @@ write_lines(met_driver, met_driver_path)
 
 ## History files
 
+TODO: these may need to be edited to include new dummy columns associated with `IED_INIT_MODE=6`: https://github.com/EDmodel/ED2/wiki/Initial-conditions#files-types-and-formats-for-nlied_init_mode6
+
 ```{r}
 base <- "/data/sites/mandifore"
 
@@ -116,13 +118,11 @@ settings$run$inputs$pss <-
   file.path(base, s$cohort_filename, files[str_detect(files, "\\.pss$")])
 settings$run$inputs$css <-
   file.path(base, s$cohort_filename, files[str_detect(files, "\\.css$")])
-settings$run$inputs$site <-
-  file.path(base, s$cohort_filename, files[str_detect(files, "\\.site$")])
 ```
 
 ## PFTs
 
-I think I need to add PFTs to `settings` from the .css file
+I think I need to add PFTs to `settings` from the .css file.  Currently looking up PFT names in `PEcAn.ED2::pftmapping`, but will eventually need the actual PFT names, since some ED2 PFT numbers match multiple PEcAn PFTs and others (e.g. 13) match none.
 
 ```{r}
 css <-
@@ -133,7 +133,7 @@ css <-
   ))
 pfts <- tibble(ED = unique(css$pft))
 
-#TODO: this matches multiple PEcAn PFTs per ED PFT number.  So this is likely not going to work without some additional data or by manually specifying.  For now as proof of concept I'll just pick the first match
+#TODO: this matches multiple PEcAn PFTs per ED PFT number (or sometimes none).  So this is likely not going to work without some additional data or by manually specifying.  For now as proof of concept I'll just pick the first match
 pfts <-
   left_join(pfts, PEcAn.ED2::pftmapping, by = "ED") %>%
   group_by(ED) %>% 
