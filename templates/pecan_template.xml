@@ -76,7 +76,7 @@
     <phenol.scheme>0</phenol.scheme>
     <ed2in_tags>
       <PFT_1ST_CHECK>0</PFT_1ST_CHECK>
-      <IED_INIT_MODE>3</IED_INIT_MODE>
+      <IED_INIT_MODE>6</IED_INIT_MODE>
       <!-- turn off cohort and patch fusion. Not necessary for short runs -->
       <MAXCOHORT>0</MAXCOHORT>
       <MAXPATCH>0</MAXPATCH>
