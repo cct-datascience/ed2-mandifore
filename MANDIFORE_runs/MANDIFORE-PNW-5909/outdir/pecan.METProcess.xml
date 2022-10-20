@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <pecan>
  <info>
-  <notes>site name</notes>
+  <notes>MANDIFORE-PNW-5909</notes>
  </info>
  <outdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir</outdir>
  <database>
@@ -16,11 +16,6 @@
   <dbfiles>/data/dbfiles</dbfiles>
  </database>
  <pfts>
-  <pft>
-   <name>SetariaWT</name>
-   <ed2_pft_number>1</ed2_pft_number>
-   <outdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/pft/SetariaWT</outdir>
-  </pft>
   <pft>
    <name>ebifarm.c3grass</name>
    <ed2_pft_number>12</ed2_pft_number>
@@ -37,7 +32,7 @@
   <update>TRUE</update>
  </meta.analysis>
  <ensemble>
-  <size>5</size>
+  <size>3</size>
   <variable>NPP</variable>
   <samplingspace>
    <parameters>
@@ -71,12 +66,12 @@
  </model>
  <run>
   <site>
-   <id>678</id>
+   <id>1000021575</id>
    <met.start>2000-01-01 00:00:00</met.start>
    <met.end>2015-12-31 00:00:00</met.end>
-   <name>Park Falls WLEF (US-PFa)</name>
-   <lat>45.9408</lat>
-   <lon>-90.27</lon>
+   <name>MANDIFORE-PNW-5909</name>
+   <lat>44.109846</lat>
+   <lon>-120.9940402</lon>
   </site>
   <inputs>
    <met>
@@ -118,8 +113,8 @@
    <mpirun>module load openmpi3; mpirun</mpirun>
   </modellauncher>
   <prerun>module load openmpi3 R</prerun>
-  <rundir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-19-20-53-09/run</rundir>
-  <outdir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-19-20-53-09/out</outdir>
+  <rundir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-20-18-04-28/run</rundir>
+  <outdir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-20-18-04-28/out</outdir>
  </host>
  <settings.info>
   <deprecated.settings.fixed>TRUE</deprecated.settings.fixed>
@@ -127,7 +122,7 @@
   <checked>TRUE</checked>
  </settings.info>
  <workflow>
-  <id>2022-10-19-20-53-09</id>
+  <id>2022-10-20-18-04-28</id>
  </workflow>
  <rundir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/run</rundir>
  <modeloutdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/out</modeloutdir>
