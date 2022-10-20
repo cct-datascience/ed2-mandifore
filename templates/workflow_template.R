@@ -28,7 +28,7 @@ settings <- do_conversions(settings)
 # Query trait database ----------------------------------------------------
 settings <- runModule.get.trait.data(settings)
 
- # Meta analysis -----------------------------------------------------------
+# Meta analysis -----------------------------------------------------------
 runModule.run.meta.analysis(settings)
 
 # Write model run configs -----------------------------------------------------
