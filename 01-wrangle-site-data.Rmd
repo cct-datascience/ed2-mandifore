@@ -19,6 +19,7 @@ mandifore_raw <-
   filter(str_detect(sitename, "MANDIFORE")) #only copied MANDIFORE sites
 colnames(mandifore_raw)
 ```
+
 - `site_id`: BETTY site ID.  E.g. http://welsch.cyverse.org:8000/bety/sites/1000001024
 - `sitename`: Long name of site
 - `lon`, `lat`: location
@@ -72,9 +73,21 @@ new_sites
 
 Now `start_date` and `end_date` refer to the start and end of the cohort file (which may not be important) and `met_start_date` and `met_end_date` refer to start and end of the MET data.
 
+# Extract location
+
+PNW = pacific north west
+SEUS = south east united states
+
+```{r}
+new_sites <- new_sites %>% 
+  mutate(location = str_extract(sitename, "(?<=MANDIFORE-)\\w+"), .after = sitename) 
+```
+
+
 #TODO: Select sites
 
 Here we should select some specific sites to set up runs for
+
 
 ```{r}
 write_csv(new_sites, "data/mandifore_sites.csv")
