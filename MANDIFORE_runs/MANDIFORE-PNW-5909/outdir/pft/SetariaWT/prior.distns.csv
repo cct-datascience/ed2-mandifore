@@ -1,0 +1,17 @@
+"","distn","parama","paramb","n"
+"mort2","gamma",1.47,0.0578,0
+"growth_resp_factor","beta",2.63,6.52,0
+"leaf_turnover_rate","gamma",2.9,0.63,40
+"leaf_width","gamma",6.53,1.49,17
+"nonlocal_dispersal","beta",20.3,76.1,30
+"fineroot2leaf","lnorm",0.811,0.843,0
+"root_turnover_rate","weibull",1.67,0.657,66
+"seedling_mortality","beta",3.61,0.433,0
+"stomatal_slope","weibull",3.63,3.81,4
+"quantum_efficiency","norm",0.057,0.006,56
+"Vcmax","lnorm",3.75,0.3,12
+"r_fract","beta",2,4,0
+"cuticular_cond","lnorm",8.4,0.9,0
+"root_respiration_rate","weibull",2.66,6.29,35
+"Vm_low_temp","norm",10,1.02,0
+"SLA","weibull",5,50,0

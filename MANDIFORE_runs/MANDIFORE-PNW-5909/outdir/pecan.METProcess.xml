@@ -17,6 +17,11 @@
  </database>
  <pfts>
   <pft>
+   <name>SetariaWT</name>
+   <ed2_pft_number>1</ed2_pft_number>
+   <outdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/pft/SetariaWT</outdir>
+  </pft>
+  <pft>
    <name>ebifarm.c3grass</name>
    <ed2_pft_number>12</ed2_pft_number>
    <outdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/pft/ebifarm.c3grass</outdir>
@@ -32,7 +37,7 @@
   <update>TRUE</update>
  </meta.analysis>
  <ensemble>
-  <size>3</size>
+  <size>5</size>
   <variable>NPP</variable>
   <samplingspace>
    <parameters>
@@ -113,8 +118,8 @@
    <mpirun>module load openmpi3; mpirun</mpirun>
   </modellauncher>
   <prerun>module load openmpi3 R</prerun>
-  <rundir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-20-18-04-28/run</rundir>
-  <outdir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-20-18-04-28/out</outdir>
+  <rundir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-20-20-40-09/run</rundir>
+  <outdir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-20-20-40-09/out</outdir>
  </host>
  <settings.info>
   <deprecated.settings.fixed>TRUE</deprecated.settings.fixed>
@@ -122,7 +127,7 @@
   <checked>TRUE</checked>
  </settings.info>
  <workflow>
-  <id>2022-10-20-18-04-28</id>
+  <id>2022-10-20-20-40-09</id>
  </workflow>
  <rundir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/run</rundir>
  <modeloutdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/out</modeloutdir>

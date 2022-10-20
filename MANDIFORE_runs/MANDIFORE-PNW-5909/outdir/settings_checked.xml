@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
 <pecan>
- 
  <info>
   <notes>MANDIFORE-PNW-5909</notes>
  </info>
- 
  <outdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir</outdir>
- 
  <database>
   <bety>
    <driver>PostgreSQL</driver>
@@ -18,22 +15,18 @@
   </bety>
   <dbfiles>/data/dbfiles</dbfiles>
  </database>
- 
  <pfts>
-   <!--
   <pft>
    <name>SetariaWT</name>
    <ed2_pft_number>1</ed2_pft_number>
    <outdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/pft/SetariaWT</outdir>
   </pft>
-  -->
   <pft>
    <name>ebifarm.c3grass</name>
    <ed2_pft_number>12</ed2_pft_number>
    <outdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/pft/ebifarm.c3grass</outdir>
   </pft>
  </pfts>
- 
  <meta.analysis>
   <iter>3000</iter>
   <random.effects>
@@ -43,9 +36,8 @@
   <threshold>1.2</threshold>
   <update>TRUE</update>
  </meta.analysis>
- 
  <ensemble>
-  <size>3</size>
+  <size>5</size>
   <variable>NPP</variable>
   <samplingspace>
    <parameters>
@@ -55,7 +47,6 @@
   <start.year>2001</start.year>
   <end.year>2003</end.year>
  </ensemble>
- 
  <model>
   <type>ED2</type>
   <binary>/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-dev.sh</binary>
@@ -78,7 +69,6 @@
   </ed2in_tags>
   <delete.raw>FALSE</delete.raw>
  </model>
- 
  <run>
   <site>
    <id>1000021575</id>
@@ -114,7 +104,6 @@
   <start.date>2001-01-01</start.date>
   <end.date>2003-12-31</end.date>
  </run>
- 
  <host>
   <name>puma</name>
   <folder>/groups/dlebauer/ed2_results/pecan_remote</folder>
@@ -127,20 +116,17 @@
    <mpirun>module load openmpi3; mpirun</mpirun>
   </modellauncher>
   <prerun>module load openmpi3 R</prerun>
-  <rundir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-20-18-04-28/run</rundir>
-  <outdir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-20-18-04-28/out</outdir>
+  <rundir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-20-20-40-09/run</rundir>
+  <outdir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-20-20-40-09/out</outdir>
  </host>
- 
  <settings.info>
   <deprecated.settings.fixed>TRUE</deprecated.settings.fixed>
   <settings.updated>TRUE</settings.updated>
   <checked>TRUE</checked>
  </settings.info>
- 
  <workflow>
-  <id>2022-10-20-18-04-28</id>
+  <id>2022-10-20-20-40-09</id>
  </workflow>
- 
  <rundir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/run</rundir>
  <modeloutdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/out</modeloutdir>
 </pecan>
