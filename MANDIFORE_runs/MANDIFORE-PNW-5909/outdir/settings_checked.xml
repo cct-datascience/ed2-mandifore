@@ -116,8 +116,8 @@
    <mpirun>module load openmpi3; mpirun</mpirun>
   </modellauncher>
   <prerun>module load openmpi3 R</prerun>
-  <rundir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-20-20-40-09/run</rundir>
-  <outdir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-20-20-40-09/out</outdir>
+  <rundir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-21-17-24-23/run</rundir>
+  <outdir>/groups/dlebauer/ed2_results/pecan_remote/2022-10-21-17-24-23/out</outdir>
  </host>
  <settings.info>
   <deprecated.settings.fixed>TRUE</deprecated.settings.fixed>
@@ -125,7 +125,7 @@
   <checked>TRUE</checked>
  </settings.info>
  <workflow>
-  <id>2022-10-20-20-40-09</id>
+  <id>2022-10-21-17-24-23</id>
  </workflow>
  <rundir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/run</rundir>
  <modeloutdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/out</modeloutdir>
