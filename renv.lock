@@ -173,17 +173,24 @@
     },
     "PEcAn.DB": {
       "Package": "PEcAn.DB",
-      "Version": "1.7.1",
+      "Version": "1.7.2.9000",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "6826d85c3958eb2d4df1968f2883c61d",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "0ff670e5a1bdafc0627aeb0a5a954e432c6a159b",
+      "Hash": "8ab9cb6e9cb618e5066709d765f84729",
       "Requirements": [
         "DBI",
         "PEcAn.logger",
         "PEcAn.remote",
         "PEcAn.utils",
+        "R.utils",
+        "XML",
+        "curl",
         "dbplyr",
         "dplyr",
+        "fs",
         "glue",
         "lubridate",
         "magrittr",
@@ -192,15 +199,18 @@
         "rlang",
         "tibble",
         "tidyr",
-        "udunits2"
+        "units"
       ]
     },
     "PEcAn.ED2": {
       "Package": "PEcAn.ED2",
-      "Version": "1.7.1",
+      "Version": "1.7.2",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "b017c4289eb2a4e40b76b27f44046ae4",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "b419bf0b1142863d3107b344e0742732ab834996",
+      "Hash": "f064ee2bf98a931e26d43713f177cef7",
       "Requirements": [
         "PEcAn.data.atmosphere",
         "PEcAn.data.land",
@@ -219,23 +229,24 @@
         "purrr",
         "stringr",
         "tibble",
-        "tidyr",
-        "udunits2"
+        "tidyr"
       ]
     },
     "PEcAn.MA": {
       "Package": "PEcAn.MA",
-      "Version": "1.7.1",
+      "Version": "1.7.2",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "ae6b04db7287328c27a28071290a1a56",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "0ff670e5a1bdafc0627aeb0a5a954e432c6a159b",
+      "Hash": "cd8c3a57bffa5c1f24768dc9e7e4c193",
       "Requirements": [
         "MASS",
         "PEcAn.DB",
         "PEcAn.logger",
         "PEcAn.settings",
         "PEcAn.utils",
-        "XML",
         "coda",
         "lattice",
         "rjags"
@@ -243,10 +254,13 @@
     },
     "PEcAn.all": {
       "Package": "PEcAn.all",
-      "Version": "1.7.1",
+      "Version": "1.7.2.9000",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "e8631bf39522843e718b6a01bc810aa5",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "33ef8cb6ac63076081e06d6774ee9a750b554f59",
+      "Hash": "4adc60f6576c1503e773c70b6993bf5c",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.MA",
@@ -267,10 +281,13 @@
     },
     "PEcAn.assim.batch": {
       "Package": "PEcAn.assim.batch",
-      "Version": "1.7.1",
+      "Version": "1.7.2",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "d364cbc3ddfd7a9a61505962fce7ce6c",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "33ef8cb6ac63076081e06d6774ee9a750b554f59",
+      "Hash": "b4aec7e6cb3ac08e8e4212c8531e2450",
       "Requirements": [
         "BayesianTools",
         "IDPmisc",
@@ -285,29 +302,31 @@
         "PEcAn.settings",
         "PEcAn.uncertainty",
         "PEcAn.utils",
+        "PEcAn.workflow",
         "TruncatedNormal",
         "XML",
         "abind",
         "coda",
         "dplyr",
         "ellipse",
-        "lattice",
         "lqmm",
         "lubridate",
         "mlegp",
         "mvtnorm",
         "ncdf4",
         "prodlim",
-        "rjags",
-        "udunits2"
+        "rjags"
       ]
     },
     "PEcAn.benchmark": {
       "Package": "PEcAn.benchmark",
-      "Version": "1.7.1",
+      "Version": "1.7.2",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "93ce7fe5f3c800515e57a60e22136cb2",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "0ff670e5a1bdafc0627aeb0a5a954e432c6a159b",
+      "Hash": "895f71ed2ab0a823b2c75d1743f70404",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.logger",
@@ -321,30 +340,37 @@
         "ggplot2",
         "gridExtra",
         "lubridate",
+        "magrittr",
         "ncdf4",
         "reshape2",
+        "rlang",
         "stringr",
-        "udunits2",
+        "tidyselect",
+        "units",
         "zoo"
       ]
     },
     "PEcAn.data.atmosphere": {
       "Package": "PEcAn.data.atmosphere",
-      "Version": "1.7.1",
+      "Version": "1.7.2",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Remotes": "github::ropensci/geonames, github::ropensci/nneo",
-      "Hash": "b67d70f8934a810b536ebe6bb8badb46",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "Remotes": "github::chuhousen/amerifluxr, github::ropensci/geonames,\n        github::ropensci/nneo",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "0ff670e5a1bdafc0627aeb0a5a954e432c6a159b",
+      "Hash": "8ed77c56775aeca0778dfe28052d7124",
       "Requirements": [
         "MASS",
         "PEcAn.DB",
         "PEcAn.logger",
         "PEcAn.remote",
         "PEcAn.utils",
-        "RCurl",
         "REddyProc",
         "XML",
         "abind",
+        "amerifluxr",
+        "curl",
         "data.table",
         "dplyr",
         "geonames",
@@ -362,14 +388,15 @@
         "raster",
         "reshape2",
         "rgdal",
-        "rnoaa",
+        "rlang",
         "sp",
         "stringr",
         "testthat",
         "tibble",
         "tidyr",
+        "tidyselect",
         "truncnorm",
-        "udunits2",
+        "units",
         "xts",
         "zoo"
       ]
@@ -482,10 +509,16 @@
     },
     "PEcAn.remote": {
       "Package": "PEcAn.remote",
-      "Version": "1.7.1",
-      "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "d99e7936c6889f5651515f181c65d10a",
+      "Version": "1.7.2",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "pecanproject",
+      "RemoteRepo": "pecan",
+      "RemoteSubdir": "base/remote",
+      "RemoteRef": "develop",
+      "RemoteSha": "0ff670e5a1bdafc0627aeb0a5a954e432c6a159b",
+      "Hash": "39ce8a88bd90b656262b7e1d5f46b98b",
       "Requirements": [
         "PEcAn.logger",
         "httr",
@@ -495,10 +528,16 @@
     },
     "PEcAn.settings": {
       "Package": "PEcAn.settings",
-      "Version": "1.7.1",
-      "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "4b08fdb81e531c6317b481d455121365",
+      "Version": "1.7.2",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "pecanproject",
+      "RemoteRepo": "pecan",
+      "RemoteSubdir": "base/settings",
+      "RemoteRef": "develop",
+      "RemoteSha": "0ff670e5a1bdafc0627aeb0a5a954e432c6a159b",
+      "Hash": "226bb0364fafa954d83a09eebb08dab9",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.logger",
@@ -576,10 +615,16 @@
     },
     "PEcAn.workflow": {
       "Package": "PEcAn.workflow",
-      "Version": "1.7.1",
-      "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "32f54eb1ff0b9901578ef3266194a8ec",
+      "Version": "1.7.2",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "pecanproject",
+      "RemoteRepo": "pecan",
+      "RemoteSubdir": "base/workflow",
+      "RemoteRef": "develop",
+      "RemoteSha": "b419bf0b1142863d3107b344e0742732ab834996",
+      "Hash": "0fdd34da32cb3fab7282b4544a15fdbb",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.data.atmosphere",
@@ -771,6 +816,16 @@
         "RcppEigen"
       ]
     },
+    "TSP": {
+      "Package": "TSP",
+      "Version": "1.2-1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ecd45bbf66cdc3bd4554154de9d253ab",
+      "Requirements": [
+        "foreach"
+      ]
+    },
     "TruncatedNormal": {
       "Package": "TruncatedNormal",
       "Version": "2.2",
@@ -832,6 +887,24 @@
       "Hash": "48940f9abc0966040117184d529972a7",
       "Requirements": [
         "numDeriv"
+      ]
+    },
+    "amerifluxr": {
+      "Package": "amerifluxr",
+      "Version": "1.0.0",
+      "Source": "Repository",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/chuhousen/amerifluxr",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "fe85709278b3e3529ef83339fb97ea3ded2467da",
+      "Hash": "fc200281574b2f0827e2c8970a948f06",
+      "Requirements": [
+        "RCurl",
+        "heatmaply",
+        "httr",
+        "jsonlite",
+        "memoise",
+        "readxl"
       ]
     },
     "ape": {
@@ -1057,6 +1130,14 @@
       "Hash": "ebaa97ac99cc2daf04e77eecc7b781d7",
       "Requirements": []
     },
+    "cluster": {
+      "Package": "cluster",
+      "Version": "2.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "db63a44aab5aadcb6bf2f129751d129a",
+      "Requirements": []
+    },
     "coda": {
       "Package": "coda",
       "Version": "0.19-4",
@@ -1131,6 +1212,19 @@
       "Hash": "0d57bc8e27b7ba9e45dba825ebc0de6b",
       "Requirements": []
     },
+    "crosstalk": {
+      "Package": "crosstalk",
+      "Version": "1.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "6aa54f69598c32177e920eb3402e8293",
+      "Requirements": [
+        "R6",
+        "htmltools",
+        "jsonlite",
+        "lazyeval"
+      ]
+    },
     "crul": {
       "Package": "crul",
       "Version": "1.0.0",
@@ -1195,6 +1289,18 @@
         "rlang",
         "tibble",
         "tidyselect"
+      ]
+    },
+    "dendextend": {
+      "Package": "dendextend",
+      "Version": "1.16.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a4b6b1c544c040d8ca640f466f146e1f",
+      "Requirements": [
+        "ggplot2",
+        "magrittr",
+        "viridis"
       ]
     },
     "desc": {
@@ -1286,6 +1392,18 @@
       "Hash": "728e85416ffc90743054c1ac04486d69",
       "Requirements": [
         "class"
+      ]
+    },
+    "egg": {
+      "Package": "egg",
+      "Version": "0.4.5",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "d958917f7b60c13089ab0c8d17114053",
+      "Requirements": [
+        "ggplot2",
+        "gridExtra",
+        "gtable"
       ]
     },
     "ellipse": {
@@ -1426,6 +1544,16 @@
       "Hash": "79ff9528d5c8af6c5255e52091ece673",
       "Requirements": []
     },
+    "gclus": {
+      "Package": "gclus",
+      "Version": "1.3.2",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "8f905e7f70ac42e5b0e39d6ba360dd44",
+      "Requirements": [
+        "cluster"
+      ]
+    },
     "generics": {
       "Package": "generics",
       "Version": "0.0.2",
@@ -1440,11 +1568,11 @@
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "geonames",
       "RemoteUsername": "ropensci",
-      "RemoteRef": "HEAD",
+      "RemoteRepo": "geonames",
+      "RemoteRef": "master",
       "RemoteSha": "e692babae90ffc8f9e2a93562e52a7486d664b3d",
-      "Hash": "592925ce6311334b336a0629cb7b59ab",
+      "Hash": "c579e5f1fa251b7d4764c433af82701c",
       "Requirements": [
         "rjson"
       ]
@@ -1588,6 +1716,29 @@
         "bit64"
       ]
     },
+    "heatmaply": {
+      "Package": "heatmaply",
+      "Version": "1.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "c731e66facc49c5b7854a09650a2ae21",
+      "Requirements": [
+        "RColorBrewer",
+        "assertthat",
+        "colorspace",
+        "dendextend",
+        "egg",
+        "ggplot2",
+        "htmlwidgets",
+        "magrittr",
+        "plotly",
+        "reshape2",
+        "scales",
+        "seriation",
+        "viridis",
+        "webshot"
+      ]
+    },
     "highr": {
       "Package": "highr",
       "Version": "0.8",
@@ -1630,6 +1781,18 @@
         "base64enc",
         "digest",
         "rlang"
+      ]
+    },
+    "htmlwidgets": {
+      "Package": "htmlwidgets",
+      "Version": "1.5.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "76147821cd3fcd8c4b04e1ef0498e7fb",
+      "Requirements": [
+        "htmltools",
+        "jsonlite",
+        "yaml"
       ]
     },
     "httpcode": {
@@ -1678,18 +1841,6 @@
         "Matrix",
         "magrittr",
         "pkgconfig"
-      ]
-    },
-    "isdparser": {
-      "Package": "isdparser",
-      "Version": "0.4.0",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "811ee4563636b548ecc1f0b03c930c62",
-      "Requirements": [
-        "data.table",
-        "lubridate",
-        "tibble"
       ]
     },
     "isoband": {
@@ -1780,6 +1931,14 @@
         "numDeriv",
         "survival"
       ]
+    },
+    "lazyeval": {
+      "Package": "lazyeval",
+      "Version": "0.2.2",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "d908914ae53b04d4c0c0fd72ecc35370",
+      "Requirements": []
     },
     "lifecycle": {
       "Package": "lifecycle",
@@ -2065,11 +2224,11 @@
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "nneo",
       "RemoteUsername": "ropensci",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "37bb3d2dd7572a4d0179699cb29728a1aa2e443f",
-      "Hash": "7d917b7693f7a0c27c98073cd1d44022",
+      "RemoteRepo": "nneo",
+      "RemoteRef": "master",
+      "RemoteSha": "2dbd0ceff3e3189db1d449668e502857d5960b29",
+      "Hash": "75043bfb69ebb837f969c957ce09ef80",
       "Requirements": [
         "crul",
         "data.table",
@@ -2201,6 +2360,36 @@
         "withr"
       ]
     },
+    "plotly": {
+      "Package": "plotly",
+      "Version": "4.10.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "fbb11e44d057996ca5fe40d959cacfb0",
+      "Requirements": [
+        "RColorBrewer",
+        "base64enc",
+        "crosstalk",
+        "data.table",
+        "digest",
+        "dplyr",
+        "ggplot2",
+        "htmltools",
+        "htmlwidgets",
+        "httr",
+        "jsonlite",
+        "lazyeval",
+        "magrittr",
+        "promises",
+        "purrr",
+        "rlang",
+        "scales",
+        "tibble",
+        "tidyr",
+        "vctrs",
+        "viridisLite"
+      ]
+    },
     "plyr": {
       "Package": "plyr",
       "Version": "1.8.6",
@@ -2316,6 +2505,14 @@
         "rlang"
       ]
     },
+    "qap": {
+      "Package": "qap",
+      "Version": "0.1-2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "21c4fc168ebf32add2db6a358ce4714c",
+      "Requirements": []
+    },
     "qgam": {
       "Package": "qgam",
       "Version": "1.3.2",
@@ -2420,6 +2617,14 @@
       "Requirements": [
         "roxygen2"
       ]
+    },
+    "registry": {
+      "Package": "registry",
+      "Version": "0.5-1",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "1c9935f4f14c6c096c9c9072ddee59f1",
+      "Requirements": []
     },
     "rematch": {
       "Package": "rematch",
@@ -2544,10 +2749,10 @@
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "0.4.8",
+      "Version": "1.0.6",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "843a6af51414bce7f8a8e372f11d6cd0",
+      "Repository": "CRAN",
+      "Hash": "4ed1f8336c8d52c3e750adcdc57228a7",
       "Requirements": []
     },
     "rmarkdown": {
@@ -2586,32 +2791,6 @@
       "Repository": "RSPM",
       "Hash": "5bfc2b22e6f82943f552a9935b99f393",
       "Requirements": []
-    },
-    "rnoaa": {
-      "Package": "rnoaa",
-      "Version": "1.2.0",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "3e6d7ab20c23fc2669bb51db7ce561ba",
-      "Requirements": [
-        "XML",
-        "crul",
-        "data.table",
-        "dplyr",
-        "geonames",
-        "ggplot2",
-        "gridExtra",
-        "hoardr",
-        "isdparser",
-        "jsonlite",
-        "lubridate",
-        "rappdirs",
-        "scales",
-        "tibble",
-        "tidyr",
-        "tidyselect",
-        "xml2"
-      ]
     },
     "rotl": {
       "Package": "rotl",
@@ -2726,6 +2905,22 @@
       "Requirements": [
         "R6",
         "stringr"
+      ]
+    },
+    "seriation": {
+      "Package": "seriation",
+      "Version": "1.3.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "be12e2e87307ae806393c3f39c7c6bf1",
+      "Requirements": [
+        "MASS",
+        "TSP",
+        "cluster",
+        "colorspace",
+        "gclus",
+        "qap",
+        "registry"
       ]
     },
     "sf": {
@@ -3143,13 +3338,37 @@
         "rlang"
       ]
     },
+    "viridis": {
+      "Package": "viridis",
+      "Version": "0.6.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ee96aee95a7a563e5496f8991e9fde4b",
+      "Requirements": [
+        "ggplot2",
+        "gridExtra",
+        "viridisLite"
+      ]
+    },
     "viridisLite": {
       "Package": "viridisLite",
-      "Version": "0.3.0",
+      "Version": "0.4.1",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "ce4f6271baa94776db692f1cb2055bee",
+      "Repository": "CRAN",
+      "Hash": "62f4b5da3e08d8e5bcba6cac15603f70",
       "Requirements": []
+    },
+    "webshot": {
+      "Package": "webshot",
+      "Version": "0.5.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "cfd9342c76693ae53108a474aafa1641",
+      "Requirements": [
+        "callr",
+        "jsonlite",
+        "magrittr"
+      ]
     },
     "whisker": {
       "Package": "whisker",
