@@ -443,10 +443,13 @@
     },
     "PEcAn.data.remote": {
       "Package": "PEcAn.data.remote",
-      "Version": "1.7.1",
+      "Version": "1.7.2.9000",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "87015a73fdb616c0f32836e2bbd61cc7",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "0ff670e5a1bdafc0627aeb0a5a954e432c6a159b",
+      "Hash": "0b0835b151284f14c5e63897352cefa3",
       "Requirements": [
         "DBI",
         "MODISTools",
@@ -454,9 +457,8 @@
         "PEcAn.logger",
         "PEcAn.remote",
         "PEcAn.utils",
-        "RCurl",
         "XML",
-        "binaryLogic",
+        "curl",
         "doParallel",
         "foreach",
         "glue",
@@ -470,35 +472,41 @@
     },
     "PEcAn.emulator": {
       "Package": "PEcAn.emulator",
-      "Version": "1.7.1",
+      "Version": "1.7.2",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "ec439473cc11755bc791257a9bcd3edd",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "0ff670e5a1bdafc0627aeb0a5a954e432c6a159b",
+      "Hash": "8288a45bbb019443e8203c29b78f7206",
       "Requirements": [
-        "MASS",
         "MCMCpack",
-        "PEcAn.logger",
-        "TruncatedNormal",
         "coda",
-        "lqmm",
-        "mlegp",
         "mvtnorm"
       ]
     },
     "PEcAn.logger": {
       "Package": "PEcAn.logger",
-      "Version": "1.7.1",
+      "Version": "1.8.1.9000",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "947ad9f1d5174984ea49cc8dd030fe13",
-      "Requirements": []
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "0ff670e5a1bdafc0627aeb0a5a954e432c6a159b",
+      "Hash": "a5f0110a9424ce7ebabaf68a3c08ac55",
+      "Requirements": [
+        "stringi"
+      ]
     },
     "PEcAn.priors": {
       "Package": "PEcAn.priors",
-      "Version": "1.7.1",
+      "Version": "1.7.2",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "9ebc7272dc932e299a4af151b94e2247",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "0ff670e5a1bdafc0627aeb0a5a954e432c6a159b",
+      "Hash": "b148b9f50303a393b6a425c3a09ca71c",
       "Requirements": [
         "MASS",
         "PEcAn.MA",
@@ -551,17 +559,20 @@
     },
     "PEcAn.uncertainty": {
       "Package": "PEcAn.uncertainty",
-      "Version": "1.7.1",
+      "Version": "1.7.2",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "ba51a788a286270ac04c5339386d9da7",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "0ff670e5a1bdafc0627aeb0a5a954e432c6a159b",
+      "Hash": "dcf2b507ceaed212ec1973ecd5fe48e7",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.emulator",
         "PEcAn.logger",
         "PEcAn.priors",
+        "PEcAn.settings",
         "PEcAn.utils",
-        "coda",
         "dplyr",
         "ggmap",
         "ggplot2",
@@ -569,47 +580,51 @@
         "plyr",
         "purrr",
         "randtoolbox",
-        "udunits2"
+        "rlang"
       ]
     },
     "PEcAn.utils": {
       "Package": "PEcAn.utils",
-      "Version": "1.7.1",
+      "Version": "1.7.2",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "75d80dde954eceb6520b672dbe7fdb3f",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "0ff670e5a1bdafc0627aeb0a5a954e432c6a159b",
+      "Hash": "d91af6b4dcbaf50db681fe3484881707",
       "Requirements": [
         "PEcAn.logger",
-        "PEcAn.remote",
-        "RCurl",
-        "XML",
         "abind",
+        "curl",
         "dplyr",
         "lubridate",
         "magrittr",
         "ncdf4",
-        "purrr",
+        "rlang",
         "stringi",
-        "udunits2"
+        "units"
       ]
     },
     "PEcAn.visualization": {
       "Package": "PEcAn.visualization",
-      "Version": "1.7.1",
+      "Version": "1.7.2",
       "Source": "Repository",
-      "Repository": "pecanproject",
-      "Hash": "c72b30fc8bf7c81d372b33d21ec56794",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "0ff670e5a1bdafc0627aeb0a5a954e432c6a159b",
+      "Hash": "1511df9e92be8c8a4630e8a231f49c4a",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.logger",
         "PEcAn.utils",
-        "RCurl",
         "data.table",
         "ggplot2",
         "maps",
         "ncdf4",
         "plyr",
         "reshape2",
+        "rlang",
         "stringr"
       ]
     },
@@ -953,14 +968,6 @@
       "Hash": "543776ae6848fde2f48ff3816d0628bc",
       "Requirements": []
     },
-    "binaryLogic": {
-      "Package": "binaryLogic",
-      "Version": "0.3.9",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "1e6c7878c08b5d50caae68282966d1d8",
-      "Requirements": []
-    },
     "bit": {
       "Package": "bit",
       "Version": "4.0.4",
@@ -1111,16 +1118,11 @@
     },
     "cli": {
       "Package": "cli",
-      "Version": "2.1.0",
+      "Version": "3.4.1",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "0b316487b21d21f99ebf98abe179b1ea",
-      "Requirements": [
-        "assertthat",
-        "crayon",
-        "fansi",
-        "glue"
-      ]
+      "Repository": "CRAN",
+      "Hash": "0d297d01734d2bcea40197bd4971a764",
+      "Requirements": []
     },
     "clipr": {
       "Package": "clipr",
@@ -1198,10 +1200,10 @@
     },
     "cpp11": {
       "Package": "cpp11",
-      "Version": "0.2.2",
+      "Version": "0.4.3",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "f28776fbc53c699a788792a89c4465a6",
+      "Repository": "CRAN",
+      "Hash": "ed588261931ee3be2c700d22e94a29ab",
       "Requirements": []
     },
     "crayon": {
@@ -1305,14 +1307,13 @@
     },
     "desc": {
       "Package": "desc",
-      "Version": "1.2.0",
+      "Version": "1.4.2",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "6c8fe8fa26a23b79949375d372c7b395",
+      "Repository": "CRAN",
+      "Hash": "6b9602c7ebbe87101a9c8edb6e8b6d21",
       "Requirements": [
         "R6",
-        "assertthat",
-        "crayon",
+        "cli",
         "rprojroot"
       ]
     },
@@ -1845,13 +1846,11 @@
     },
     "isoband": {
       "Package": "isoband",
-      "Version": "0.2.2",
+      "Version": "0.2.6",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "6e58bd3d6b3dd82a944cd6f05ade228f",
-      "Requirements": [
-        "testthat"
-      ]
+      "Repository": "CRAN",
+      "Hash": "cfdea9dea85c1a973991c8cbe299f4da",
+      "Requirements": []
     },
     "iterators": {
       "Package": "iterators",
@@ -1942,11 +1941,12 @@
     },
     "lifecycle": {
       "Package": "lifecycle",
-      "Version": "0.2.0",
+      "Version": "1.0.3",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "361811f31f71f8a617a9a68bf63f1f42",
+      "Repository": "CRAN",
+      "Hash": "001cecbeac1cff9301bdc3775ee46a86",
       "Requirements": [
+        "cli",
         "glue",
         "rlang"
       ]
@@ -1993,21 +1993,21 @@
     },
     "lubridate": {
       "Package": "lubridate",
-      "Version": "1.7.9",
+      "Version": "1.8.0",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "fc1c91e2e8d9e1fc932e75aa1ed989b7",
+      "Repository": "CRAN",
+      "Hash": "2ff5eedb6ee38fb1b81205c73be1be5a",
       "Requirements": [
-        "Rcpp",
+        "cpp11",
         "generics"
       ]
     },
     "magrittr": {
       "Package": "magrittr",
-      "Version": "1.5",
+      "Version": "2.0.3",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "1bb58822a20301cee84a41678e25d9b7",
+      "Repository": "CRAN",
+      "Hash": "7ce2733a9826b3aeb1775d56fd305472",
       "Requirements": []
     },
     "maps": {
@@ -2165,10 +2165,10 @@
     },
     "ncdf4": {
       "Package": "ncdf4",
-      "Version": "1.17",
+      "Version": "1.19",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "5c1c0231b12b3d54cf619a3e5e36d229",
+      "Repository": "CRAN",
+      "Hash": "7c902f18c0be04c8767b94019ffe8063",
       "Requirements": []
     },
     "neonUtilities": {
@@ -2248,10 +2248,10 @@
     },
     "openssl": {
       "Package": "openssl",
-      "Version": "1.4.3",
+      "Version": "2.0.4",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "a399e4773075fc2375b71f45fca186c4",
+      "Repository": "CRAN",
+      "Hash": "e86c5ffeb8474a9e03d75f5d2919683e",
       "Requirements": [
         "askpass"
       ]
@@ -3174,16 +3174,17 @@
     },
     "tidyselect": {
       "Package": "tidyselect",
-      "Version": "1.1.0",
+      "Version": "1.2.0",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "6ea435c354e8448819627cf686f66e0a",
+      "Repository": "CRAN",
+      "Hash": "79540e5fcd9e0435af547d885f184fd5",
       "Requirements": [
-        "ellipsis",
+        "cli",
         "glue",
-        "purrr",
+        "lifecycle",
         "rlang",
-        "vctrs"
+        "vctrs",
+        "withr"
       ]
     },
     "tidyverse": {
@@ -3282,18 +3283,18 @@
     },
     "udunits2": {
       "Package": "udunits2",
-      "Version": "0.13",
+      "Version": "0.13.2.1",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "384a738869cafd50c5fcf63003d7ccf3",
+      "Repository": "CRAN",
+      "Hash": "b88cada8058e2370a1950ea8407328b4",
       "Requirements": []
     },
     "units": {
       "Package": "units",
-      "Version": "0.6-7",
+      "Version": "0.8-0",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "4a3df844d6d35ca2ba2b7ba95446b955",
+      "Repository": "CRAN",
+      "Hash": "6c374b265ba437f8d384ec7a313edd96",
       "Requirements": [
         "Rcpp"
       ]
@@ -3327,13 +3328,12 @@
     },
     "vctrs": {
       "Package": "vctrs",
-      "Version": "0.3.4",
+      "Version": "0.4.2",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "0bc90078aeee42f2520b1d0a33bd6758",
+      "Repository": "CRAN",
+      "Hash": "0e3dfc070b2a8f0478fcdf86fb33355d",
       "Requirements": [
-        "digest",
-        "ellipsis",
+        "cli",
         "glue",
         "rlang"
       ]
