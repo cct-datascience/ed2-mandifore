@@ -85,7 +85,9 @@ Need to edit ED_MET_DRIVER_HEADER to point to correct path
 E.g. change `/data/input/NARR_ED2_site_1-18168/` to `/data/sites/mandifore/NARR_ED2_site_1-18168/`
 
 ```{r}
+#TODO copy to HPC, then just edit on HPC.
 #need to copy without permissions (copy.mode = FALSE) to a new directory to edit
+
 file.copy(
   from = file.path("/data/input", s$met_filename),
   to = "/data/sites/mandifore",
@@ -93,6 +95,7 @@ file.copy(
   copy.mode = FALSE
 )
 
+#TODO replace with bash code to do this in-place. https://github.com/cct-datascience/organization/issues/1049#issuecomment-1266213415
 met_driver_path <-
   file.path("/data/sites/mandifore",
             s$met_filename,
