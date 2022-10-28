@@ -1,4 +1,4 @@
-Logging on 2022/10/27_14:12:08
+Logging on 2022/10/28_06:21:27
 Lmod has detected the following error: The following module(s) are unknown:
 "singularity"
 
@@ -11,7 +11,7 @@ Also make sure that all modulefiles written in TCL start with the string
 
 
 
-/groups/dlebauer/ed2_results/pecan_remote/2022-10-27-21-02-55/run/ENS-00001-1000021575
+/groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/run/ENS-00001-1000021575
 +---------------- MPI parallel info: --------------------+
 +  - Machnum  =      0
 +  - Machsize =      1
@@ -44,10 +44,10 @@ Copying namelist
   - TIME2CANOPY =  0.00000E+00
 ----------------------------------------
  [+] Checking for XML config...
- count xml pft : /groups/dlebauer/ed2_results/pecan_remote/2022-10-27-21-02-55/run/ENS-00001-1000021575/config.xml
+ count xml pft : /groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/run/ENS-00001-1000021575/config.xml
  NPFT =            2
  MAXPFT =           12
- Opening ED2 XML Config file/groups/dlebauer/ed2_results/pecan_remote/2022-10-27-21-02-55/run/ENS-00001-1000021575/config.xml
+ Opening ED2 XML Config file/groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/run/ENS-00001-1000021575/config.xml
  EXTERN READ FROM FILE ::           0
  MET READ FROM FILE ::           0
  CAN_AIR READ FROM FILE ::           0
@@ -70,7 +70,7 @@ Copying namelist
  PHENOLOGY READ FROM FILE ::           0
  PHYSIOLOGY READ FROM FILE ::           0
  INITCOND READ FROM FILE ::           0
- Wrote Config Record:/groups/dlebauer/ed2_results/pecan_remote/2022-10-27-21-02-55/out/ENS-00001-1000021575/history.xml
+ Wrote Config Record:/groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/out/ENS-00001-1000021575/history.xml
  [+] Init_derived_params_after_xml...
  [+] Alloc_Soilgrid...
  [+] Set_Polygon_Coordinates...
@@ -139,7 +139,7 @@ Deallocated | mynum=         1 ngrids=         1 mpolys=         1 msites=      
  [+] Filltab_Alltypes...
  [+] Find frqsum...
 
- === Finish initialization; CPU(sec)=0.38; Wall(sec)=3.42; Time integration starts (ed_master) ===
+ === Finish initialization; CPU(sec)=0.39; Wall(sec)=0.44; Time integration starts (ed_master) ===
 
  === Time integration starts (model) ===
  - Simulating:   01/01/2001 00:00:00 UTC
@@ -327,19 +327,19 @@ Deallocated | mynum=         1 ngrids=         1 mpolys=         1 msites=      
 Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
 
 Backtrace for this error:
-#0  0x2b6a6e9f8d5a
-#1  0x2b6a6e9f7ef5
-#2  0x2b6a6ee7b08f
-#3  0x55f1df4ffb41
-#4  0x55f1df44fc41
-#5  0x55f1df1176c3
-#6  0x55f1df0b3b03
-#7  0x55f1df0b2abe
-#8  0x2b6a6ee5c082
-#9  0x55f1df0b2aed
+#0  0x2b7fda8bad5a
+#1  0x2b7fda8b9ef5
+#2  0x2b7fdad3d08f
+#3  0x55ece081ab41
+#4  0x55ece076ac41
+#5  0x55ece04326c3
+#6  0x55ece03ceb03
+#7  0x55ece03cdabe
+#8  0x2b7fdad1e082
+#9  0x55ece03cdaed
 #10  0xffffffffffffffff
-/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-2.2.0.sh: line 12: 53366 Segmentation fault      singularity run --pwd=$(pwd) --contain -B /groups/dlebauer/ed2_results/pecan_remote:/groups/dlebauer/ed2_results/pecan_remote -B /groups/dlebauer/data/sites:/data/sites -B /groups/dlebauer/ed2_results/inputs/julianp/ed_inputs:/data/ed_inputs -B /groups/dlebauer/ed2_results/inputs/julianp/faoOLD:/data/faoOLD -B /groups/dlebauer/ed2_results/inputs/julianp/oge2OLD:/data/oge2OLD -B /groups/dlebauer/ed2_results/inputs/julianp/tests/ed2:/data/tests/ed2 /groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-2.2.0.sif /usr/local/bin/ed.2.2.0 -s
+/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-2.2.0.sh: line 12: 16394 Segmentation fault      singularity run --pwd=$(pwd) --contain -B /groups/dlebauer/ed2_results/pecan_remote:/groups/dlebauer/ed2_results/pecan_remote -B /groups/dlebauer/data/sites:/data/sites -B /groups/dlebauer/ed2_results/inputs/julianp/ed_inputs:/data/ed_inputs -B /groups/dlebauer/ed2_results/inputs/julianp/faoOLD:/data/faoOLD -B /groups/dlebauer/ed2_results/inputs/julianp/oge2OLD:/data/oge2OLD -B /groups/dlebauer/ed2_results/inputs/julianp/tests/ed2:/data/tests/ed2 /groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-2.2.0.sif /usr/local/bin/ed.2.2.0 -s
 ERROR IN MODEL RUN
-Logfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-10-27-21-02-55/out/ENS-00001-1000021575/logfile.txt'
-************************************************* End Log 2022/10/27_14:12:08
+Logfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/out/ENS-00001-1000021575/logfile.txt'
+************************************************* End Log 2022/10/28_06:21:27
 

@@ -1,0 +1,2 @@
+"id","citation_id","site_id","treatment_id","name","date","time","cultivar_id","specie_id","mean","statname","stat","n","vname","month","lon","lat","control","greenhouse","mean_unconverted","stat_unconverted"
+25311,51,NA,1,"observational",NA,"00:00:00",NA,522,87,"SE",6,1,"Vcmax",NA,NA,NA,TRUE,NA,87,6

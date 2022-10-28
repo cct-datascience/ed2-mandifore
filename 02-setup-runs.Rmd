@@ -24,6 +24,7 @@ To figure out how to automate all this, start by picking a site (literally at ra
 ```{r}
 new_sites <- read_csv("data/mandifore_sites.csv")
 set.seed(352)
+# set.seed(55)
 (s <- slice_sample(new_sites, n = 1))
 ```
 
