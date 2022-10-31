@@ -1,4 +1,4 @@
-Logging on 2022/10/28_06:21:27
+Logging on 2022/10/31_10:07:53
 Lmod has detected the following error: The following module(s) are unknown:
 "singularity"
 
@@ -11,7 +11,7 @@ Also make sure that all modulefiles written in TCL start with the string
 
 
 
-/groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/run/ENS-00001-1000021575
+/groups/dlebauer/ed2_results/pecan_remote/2022-10-31-13-57-58/run/ENS-00001-1000021575
 +---------------- MPI parallel info: --------------------+
 +  - Machnum  =      0
 +  - Machsize =      1
@@ -44,10 +44,10 @@ Copying namelist
   - TIME2CANOPY =  0.00000E+00
 ----------------------------------------
  [+] Checking for XML config...
- count xml pft : /groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/run/ENS-00001-1000021575/config.xml
+ count xml pft : /groups/dlebauer/ed2_results/pecan_remote/2022-10-31-13-57-58/run/ENS-00001-1000021575/config.xml
  NPFT =            2
  MAXPFT =           12
- Opening ED2 XML Config file/groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/run/ENS-00001-1000021575/config.xml
+ Opening ED2 XML Config file/groups/dlebauer/ed2_results/pecan_remote/2022-10-31-13-57-58/run/ENS-00001-1000021575/config.xml
  EXTERN READ FROM FILE ::           0
  MET READ FROM FILE ::           0
  CAN_AIR READ FROM FILE ::           0
@@ -70,7 +70,7 @@ Copying namelist
  PHENOLOGY READ FROM FILE ::           0
  PHYSIOLOGY READ FROM FILE ::           0
  INITCOND READ FROM FILE ::           0
- Wrote Config Record:/groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/out/ENS-00001-1000021575/history.xml
+ Wrote Config Record:/groups/dlebauer/ed2_results/pecan_remote/2022-10-31-13-57-58/out/ENS-00001-1000021575/history.xml
  [+] Init_derived_params_after_xml...
  [+] Alloc_Soilgrid...
  [+] Set_Polygon_Coordinates...
@@ -119,18 +119,17 @@ Using cohort file: /data/sites/mandifore/FIA_ED2_site_1-21575/siteid1000021575.f
 ------------------------------
  - METCYC1 =         2000
  - METCYCF =         2015
- - NYEARS  =            4
+ - NYEARS  =            3
 ------------------------------
         IYEAR     YEAR_USE
-            1         2001
-            2         2002
-            3         2003
-            4         2004
+            1         2002
+            2         2003
+            3         2004
 ------------------------------
  
  [+] Update_met_drivers...
  [+] Ed_Init_Atm...
-Grid:      1 Poly:      1 Lon: -120.9940 Lat:    44.1098 Nplants:    0.0000 Avg. LAI:    0.00 Avg. AGB:    0.00 NPatches:      2 NCohorts:      0
+Grid:      1 Poly:      1 Lon: -120.9940 Lat:    44.1098 Nplants:    0.0072 Avg. LAI:    0.02 Avg. AGB:    0.00 NPatches:      8 NCohorts:     44
  [+] initHydrology...
 initHydrology | mynum=         1 ngrids=         1 mpolys=         1 msites=         1
 Allocated | mynum=         1 ngrids=         1 mpolys=         1 msites=         1
@@ -139,207 +138,285 @@ Deallocated | mynum=         1 ngrids=         1 mpolys=         1 msites=      
  [+] Filltab_Alltypes...
  [+] Find frqsum...
 
- === Finish initialization; CPU(sec)=0.39; Wall(sec)=0.44; Time integration starts (ed_master) ===
+ === Finish initialization; CPU(sec)=0.39; Wall(sec)=3.47; Time integration starts (ed_master) ===
 
  === Time integration starts (model) ===
- - Simulating:   01/01/2001 00:00:00 UTC
- - Simulating:   01/02/2001 00:00:00 UTC
- - Simulating:   01/03/2001 00:00:00 UTC
- - Simulating:   01/04/2001 00:00:00 UTC
- - Simulating:   01/05/2001 00:00:00 UTC
- - Simulating:   01/06/2001 00:00:00 UTC
- - Simulating:   01/07/2001 00:00:00 UTC
- - Simulating:   01/08/2001 00:00:00 UTC
- - Simulating:   01/09/2001 00:00:00 UTC
- - Simulating:   01/10/2001 00:00:00 UTC
- - Simulating:   01/11/2001 00:00:00 UTC
- - Simulating:   01/12/2001 00:00:00 UTC
- - Simulating:   01/13/2001 00:00:00 UTC
- - Simulating:   01/14/2001 00:00:00 UTC
- - Simulating:   01/15/2001 00:00:00 UTC
- - Simulating:   01/16/2001 00:00:00 UTC
- - Simulating:   01/17/2001 00:00:00 UTC
- - Simulating:   01/18/2001 00:00:00 UTC
- - Simulating:   01/19/2001 00:00:00 UTC
- - Simulating:   01/20/2001 00:00:00 UTC
- - Simulating:   01/21/2001 00:00:00 UTC
- - Simulating:   01/22/2001 00:00:00 UTC
- - Simulating:   01/23/2001 00:00:00 UTC
- - Simulating:   01/24/2001 00:00:00 UTC
- - Simulating:   01/25/2001 00:00:00 UTC
- - Simulating:   01/26/2001 00:00:00 UTC
- - Simulating:   01/27/2001 00:00:00 UTC
- - Simulating:   01/28/2001 00:00:00 UTC
- - Simulating:   01/29/2001 00:00:00 UTC
- - Simulating:   01/30/2001 00:00:00 UTC
- - Simulating:   01/31/2001 00:00:00 UTC
- - Simulating:   02/01/2001 00:00:00 UTC
- - Simulating:   02/02/2001 00:00:00 UTC
- - Simulating:   02/03/2001 00:00:00 UTC
- - Simulating:   02/04/2001 00:00:00 UTC
- - Simulating:   02/05/2001 00:00:00 UTC
- - Simulating:   02/06/2001 00:00:00 UTC
- - Simulating:   02/07/2001 00:00:00 UTC
- - Simulating:   02/08/2001 00:00:00 UTC
- - Simulating:   02/09/2001 00:00:00 UTC
- - Simulating:   02/10/2001 00:00:00 UTC
- - Simulating:   02/11/2001 00:00:00 UTC
- - Simulating:   02/12/2001 00:00:00 UTC
- - Simulating:   02/13/2001 00:00:00 UTC
- - Simulating:   02/14/2001 00:00:00 UTC
- - Simulating:   02/15/2001 00:00:00 UTC
- - Simulating:   02/16/2001 00:00:00 UTC
- - Simulating:   02/17/2001 00:00:00 UTC
- - Simulating:   02/18/2001 00:00:00 UTC
- - Simulating:   02/19/2001 00:00:00 UTC
- - Simulating:   02/20/2001 00:00:00 UTC
- - Simulating:   02/21/2001 00:00:00 UTC
- - Simulating:   02/22/2001 00:00:00 UTC
- - Simulating:   02/23/2001 00:00:00 UTC
- - Simulating:   02/24/2001 00:00:00 UTC
- - Simulating:   02/25/2001 00:00:00 UTC
- - Simulating:   02/26/2001 00:00:00 UTC
- - Simulating:   02/27/2001 00:00:00 UTC
- - Simulating:   02/28/2001 00:00:00 UTC
- - Simulating:   03/01/2001 00:00:00 UTC
- - Simulating:   03/02/2001 00:00:00 UTC
- - Simulating:   03/03/2001 00:00:00 UTC
- - Simulating:   03/04/2001 00:00:00 UTC
- - Simulating:   03/05/2001 00:00:00 UTC
- - Simulating:   03/06/2001 00:00:00 UTC
- - Simulating:   03/07/2001 00:00:00 UTC
- - Simulating:   03/08/2001 00:00:00 UTC
- - Simulating:   03/09/2001 00:00:00 UTC
- - Simulating:   03/10/2001 00:00:00 UTC
- - Simulating:   03/11/2001 00:00:00 UTC
- - Simulating:   03/12/2001 00:00:00 UTC
- - Simulating:   03/13/2001 00:00:00 UTC
- - Simulating:   03/14/2001 00:00:00 UTC
- - Simulating:   03/15/2001 00:00:00 UTC
- - Simulating:   03/16/2001 00:00:00 UTC
- - Simulating:   03/17/2001 00:00:00 UTC
- - Simulating:   03/18/2001 00:00:00 UTC
- - Simulating:   03/19/2001 00:00:00 UTC
- - Simulating:   03/20/2001 00:00:00 UTC
- - Simulating:   03/21/2001 00:00:00 UTC
- - Simulating:   03/22/2001 00:00:00 UTC
- - Simulating:   03/23/2001 00:00:00 UTC
- - Simulating:   03/24/2001 00:00:00 UTC
- - Simulating:   03/25/2001 00:00:00 UTC
- - Simulating:   03/26/2001 00:00:00 UTC
- - Simulating:   03/27/2001 00:00:00 UTC
- - Simulating:   03/28/2001 00:00:00 UTC
- - Simulating:   03/29/2001 00:00:00 UTC
- - Simulating:   03/30/2001 00:00:00 UTC
- - Simulating:   03/31/2001 00:00:00 UTC
- - Simulating:   04/01/2001 00:00:00 UTC
- - Simulating:   04/02/2001 00:00:00 UTC
- - Simulating:   04/03/2001 00:00:00 UTC
- - Simulating:   04/04/2001 00:00:00 UTC
- - Simulating:   04/05/2001 00:00:00 UTC
- - Simulating:   04/06/2001 00:00:00 UTC
- - Simulating:   04/07/2001 00:00:00 UTC
- - Simulating:   04/08/2001 00:00:00 UTC
- - Simulating:   04/09/2001 00:00:00 UTC
- - Simulating:   04/10/2001 00:00:00 UTC
- - Simulating:   04/11/2001 00:00:00 UTC
- - Simulating:   04/12/2001 00:00:00 UTC
- - Simulating:   04/13/2001 00:00:00 UTC
- - Simulating:   04/14/2001 00:00:00 UTC
- - Simulating:   04/15/2001 00:00:00 UTC
- - Simulating:   04/16/2001 00:00:00 UTC
- - Simulating:   04/17/2001 00:00:00 UTC
- - Simulating:   04/18/2001 00:00:00 UTC
- - Simulating:   04/19/2001 00:00:00 UTC
- - Simulating:   04/20/2001 00:00:00 UTC
- - Simulating:   04/21/2001 00:00:00 UTC
- - Simulating:   04/22/2001 00:00:00 UTC
- - Simulating:   04/23/2001 00:00:00 UTC
- - Simulating:   04/24/2001 00:00:00 UTC
- - Simulating:   04/25/2001 00:00:00 UTC
- - Simulating:   04/26/2001 00:00:00 UTC
- - Simulating:   04/27/2001 00:00:00 UTC
- - Simulating:   04/28/2001 00:00:00 UTC
- - Simulating:   04/29/2001 00:00:00 UTC
- - Simulating:   04/30/2001 00:00:00 UTC
- - Simulating:   05/01/2001 00:00:00 UTC
- - Simulating:   05/02/2001 00:00:00 UTC
- - Simulating:   05/03/2001 00:00:00 UTC
- - Simulating:   05/04/2001 00:00:00 UTC
- - Simulating:   05/05/2001 00:00:00 UTC
- - Simulating:   05/06/2001 00:00:00 UTC
- - Simulating:   05/07/2001 00:00:00 UTC
- - Simulating:   05/08/2001 00:00:00 UTC
- - Simulating:   05/09/2001 00:00:00 UTC
- - Simulating:   05/10/2001 00:00:00 UTC
- - Simulating:   05/11/2001 00:00:00 UTC
- - Simulating:   05/12/2001 00:00:00 UTC
- - Simulating:   05/13/2001 00:00:00 UTC
- - Simulating:   05/14/2001 00:00:00 UTC
- - Simulating:   05/15/2001 00:00:00 UTC
- - Simulating:   05/16/2001 00:00:00 UTC
- - Simulating:   05/17/2001 00:00:00 UTC
- - Simulating:   05/18/2001 00:00:00 UTC
- - Simulating:   05/19/2001 00:00:00 UTC
- - Simulating:   05/20/2001 00:00:00 UTC
- - Simulating:   05/21/2001 00:00:00 UTC
- - Simulating:   05/22/2001 00:00:00 UTC
- - Simulating:   05/23/2001 00:00:00 UTC
- - Simulating:   05/24/2001 00:00:00 UTC
- - Simulating:   05/25/2001 00:00:00 UTC
- - Simulating:   05/26/2001 00:00:00 UTC
- - Simulating:   05/27/2001 00:00:00 UTC
- - Simulating:   05/28/2001 00:00:00 UTC
- - Simulating:   05/29/2001 00:00:00 UTC
- - Simulating:   05/30/2001 00:00:00 UTC
- - Simulating:   05/31/2001 00:00:00 UTC
- - Simulating:   06/01/2001 00:00:00 UTC
- - Simulating:   06/02/2001 00:00:00 UTC
- - Simulating:   06/03/2001 00:00:00 UTC
- - Simulating:   06/04/2001 00:00:00 UTC
- - Simulating:   06/05/2001 00:00:00 UTC
- - Simulating:   06/06/2001 00:00:00 UTC
- - Simulating:   06/07/2001 00:00:00 UTC
- - Simulating:   06/08/2001 00:00:00 UTC
- - Simulating:   06/09/2001 00:00:00 UTC
- - Simulating:   06/10/2001 00:00:00 UTC
- - Simulating:   06/11/2001 00:00:00 UTC
- - Simulating:   06/12/2001 00:00:00 UTC
- - Simulating:   06/13/2001 00:00:00 UTC
- - Simulating:   06/14/2001 00:00:00 UTC
- - Simulating:   06/15/2001 00:00:00 UTC
- - Simulating:   06/16/2001 00:00:00 UTC
- - Simulating:   06/17/2001 00:00:00 UTC
- - Simulating:   06/18/2001 00:00:00 UTC
- - Simulating:   06/19/2001 00:00:00 UTC
- - Simulating:   06/20/2001 00:00:00 UTC
- - Simulating:   06/21/2001 00:00:00 UTC
- - Simulating:   06/22/2001 00:00:00 UTC
- - Simulating:   06/23/2001 00:00:00 UTC
- - Simulating:   06/24/2001 00:00:00 UTC
- - Simulating:   06/25/2001 00:00:00 UTC
- - Simulating:   06/26/2001 00:00:00 UTC
- - Simulating:   06/27/2001 00:00:00 UTC
- - Simulating:   06/28/2001 00:00:00 UTC
- - Simulating:   06/29/2001 00:00:00 UTC
- - Simulating:   06/30/2001 00:00:00 UTC
-
-Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
-
-Backtrace for this error:
-#0  0x2b7fda8bad5a
-#1  0x2b7fda8b9ef5
-#2  0x2b7fdad3d08f
-#3  0x55ece081ab41
-#4  0x55ece076ac41
-#5  0x55ece04326c3
-#6  0x55ece03ceb03
-#7  0x55ece03cdabe
-#8  0x2b7fdad1e082
-#9  0x55ece03cdaed
-#10  0xffffffffffffffff
-/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-2.2.0.sh: line 12: 16394 Segmentation fault      singularity run --pwd=$(pwd) --contain -B /groups/dlebauer/ed2_results/pecan_remote:/groups/dlebauer/ed2_results/pecan_remote -B /groups/dlebauer/data/sites:/data/sites -B /groups/dlebauer/ed2_results/inputs/julianp/ed_inputs:/data/ed_inputs -B /groups/dlebauer/ed2_results/inputs/julianp/faoOLD:/data/faoOLD -B /groups/dlebauer/ed2_results/inputs/julianp/oge2OLD:/data/oge2OLD -B /groups/dlebauer/ed2_results/inputs/julianp/tests/ed2:/data/tests/ed2 /groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-2.2.0.sif /usr/local/bin/ed.2.2.0 -s
+ - Simulating:   01/01/2002 00:00:00 UTC
+ - Simulating:   01/02/2002 00:00:00 UTC
+ - Simulating:   01/03/2002 00:00:00 UTC
+ - Simulating:   01/04/2002 00:00:00 UTC
+ - Simulating:   01/05/2002 00:00:00 UTC
+ - Simulating:   01/06/2002 00:00:00 UTC
+ - Simulating:   01/07/2002 00:00:00 UTC
+ - Simulating:   01/08/2002 00:00:00 UTC
+ - Simulating:   01/09/2002 00:00:00 UTC
+ - Simulating:   01/10/2002 00:00:00 UTC
+ - Simulating:   01/11/2002 00:00:00 UTC
+ - Simulating:   01/12/2002 00:00:00 UTC
+ - Simulating:   01/13/2002 00:00:00 UTC
+ - Simulating:   01/14/2002 00:00:00 UTC
+ - Simulating:   01/15/2002 00:00:00 UTC
+ - Simulating:   01/16/2002 00:00:00 UTC
+ - Simulating:   01/17/2002 00:00:00 UTC
+ - Simulating:   01/18/2002 00:00:00 UTC
+ - Simulating:   01/19/2002 00:00:00 UTC
+ - Simulating:   01/20/2002 00:00:00 UTC
+ - Simulating:   01/21/2002 00:00:00 UTC
+ - Simulating:   01/22/2002 00:00:00 UTC
+ - Simulating:   01/23/2002 00:00:00 UTC
+ - Simulating:   01/24/2002 00:00:00 UTC
+ - Simulating:   01/25/2002 00:00:00 UTC
+ - Simulating:   01/26/2002 00:00:00 UTC
+ - Simulating:   01/27/2002 00:00:00 UTC
+ - Simulating:   01/28/2002 00:00:00 UTC
+ - Simulating:   01/29/2002 00:00:00 UTC
+ - Simulating:   01/30/2002 00:00:00 UTC
+ - Simulating:   01/31/2002 00:00:00 UTC
+ - Simulating:   02/01/2002 00:00:00 UTC
+ - Simulating:   02/02/2002 00:00:00 UTC
+ - Simulating:   02/03/2002 00:00:00 UTC
+ - Simulating:   02/04/2002 00:00:00 UTC
+ - Simulating:   02/05/2002 00:00:00 UTC
+ - Simulating:   02/06/2002 00:00:00 UTC
+ - Simulating:   02/07/2002 00:00:00 UTC
+ - Simulating:   02/08/2002 00:00:00 UTC
+ - Simulating:   02/09/2002 00:00:00 UTC
+ - Simulating:   02/10/2002 00:00:00 UTC
+ - Simulating:   02/11/2002 00:00:00 UTC
+ - Simulating:   02/12/2002 00:00:00 UTC
+ - Simulating:   02/13/2002 00:00:00 UTC
+ - Simulating:   02/14/2002 00:00:00 UTC
+ - Simulating:   02/15/2002 00:00:00 UTC
+ - Simulating:   02/16/2002 00:00:00 UTC
+ - Simulating:   02/17/2002 00:00:00 UTC
+ - Simulating:   02/18/2002 00:00:00 UTC
+ - Simulating:   02/19/2002 00:00:00 UTC
+ - Simulating:   02/20/2002 00:00:00 UTC
+ - Simulating:   02/21/2002 00:00:00 UTC
+ - Simulating:   02/22/2002 00:00:00 UTC
+ - Simulating:   02/23/2002 00:00:00 UTC
+ - Simulating:   02/24/2002 00:00:00 UTC
+ - Simulating:   02/25/2002 00:00:00 UTC
+ - Simulating:   02/26/2002 00:00:00 UTC
+ - Simulating:   02/27/2002 00:00:00 UTC
+ - Simulating:   02/28/2002 00:00:00 UTC
+ - Simulating:   03/01/2002 00:00:00 UTC
+ - Simulating:   03/02/2002 00:00:00 UTC
+ - Simulating:   03/03/2002 00:00:00 UTC
+ - Simulating:   03/04/2002 00:00:00 UTC
+ - Simulating:   03/05/2002 00:00:00 UTC
+ - Simulating:   03/06/2002 00:00:00 UTC
+ - Simulating:   03/07/2002 00:00:00 UTC
+ - Simulating:   03/08/2002 00:00:00 UTC
+ - Simulating:   03/09/2002 00:00:00 UTC
+ - Simulating:   03/10/2002 00:00:00 UTC
+ - Simulating:   03/11/2002 00:00:00 UTC
+ - Simulating:   03/12/2002 00:00:00 UTC
+ - Simulating:   03/13/2002 00:00:00 UTC
+ - Simulating:   03/14/2002 00:00:00 UTC
+ - Simulating:   03/15/2002 00:00:00 UTC
+ - Simulating:   03/16/2002 00:00:00 UTC
+ - Simulating:   03/17/2002 00:00:00 UTC
+ - Simulating:   03/18/2002 00:00:00 UTC
+ - Simulating:   03/19/2002 00:00:00 UTC
+ - Simulating:   03/20/2002 00:00:00 UTC
+ - Simulating:   03/21/2002 00:00:00 UTC
+ - Simulating:   03/22/2002 00:00:00 UTC
+ - Simulating:   03/23/2002 00:00:00 UTC
+ - Simulating:   03/24/2002 00:00:00 UTC
+ - Simulating:   03/25/2002 00:00:00 UTC
+ - Simulating:   03/26/2002 00:00:00 UTC
+ - Simulating:   03/27/2002 00:00:00 UTC
+ - Simulating:   03/28/2002 00:00:00 UTC
+ - Simulating:   03/29/2002 00:00:00 UTC
+ - Simulating:   03/30/2002 00:00:00 UTC
+ - Simulating:   03/31/2002 00:00:00 UTC
+ - Simulating:   04/01/2002 00:00:00 UTC
+ - Simulating:   04/02/2002 00:00:00 UTC
+ - Simulating:   04/03/2002 00:00:00 UTC
+ - Simulating:   04/04/2002 00:00:00 UTC
+ - Simulating:   04/05/2002 00:00:00 UTC
+ - Simulating:   04/06/2002 00:00:00 UTC
+ - Simulating:   04/07/2002 00:00:00 UTC
+ - Simulating:   04/08/2002 00:00:00 UTC
+ - Simulating:   04/09/2002 00:00:00 UTC
+ - Simulating:   04/10/2002 00:00:00 UTC
+ - Simulating:   04/11/2002 00:00:00 UTC
+ - Simulating:   04/12/2002 00:00:00 UTC
+ - Simulating:   04/13/2002 00:00:00 UTC
+ - Simulating:   04/14/2002 00:00:00 UTC
+ - Simulating:   04/15/2002 00:00:00 UTC
+ - Simulating:   04/16/2002 00:00:00 UTC
+ - Simulating:   04/17/2002 00:00:00 UTC
+ - Simulating:   04/18/2002 00:00:00 UTC
+ - Simulating:   04/19/2002 00:00:00 UTC
+ - Simulating:   04/20/2002 00:00:00 UTC
+ - Simulating:   04/21/2002 00:00:00 UTC
+ - Simulating:   04/22/2002 00:00:00 UTC
+ - Simulating:   04/23/2002 00:00:00 UTC
+ - Simulating:   04/24/2002 00:00:00 UTC
+ - Simulating:   04/25/2002 00:00:00 UTC
+ - Simulating:   04/26/2002 00:00:00 UTC
+ - Simulating:   04/27/2002 00:00:00 UTC
+ - Simulating:   04/28/2002 00:00:00 UTC
+ - Simulating:   04/29/2002 00:00:00 UTC
+ - Simulating:   04/30/2002 00:00:00 UTC
+ - Simulating:   05/01/2002 00:00:00 UTC
+ - Simulating:   05/02/2002 00:00:00 UTC
+ - Simulating:   05/03/2002 00:00:00 UTC
+ - Simulating:   05/04/2002 00:00:00 UTC
+ - Simulating:   05/05/2002 00:00:00 UTC
+ - Simulating:   05/06/2002 00:00:00 UTC
+ - Simulating:   05/07/2002 00:00:00 UTC
+ - Simulating:   05/08/2002 00:00:00 UTC
+ - Simulating:   05/09/2002 00:00:00 UTC
+ - Simulating:   05/10/2002 00:00:00 UTC
+ - Simulating:   05/11/2002 00:00:00 UTC
+ - Simulating:   05/12/2002 00:00:00 UTC
+ - Simulating:   05/13/2002 00:00:00 UTC
+ - Simulating:   05/14/2002 00:00:00 UTC
+ - Simulating:   05/15/2002 00:00:00 UTC
+ - Simulating:   05/16/2002 00:00:00 UTC
+ - Simulating:   05/17/2002 00:00:00 UTC
+ - Simulating:   05/18/2002 00:00:00 UTC
+ - Simulating:   05/19/2002 00:00:00 UTC
+ - Simulating:   05/20/2002 00:00:00 UTC
+ - Simulating:   05/21/2002 00:00:00 UTC
+ - Simulating:   05/22/2002 00:00:00 UTC
+ - Simulating:   05/23/2002 00:00:00 UTC
+ - Simulating:   05/24/2002 00:00:00 UTC
+ - Simulating:   05/25/2002 00:00:00 UTC
+ - Simulating:   05/26/2002 00:00:00 UTC
+ - Simulating:   05/27/2002 00:00:00 UTC
+ - Simulating:   05/28/2002 00:00:00 UTC
+ - Simulating:   05/29/2002 00:00:00 UTC
+ - Simulating:   05/30/2002 00:00:00 UTC
+ - Simulating:   05/31/2002 00:00:00 UTC
+ - Simulating:   06/01/2002 00:00:00 UTC
+ - Simulating:   06/02/2002 00:00:00 UTC
+ - Simulating:   06/03/2002 00:00:00 UTC
+ - Simulating:   06/04/2002 00:00:00 UTC
+ - Simulating:   06/05/2002 00:00:00 UTC
+ - Simulating:   06/06/2002 00:00:00 UTC
+ - Simulating:   06/07/2002 00:00:00 UTC
+ - Simulating:   06/08/2002 00:00:00 UTC
+ - Simulating:   06/09/2002 00:00:00 UTC
+ - Simulating:   06/10/2002 00:00:00 UTC
+ - Simulating:   06/11/2002 00:00:00 UTC
+ - Simulating:   06/12/2002 00:00:00 UTC
+ - Simulating:   06/13/2002 00:00:00 UTC
+ - Simulating:   06/14/2002 00:00:00 UTC
+ - Simulating:   06/15/2002 00:00:00 UTC
+ - Simulating:   06/16/2002 00:00:00 UTC
+ - Simulating:   06/17/2002 00:00:00 UTC
+ - Simulating:   06/18/2002 00:00:00 UTC
+ - Simulating:   06/19/2002 00:00:00 UTC
+ - Simulating:   06/20/2002 00:00:00 UTC
+ - Simulating:   06/21/2002 00:00:00 UTC
+ - Simulating:   06/22/2002 00:00:00 UTC
+ - Simulating:   06/23/2002 00:00:00 UTC
+ - Simulating:   06/24/2002 00:00:00 UTC
+ - Simulating:   06/25/2002 00:00:00 UTC
+ - Simulating:   06/26/2002 00:00:00 UTC
+ - Simulating:   06/27/2002 00:00:00 UTC
+ - Simulating:   06/28/2002 00:00:00 UTC
+ - Simulating:   06/29/2002 00:00:00 UTC
+ - Simulating:   06/30/2002 00:00:00 UTC
+ - Simulating:   07/01/2002 00:00:00 UTC
+ - Simulating:   07/02/2002 00:00:00 UTC
+ - Simulating:   07/03/2002 00:00:00 UTC
+ - Simulating:   07/04/2002 00:00:00 UTC
+ - Simulating:   07/05/2002 00:00:00 UTC
+ - Simulating:   07/06/2002 00:00:00 UTC
+ - Simulating:   07/07/2002 00:00:00 UTC
+ - Simulating:   07/08/2002 00:00:00 UTC
+ - Simulating:   07/09/2002 00:00:00 UTC
+ - Simulating:   07/10/2002 00:00:00 UTC
+ - Simulating:   07/11/2002 00:00:00 UTC
+ - Simulating:   07/12/2002 00:00:00 UTC
+ - Simulating:   07/13/2002 00:00:00 UTC
+ - Simulating:   07/14/2002 00:00:00 UTC
+ - Simulating:   07/15/2002 00:00:00 UTC
+ - Simulating:   07/16/2002 00:00:00 UTC
+ - Simulating:   07/17/2002 00:00:00 UTC
+ - Simulating:   07/18/2002 00:00:00 UTC
+ - Simulating:   07/19/2002 00:00:00 UTC
+ - Simulating:   07/20/2002 00:00:00 UTC
+ - Simulating:   07/21/2002 00:00:00 UTC
+ - Simulating:   07/22/2002 00:00:00 UTC
+ - Simulating:   07/23/2002 00:00:00 UTC
+ - Simulating:   07/24/2002 00:00:00 UTC
+ - Simulating:   07/25/2002 00:00:00 UTC
+ - Simulating:   07/26/2002 00:00:00 UTC
+ - Simulating:   07/27/2002 00:00:00 UTC
+ - Simulating:   07/28/2002 00:00:00 UTC
+ - Simulating:   07/29/2002 00:00:00 UTC
+ - Simulating:   07/30/2002 00:00:00 UTC
+ - Simulating:   07/31/2002 00:00:00 UTC
+ - Simulating:   08/01/2002 00:00:00 UTC
+ - Simulating:   08/02/2002 00:00:00 UTC
+ - Simulating:   08/03/2002 00:00:00 UTC
+ - Simulating:   08/04/2002 00:00:00 UTC
+ - Simulating:   08/05/2002 00:00:00 UTC
+|====================================================|
+|====================================================|
+|       !!!   Patch Balive budget failed   !!!       |
+|----------------------------------------------------|
+ TIME                : 2002 08 06     0.
+ PATCH               :               2
+ DIST_TYPE           :               5
+ NCOHORTS            :               0
+ AGE                 :   7.5583351E+01
+ VEG_HEIGHT          :   1.5000001E-01
+ ---------------------------------------------------- 
+ BALIVE_IN           :   7.4277364E-04
+ BDEAD_IN            :   0.0000000E+00
+ BSTORAGE_IN         :   0.0000000E+00
+ FGC_IN_IN           :   0.0000000E+00
+ FSC_IN_IN           :   0.0000000E+00
+ STGC_IN_IN          :   0.0000000E+00
+ STSC_IN_IN          :   0.0000000E+00
+ ---------------------------------------------------- 
+ BALIVE_FN           :   0.0000000E+00
+ BDEAD_FN            :   0.0000000E+00
+ BSTORAGE_FN         :   0.0000000E+00
+ FGC_IN_FN           :   4.4898065E-05
+ FSC_IN_FN           :   6.9118920E-04
+ STGC_IN_FN          :   3.3944189E-06
+ STSC_IN_FN          :   1.4547513E-06
+ ---------------------------------------------------- 
+ BIOMASS_IN          :   7.4277364E-04
+ SOILC_IN_IN         :   0.0000000E+00
+ BIOMASS_FN          :   0.0000000E+00
+ SOILC_IN_FN         :   7.4093643E-04
+ METABOLIC_NPP       :  -3.5117384E-07
+ NPP                 :  -3.5117384E-07
+ TISSUE_MAINTENANCE  :   1.4860800E-06
+ STORAGE_MAINTENANCE :   0.0000000E+00
+ ---------------------------------------------------- 
+ BTOTAL_IN           :   7.4277364E-04
+ BTOTAL_FN           :   7.4093643E-04
+ CARBON_MISS         :   0.0000000E+00
+ RESIDUAL_BTOTAL     :  -1.4860345E-06
+|====================================================|
+|====================================================|
+ 
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ 
+--------------------------------------------------------------
+                     !!! FATAL ERROR !!!                      
+--------------------------------------------------------------
+    ---> File:        growth_balive.f90
+    ---> Subroutine:  check_balive_patch
+    ---> Reason:      Budget check has failed, see message above.
+--------------------------------------------------------------
+ ED execution halts (see previous error message)...
+--------------------------------------------------------------
+Note: The following floating-point exceptions are signalling: IEEE_DIVIDE_BY_ZERO IEEE_OVERFLOW_FLAG
+STOP fatal_error
 ERROR IN MODEL RUN
-Logfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/out/ENS-00001-1000021575/logfile.txt'
-************************************************* End Log 2022/10/28_06:21:27
+Logfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-10-31-13-57-58/out/ENS-00001-1000021575/logfile.txt'
+************************************************* End Log 2022/10/31_10:07:53
 

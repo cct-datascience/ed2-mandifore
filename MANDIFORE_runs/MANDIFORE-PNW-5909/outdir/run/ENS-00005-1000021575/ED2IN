@@ -92,7 +92,7 @@ $ED_NL
    !---------------------------------------------------------------------------------------!
    NL%IMONTHA = 1
    NL%IDATEA = 1
-   NL%IYEARA = 2001
+   NL%IYEARA = 2002
    NL%ITIMEA = 0
    !---------------------------------------------------------------------------------------!
 
@@ -373,8 +373,8 @@ $ED_NL
    ! FFILOUT -- Path and prefix for analysis files (all but history/restart).              !
    ! SFILOUT -- Path and prefix for history files.                                         !
    !---------------------------------------------------------------------------------------!
-   NL%FFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/out/ENS-00005-1000021575/analysis'
-   NL%SFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/out/ENS-00005-1000021575/history'
+   NL%FFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2022-10-31-13-57-58/out/ENS-00005-1000021575/analysis'
+   NL%SFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2022-10-31-13-57-58/out/ENS-00005-1000021575/history'
    !---------------------------------------------------------------------------------------!
 
 
@@ -466,7 +466,7 @@ $ED_NL
    ! IYEARH     want to extend the run, but yo should NOT change IMONTHA and related.      !
    ! ITIMEH                                                                                !
    !---------------------------------------------------------------------------------------!
-   NL%IYEARH = 2001
+   NL%IYEARH = 2002
    NL%IMONTHH = 1
    NL%IDATEH = 1
    NL%ITIMEH = 0
@@ -1889,8 +1889,8 @@ $ED_NL
    !               simulation.                                                             !
    ! PHENPATH   -- path and prefix of the prescribed phenology data.                       !
    !---------------------------------------------------------------------------------------!
-   NL%IEDCNFGF = '/groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/run/ENS-00005-1000021575/config.xml'
-   NL%EVENT_FILE = '/groups/dlebauer/ed2_results/pecan_remote/2022-10-28-13-15-18/run/ENS-00005-1000021575/myevents.xml'
+   NL%IEDCNFGF = '/groups/dlebauer/ed2_results/pecan_remote/2022-10-31-13-57-58/run/ENS-00005-1000021575/config.xml'
+   NL%EVENT_FILE = '/groups/dlebauer/ed2_results/pecan_remote/2022-10-31-13-57-58/run/ENS-00005-1000021575/myevents.xml'
    !---------------------------------------------------------------------------------------!
 
 
