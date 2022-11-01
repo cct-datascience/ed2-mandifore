@@ -157,27 +157,22 @@ for (i in 1:nrow(pfts)) {
 settings$pfts
 ```
 
-
-
-# 3. check settings
+Overwrite template with edited settings.
 
 ```{r}
-settings <- prepare.settings(settings)
-write.settings(settings, outputfile = "settings_checked.xml")
+write.settings(settings, "pecan.xml", outputdir = wd)
 ```
 
 
-
-# 4. Customize workflow.R
+# 3. Customize workflow.R
 
 ```{r}
 workflow <- readLines(file.path(wd, "workflow.R"))
-checked_settings_path <-
+settings_path <-
   file.path("MANDIFORE_runs",
             s$sitename,
-            "outdir",
-            "settings_checked.xml")
-repl <- paste0('inputfile <- \"', checked_settings_path, '\"')
+            "pecan.xml")
+repl <- paste0('inputfile <- \"', settings_path, '\"')
 workflow <-
   str_replace(workflow, 'inputfile <- .*', replacement = repl)
 writeLines(workflow, file.path(wd, "workflow.R"))

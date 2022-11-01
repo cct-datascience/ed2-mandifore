@@ -22,7 +22,8 @@ if (file.exists(inputfile)) {
 settings$outdir
 
 # Prepare settings --------------------------------------------------------
-# prepare.settings already done
+settings <- prepare.settings(settings)
+write.settings(settings, outputfile = "settings_checked.xml")
 settings <- do_conversions(settings)
 
 # Query trait database ----------------------------------------------------
