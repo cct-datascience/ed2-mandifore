@@ -3,28 +3,28 @@
  <info>
   <notes>MANDIFORE-PNW-5909</notes>
  </info>
- <outdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir</outdir>
+ <outdir>MANDIFORE_runs/MANDIFORE-PNW-5909/outdir</outdir>
  <database>
   <bety>
    <driver>PostgreSQL</driver>
    <user>bety</user>
    <password>bety</password>
-   <host>postgres</host>
+   <host>localhost</host>
    <dbname>bety</dbname>
    <write>FALSE</write>
   </bety>
-  <dbfiles>/data/dbfiles</dbfiles>
+  <dbfiles>/Users/ericscott/data/dbfiles</dbfiles>
  </database>
  <pfts>
   <pft>
    <name>SetariaWT</name>
    <ed2_pft_number>1</ed2_pft_number>
-   <outdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/pft/SetariaWT</outdir>
+   <outdir>MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/pft/SetariaWT</outdir>
   </pft>
   <pft>
    <name>ebifarm.c3grass</name>
    <ed2_pft_number>12</ed2_pft_number>
-   <outdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/pft/ebifarm.c3grass</outdir>
+   <outdir>MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/pft/ebifarm.c3grass</outdir>
   </pft>
  </pfts>
  <meta.analysis>
@@ -129,6 +129,6 @@
  <workflow>
   <id>2022-10-31-13-57-58</id>
  </workflow>
- <rundir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/run</rundir>
- <modeloutdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/out</modeloutdir>
+ <rundir>MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/run</rundir>
+ <modeloutdir>MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/out</modeloutdir>
 </pecan>
