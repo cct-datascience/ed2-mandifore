@@ -122,6 +122,8 @@ settings$run$inputs$pss <-
   file.path(base, s$cohort_filename, files[str_detect(files, "\\.pss$")])
 settings$run$inputs$css <-
   file.path(base, s$cohort_filename, files[str_detect(files, "\\.css$")])
+settings$run$inputs$site <- 
+  file.path(base, s$cohort_filename, files[str_detect(files, "\\.site$")])
 ```
 
 ## PFTs
@@ -178,67 +180,6 @@ workflow <-
 writeLines(workflow, file.path(wd, "workflow.R"))
 ```
 
-# 5. Edit css/pss files
-
-
-Copy to `data/sites/mandifore/` to edit
-
-```{r}
-file.copy(
-  from = file.path("/data/input", s$cohort_filename),
-  to = "/data/sites/mandifore",
-  recursive = TRUE,
-  copy.mode = FALSE
-)
-```
-
-## pss
-
-Read into R
-
-```{r}
-pss_file <- list.files(
-    file.path("/data/sites/mandifore", s$cohort_filename),
-    pattern = ".pss$",
-    full.names = TRUE
-  )
-pss <- read_table(pss_file)
-
-waldo::compare(colnames(pss), c("time", "patch", "trk", "age", "area", "water", "fsc", "stsc", "stsl", "ssc", "lai", "msn", "fsn", "nep", "gpp", "rh"))
-```
-
-Looks like we need to:
-1) remove `site` column
-2) `psc` was an old dummy variable, `lai` is a new dummy variable, so just rename
-3) add dummy columns `nep`, `gpp`, and `rh`
-
-```{r}
-pss <- pss |> 
-  select(-site, lai = psc) |> 
-  add_column(nep = 0, gpp = 0, rh = 0)
-
-waldo::compare(colnames(pss), c("time", "patch", "trk", "age", "area", "water", "fsc", "stsc", "stsl", "ssc", "lai", "msn", "fsn", "nep", "gpp", "rh"))
-```
-Overwrite copy in "/data/sites/mandifore"
-
-```{r}
-write.table(pss, pss_file,
-            quote = FALSE, row.names = FALSE)
-```
-
-## css
-
-CSS files don't need editing, except maybe the PFT numbers??
-
-```{r eval=FALSE}
-css_file <- list.files(
-    file.path("/data/sites/mandifore", s$cohort_filename),
-    pattern = ".css$",
-    full.names = TRUE
-  )
-css <- read_table(css_file)
-waldo::compare(colnames(css), c("time", "patch", "cohort", "dbh", "hite", "pft", "n", "bdead", "balive", "lai"))
-```
 
 
 # 6. Copy files over to HPC
