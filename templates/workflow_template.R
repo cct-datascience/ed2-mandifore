@@ -62,5 +62,3 @@ runModule_start_model_runs(settings, stop.on.error = FALSE)
 ## Get results of model runs
 get.results(settings)
 
-## Run ensemble analysis on model output
-runModule.run.ensemble.analysis(settings)
