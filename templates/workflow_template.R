@@ -42,7 +42,7 @@ runModule.run.write.configs(settings)
 
 job_scripts <- list.files(settings$rundir, "job.sh", recursive = TRUE, full.names = TRUE)
 #TODO: could get this from settings under the assumption that the .sh "ED binary" has same naming convention as .sif file
-container_path <- "/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-2.2.0.sif"
+container_path <- "/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-2.1.0.sif"
 
 purrr::walk(job_scripts, function(x) {
   job_sh <- readLines(x)
