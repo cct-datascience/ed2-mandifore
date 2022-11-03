@@ -1,0 +1,47 @@
+Logging on 2022/11/02_14:06:49
+Lmod has detected the following error: The following module(s) are unknown:
+"singularity"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore-cache load "singularity"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+/groups/dlebauer/ed2_results/pecan_remote/2022-11-02-20-57-07/run/ENS-00005-1000021575
++---------------- MPI parallel info: --------------------+
++  - Machnum  =      0
++  - Machsize =      1
++---------------- OMP parallel info: --------------------+
++  - thread  use:       1
++  - threads max:       1
++  - cpu     use:       1
++  - cpus    max:       1
++  Note: Max vals are for node, not sockets.
++--------------------------------------------------------+
+Reading namelist information
+At line 28 of file ed_load_namelist.f90 (unit = 10, file = 'ED2IN')
+Fortran runtime error: Cannot match namelist object name %month_yrstep
+
+Error termination. Backtrace:
+#0  0x2b8c69b35d5a
+#1  0x2b8c69b36869
+#2  0x2b8c69b3754f
+#3  0x2b8c69d7565d
+#4  0x2b8c69d7eae7
+#5  0x2b8c69d7ed0c
+#6  0x2b8c69d7ee67
+#7  0x55716ecae88e
+#8  0x55716ec69e78
+#9  0x55716ec69a6f
+#10  0x55716ec68aae
+#11  0x2b8c69f9c0b2
+#12  0x55716ec68add
+#13  0xffffffffffffffff
+ERROR IN MODEL RUN
+Logfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-11-02-20-57-07/out/ENS-00005-1000021575/logfile.txt'
+************************************************* End Log 2022/11/02_14:06:49
+
