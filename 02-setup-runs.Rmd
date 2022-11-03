@@ -212,6 +212,7 @@ Looks like we need to:
 2) `psc` was an old dummy variable, `lai` is a new dummy variable, so just rename
 3) add dummy columns `nep`, `gpp`, and `rh`
 
+
 ```{r}
 pss <- pss |> 
   select(-site, lai = psc) |> 
@@ -219,6 +220,7 @@ pss <- pss |>
 
 waldo::compare(colnames(pss), c("time", "patch", "trk", "age", "area", "water", "fsc", "stsc", "stsl", "ssc", "lai", "msn", "fsn", "nep", "gpp", "rh"))
 ```
+
 Overwrite copy in "/data/sites/mandifore"
 
 ```{r}
@@ -226,9 +228,17 @@ write.table(pss, pss_file,
             quote = FALSE, row.names = FALSE)
 ```
 
+
 ## css
 
-CSS files don't need editing, except maybe the PFT numbers??
+CSS files don't need editing except to replace obsolete PFTs.
+**TODO: move this step to before editing settings PFTs**
+
+12, 13, 14 have been replaced. At the time of the MANDIFORE runs they were:
+
+12 - early shade intolerant (high SLA)
+13 - mid shade intolerant (high SLA) 
+14 - medoid tropical (~ average tropical tree)
 
 ```{r eval=FALSE}
 css_file <- list.files(
@@ -238,6 +248,17 @@ css_file <- list.files(
   )
 css <- read_table(css_file)
 waldo::compare(colnames(css), c("time", "patch", "cohort", "dbh", "hite", "pft", "n", "bdead", "balive", "lai"))
+
+css <- css |> 
+  mutate(pft = case_when(
+    pft == 12 ~ 9, #temperate.Early_Hardwood
+    pft == 13 ~ 10, #temperate.Mid_Hardwood 
+    pft == 14 ~ 3, #broadleaf_evergreen_tropical_tree
+    TRUE ~ pft
+  ))
+
+write.table(css, css_file,
+            quote = FALSE, row.names = FALSE)
 ```
 
 
