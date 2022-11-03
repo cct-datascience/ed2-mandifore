@@ -1,0 +1,16 @@
+runtype     : ensemble
+ workflow id :  2022-11-03-16-42-52 
+ ensemble id :  NA 
+ run         :  4 / 5 
+ run id      :  ENS-00004-1000021575 
+ pft names   :  SetariaWT ebifarm.liqui 
+ model       :  ED2 
+ model id    :  14 
+ site        :  MANDIFORE-PNW-5909 
+ site  id    :  1000021575 
+ met data    :  /data/sites/mandifore/NARR_ED2_site_1-21575/ED_MET_DRIVER_HEADER 
+ start date  :  2002-01-01 
+ end date    :  2003-12-31 
+ hostname    :  puma 
+ rundir      :  /groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/run/ENS-00004-1000021575 
+ outdir      :  /groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00004-1000021575 

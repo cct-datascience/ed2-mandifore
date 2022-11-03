@@ -21,8 +21,8 @@
    <ed2_pft_number>1</ed2_pft_number>
   </pft>
   <pft>
-   <name>ebifarm.c3grass</name>
-   <ed2_pft_number>12</ed2_pft_number>
+   <name>ebifarm.liqui</name>
+   <ed2_pft_number>9</ed2_pft_number>
   </pft>
  </pfts>
  <meta.analysis>
@@ -40,7 +40,6 @@
    </parameters>
   </samplingspace>
  </ensemble>
- 
  <model>
   <type>ED2</type>
   <binary>/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-2.2.0.sh</binary>
@@ -62,7 +61,6 @@
    <MAXPATCH>0</MAXPATCH>
   </ed2in_tags>
  </model>
- 
  <run>
   <site>
    <id>1000021575</id>

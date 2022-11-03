@@ -22,9 +22,9 @@
    <outdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/pft/SetariaWT</outdir>
   </pft>
   <pft>
-   <name>ebifarm.c3grass</name>
-   <ed2_pft_number>12</ed2_pft_number>
-   <outdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/pft/ebifarm.c3grass</outdir>
+   <name>ebifarm.liqui</name>
+   <ed2_pft_number>9</ed2_pft_number>
+   <outdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/pft/ebifarm.liqui</outdir>
   </pft>
  </pfts>
  <meta.analysis>
@@ -116,8 +116,8 @@
    <mpirun>module load openmpi3; mpirun</mpirun>
   </modellauncher>
   <prerun>module load openmpi3 R</prerun>
-  <rundir>/groups/dlebauer/ed2_results/pecan_remote/2022-11-01-19-05-10/run</rundir>
-  <outdir>/groups/dlebauer/ed2_results/pecan_remote/2022-11-01-19-05-10/out</outdir>
+  <rundir>/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/run</rundir>
+  <outdir>/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out</outdir>
  </host>
  <settings.info>
   <deprecated.settings.fixed>TRUE</deprecated.settings.fixed>
@@ -125,7 +125,7 @@
   <checked>TRUE</checked>
  </settings.info>
  <workflow>
-  <id>2022-11-01-19-05-10</id>
+  <id>2022-11-03-16-42-52</id>
  </workflow>
  <rundir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/run</rundir>
  <modeloutdir>/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/out</modeloutdir>
