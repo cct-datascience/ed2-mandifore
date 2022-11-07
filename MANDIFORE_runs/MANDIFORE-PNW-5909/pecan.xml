@@ -16,10 +16,12 @@
   <dbfiles>/data/dbfiles</dbfiles>
  </database>
  <pfts>
+<!--
   <pft>
    <name>SetariaWT</name>
    <ed2_pft_number>1</ed2_pft_number>
   </pft>
+-->
   <pft>
    <name>ebifarm.liqui</name>
    <ed2_pft_number>9</ed2_pft_number>

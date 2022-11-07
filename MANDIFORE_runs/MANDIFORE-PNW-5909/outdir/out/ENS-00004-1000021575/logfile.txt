@@ -1,4 +1,4 @@
-Logging on 2022/11/03_09:49:22
+Logging on 2022/11/04_08:37:01
 Lmod has detected the following error: The following module(s) are unknown:
 "singularity"
 
@@ -11,7 +11,7 @@ Also make sure that all modulefiles written in TCL start with the string
 
 
 
-/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/run/ENS-00004-1000021575
+/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/run/ENS-00004-1000021575
 +---------------- MPI parallel info: --------------------+
 +  - Machnum  =      0
 +  - Machsize =      1
@@ -44,18 +44,18 @@ Copying namelist
   - TIME2CANOPY =  0.00000E+00
 ----------------------------------------
  [+] Checking for XML config...
- count xml pft : /groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/run/ENS-00004-1000021575/config.xml
- NPFT =            2
+ count xml pft : /groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/run/ENS-00004-1000021575/config.xml
+ NPFT =            1
  MAXPFT =            9
- Opening ED2 XML Config file/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/run/ENS-00004-1000021575/config.xml
+ Opening ED2 XML Config file/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/run/ENS-00004-1000021575/config.xml
  EXTERN READ FROM FILE ::           0
  MET READ FROM FILE ::           0
  CAN_AIR READ FROM FILE ::           0
  MISC READ FROM FILE ::           0
  ED_MISC READ FROM FILE ::           1
  Number of land use types to be read from file =     0
- NPFT =            2
- PFT's READ FROM FILE ::           2
+ NPFT =            1
+ PFT's READ FROM FILE ::           1
  PFTCONST READ FROM FILE ::           0
  HYDROLOGY READ FROM FILE ::           0
  SCENARIO READ FROM FILE ::           0
@@ -70,7 +70,7 @@ Copying namelist
  PHENOLOGY READ FROM FILE ::           0
  PHYSIOLOGY READ FROM FILE ::           0
  INITCOND READ FROM FILE ::           0
- Wrote Config Record:/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00004-1000021575/history.xml
+ Wrote Config Record:/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00004-1000021575/history.xml
  [+] Init_derived_params_after_xml...
  [+] Alloc_Soilgrid...
  [+] Set_Polygon_Coordinates...
@@ -129,7 +129,7 @@ Using cohort file: /data/sites/mandifore/FIA_ED2_site_1-21575/siteid1000021575.f
  
  [+] Update_met_drivers...
  [+] Ed_Init_Atm...
-Grid:      1 Poly:      1 Lon: -120.9940 Lat:    44.1098 Nplants:    0.0078 Avg. LAI:    0.20 Avg. AGB:    0.98 NPatches:      8 NCohorts:     48
+Grid:      1 Poly:      1 Lon: -120.9940 Lat:    44.1098 Nplants:    0.0078 Avg. LAI:    0.19 Avg. AGB:    0.98 NPatches:      8 NCohorts:     48
  [+] initHydrology...
 initHydrology | mynum=         1 ngrids=         1 mpolys=         1 msites=         1
 Allocated | mynum=         1 ngrids=         1 mpolys=         1 msites=         1
@@ -138,7 +138,7 @@ Deallocated | mynum=         1 ngrids=         1 mpolys=         1 msites=      
  [+] Filltab_Alltypes...
  [+] Find frqsum...
 
- === Finish initialization; CPU(sec)=0.42; Wall(sec)=3.44; Time integration starts (ed_master) ===
+ === Finish initialization; CPU(sec)=0.38; Wall(sec)=0.44; Time integration starts (ed_master) ===
 
  === Time integration starts (model) ===
  - Simulating:   01/01/2002 00:00:00 UTC
@@ -323,7 +323,7 @@ Deallocated | mynum=         1 ngrids=         1 mpolys=         1 msites=      
  - Simulating:   06/29/2002 00:00:00 UTC
  - Simulating:   06/30/2002 00:00:00 UTC
  ---> Making new patch, with area=  3.10555E-03  for dist_type=     3
-HDF5-DIAG: Error detected in HDF5 (1.10.4) thread 47174877360704:
+HDF5-DIAG: Error detected in HDF5 (1.10.4) thread 47298949050944:
   #000: ../../../src/H5Dio.c line 322 in H5Dwrite(): could not get a validated dataspace from file_space_id
     major: Invalid arguments to routine
     minor: Bad value
@@ -352,6 +352,6 @@ HDF5-DIAG: Error detected in HDF5 (1.10.4) thread 47174877360704:
 Note: The following floating-point exceptions are signalling: IEEE_OVERFLOW_FLAG
 STOP fatal_error
 ERROR IN MODEL RUN
-Logfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00004-1000021575/logfile.txt'
-************************************************* End Log 2022/11/03_09:49:22
+Logfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00004-1000021575/logfile.txt'
+************************************************* End Log 2022/11/04_08:37:01
 

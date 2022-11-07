@@ -373,8 +373,8 @@ $ED_NL
    ! FFILOUT -- Path and prefix for analysis files (all but history/restart).              !
    ! SFILOUT -- Path and prefix for history files.                                         !
    !---------------------------------------------------------------------------------------!
-   NL%FFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00005-1000021575/analysis'
-   NL%SFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00005-1000021575/history'
+   NL%FFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00005-1000021575/analysis'
+   NL%SFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00005-1000021575/history'
    !---------------------------------------------------------------------------------------!
 
 
@@ -1611,7 +1611,7 @@ $ED_NL
    ! 16 - Tropical/subtropical C3 grass                                                    !
    ! 17 - (Beta) Lianas                                                                    !
    !---------------------------------------------------------------------------------------!
-   NL%INCLUDE_THESE_PFT = 1,9
+   NL%INCLUDE_THESE_PFT = 9
    NL%PASTURE_STOCK = 1
    NL%AGRI_STOCK = 1
    NL%PLANTATION_STOCK = 3
@@ -1889,8 +1889,8 @@ $ED_NL
    !               simulation.                                                             !
    ! PHENPATH   -- path and prefix of the prescribed phenology data.                       !
    !---------------------------------------------------------------------------------------!
-   NL%IEDCNFGF = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/run/ENS-00005-1000021575/config.xml'
-   NL%EVENT_FILE = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/run/ENS-00005-1000021575/myevents.xml'
+   NL%IEDCNFGF = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/run/ENS-00005-1000021575/config.xml'
+   NL%EVENT_FILE = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/run/ENS-00005-1000021575/myevents.xml'
    !---------------------------------------------------------------------------------------!
 
 

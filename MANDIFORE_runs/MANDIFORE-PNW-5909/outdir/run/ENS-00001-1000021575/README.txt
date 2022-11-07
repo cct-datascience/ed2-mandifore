@@ -1,9 +1,9 @@
 runtype     : ensemble
- workflow id :  2022-11-03-16-42-52 
+ workflow id :  2022-11-04-15-35-30 
  ensemble id :  NA 
  run         :  1 / 5 
  run id      :  ENS-00001-1000021575 
- pft names   :  SetariaWT ebifarm.liqui 
+ pft names   :  ebifarm.liqui 
  model       :  ED2 
  model id    :  14 
  site        :  MANDIFORE-PNW-5909 
@@ -12,5 +12,5 @@ runtype     : ensemble
  start date  :  2002-01-01 
  end date    :  2003-12-31 
  hostname    :  puma 
- rundir      :  /groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/run/ENS-00001-1000021575 
- outdir      :  /groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00001-1000021575 
+ rundir      :  /groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/run/ENS-00001-1000021575 
+ outdir      :  /groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00001-1000021575 

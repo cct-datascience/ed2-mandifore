@@ -1,12 +1,12 @@
 #!/bin/bash -l
 
 # create output folder
-mkdir -p "/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00002-1000021575"
+mkdir -p "/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00002-1000021575"
 # no need to mkdir for scratch
 
 # redirect output
 exec 3>&1
-exec &>> "/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00002-1000021575/logfile.txt"
+exec &>> "/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00002-1000021575/logfile.txt"
 
 TIMESTAMP=`date +%Y/%m/%d_%H:%M:%S`
 echo "Logging on "$TIMESTAMP
@@ -22,13 +22,13 @@ module load openmpi3 R
 export GFORTRAN_UNBUFFERED_PRECONNECTED=yes
 
 # see if application needs running
-if [ ! -e "/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00002-1000021575/history.xml" ]; then
-  cd "/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/run/ENS-00002-1000021575"
+if [ ! -e "/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00002-1000021575/history.xml" ]; then
+  cd "/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/run/ENS-00002-1000021575"
   
   "/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-2.2.0.sh" ""
   STATUS=$?
   if [ $STATUS == 0 ]; then
-    if grep -Fq '=== Time integration ends; Total elapsed time=' "/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00002-1000021575/logfile.txt"; then
+    if grep -Fq '=== Time integration ends; Total elapsed time=' "/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00002-1000021575/logfile.txt"; then
       STATUS=0
     else
       STATUS=1
@@ -41,7 +41,7 @@ if [ ! -e "/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS
 
   # check the status
   if [ $STATUS -ne 0 ]; then
-  	echo -e "ERROR IN MODEL RUN\nLogfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00002-1000021575/logfile.txt'"
+  	echo -e "ERROR IN MODEL RUN\nLogfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00002-1000021575/logfile.txt'"
   	echo "************************************************* End Log $TIMESTAMP"
     echo ""
   	exit $STATUS
@@ -50,10 +50,10 @@ if [ ! -e "/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS
   # convert to MsTMIP
   singularity run /groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-2.2.0.sif /usr/local/bin/Rscript \
     -e "library(PEcAn.ED2)" \
-    -e "model2netcdf.ED2('/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00002-1000021575', 44.109846, -120.9940402, '2002-01-01', '2003-12-31', c(SetariaWT = 1L, ebifarm.liqui = 9L))"
+    -e "model2netcdf.ED2('/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00002-1000021575', 44.109846, -120.9940402, '2002-01-01', '2003-12-31', c(ebifarm.liqui = 9L))"
   STATUS=$?
   if [ $STATUS -ne 0 ]; then
-  	echo -e "ERROR IN model2netcdf.ED2\nLogfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00002-1000021575'/logfile.txt"
+  	echo -e "ERROR IN model2netcdf.ED2\nLogfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00002-1000021575'/logfile.txt"
   	echo "************************************************* End Log $TIMESTAMP"
     echo ""
     exit $STATUS
@@ -61,7 +61,7 @@ if [ ! -e "/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS
 fi
 
 # copy readme with specs to output
-cp  "/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/run/ENS-00002-1000021575/README.txt" "/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00002-1000021575/README.txt"
+cp  "/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/run/ENS-00002-1000021575/README.txt" "/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00002-1000021575/README.txt"
 
 # run getdata to extract right variables
 
@@ -69,6 +69,6 @@ cp  "/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/run/ENS-00002
 
 
 # all done
-echo -e "MODEL FINISHED\nLogfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00002-1000021575/logfile.txt'"
+echo -e "MODEL FINISHED\nLogfile is located at '/groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00002-1000021575/logfile.txt'"
 echo "************************************************* End Log $TIMESTAMP"
 echo ""

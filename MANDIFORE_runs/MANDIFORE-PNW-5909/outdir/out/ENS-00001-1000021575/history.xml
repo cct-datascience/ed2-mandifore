@@ -92,13 +92,13 @@
                    6
       </restart_mode>
       <output_filepath>
-         /groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00001-1000021575/analysis
+         /groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00001-1000021575/analysis
       </output_filepath>
       <input_filepath>
          /data/sites/mandifore/FIA_ED2_site_1-21575/siteid1000021575.fia2000.radius0.075.
       </input_filepath>
       <history_out_filepath>
-         /groups/dlebauer/ed2_results/pecan_remote/2022-11-03-16-42-52/out/ENS-00001-1000021575/history
+         /groups/dlebauer/ed2_results/pecan_remote/2022-11-04-15-35-30/out/ENS-00001-1000021575/history
       </history_out_filepath>
       <ivegt_dynamics>
                    1
@@ -127,578 +127,6 @@
                    1
       </vary_hyd>
    </ed_misc>
-   <pft>
-      <num>
-                   1
-      </num>
-      <is_tropical>
-                   1
-      </is_tropical>
-      <is_grass>
-                   1
-      </is_grass>
-      <is_conifer>
-                   0
-      </is_conifer>
-      <is_savannah>
-                   0
-      </is_savannah>
-      <is_liana>
-                   0
-      </is_liana>
-      <include_pft>
-                   1
-      </include_pft>
-      <include_pft_ag>
-                   0
-      </include_pft_ag>
-      <include_pft_fp>
-                   0
-      </include_pft_fp>
-      <clumping_factor>
-                           1.00000000000000000000
-      </clumping_factor>
-      <orient_factor>
-                           0.00000000000000000000
-      </orient_factor>
-      <leaf_emiss_tir>
-                           0.95999999999999996447
-      </leaf_emiss_tir>
-      <wood_emiss_tir>
-                           0.95999999999999996447
-      </wood_emiss_tir>
-      <leaf_reflect_vis>
-                           0.10000000149011611938
-      </leaf_reflect_vis>
-      <leaf_reflect_nir>
-                           0.10000000149011611938
-      </leaf_reflect_nir>
-      <wood_reflect_vis>
-                           0.10000000149011611938
-      </wood_reflect_vis>
-      <wood_reflect_nir>
-                           0.10000000149011611938
-      </wood_reflect_nir>
-      <leaf_trans_vis>
-                           0.10000000149011611938
-      </leaf_trans_vis>
-      <leaf_trans_nir>
-                           0.10000000149011611938
-      </leaf_trans_nir>
-      <wood_trans_vis>
-                           0.10000000149011611938
-      </wood_trans_vis>
-      <wood_trans_nir>
-                           0.10000000149011611938
-      </wood_trans_nir>
-      <photosyn_pathway>
-                   4
-      </photosyn_pathway>
-      <quantum_efficiency>
-                 0.0631323978
-      </quantum_efficiency>
-      <curvpar_electron>
-                 0.6999999881
-      </curvpar_electron>
-      <qyield_psII>
-                 0.6250000000
-      </qyield_psII>
-      <Vm0>
-                19.8593654633
-      </Vm0>
-      <Vm0_v0>
-                12.5000000000
-      </Vm0_v0>
-      <Vm0_v1>
-                 0.0000000000
-      </Vm0_v1>
-      <Vm_low_temp>
-                11.0922765732
-      </Vm_low_temp>
-      <Vm_high_temp>
-                45.0000000000
-      </Vm_high_temp>
-      <Vm_decay_elow>
-                 0.4000000060
-      </Vm_decay_elow>
-      <Vm_decay_ehigh>
-                 0.4000000060
-      </Vm_decay_ehigh>
-      <vm_hor>
-              3000.0000000000
-      </vm_hor>
-      <vm_q10>
-                 2.4000000954
-      </vm_q10>
-      <kplastic_vm0>
-              -999.9000244141
-      </kplastic_vm0>
-      <Jm0>
-              -999.9000244141
-      </Jm0>
-      <Jm_low_temp>
-              -999.9000244141
-      </Jm_low_temp>
-      <Jm_high_temp>
-              -999.9000244141
-      </Jm_high_temp>
-      <Jm_decay_elow>
-              -999.9000244141
-      </Jm_decay_elow>
-      <Jm_decay_ehigh>
-              -999.9000244141
-      </Jm_decay_ehigh>
-      <jm_hor>
-              -999.9000244141
-      </jm_hor>
-      <jm_q10>
-              -999.9000244141
-      </jm_q10>
-      <Tpm0>
-              -999.9000244141
-      </Tpm0>
-      <electron_transport_factor>
-                 2.0000000000
-      </electron_transport_factor>
-      <triose_phosphate_factor>
-                 0.0000000000
-      </triose_phosphate_factor>
-      <dark_respiration_factor>
-                 0.0350000001
-      </dark_respiration_factor>
-      <Rd0>
-                 0.4375000000
-      </Rd0>
-      <Rd_low_temp>
-                 8.0000000000
-      </Rd_low_temp>
-      <Rd_high_temp>
-                45.0000000000
-      </Rd_high_temp>
-      <Rd_decay_elow>
-                 0.4000000060
-      </Rd_decay_elow>
-      <Rd_decay_ehigh>
-                 0.4000000060
-      </Rd_decay_ehigh>
-      <rd_hor>
-              3000.0000000000
-      </rd_hor>
-      <rd_q10>
-                 2.4000000954
-      </rd_q10>
-      <D0>
-                 0.0160000008
-      </D0>
-      <stomatal_slope>
-                 3.8721737862
-      </stomatal_slope>
-      <cuticular_cond>
-             15033.0322265625
-      </cuticular_cond>
-      <water_conductance>
-                 0.0000285199
-      </water_conductance>
-      <leaf_width>
-                 0.0081604356
-      </leaf_width>
-      <branch_diam>
-                 0.0500000007
-      </branch_diam>
-      <growth_resp_factor>
-                 0.3701772392
-      </growth_resp_factor>
-      <leaf_turnover_rate>
-                 5.2981610298
-      </leaf_turnover_rate>
-      <eplastic_vm0>
-                -1.0999500751
-      </eplastic_vm0>
-      <eplastic_sla>
-                -1.1800000668
-      </eplastic_sla>
-      <kplastic_LL>
-              -999.9000244141
-      </kplastic_LL>
-      <root_turnover_rate>
-                 0.3177137077
-      </root_turnover_rate>
-      <bark_turnover_rate>
-                 0.4000000060
-      </bark_turnover_rate>
-      <storage_turnover_rate>
-                 0.0000000000
-      </storage_turnover_rate>
-      <f_labile_leaf>
-                 1.0000000000
-      </f_labile_leaf>
-      <f_labile_stem>
-                 0.0000000000
-      </f_labile_stem>
-      <root_respiration_factor>
-                 1.6707050800
-      </root_respiration_factor>
-      <rrf_low_temp>
-                 8.0000000000
-      </rrf_low_temp>
-      <rrf_high_temp>
-                45.0000000000
-      </rrf_high_temp>
-      <rrf_decay_elow>
-                 0.4000000060
-      </rrf_decay_elow>
-      <rrf_decay_ehigh>
-                 0.4000000060
-      </rrf_decay_ehigh>
-      <rrf_hor>
-              3000.0000000000
-      </rrf_hor>
-      <rrf_q10>
-                 2.4000000954
-      </rrf_q10>
-      <frost_mort>
-                 3.0000000000
-      </frost_mort>
-      <mort0>
-                -0.3499999940
-      </mort0>
-      <mort1>
-                 2.0000000000
-      </mort1>
-      <mort2>
-                28.7798748016
-      </mort2>
-      <mort3>
-                 0.0000000000
-      </mort3>
-      <cbr_severe_stress>
-                -1.0628256798
-      </cbr_severe_stress>
-      <seedling_mortality>
-                 0.9380258322
-      </seedling_mortality>
-      <treefall_s_gt>
-                 0.0000000000
-      </treefall_s_gt>
-      <treefall_s_lt>
-                 0.2500000000
-      </treefall_s_lt>
-      <felling_s_gtharv>
-                 0.6999999881
-      </felling_s_gtharv>
-      <felling_s_ltharv>
-                 0.6999999881
-      </felling_s_ltharv>
-      <skid_s_gtharv>
-                 1.0000000000
-      </skid_s_gtharv>
-      <skid_s_ltharv>
-                 1.0000000000
-      </skid_s_ltharv>
-      <fire_s_min>
-                 0.0000000000
-      </fire_s_min>
-      <fire_s_max>
-                 0.0000000000
-      </fire_s_max>
-      <fire_s_inter>
-                 1.5000000000
-      </fire_s_inter>
-      <fire_s_slope>
-                -1.0000000000
-      </fire_s_slope>
-      <plant_min_temp>
-               275.6499938965
-      </plant_min_temp>
-      <rho>
-                 0.2000000030
-      </rho>
-      <SLA>
-                99.4304351807
-      </SLA>
-      <sla_s0>
-                22.7000007629
-      </sla_s0>
-      <sla_s1>
-                 0.0000000000
-      </sla_s1>
-      <kplastic_sla>
-              -999.9000244141
-      </kplastic_sla>
-      <lma_slope>
-                 0.0149999997
-      </lma_slope>
-      <laimax_plastic>
-                 6.0000000000
-      </laimax_plastic>
-      <q>
-                 2.1210932732
-      </q>
-      <sapwood_ratio>
-              3900.0000000000
-      </sapwood_ratio>
-      <qsw>
-                 0.0058205132
-      </qsw>
-      <qbark>
-                 0.0000000000
-      </qbark>
-      <SRA>
-                48.0000000000
-      </SRA>
-      <root_beta>
-                 0.0010000000
-      </root_beta>
-      <init_density>
-                 0.1000000015
-      </init_density>
-      <f_bstorage_init>
-                 1.0000000000
-      </f_bstorage_init>
-      <leaf_water_sat>
-                 1.8500000238
-      </leaf_water_sat>
-      <wood_water_sat>
-                 0.6999999881
-      </wood_water_sat>
-      <bark_water_sat>
-                 0.6999999881
-      </bark_water_sat>
-      <leaf_water_cap>
-                 0.0067149964
-      </leaf_water_cap>
-      <wood_water_cap>
-                 0.0024686002
-      </wood_water_cap>
-      <leaf_rwc_min>
-                 0.2145575881
-      </leaf_rwc_min>
-      <wood_rwc_min>
-                 0.3145575821
-      </wood_rwc_min>
-      <leaf_psi_min>
-              -216.3915557861
-      </leaf_psi_min>
-      <wood_psi_min>
-              -194.3650970459
-      </wood_psi_min>
-      <leaf_psi_tlp>
-              -159.6982269287
-      </leaf_psi_tlp>
-      <wood_psi_tlp>
-              -123.3791351318
-      </wood_psi_tlp>
-      <leaf_psi_osmotic>
-              -118.1655502319
-      </leaf_psi_osmotic>
-      <wood_psi_osmotic>
-               -95.4454345703
-      </wood_psi_osmotic>
-      <leaf_elastic_mod>
-                 4.4557590485
-      </leaf_elastic_mod>
-      <wood_elastic_mod>
-                 4.1341767311
-      </wood_elastic_mod>
-      <wood_Kmax>
-                 0.0310004745
-      </wood_Kmax>
-      <wood_Kexp>
-                 1.8546185493
-      </wood_Kexp>
-      <wood_psi50>
-              -261.0598754883
-      </wood_psi50>
-      <vessel_curl_factor>
-                 1.5000000000
-      </vessel_curl_factor>
-      <stoma_lambda>
-                 4.5000000000
-      </stoma_lambda>
-      <stoma_beta>
-                -0.0083356528
-      </stoma_beta>
-      <stoma_psi_b>
-              -159.6982269287
-      </stoma_psi_b>
-      <stoma_psi_c>
-                 3.0000000000
-      </stoma_psi_c>
-      <high_psi_threshold>
-                  10
-      </high_psi_threshold>
-      <low_psi_threshold>
-                  10
-      </low_psi_threshold>
-      <leaf_grow_rate>
-                 0.0500000007
-      </leaf_grow_rate>
-      <leaf_shed_rate>
-                 0.0500000007
-      </leaf_shed_rate>
-      <b1Ht>
-                 0.0351999998
-      </b1Ht>
-      <b2Ht>
-                 0.6940000057
-      </b2Ht>
-      <hgt_ref>
-                61.7000007629
-      </hgt_ref>
-      <hgt_min>
-                 0.5000000000
-      </hgt_min>
-      <hgt_max>
-                 1.5000000000
-      </hgt_max>
-      <min_dbh>
-                 0.1211817637
-      </min_dbh>
-      <dbh_crit>
-                 0.5971379876
-      </dbh_crit>
-      <dbh_bigleaf>
-                 0.5971379876
-      </dbh_bigleaf>
-      <b1Bl>
-                 0.0206033196
-      </b1Bl>
-      <b2Bl>
-                 0.6410495043
-      </b2Bl>
-      <b1Bs_small>
-                 0.0627227873
-      </b1Bs_small>
-      <b1Bs_large>
-                 0.0647229999
-      </b1Bs_large>
-      <b2Bs_small>
-                 2.4323608875
-      </b2Bs_small>
-      <b2Bs_large>
-                 2.4255735874
-      </b2Bs_large>
-      <min_bdead>
-                 0.0001849201
-      </min_bdead>
-      <bdead_crit>
-                 0.0089480467
-      </bdead_crit>
-      <b1Ca>
-                 1.1257275343
-      </b1Ca>
-      <b2Ca>
-                 1.0521197319
-      </b2Ca>
-      <b1WAI>
-                 0.0096000005
-      </b1WAI>
-      <b2WAI>
-                 2.0947000980
-      </b2WAI>
-      <brf_wd>
-                 0.1599999964
-      </brf_wd>
-      <b1SA>
-                 1.0000000000
-      </b1SA>
-      <b2SA>
-                 2.0000000000
-      </b2SA>
-      <qrhob>
-                 0.8032786846
-      </qrhob>
-      <b1Xb>
-                 0.0000000000
-      </b1Xb>
-      <b1Xs>
-                 0.3157694936
-      </b1Xs>
-      <agf_bs>
-                 0.6999999881
-      </agf_bs>
-      <b1Vol>
-                 0.0247086249
-      </b1Vol>
-      <b2Vol>
-                 2.0000000000
-      </b2Vol>
-      <b1Rd>
-                -1.1140580177
-      </b1Rd>
-      <b2Rd>
-                 0.4223014116
-      </b2Rd>
-      <d18O_ref>
-                -5.3559999466
-      </d18O_ref>
-      <b1d18O>
-                 0.0516000018
-      </b1d18O>
-      <b2d18O>
-                 1.0000000000
-      </b2d18O>
-      <b1Efrd>
-                -2.4360001087
-      </b1Efrd>
-      <b2Efrd>
-                 0.1821999997
-      </b2Efrd>
-      <init_laimax>
-          1.0000000E+19
-      </init_laimax>
-      <c2n_leaf>
-                25.4454765320
-      </c2n_leaf>
-      <phenology>
-                   1
-      </phenology>
-      <c_grn_leaf_dry>
-              3218.0000000000
-      </c_grn_leaf_dry>
-      <c_ngrn_wood_dry>
-              1217.3759765625
-      </c_ngrn_wood_dry>
-      <c_ngrn_bark_dry>
-              1217.3759765625
-      </c_ngrn_bark_dry>
-      <delta_c_wood>
-                63.1020431519
-      </delta_c_wood>
-      <delta_c_bark>
-                63.1020431519
-      </delta_c_bark>
-      <b1Cl>
-                 0.9900000095
-      </b1Cl>
-      <b2Cl>
-                 1.0000000000
-      </b2Cl>
-      <r_fract>
-                 0.3994842768
-      </r_fract>
-      <r_cv50>
-                 0.3333333433
-      </r_cv50>
-      <r_bang>
-                   1
-      </r_bang>
-      <st_fract>
-                 0.0000000000
-      </st_fract>
-      <nonlocal_dispersal>
-                 0.2226179391
-      </nonlocal_dispersal>
-      <repro_min_h>
-                 0.0000000000
-      </repro_min_h>
-      <min_recruit_size>
-                 0.0000000000
-      </min_recruit_size>
-      <seed_rain>
-                 0.0100000007
-      </seed_rain>
-   </pft>
    <pft>
       <num>
                    9
@@ -767,7 +195,7 @@
                    3
       </photosyn_pathway>
       <quantum_efficiency>
-                 0.0449488834
+                 0.0460081510
       </quantum_efficiency>
       <curvpar_electron>
                  0.6999999881
@@ -776,7 +204,7 @@
                  0.8500000238
       </qyield_psII>
       <Vm0>
-                40.1567916870
+                50.1986007690
       </Vm0>
       <Vm0_v0>
                 20.3870754242
@@ -836,7 +264,7 @@
                  0.0000000000
       </triose_phosphate_factor>
       <dark_respiration_factor>
-                 0.0329288803
+                 0.0413725078
       </dark_respiration_factor>
       <Rd0>
                  0.2956125736
@@ -863,25 +291,25 @@
                  0.0160000008
       </D0>
       <stomatal_slope>
-                 4.7449259758
+                 6.7263636589
       </stomatal_slope>
       <cuticular_cond>
              10000.0000000000
       </cuticular_cond>
       <water_conductance>
-                 0.0063314168
+                 0.0058903373
       </water_conductance>
       <leaf_width>
-                 0.1025309414
+                 0.0819037855
       </leaf_width>
       <branch_diam>
                  0.1000000015
       </branch_diam>
       <growth_resp_factor>
-                 0.3657522202
+                 0.3617258370
       </growth_resp_factor>
       <leaf_turnover_rate>
-                 1.2250590324
+                 2.5184400082
       </leaf_turnover_rate>
       <eplastic_vm0>
                 -1.0999500751
@@ -893,7 +321,7 @@
               -999.9000244141
       </kplastic_LL>
       <root_turnover_rate>
-                 1.6185394526
+                 1.3219480515
       </root_turnover_rate>
       <bark_turnover_rate>
                  0.4000000060
@@ -902,13 +330,13 @@
                  0.0000000000
       </storage_turnover_rate>
       <f_labile_leaf>
-                 0.2594248950
+                 0.2452610135
       </f_labile_leaf>
       <f_labile_stem>
                  0.0000000000
       </f_labile_stem>
       <root_respiration_factor>
-                 3.5676748753
+                 3.6221189499
       </root_respiration_factor>
       <rrf_low_temp>
                  4.7136998177
@@ -938,7 +366,7 @@
                  1.0000000000
       </mort1>
       <mort2>
-                40.9875221252
+                 3.3236055374
       </mort2>
       <mort3>
                  0.0061440002
@@ -986,7 +414,7 @@
                  0.0000000000
       </rho>
       <SLA>
-                28.3401508331
+                34.5289382935
       </SLA>
       <sla_s0>
                 30.0000000000
@@ -1004,7 +432,7 @@
                  6.0000000000
       </laimax_plastic>
       <q>
-                 0.5593125820
+                 0.4992749393
       </q>
       <sapwood_ratio>
               3900.0000000000
@@ -1247,7 +675,7 @@
                  1.0980000496
       </b2Cl>
       <r_fract>
-                 0.1209513620
+                 0.2432655245
       </r_fract>
       <r_cv50>
                  0.3333333433
@@ -1259,7 +687,7 @@
                  0.0000000000
       </st_fract>
       <nonlocal_dispersal>
-                 0.4208087027
+                 0.7246751785
       </nonlocal_dispersal>
       <repro_min_h>
                 18.0000000000
