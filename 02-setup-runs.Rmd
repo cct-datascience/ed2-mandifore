@@ -45,6 +45,7 @@ file.copy(file.path("templates", "pecan_template.xml"),
 file.copy(file.path("templates", "workflow_template.R"),
           file.path(wd, "workflow.R"))
 ```
+
 # 5. Edit css/pss files
 
 
@@ -138,8 +139,8 @@ css |>
 
 css <- css |> 
   group_by(time, patch, cohort, pft) |> 
-  summarize(dbh = median(dbh),
-            across(hite:lai, sum),
+  summarize(across(c(dbh, hite), median), 
+            across(c(n, bdead, balive, lai), sum),
             .groups = "drop")
 ```
 
@@ -175,6 +176,8 @@ settings$run$site$id <- s$site_id
 ```
 
 ## MET data
+
+TODO: check if run start and end are between met start and end
 
 ```{r}
 settings$run$site$met.start <-
@@ -255,6 +258,7 @@ for (i in 1:nrow(pfts)) {
 
 
 settings$pfts
+
 ```
 
 Overwrite template with edited settings.
