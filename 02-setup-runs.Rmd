@@ -106,7 +106,7 @@ CSS files don't need editing except to replace obsolete PFTs.
 13 - mid shade intolerant (high SLA) 
 14 - medoid tropical (~ average tropical tree)
 
-```{r eval=FALSE}
+```{r}
 css_file <- list.files(
     file.path("/data/sites/mandifore", s$cohort_filename),
     pattern = ".css$",
@@ -122,7 +122,28 @@ css <- css |>
     pft == 14 ~ 3, #broadleaf_evergreen_tropical_tree
     TRUE ~ pft
   ))
+```
 
+
+#### Simplify css file
+
+Currently there are multiple entries for each time, patch, cohort, pft combination.  It doesn't seem like this should be the case (but I'm not sure).  I'll try summarizing to get the median `dbh` and sum `n`.
+
+```{r}
+css |> 
+  group_by(time, patch, cohort, pft) |> 
+  filter(n() > 1) |> 
+  arrange(patch, cohort, pft) |> 
+  select(time, patch, cohort, pft, everything())
+
+css <- css |> 
+  group_by(time, patch, cohort, pft) |> 
+  summarize(dbh = median(dbh),
+            across(hite:lai, sum),
+            .groups = "drop")
+```
+
+```{r}
 write.table(css, css_file,
             quote = FALSE, row.names = FALSE)
 ```
