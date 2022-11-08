@@ -99,7 +99,6 @@ write.table(pss, pss_file,
 ## css
 
 CSS files don't need editing except to replace obsolete PFTs.
-**TODO: move this step to before editing settings PFTs**
 
 12, 13, 14 have been replaced. At the time of the MANDIFORE runs they were:
 
@@ -127,7 +126,6 @@ css <- css |>
 write.table(css, css_file,
             quote = FALSE, row.names = FALSE)
 ```
-
 
 
 # 2. Customize pecan.xml
@@ -191,8 +189,6 @@ write_lines(met_driver, met_driver_path)
 ```
 
 ## History files
-
-TODO: these may need to be edited to include new dummy columns associated with `IED_INIT_MODE=6`: https://github.com/EDmodel/ED2/wiki/Initial-conditions#files-types-and-formats-for-nlied_init_mode6
 
 ```{r}
 base <- "/data/sites/mandifore"
