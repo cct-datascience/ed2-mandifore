@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <pecan>
   <info>
-    <!--Edit this-->
+    <!--This will be replaced-->
     <notes>site name</notes>
   </info>
-  <!-- Edit the outdir path to include a two-letter abreviation for this site -->  
+  <!-- This will be replaced -->  
   <outdir>/data/output/pecan_runs/new_run</outdir>
   <database>
     <bety>
@@ -19,10 +19,13 @@
     <dbfiles>/data/dbfiles</dbfiles>
   </database>
   <pfts>
+    <!-- For now, don't even put Setaria in -->
+    <!--
     <pft>
       <name>SetariaWT</name>
       <ed2_pft_number>1</ed2_pft_number>
     </pft>
+    -->
     <!-- Add additional PFTs here -->
   </pfts>
 
@@ -63,7 +66,7 @@
     <!-- this is the development version of ED2 and PEcAn.ED2 -->
     <binary>/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-dev.sh</binary>
     <id>14</id>
-    <!-- ED2IN template that corresponds with dev version of ED2.  This path is *inside* the singularity container -->
+    <!-- ED2IN template that corresponds with dev version of ED2 -->
     <revision>2.2.0.github</revision>
     <config.header>
       <radiation>
@@ -85,14 +88,14 @@
 
   <run>
     <site>
-      <!-- edit the site ID to match the site on BETYdb -->
-      <id>678</id>
+      <!-- ID, start date, and end date will be replaced -->
+      <id>12345</id>
       <met.start>2019-01-01 00:00:00</met.start>
       <met.end>2019-12-31 23:59:59</met.end>
     </site>
 
     <inputs>
-      <!-- edit the site ID in this path also -->
+      <!-- This will be replaced -->
       <met>/data/sites/mandifore/sitename/ED_MET_DRIVER_HEADER</met>
       <veg>/data/oge2OLD/OGE2_</veg>
       <soil>/data/faoOLD/FAO_</soil>
