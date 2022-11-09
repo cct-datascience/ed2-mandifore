@@ -158,13 +158,18 @@ css <- css |>
 Overwrite copy in "/data/sites/mandifore"
 
 ```{r}
-write.table(css, css_file,
+css |> 
+  #column order matters because headers aren't read by ED2
+  select(time, patch, cohort, dbh, hite, pft, n, bdead, balive, lai) |> 
+  write.table(css_file,
             quote = FALSE, row.names = FALSE)
 ```
 
 ```{r}
-write.table(pss, pss_file,
-            quote = FALSE, row.names = FALSE)
+pss |> 
+  select(time, patch, trk, age, area, water, fsc, stsc, stsl, ssc, lai, msn, fsn, nep, gpp, rh) |> 
+  write.table(pss_file,
+              quote = FALSE, row.names = FALSE)
 ```
 
 
