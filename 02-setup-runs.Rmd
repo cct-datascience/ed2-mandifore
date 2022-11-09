@@ -60,8 +60,6 @@ file.copy(
 )
 ```
 
-## pss
-
 Read into R
 
 ```{r}
@@ -72,6 +70,20 @@ pss_file <- list.files(
   )
 pss <- read_table(pss_file)
 
+css_file <- list.files(
+    file.path("/data/sites/mandifore", s$cohort_filename),
+    pattern = ".css$",
+    full.names = TRUE
+  )
+css <- read_table(css_file)
+```
+
+
+## pss
+
+Check if colnames are correct
+
+```{r}
 waldo::compare(colnames(pss), c("time", "patch", "trk", "age", "area", "water", "fsc", "stsc", "stsl", "ssc", "lai", "msn", "fsn", "nep", "gpp", "rh"))
 ```
 
@@ -89,11 +101,13 @@ pss <- pss |>
 waldo::compare(colnames(pss), c("time", "patch", "trk", "age", "area", "water", "fsc", "stsc", "stsl", "ssc", "lai", "msn", "fsn", "nep", "gpp", "rh"))
 ```
 
-Overwrite copy in "/data/sites/mandifore"
+#### Remove empty patches
+
+I'm going to try removing patches that don't exist in the css file
 
 ```{r}
-write.table(pss, pss_file,
-            quote = FALSE, row.names = FALSE)
+pss <- pss |> 
+  filter(patch %in% unique(css$patch))
 ```
 
 
@@ -108,12 +122,7 @@ CSS files don't need editing except to replace obsolete PFTs.
 14 - medoid tropical (~ average tropical tree)
 
 ```{r}
-css_file <- list.files(
-    file.path("/data/sites/mandifore", s$cohort_filename),
-    pattern = ".css$",
-    full.names = TRUE
-  )
-css <- read_table(css_file)
+
 waldo::compare(colnames(css), c("time", "patch", "cohort", "dbh", "hite", "pft", "n", "bdead", "balive", "lai"))
 
 css <- css |> 
@@ -144,8 +153,17 @@ css <- css |>
             .groups = "drop")
 ```
 
+#### Overwrite history files
+
+Overwrite copy in "/data/sites/mandifore"
+
 ```{r}
 write.table(css, css_file,
+            quote = FALSE, row.names = FALSE)
+```
+
+```{r}
+write.table(pss, pss_file,
             quote = FALSE, row.names = FALSE)
 ```
 
