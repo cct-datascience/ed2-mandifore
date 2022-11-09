@@ -378,8 +378,8 @@ $ED_NL
    ! FFILOUT -- Path and prefix for analysis files (all but history/restart).              !
    ! SFILOUT -- Path and prefix for history files.                                         !
    !---------------------------------------------------------------------------------------!
-   NL%FFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-09-14-57-31/out/ENS-00002-1000021575/analysis'
-   NL%SFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-09-14-57-31/out/ENS-00002-1000021575/history'
+   NL%FFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-09-16-06-08/out/ENS-00002-1000021575/analysis'
+   NL%SFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-09-16-06-08/out/ENS-00002-1000021575/history'
    !---------------------------------------------------------------------------------------!
 
 
@@ -2019,8 +2019,8 @@ $ED_NL
    !               simulation.                                                             !
    ! PHENPATH   -- path and prefix of the prescribed phenology data.                       !
    !---------------------------------------------------------------------------------------!
-   NL%IEDCNFGF = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-09-14-57-31/run/ENS-00002-1000021575/config.xml'
-   NL%EVENT_FILE = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-09-14-57-31/run/ENS-00002-1000021575/myevents.xml'
+   NL%IEDCNFGF = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-09-16-06-08/run/ENS-00002-1000021575/config.xml'
+   NL%EVENT_FILE = '/groups/dlebauer/ed2_results/pecan_remote/2022-11-09-16-06-08/run/ENS-00002-1000021575/myevents.xml'
    !---------------------------------------------------------------------------------------!
 
 
