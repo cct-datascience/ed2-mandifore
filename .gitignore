@@ -5,3 +5,4 @@
 *.Rdata
 *.h5
 *.pdf
+MANDIFORE_runs/*/outdir/
