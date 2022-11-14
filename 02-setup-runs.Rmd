@@ -23,8 +23,11 @@ To figure out how to automate all this, start by picking a site (literally at ra
 
 ```{r}
 new_sites <- read_csv("data/mandifore_sites.csv")
-set.seed(352)
-# set.seed(55)
+# set.seed(352) #PNW 5905 w/ one pft
+# set.seed(55) #SEUS 3819 with 6 pfts
+# set.seed(23456) #PNW 9087 2 pfts only 10 cohorts, but site not in BETY?
+# set.seed(111) #PNW-1549, only 1 pft (10) only 2 cohorts
+set.seed(333) # PNW 8894 2 pfts
 (s <- slice_sample(new_sites, n = 1))
 ```
 
@@ -151,6 +154,8 @@ css <- css |>
   summarize(across(c(dbh, hite), median), 
             across(c(n, bdead, balive, lai), sum),
             .groups = "drop")
+css |> 
+  arrange(patch, cohort, pft)
 ```
 
 #### Overwrite history files
