@@ -773,6 +773,14 @@
         "tibble"
       ]
     },
+    "RNetCDF": {
+      "Package": "RNetCDF",
+      "Version": "2.6-1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "5d3141a57c7f7ed20e8ece752173d512",
+      "Requirements": []
+    },
     "Rcpp": {
       "Package": "Rcpp",
       "Version": "1.0.9",
@@ -2565,6 +2573,20 @@
       "Hash": "7c902f18c0be04c8767b94019ffe8063",
       "Requirements": []
     },
+    "ncmeta": {
+      "Package": "ncmeta",
+      "Version": "0.3.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "3b2dc22fb02ac133c20b3baf2b7a3eef",
+      "Requirements": [
+        "RNetCDF",
+        "dplyr",
+        "rlang",
+        "tibble",
+        "tidyr"
+      ]
+    },
     "neonUtilities": {
       "Package": "neonUtilities",
       "Version": "2.1.4",
@@ -2691,6 +2713,17 @@
       "Repository": "CRAN",
       "Hash": "9e3d8d65cb9c5ca5966340a6bfec60b2",
       "Requirements": []
+    },
+    "patchwork": {
+      "Package": "patchwork",
+      "Version": "1.1.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "63b611e9d909a9ed057639d9c3b77152",
+      "Requirements": [
+        "ggplot2",
+        "gtable"
+      ]
     },
     "pbapply": {
       "Package": "pbapply",
@@ -3760,6 +3793,25 @@
         "pkgconfig",
         "rlang",
         "vctrs"
+      ]
+    },
+    "tidync": {
+      "Package": "tidync",
+      "Version": "0.3.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "5a485b7fa843995687123ce02cbc0eed",
+      "Requirements": [
+        "RNetCDF",
+        "dplyr",
+        "forcats",
+        "magrittr",
+        "ncdf4",
+        "ncmeta",
+        "purrr",
+        "rlang",
+        "tibble",
+        "tidyr"
       ]
     },
     "tidyr": {
