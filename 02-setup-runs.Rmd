@@ -153,7 +153,9 @@ css <- css |>
   group_by(time, patch, cohort, pft) |> 
   summarize(across(c(dbh, hite), median), 
             across(c(n, bdead, balive, lai), sum),
-            .groups = "drop")
+            .groups = "drop")|> 
+  filter(time == max(time)) #only get last year
+
 css |> 
   arrange(patch, cohort, pft)
 ```
