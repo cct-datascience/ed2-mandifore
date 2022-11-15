@@ -137,7 +137,7 @@ css <- css |>
 
 #### Simplify css file
 
-Currently there are multiple entries for each time, patch, cohort, pft combination.  It doesn't seem like this should be the case (but I'm not sure).  I'll try summarizing to get the median `dbh` and sum `n`.
+Currently there are multiple entries for each time, patch, cohort, pft combination.  It doesn't seem like this should be the case (but I'm not sure).  I'll try summarizing to get the median `dbh` and sum `n`.  I think it should also only need a single year, right?
 
 ```{r}
 css |> 
@@ -150,7 +150,8 @@ css <- css |>
   group_by(time, patch, cohort, pft) |> 
   summarize(across(c(dbh, hite), median), 
             across(c(n, bdead, balive, lai), sum),
-            .groups = "drop")
+            .groups = "drop") |> 
+  filter(time == max(time)) #only get last year
 ```
 
 #### Overwrite history files
