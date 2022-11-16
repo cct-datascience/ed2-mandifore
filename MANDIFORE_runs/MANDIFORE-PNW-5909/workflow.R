@@ -50,7 +50,7 @@ purrr::walk(job_scripts, function(x) {
   job_sh_mod <- stringr::str_replace(job_sh, "Rscript", cmd)
   writeLines(job_sh_mod, x)
 })
-Sys.sleep(5)
+
 
 # Start model runs --------------------------------------------------------
 
