@@ -570,9 +570,9 @@
       "RemoteUsername": "pecanproject",
       "RemoteRepo": "pecan",
       "RemoteSubdir": "base/remote",
-      "RemoteRef": "d4b3df2cfca1d0b060bee38c0e02af3f544abea8",
-      "RemoteSha": "d4b3df2cfca1d0b060bee38c0e02af3f544abea8",
-      "Hash": "ff698525f0da7243e2c3ad7e9aa70a36",
+      "RemoteRef": "ff1e4af5712e07d38622da3e644a7dc04d08ee23",
+      "RemoteSha": "ff1e4af5712e07d38622da3e644a7dc04d08ee23",
+      "Hash": "0e893d55aa427e4ae32f8d487253290c",
       "Requirements": [
         "PEcAn.logger",
         "httr",
