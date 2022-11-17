@@ -7,6 +7,7 @@ output: html_document
 
 ```{r setup}
 library(tidyverse)
+library(leaflet)
 ```
 
 
@@ -92,4 +93,22 @@ Here we should select some specific sites to set up runs for
 ```{r}
 write_csv(new_sites, "data/mandifore_sites.csv")
 ```
+
+# Plot sites
+
+```{r}
+sites_run <- c(1000021575)
+new_sites <- new_sites %>% 
+  mutate(site_run = ifelse(site_id %in% sites_run, "Y", "N"))
+pal <- colorFactor(palette = c("lightblue", "black"), 
+                   domain = c("Y", "N"))
+
+leaflet(new_sites) %>% 
+  addProviderTiles(providers$Esri.WorldGrayCanvas) %>% 
+  addCircleMarkers(lng = ~lon, lat = ~lat, label = new_sites$sitename, 
+                   radius = 1, opacity = 1, fillOpacity = 1, 
+                   color = ~pal(site_run))
+```
+
+
 
