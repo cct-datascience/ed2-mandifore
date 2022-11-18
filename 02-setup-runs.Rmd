@@ -314,7 +314,7 @@ pfts <-
     ED == 1 ~ "SetariaWT",
     #temporary.  This actually depends on whether its PNW or SEUS
     ED == 9 ~ "temperate.Early_Hardwood", 
-    ED == 10 ~ "temperate.Mid_Hardwood",
+    ED == 10 ~ "temperate.North_Mid_Hardwood",
     TRUE ~ PEcAn
   ))
 
