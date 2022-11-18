@@ -152,7 +152,7 @@ css <- css |>
 
 #### Simplify css file
 
-Currently there are multiple entries for each time, patch, cohort, pft combination.  It doesn't seem like this should be the case (but I'm not sure).  I'll try summarizing to get the median `dbh` and sum `n`.
+Currently there are multiple entries for each time, patch, cohort, pft combination.  It doesn't seem like this should be the case (but I'm not sure).  I'll try summarizing to get the median `dbh` and sum `n`.  I think it should also only need a single year, right?
 
 ```{r}
 css |> 
@@ -171,6 +171,7 @@ css <- css |>
 css |> 
   arrange(patch, cohort, pft)
 ```
+
 #### Add in Setaria
 
 ```{r}
@@ -187,7 +188,6 @@ setaria <-
   ) 
 
 css <- bind_rows(css, setaria)
-
 ```
 
 #### Overwrite history files
