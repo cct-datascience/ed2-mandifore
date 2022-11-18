@@ -23,11 +23,11 @@ To figure out how to automate all this, start by picking a site (literally at ra
 
 ```{r}
 new_sites <- read_csv("data/mandifore_sites.csv")
-set.seed(352) #PNW 5905 w/ one pft
+# set.seed(352) #PNW 5905 w/ one pft
 # set.seed(55) #SEUS 3819 with 6 pfts
 # set.seed(23456) #PNW 9087 2 pfts only 10 cohorts, but site not in BETY?
 # set.seed(111) #PNW-1549, only 1 pft (10) only 2 cohorts
-# set.seed(333) # PNW 8894 2 pfts
+set.seed(333) # PNW 8894 2 pfts
 (s <- slice_sample(new_sites, n = 1))
 ```
 
@@ -70,14 +70,14 @@ pss_file <- list.files(
     pattern = ".pss$",
     full.names = TRUE
   )
-pss <- read_table(pss_file)
+pss <- read_table(pss_file, col_types = cols(patch = col_character()))
 
 css_file <- list.files(
     file.path("/data/sites/mandifore", s$cohort_filename),
     pattern = ".css$",
     full.names = TRUE
   )
-css <- read_table(css_file)
+css <- read_table(css_file, col_types = cols(patch = col_character()))
 ```
 
 
@@ -148,6 +148,7 @@ setaria <-
   ) 
 
 css <- bind_rows(css, setaria)
+css
 ```
 
 
@@ -190,6 +191,7 @@ According to the wiki, the sum of all the patches `area` must add to 1 (this doe
 ```{r}
 pss <- pss |> 
   mutate(area = area/sum(area))
+pss
 ```
 
 
@@ -310,7 +312,9 @@ pfts <-
   slice(1) |> 
   mutate(PEcAn = case_when(
     ED == 1 ~ "SetariaWT",
-    ED == 9 ~ "temperate.Early_Hardwood", #temporary.  This actually depends on whether its PNW or SEUS
+    #temporary.  This actually depends on whether its PNW or SEUS
+    ED == 9 ~ "temperate.Early_Hardwood", 
+    ED == 10 ~ "temperate.Mid_Hardwood",
     TRUE ~ PEcAn
   ))
 
