@@ -17,10 +17,6 @@
  </database>
  <pfts>
   <pft>
-   <name>SetariaWT</name>
-   <ed2_pft_number>1</ed2_pft_number>
-  </pft>
-  <pft>
    <name>broadleaf_evergreen_tropical_tree</name>
    <ed2_pft_number>3</ed2_pft_number>
   </pft>
@@ -62,9 +58,9 @@
  </ensemble>
  <model>
   <type>ED2</type>
-  <binary>/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-2.2.0.sh</binary>
+  <binary>/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-dev.sh</binary>
   <id>14</id>
-  <revision>2.2.0</revision>
+  <revision>2.2.0.github</revision>
   <config.header>
    <radiation>
     <lai_min>0.01</lai_min>

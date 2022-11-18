@@ -17,12 +17,8 @@
  </database>
  <pfts>
   <pft>
-   <name>SetariaWT</name>
-   <ed2_pft_number>1</ed2_pft_number>
-  </pft>
-  <pft>
-   <name>ebifarm.c3grass</name>
-   <ed2_pft_number>12</ed2_pft_number>
+   <name>ebifarm.liqui</name>
+   <ed2_pft_number>9</ed2_pft_number>
   </pft>
  </pfts>
  <meta.analysis>
@@ -40,12 +36,11 @@
    </parameters>
   </samplingspace>
  </ensemble>
- 
  <model>
   <type>ED2</type>
-  <binary>/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-2.2.0.sh</binary>
+  <binary>/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-dev.sh</binary>
   <id>14</id>
-  <revision>2.2.0</revision>
+  <revision>2.2.0.github</revision>
   <config.header>
    <radiation>
     <lai_min>0.01</lai_min>
@@ -62,7 +57,6 @@
    <MAXPATCH>0</MAXPATCH>
   </ed2in_tags>
  </model>
- 
  <run>
   <site>
    <id>1000021575</id>
