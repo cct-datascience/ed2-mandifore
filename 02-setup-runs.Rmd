@@ -51,7 +51,6 @@ file.copy(file.path("templates", "workflow_template.R"),
 
 # 5. Edit css/pss files
 
-
 Copy to `data/sites/mandifore/` to edit
 
 ```{r}
@@ -82,46 +81,7 @@ css <- read_table(css_file)
 ```
 
 
-## pss
 
-Check if colnames are correct
-
-```{r}
-waldo::compare(colnames(pss), c("time", "patch", "trk", "age", "area", "water", "fsc", "stsc", "stsl", "ssc", "lai", "msn", "fsn", "nep", "gpp", "rh"))
-```
-
-Looks like we need to:
-1) remove `site` column
-2) `psc` was an old dummy variable, `lai` is a new dummy variable, so just rename
-3) add dummy columns `nep`, `gpp`, and `rh`
-
-
-```{r}
-pss <- pss |> 
-  select(-site, lai = psc) |> 
-  add_column(nep = 0, gpp = 0, rh = 0)
-
-waldo::compare(colnames(pss), c("time", "patch", "trk", "age", "area", "water", "fsc", "stsc", "stsl", "ssc", "lai", "msn", "fsn", "nep", "gpp", "rh"))
-```
-
-#### Remove empty patches
-
-I'm going to try removing patches that don't exist in the css file and also only use the last year of data
-
-```{r}
-pss <- pss |> 
-  filter(patch %in% unique(css$patch)) |> 
-  filter(time == max(time))
-```
-
-#### Rescale area
-
-According to the wiki, the sum of all the patches `area` must add to 1 (this doesn't seem to be true in practice, but whatever)
-
-```{r}
-pss <- pss |> 
-  mutate(area = area/sum(area))
-```
 
 
 ## css
@@ -189,6 +149,49 @@ setaria <-
 
 css <- bind_rows(css, setaria)
 ```
+
+
+## pss
+
+Check if colnames are correct
+
+```{r}
+waldo::compare(colnames(pss), c("time", "patch", "trk", "age", "area", "water", "fsc", "stsc", "stsl", "ssc", "lai", "msn", "fsn", "nep", "gpp", "rh"))
+```
+
+Looks like we need to:
+1) remove `site` column
+2) `psc` was an old dummy variable, `lai` is a new dummy variable, so just rename
+3) add dummy columns `nep`, `gpp`, and `rh`
+
+
+```{r}
+pss <- pss |> 
+  select(-site, lai = psc) |> 
+  add_column(nep = 0, gpp = 0, rh = 0)
+
+waldo::compare(colnames(pss), c("time", "patch", "trk", "age", "area", "water", "fsc", "stsc", "stsl", "ssc", "lai", "msn", "fsn", "nep", "gpp", "rh"))
+```
+
+#### Remove empty patches
+
+I'm going to try removing patches that don't exist in the css file and also only use the last year of data
+
+```{r}
+pss <- pss |> 
+  filter(patch %in% unique(css$patch)) |> 
+  filter(time == max(time))
+```
+
+#### Rescale area
+
+According to the wiki, the sum of all the patches `area` must add to 1 (this doesn't seem to be true in practice, but whatever)
+
+```{r}
+pss <- pss |> 
+  mutate(area = area/sum(area))
+```
+
 
 #### Overwrite history files
 
