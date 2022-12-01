@@ -29,8 +29,8 @@ modify_css <- function(css, dbh = 0.6, dens = 1) {
     mutate(
       cohort = NA,  
       pft = 1,
-      dbh = dbh,    #dbh 0.6 cm
-      n = dens      #1 plant per m^2
+      dbh = {{dbh}},    #dbh 0.6 cm
+      n = {{dens}}      #1 plant per m^2
     ) 
   
   # Set cohort for Setaria---must be unique for the patch, but arbitary.  Sum of
