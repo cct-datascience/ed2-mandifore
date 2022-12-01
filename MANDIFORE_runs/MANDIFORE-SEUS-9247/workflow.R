@@ -9,7 +9,7 @@ library(purrr)
 # Read in settings --------------------------------------------------------
 
 #edit this path
-inputfile <- "MANDIFORE_runs/MANDIFORE-SEUS-3819/pecan.xml"
+inputfile <- "MANDIFORE_runs/MANDIFORE-SEUS-9247/pecan.xml"
 
 #check that inputfile exists, because read.settings() doesn't do that!
 if (file.exists(inputfile)) {
