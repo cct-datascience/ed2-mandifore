@@ -212,13 +212,15 @@
     "PEcAn.DB": {
       "Package": "PEcAn.DB",
       "Version": "1.7.2.9000",
-      "Source": "Repository",
-      "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
-      "RemoteUrl": "https://github.com/PecanProject/pecan",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
-      "Hash": "9a1ab6894489222c7417abba9aa0eab9",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "pecanproject",
+      "RemoteRepo": "pecan",
+      "RemoteSubdir": "base/db",
+      "RemoteRef": "2d0dc816f403c93deb31cb3db3e61f58883de3ee",
+      "RemoteSha": "2d0dc816f403c93deb31cb3db3e61f58883de3ee",
+      "Hash": "8ae29cb03ef8f55b572d4b5860fbe132",
       "Requirements": [
         "DBI",
         "PEcAn.logger",
@@ -579,9 +581,9 @@
       "RemoteUsername": "pecanproject",
       "RemoteRepo": "pecan",
       "RemoteSubdir": "base/remote",
-      "RemoteRef": "3380b97c237565d840137aa117bc87138fc8a964",
-      "RemoteSha": "3380b97c237565d840137aa117bc87138fc8a964",
-      "Hash": "1690899017fb3a004aed412f91fdd2bb",
+      "RemoteRef": "ff1e4af5712e07d38622da3e644a7dc04d08ee23",
+      "RemoteSha": "ff1e4af5712e07d38622da3e644a7dc04d08ee23",
+      "Hash": "0e893d55aa427e4ae32f8d487253290c",
       "Requirements": [
         "PEcAn.logger",
         "httr",
@@ -695,9 +697,9 @@
       "RemoteUsername": "pecanproject",
       "RemoteRepo": "pecan",
       "RemoteSubdir": "base/workflow",
-      "RemoteRef": "3380b97c237565d840137aa117bc87138fc8a964",
-      "RemoteSha": "3380b97c237565d840137aa117bc87138fc8a964",
-      "Hash": "f9880df9f16d330310e61d5f0bd27ce0",
+      "RemoteRef": "f6f1e340f7880d5403ed0941fac7a5304ff23be9",
+      "RemoteSha": "f6f1e340f7880d5403ed0941fac7a5304ff23be9",
+      "Hash": "5cf61d81318842c896c935d7a8e67564",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.data.atmosphere",
@@ -784,6 +786,14 @@
         "solartime",
         "tibble"
       ]
+    },
+    "RNetCDF": {
+      "Package": "RNetCDF",
+      "Version": "2.6-1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "5d3141a57c7f7ed20e8ece752173d512",
+      "Requirements": []
     },
     "Rcpp": {
       "Package": "Rcpp",
@@ -2619,6 +2629,20 @@
       "Hash": "7c902f18c0be04c8767b94019ffe8063",
       "Requirements": []
     },
+    "ncmeta": {
+      "Package": "ncmeta",
+      "Version": "0.3.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "3b2dc22fb02ac133c20b3baf2b7a3eef",
+      "Requirements": [
+        "RNetCDF",
+        "dplyr",
+        "rlang",
+        "tibble",
+        "tidyr"
+      ]
+    },
     "neonUtilities": {
       "Package": "neonUtilities",
       "Version": "2.1.4",
@@ -2745,6 +2769,17 @@
       "Repository": "CRAN",
       "Hash": "9e3d8d65cb9c5ca5966340a6bfec60b2",
       "Requirements": []
+    },
+    "patchwork": {
+      "Package": "patchwork",
+      "Version": "1.1.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "63b611e9d909a9ed057639d9c3b77152",
+      "Requirements": [
+        "ggplot2",
+        "gtable"
+      ]
     },
     "pbapply": {
       "Package": "pbapply",
@@ -3814,6 +3849,25 @@
         "pkgconfig",
         "rlang",
         "vctrs"
+      ]
+    },
+    "tidync": {
+      "Package": "tidync",
+      "Version": "0.3.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "5a485b7fa843995687123ce02cbc0eed",
+      "Requirements": [
+        "RNetCDF",
+        "dplyr",
+        "forcats",
+        "magrittr",
+        "ncdf4",
+        "ncmeta",
+        "purrr",
+        "rlang",
+        "tibble",
+        "tidyr"
       ]
     },
     "tidyr": {

@@ -5,4 +5,6 @@
 *.Rdata
 *.h5
 *.pdf
+*.nc
+*.nc.var
 MANDIFORE_runs/*/outdir/

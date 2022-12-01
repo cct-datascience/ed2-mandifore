@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <pecan>
  <info>
-  <notes>MANDIFORE-SEUS-3819</notes>
+  <notes>MANDIFORE-PNW-8894</notes>
  </info>
- <outdir>MANDIFORE_runs/MANDIFORE-SEUS-3819/outdir</outdir>
+ <outdir>MANDIFORE_runs/MANDIFORE-PNW-8894/outdir</outdir>
  <database>
   <bety>
    <driver>PostgreSQL</driver>
@@ -17,28 +17,16 @@
  </database>
  <pfts>
   <pft>
+   <name>SetariaWT</name>
+   <ed2_pft_number>1</ed2_pft_number>
+  </pft>
+  <pft>
    <name>broadleaf_evergreen_tropical_tree</name>
    <ed2_pft_number>3</ed2_pft_number>
   </pft>
   <pft>
-   <name>tempconif</name>
-   <ed2_pft_number>7</ed2_pft_number>
-  </pft>
-  <pft>
-   <name>temperate.Evergreen_Hardwood</name>
-   <ed2_pft_number>8</ed2_pft_number>
-  </pft>
-  <pft>
-   <name>ebifarm.liqui</name>
-   <ed2_pft_number>9</ed2_pft_number>
-  </pft>
-  <pft>
-   <name>ebifarm.quru</name>
+   <name>temperate.North_Mid_Hardwood</name>
    <ed2_pft_number>10</ed2_pft_number>
-  </pft>
-  <pft>
-   <name>ebifarm.acru</name>
-   <ed2_pft_number>11</ed2_pft_number>
   </pft>
  </pfts>
  <meta.analysis>
@@ -79,18 +67,18 @@
  </model>
  <run>
   <site>
-   <id>1000002084</id>
+   <id>1000023369</id>
    <met.start>2000-01-01 00:00:00</met.start>
    <met.end>2015-12-31 00:00:00</met.end>
   </site>
   <inputs>
-   <met>/data/sites/mandifore/NARR_ED2_site_1-2084/ED_MET_DRIVER_HEADER</met>
+   <met>/data/sites/mandifore/NARR_ED2_site_1-23369/ED_MET_DRIVER_HEADER</met>
    <veg>/data/oge2OLD/OGE2_</veg>
    <soil>/data/faoOLD/FAO_</soil>
    <lu>/data/ed_inputs/glu/</lu>
    <thsum>/data/ed_inputs/</thsum>
-   <pss>/data/sites/mandifore/FIA_ED2_site_1-2084/siteid1000002084.fia2000.radius0.075.lat32.1308lon-94.3284.pss</pss>
-   <css>/data/sites/mandifore/FIA_ED2_site_1-2084/siteid1000002084.fia2000.radius0.075.lat32.1308lon-94.3284.css</css>
+   <pss>/data/sites/mandifore/FIA_ED2_site_1-23369/siteid1000023369.fia2000.radius0.075.lat46.5764lon-122.2256.pss</pss>
+   <css>/data/sites/mandifore/FIA_ED2_site_1-23369/siteid1000023369.fia2000.radius0.075.lat46.5764lon-122.2256.css</css>
   </inputs>
   <start.date>2002-01-01</start.date>
   <end.date>2003-12-31</end.date>
