@@ -8,3 +8,4 @@
 *.nc
 *.nc.var
 MANDIFORE_runs/*/outdir/
+completed_runs/*/outdir/
