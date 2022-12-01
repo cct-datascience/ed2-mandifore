@@ -15,8 +15,6 @@ set.seed(123)
 new_sites <- read_csv("data/mandifore_sites.csv")
 #just sample 3 for now to test iteration
 sites <- slice_sample(new_sites, n=3)
-sites
-
 
 # create working directories ----------------------------------------------
 wds <- paste("MANDIFORE_runs", sites$sitename, sep = "/")
@@ -41,18 +39,23 @@ file.copy(
 )
 
 # read into R
-pss_files <- list.files(
-  file.path("/data/sites/mandifore", sites$cohort_filename),
-  pattern = ".pss$",
-  full.names = TRUE
-)
+pss_files <- 
+  map(sites$cohort_filename, ~{
+    list.files(file.path("/data/sites/mandifore", .x),
+               pattern = ".pss$",
+               full.names = TRUE)
+  })
+
 pss <- map(pss_files, ~read_table(.x, col_types = cols(patch = col_character())))
 
-css_files <- list.files(
-  file.path("/data/sites/mandifore", sites$cohort_filename),
-  pattern = ".css$",
-  full.names = TRUE
-)
+css_files <- 
+  map(sites$cohort_filename, ~{
+    list.files(
+      file.path("/data/sites/mandifore", .x),
+      pattern = ".css$",
+      full.names = TRUE
+    )
+  })
 css <- map(css_files, ~read_table(.x, col_types = cols(patch = col_character())))
 
 # modify .css
@@ -123,6 +126,9 @@ settings <-
       set_names("pft")
     .x
   })
+
+# write settings out
+walk2(settings, wds, ~write.settings(.x, "pecan.xml", outputdir = .y))
 
 
 # Edit workflow.R ---------------------------------------------------------
