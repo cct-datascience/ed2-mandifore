@@ -23,8 +23,11 @@ To figure out how to automate all this, start by picking a site (literally at ra
 
 ```{r}
 new_sites <- read_csv("data/mandifore_sites.csv")
-set.seed(352)
-# set.seed(55)
+# set.seed(352) #PNW 5905 w/ one pft
+# set.seed(55) #SEUS 3819 with 6 pfts
+# set.seed(23456) #PNW 9087 2 pfts only 10 cohorts, but site not in BETY?
+# set.seed(111) #PNW-1549, only 1 pft (10) only 2 cohorts
+set.seed(333) # PNW 8894 2 pfts
 (s <- slice_sample(new_sites, n = 1))
 ```
 
@@ -48,7 +51,6 @@ file.copy(file.path("templates", "workflow_template.R"),
 
 # 5. Edit css/pss files
 
-
 Copy to `data/sites/mandifore/` to edit
 
 ```{r}
@@ -68,54 +70,27 @@ pss_file <- list.files(
     pattern = ".pss$",
     full.names = TRUE
   )
-pss <- read_table(pss_file)
+pss <- read_table(pss_file, col_types = cols(patch = col_character()))
 
 css_file <- list.files(
     file.path("/data/sites/mandifore", s$cohort_filename),
     pattern = ".css$",
     full.names = TRUE
   )
-css <- read_table(css_file)
+css <- read_table(css_file, col_types = cols(patch = col_character()))
 ```
 
 
-## pss
 
-Check if colnames are correct
-
-```{r}
-waldo::compare(colnames(pss), c("time", "patch", "trk", "age", "area", "water", "fsc", "stsc", "stsl", "ssc", "lai", "msn", "fsn", "nep", "gpp", "rh"))
-```
-
-Looks like we need to:
-1) remove `site` column
-2) `psc` was an old dummy variable, `lai` is a new dummy variable, so just rename
-3) add dummy columns `nep`, `gpp`, and `rh`
-
-
-```{r}
-pss <- pss |> 
-  select(-site, lai = psc) |> 
-  add_column(nep = 0, gpp = 0, rh = 0)
-
-waldo::compare(colnames(pss), c("time", "patch", "trk", "age", "area", "water", "fsc", "stsc", "stsl", "ssc", "lai", "msn", "fsn", "nep", "gpp", "rh"))
-```
-
-#### Remove empty patches
-
-I'm going to try removing patches that don't exist in the css file
-
-```{r}
-pss <- pss |> 
-  filter(patch %in% unique(css$patch))
-```
 
 
 ## css
 
-CSS files don't need editing except to replace obsolete PFTs.
+For CSS files, obsolete PFTs need to be replaced, files can be simplified to only include one year of data, and setaria needs to be added in.
 
-12, 13, 14 have been replaced. At the time of the MANDIFORE runs they were:
+#### Replace obsolete PFTs
+
+PFTs 12, 13, 14 have been replaced. At the time of the MANDIFORE runs they were:
 
 12 - early shade intolerant (high SLA)
 13 - mid shade intolerant (high SLA) 
@@ -150,9 +125,75 @@ css <- css |>
   group_by(time, patch, cohort, pft) |> 
   summarize(across(c(dbh, hite), median), 
             across(c(n, bdead, balive, lai), sum),
-            .groups = "drop") |> 
+            .groups = "drop")|> 
   filter(time == max(time)) #only get last year
+
+css |> 
+  arrange(patch, cohort, pft)
 ```
+
+#### Add in Setaria
+
+```{r}
+# get unique combinations of time and patch
+setaria <- 
+  css |> 
+  group_by(time, patch) |> 
+  slice(1) |> 
+  mutate(
+    cohort = 0,   #must be unique for the patch, but arbitrary.  Need to think of a better way to do this
+    pft = 1,
+    dbh = 0.6,    #dbh 0.6 cm
+    n = 1         #1 plant per m^2
+  ) 
+
+css <- bind_rows(css, setaria)
+css
+```
+
+
+## pss
+
+Check if colnames are correct
+
+```{r}
+waldo::compare(colnames(pss), c("time", "patch", "trk", "age", "area", "water", "fsc", "stsc", "stsl", "ssc", "lai", "msn", "fsn", "nep", "gpp", "rh"))
+```
+
+Looks like we need to:
+1) remove `site` column
+2) `psc` was an old dummy variable, `lai` is a new dummy variable, so just rename
+3) add dummy columns `nep`, `gpp`, and `rh`
+
+
+```{r}
+pss <- pss |> 
+  select(-site, lai = psc) |> 
+  add_column(nep = 0, gpp = 0, rh = 0)
+
+waldo::compare(colnames(pss), c("time", "patch", "trk", "age", "area", "water", "fsc", "stsc", "stsl", "ssc", "lai", "msn", "fsn", "nep", "gpp", "rh"))
+```
+
+#### Remove empty patches
+
+I'm going to try removing patches that don't exist in the css file and also only use the last year of data
+
+```{r}
+pss <- pss |> 
+  filter(patch %in% unique(css$patch)) |> 
+  filter(time == max(time))
+```
+
+#### Rescale area
+
+According to the wiki, the sum of all the patches `area` must add to 1 (this doesn't seem to be true in practice, but whatever)
+
+```{r}
+pss <- pss |> 
+  mutate(area = area/sum(area))
+pss
+```
+
 
 #### Overwrite history files
 
@@ -268,7 +309,14 @@ pfts <- tibble(ED = unique(css$pft))
 pfts <-
   left_join(pfts, PEcAn.ED2::pftmapping, by = "ED") %>%
   group_by(ED) %>% 
-  slice(1)
+  slice(1) |> 
+  mutate(PEcAn = case_when(
+    ED == 1 ~ "SetariaWT",
+    #temporary.  This actually depends on whether its PNW or SEUS
+    ED == 9 ~ "temperate.Early_Hardwood", 
+    ED == 10 ~ "temperate.North_Mid_Hardwood",
+    TRUE ~ PEcAn
+  ))
 
 for (i in 1:nrow(pfts)) {
   new_pft <- list(

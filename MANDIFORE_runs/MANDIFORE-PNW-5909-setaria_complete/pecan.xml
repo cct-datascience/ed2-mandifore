@@ -17,7 +17,11 @@
  </database>
  <pfts>
   <pft>
-   <name>ebifarm.liqui</name>
+   <name>SetariaWT</name>
+   <ed2_pft_number>1</ed2_pft_number>
+  </pft>
+  <pft>
+   <name>temperate.Early_Hardwood</name>
    <ed2_pft_number>9</ed2_pft_number>
   </pft>
  </pfts>
