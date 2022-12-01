@@ -683,9 +683,9 @@
       "RemoteUsername": "pecanproject",
       "RemoteRepo": "pecan",
       "RemoteSubdir": "base/workflow",
-      "RemoteRef": "f6f1e340f7880d5403ed0941fac7a5304ff23be9",
-      "RemoteSha": "f6f1e340f7880d5403ed0941fac7a5304ff23be9",
-      "Hash": "5cf61d81318842c896c935d7a8e67564",
+      "RemoteRef": "93f7155392c11fe61f51db46d7c63ba0ddcdfea7",
+      "RemoteSha": "93f7155392c11fe61f51db46d7c63ba0ddcdfea7",
+      "Hash": "903704f3e6ee6ade46bec71fb627320a",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.data.atmosphere",

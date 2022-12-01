@@ -11,26 +11,39 @@ library(purrr)
 #edit this path
 inputfile <- "MANDIFORE_runs/MANDIFORE-SEUS-9247/pecan.xml"
 
-#check that inputfile exists, because read.settings() doesn't do that!
-if (file.exists(inputfile)) {
+#check if settings_checked.xml exists and read that in if it does
+chk_path <- file.path(dirname(inputfile), "outdir/settings_checked.xml")
+if (file.exists(chk_path)){
+  settings <- PEcAn.settings::read.settings(chk_path)
+} else if (file.exists(inputfile)) {
+  #check that inputfile exists, because read.settings() doesn't do that!
   settings <- PEcAn.settings::read.settings(inputfile)
 } else {
   stop(inputfile, " doesn't exist")
 }
+
 
 #check outdir
 settings$outdir
 
 # Prepare settings --------------------------------------------------------
 settings <- prepare.settings(settings)
-write.settings(settings, outputfile = "settings_checked.xml")
 settings <- do_conversions(settings)
 
 # Query trait database ----------------------------------------------------
-settings <- runModule.get.trait.data(settings)
+#skip if this was already done
+exp_trait_files <- file.path(settings$pfts |> map_chr("outdir"), "trait.data.Rdata")
+if(!all(file.exists(exp_trait_files))) {
+  settings <- runModule.get.trait.data(settings)
+}
+write.settings(settings, outputfile = "settings_checked.xml")
 
 # Meta analysis -----------------------------------------------------------
-runModule.run.meta.analysis(settings)
+#skip if this was already done
+exp_meta_files <- file.path(settings$pfts |> map_chr("outdir"), "trait.mcmc.Rdata")
+if(!all(file.exists(exp_meta_files))) {
+  runModule.run.meta.analysis(settings)
+}
 
 # Write model run configs -----------------------------------------------------
 
