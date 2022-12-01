@@ -162,7 +162,11 @@ walk(sites$met_filename, ~{
 
 
 # Copy files to HPC -------------------------------------------------------
-walk2(settings, sites$met_filename, ~{
+#this is the slow step, so I'll try using multiple workers to do this in parallel
+library(furrr)
+future::plan(future.callr::callr, workers = 4)
+
+future_walk2(settings, sites$met_filename, ~{
   PEcAn.remote::remote.copy.to(
     .x$host,
     src = file.path("/data/sites/mandifore", .y),
@@ -171,7 +175,7 @@ walk2(settings, sites$met_filename, ~{
 })
 
 
-walk2(settings, sites$cohort_filename, ~{
+future_walk2(settings, sites$cohort_filename, ~{
   PEcAn.remote::remote.copy.to(
     .x$host,
     src = file.path("/data/sites/mandifore", .y),
