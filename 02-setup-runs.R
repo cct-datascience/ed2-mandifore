@@ -8,13 +8,13 @@ source("R/modify_css.R")
 source("R/modify_pss.R")
 source("R/match_pft.R")
 
-set.seed(123)
+set.seed(321)
 
 # load site info ----------------------------------------------------------
 
 new_sites <- read_csv("data/mandifore_sites.csv")
 #just sample 3 for now to test iteration
-sites <- slice_sample(new_sites, n=3)
+sites <- slice_sample(new_sites, n=5)
 
 # create working directories ----------------------------------------------
 wds <- paste("MANDIFORE_runs", sites$sitename, sep = "/")
