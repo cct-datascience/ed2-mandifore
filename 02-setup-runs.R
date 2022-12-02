@@ -8,7 +8,7 @@ source("R/modify_css.R")
 source("R/modify_pss.R")
 source("R/match_pft.R")
 
-set.seed(321)
+set.seed(1234)
 
 # load site info ----------------------------------------------------------
 

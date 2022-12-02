@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <pecan>
  <info>
-  <notes>MANDIFORE-SEUS-1092</notes>
+  <notes>MANDIFORE-SEUS-5605</notes>
  </info>
- <outdir>MANDIFORE_runs/MANDIFORE-SEUS-1092/outdir</outdir>
+ <outdir>MANDIFORE_runs/MANDIFORE-SEUS-5605/outdir</outdir>
  <database>
   <bety>
    <driver>PostgreSQL</driver>
@@ -25,8 +25,16 @@
    <ed2_pft_number>3</ed2_pft_number>
   </pft>
   <pft>
-   <name>tempconif</name>
-   <ed2_pft_number>7</ed2_pft_number>
+   <name>temperate.Early_Hardwood</name>
+   <ed2_pft_number>9</ed2_pft_number>
+  </pft>
+  <pft>
+   <name>temperate.North_Mid_Hardwood</name>
+   <ed2_pft_number>10</ed2_pft_number>
+  </pft>
+  <pft>
+   <name>ebifarm.acru</name>
+   <ed2_pft_number>11</ed2_pft_number>
   </pft>
  </pfts>
  <meta.analysis>
@@ -67,18 +75,18 @@
  </model>
  <run>
   <site>
-   <id>1000012761</id>
+   <id>1000002997</id>
    <met.start>2000-01-01 00:00:00</met.start>
    <met.end>2015-12-31 00:00:00</met.end>
   </site>
   <inputs>
-   <met>/data/sites/mandifore/NARR_ED2_site_1-12761/ED_MET_DRIVER_HEADER</met>
+   <met>/data/sites/mandifore/NARR_ED2_site_1-2997/ED_MET_DRIVER_HEADER</met>
    <veg>/data/oge2OLD/OGE2_</veg>
    <soil>/data/faoOLD/FAO_</soil>
    <lu>/data/ed_inputs/glu/</lu>
    <thsum>/data/ed_inputs/</thsum>
-   <pss>/data/sites/mandifore/FIA_ED2_site_1-12761/siteid1000012761.fia2000.radius0.075.lat30.1443lon-93.849.pss</pss>
-   <css>/data/sites/mandifore/FIA_ED2_site_1-12761/siteid1000012761.fia2000.radius0.075.lat30.1443lon-93.849.css</css>
+   <pss>/data/sites/mandifore/FIA_ED2_site_1-2997/siteid1000002997.fia2000.radius0.075.lat33.2114lon-91.2806.pss</pss>
+   <css>/data/sites/mandifore/FIA_ED2_site_1-2997/siteid1000002997.fia2000.radius0.075.lat33.2114lon-91.2806.css</css>
   </inputs>
   <start.date>2002-01-01</start.date>
   <end.date>2003-12-31</end.date>
