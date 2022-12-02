@@ -9,7 +9,12 @@ library(purrr)
 # Read in settings --------------------------------------------------------
 
 #edit this path
-inputfile <- "ED2/MANDIFORE_runs/MANDIFORE-SEUS-xxxx/outdir/settings_checked.xml"
+inputfile <- "ED2/MANDIFORE_runs/MANDIFORE-SEUS-xxxx/pecan.xml"
+
+# Divert output to file 
+logpath <- file.path(dirname(inputfile), "workflow_log.txt")
+sink(file(logpath, "wt"), type = "message")
+withr::defer(sink(file = NULL, type = "message"))
 
 #check if settings_checked.xml exists and read that in if it does
 chk_path <- file.path(dirname(inputfile), "outdir/settings_checked.xml")
