@@ -1,0 +1,595 @@
+2022-12-02 19:24:51 INFO   [PEcAn.settings::read.settings] : 
+   Loading inpufile= MANDIFORE_runs/MANDIFORE-PNW-4538/pecan.xml 
+2022-12-02 19:24:51 INFO   [fix.deprecated.settings] : 
+   Fixing deprecated settings... 
+2022-12-02 19:24:52 INFO   [update.settings] : 
+   Fixing deprecated settings... 
+2022-12-02 19:24:52 INFO   [check.settings] : Checking settings... 
+2022-12-02 19:24:52 INFO   [check.database] : 
+   Successfully connected to database : PostgreSQL bety bety postgres bety 
+   FALSE 
+2022-12-02 19:24:52 WARN   [check.database.settings] : 
+   Will not write runs/configurations to database. 
+2022-12-02 19:24:52 INFO   [check.ensemble.settings] : 
+   No start date passed to ensemble - using the run date ( 2002 ). 
+2022-12-02 19:24:52 INFO   [check.ensemble.settings] : 
+   No end date passed to ensemble - using the run date ( 2003 ). 
+2022-12-02 19:24:52 INFO   [fn] : 
+   Setting site name to MANDIFORE-PNW-4538 
+2022-12-02 19:24:52 INFO   [fn] : 
+   Setting site lat to 42.1973447 
+2022-12-02 19:24:52 INFO   [fn] : 
+   Setting site lon to -124.3494289 
+2022-12-02 19:24:52 WARN   [check.model.settings] : 
+   Model revision specified in settings file does not match database. 
+2022-12-02 19:24:52 INFO   [check.model.settings] : 
+   Option to delete raw model output not set or not logical. Will keep all 
+   model output. 
+2022-12-02 19:24:53 WARN   [PEcAn.DB::dbfile.file] : 
+   no files found for 14 in database 
+2022-12-02 19:24:53 INFO   [check.settings] : 
+   settings$host$job.sh is deprecated use settings$host$prerun instead. 
+2022-12-02 19:24:53 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for 
+   /data/sites/mandifore/NARR_ED2_site_1-20684/ED_MET_DRIVER_HEADER in 
+   database 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path /data/sites/mandifore/NARR_ED2_site_1-20684/ED_MET_DRIVER_HEADER 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path /data/sites/mandifore/NARR_ED2_site_1-20684/ED_MET_DRIVER_HEADER 
+2022-12-02 19:24:53 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for /data/ed_inputs/glu/ in database 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path /data/ed_inputs/glu/ 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path /data/ed_inputs/glu/ 
+2022-12-02 19:24:53 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for /data/ed_inputs/ in database 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path /data/ed_inputs/ 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path /data/ed_inputs/ 
+2022-12-02 19:24:53 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for /data/oge2OLD/OGE2_ in database 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path /data/oge2OLD/OGE2_ 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path /data/oge2OLD/OGE2_ 
+2022-12-02 19:24:53 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for /data/faoOLD/FAO_ in database 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path /data/faoOLD/FAO_ 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path /data/faoOLD/FAO_ 
+2022-12-02 19:24:53 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for 
+   /data/sites/mandifore/FIA_ED2_site_1-20684/siteid1000020684.fia2000.radius0.075.lat42.1973lon-124.3494.pss 
+   in database 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path 
+   /data/sites/mandifore/FIA_ED2_site_1-20684/siteid1000020684.fia2000.radius0.075.lat42.1973lon-124.3494.pss 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path 
+   /data/sites/mandifore/FIA_ED2_site_1-20684/siteid1000020684.fia2000.radius0.075.lat42.1973lon-124.3494.pss 
+2022-12-02 19:24:53 INFO   [fn] : 
+   Missing optional input : site 
+2022-12-02 19:24:53 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for 
+   /data/sites/mandifore/FIA_ED2_site_1-20684/siteid1000020684.fia2000.radius0.075.lat42.1973lon-124.3494.css 
+   in database 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path 
+   /data/sites/mandifore/FIA_ED2_site_1-20684/siteid1000020684.fia2000.radius0.075.lat42.1973lon-124.3494.css 
+2022-12-02 19:24:53 INFO   [fn] : 
+   path 
+   /data/sites/mandifore/FIA_ED2_site_1-20684/siteid1000020684.fia2000.radius0.075.lat42.1973lon-124.3494.css 
+2022-12-02 19:24:53 INFO   [fn] : 
+   Missing optional input : initcond 
+2022-12-02 19:24:53 INFO   [check.workflow.settings] : 
+   output folder = 
+   /home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-4538/outdir 
+2022-12-02 19:24:53 INFO   [check.settings] : 
+   Using /groups/dlebauer/ed2_results/pecan_remote/2022-12-02-19-24-53/run 
+   to store runs on remote machine 
+2022-12-02 19:24:53 INFO   [check.settings] : 
+   Using /groups/dlebauer/ed2_results/pecan_remote/2022-12-02-19-24-53/out 
+   to store output on remote machine 
+2022-12-02 19:24:53 INFO   [check.settings] : 
+   Storing pft SetariaWT in 
+   /home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-4538/outdir/pft/SetariaWT 
+2022-12-02 19:24:53 INFO   [check.settings] : 
+   Storing pft temperate.North_Mid_Hardwood in 
+   /home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-4538/outdir/pft/temperate.North_Mid_Hardwood 
+2022-12-02 19:24:53 DEBUG  [do_conversions] : 
+   do.conversion outdir /groups/dlebauer/ed2_results/pecan_remote 
+2022-12-02 19:24:53 INFO   [do_conversions] : PROCESSING:  met 
+2022-12-02 19:24:53 INFO   [do_conversions] : 
+   calling met.process: 
+   /data/sites/mandifore/NARR_ED2_site_1-20684/ED_MET_DRIVER_HEADER 
+2022-12-02 19:24:53 WARN   [PEcAn.data.atmosphere::met.process] : 
+   met.process only has a path provided, assuming path is model driver and 
+   skipping processing 
+2022-12-02 19:24:53 DEBUG  [do_conversions] : 
+   updated met path: 
+   /data/sites/mandifore/NARR_ED2_site_1-20684/ED_MET_DRIVER_HEADER 
+2022-12-02 19:24:53 INFO   [do_conversions] : PROCESSING:  veg 
+2022-12-02 19:24:53 INFO   [do_conversions] : PROCESSING:  soil 
+2022-12-02 19:24:53 INFO   [do_conversions] : PROCESSING:  lu 
+2022-12-02 19:24:53 INFO   [do_conversions] : PROCESSING:  thsum 
+2022-12-02 19:24:53 INFO   [do_conversions] : PROCESSING:  pss 
+2022-12-02 19:24:53 INFO   [do_conversions] : PROCESSING:  css 
+2022-12-02 19:24:53 DEBUG  [PEcAn.DB::get.trait.data] : 
+   `trait.names` is NULL, so retrieving all traits that have at least one 
+   prior for these PFTs. 
+2022-12-02 19:24:55 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:24:56 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:24:56 INFO   [query.trait.data] : stomatal_slope 
+2022-12-02 19:24:56 INFO   [query.trait.data] : 
+   Median stomatal_slope : 3.79 
+2022-12-02 19:24:56 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:24:56 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:24:56 INFO   [query.trait.data] : SLA 
+2022-12-02 19:24:56 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:24:56 INFO   [query.trait.data] : Median SLA : 43 
+2022-12-02 19:24:56 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:24:56 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:24:56 INFO   [query.trait.data] : Vcmax 
+2022-12-02 19:24:56 INFO   [query.trait.data] : 
+   Median Vcmax : 24.367 
+2022-12-02 19:24:56 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:24:56 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:24:56 INFO   [query.trait.data] : cuticular_cond 
+2022-12-02 19:24:56 INFO   [query.trait.data] : 
+   Median cuticular_cond : 30546 
+2022-12-02 19:24:56 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:24:56 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:24:57 INFO   [query.trait.data] : quantum_efficiency 
+2022-12-02 19:24:57 INFO   [query.trait.data] : 
+   Median quantum_efficiency : 0.062 
+2022-12-02 19:24:57 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:24:57 INFO   [FUN] : 
+ Number of observations per trait for PFT  'SetariaWT' :
+                trait  n
+1     cuticular_cond 33
+2 quantum_efficiency 27
+3                SLA 52
+4     stomatal_slope 33
+5              Vcmax 33 
+2022-12-02 19:24:57 INFO   [FUN] : 
+ Summary of prior distributions for PFT  'SetariaWT' :
+                         distn parama  paramb  n
+mort2                   gamma  1.470  0.0578  0
+growth_resp_factor       beta  2.630  6.5200  0
+leaf_turnover_rate      gamma  2.900  0.6300 40
+leaf_width              gamma  6.530  1.4900 17
+nonlocal_dispersal       beta 20.300 76.1000 30
+fineroot2leaf           lnorm  0.811  0.8430  0
+root_turnover_rate    weibull  1.670  0.6570 66
+seedling_mortality       beta  3.610  0.4330  0
+stomatal_slope        weibull  3.630  3.8100  4
+quantum_efficiency       norm  0.057  0.0060 56
+Vcmax                   lnorm  3.750  0.3000 12
+r_fract                  beta  2.000  4.0000  0
+cuticular_cond          lnorm  8.400  0.9000  0
+root_respiration_rate weibull  2.660  6.2900 35
+Vm_low_temp              norm 10.000  1.0200  0
+SLA                   weibull  5.000 50.0000  0 
+2022-12-02 19:24:57 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:24:57 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:24:57 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:24:58 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:24:58 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:24:58 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:24:58 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:24:58 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:24:58 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:24:58 INFO   [query.trait.data] : c2n_leaf 
+2022-12-02 19:24:58 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:25:04 INFO   [query.trait.data] : 
+   Median c2n_leaf : 23.391 
+2022-12-02 19:25:04 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:25:04 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:25:04 INFO   [query.trait.data] : fineroot2leaf 
+2022-12-02 19:25:04 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:25:04 INFO   [query.trait.data] : 
+   Median fineroot2leaf : 0.457 
+2022-12-02 19:25:04 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:25:04 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:25:04 INFO   [query.trait.data] : SLA 
+2022-12-02 19:25:04 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:25:04 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:25:06 INFO   [query.trait.data] : Median SLA : 12.816 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:25:06 INFO   [query.trait.data] : Vcmax 
+2022-12-02 19:25:06 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:25:06 INFO   [query.trait.data] : Median Vcmax : 63.64 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   leaf_respiration_rate_m2 
+2022-12-02 19:25:06 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   Median leaf_respiration_rate_m2 : 0.491 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:25:06 INFO   [query.trait.data] : quantum_efficiency 
+2022-12-02 19:25:06 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   Median quantum_efficiency : 0.035 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   root_respiration_rate 
+2022-12-02 19:25:06 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   Median root_respiration_rate : 5.656 
+2022-12-02 19:25:06 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2022-12-02 19:25:06 INFO   [FUN] : 
+ Number of observations per trait for PFT  'temperate.North_Mid_Hardwood' :
+                      trait  n
+1                 c2n_leaf 88
+2            fineroot2leaf 14
+3 leaf_respiration_rate_m2 45
+4       quantum_efficiency 11
+5    root_respiration_rate 13
+6                      SLA 89
+7                    Vcmax 31 
+2022-12-02 19:25:06 INFO   [FUN] : 
+ Summary of prior distributions for PFT  'temperate.North_Mid_Hardwood' :
+                            distn parama  paramb   n
+f_labile                    beta   1.50   1.500   0
+growth_resp_factor          beta   2.63   6.520   0
+seedling_mortality          beta   3.61   0.433   0
+nonlocal_dispersal          beta   1.10   1.500   0
+fineroot2leaf              lnorm   0.21   0.600   0
+r_fract                     beta   2.00   4.000   0
+mort2                       unif   5.00  80.000  NA
+leaf_width                  unif   0.10 200.000  NA
+stomatal_slope              unif   2.00  16.000  NA
+Vm_low_temp                 norm   5.00   2.000  NA
+root_respiration_rate       unif   0.00 100.000  NA
+root_turnover_rate          unif   0.00  10.000  NA
+Vcmax                       unif   0.00 500.000   0
+c2n_fineroot                unif   0.00 500.000   0
+water_conductance          lnorm  -5.40   3.000   0
+SLA                        gamma   5.13   0.234 593
+c2n_leaf                   gamma  15.53   0.870 387
+quantum_efficiency       weibull   3.32   0.080   0
+leaf_respiration_rate_m2   gamma   1.50   0.400  NA 
+2022-12-02 19:25:07 INFO   [FUN] : 
+   ------------------------------------------------------------------- 
+2022-12-02 19:25:07 INFO   [FUN] : 
+   Running meta.analysis for PFT: SetariaWT 
+2022-12-02 19:25:07 INFO   [FUN] : 
+   ------------------------------------------------------------------- 
+2022-12-02 19:25:07 INFO   [check_consistent] : 
+   OK!  stomatal_slope data and prior are consistent: 
+2022-12-02 19:25:07 INFO   [check_consistent] : 
+   stomatal_slope P[X<x] = 0.625092534591416 
+2022-12-02 19:25:07 INFO   [check_consistent] : 
+   OK!  SLA data and prior are consistent: 
+2022-12-02 19:25:07 INFO   [check_consistent] : 
+   SLA P[X<x] = 0.313847118615991 
+2022-12-02 19:25:07 INFO   [check_consistent] : 
+   OK!  Vcmax data and prior are consistent: 
+2022-12-02 19:25:07 INFO   [check_consistent] : 
+   Vcmax P[X<x] = 0.0317338489714169 
+2022-12-02 19:25:07 WARN   [check_consistent] : 
+   CHECK THIS: cuticular_cond data and prior are inconsistent: 
+2022-12-02 19:25:07 INFO   [check_consistent] : 
+   cuticular_cond P[X<x] = 0.983866968897875 
+2022-12-02 19:25:07 INFO   [check_consistent] : 
+   OK!  quantum_efficiency data and prior are consistent: 
+2022-12-02 19:25:07 INFO   [check_consistent] : 
+   quantum_efficiency P[X<x] = 0.797671619036357 
+Read 28 items
+2022-12-02 19:25:08 WARN   [single.MA] : 
+   model did not converge; re-running with j.iter * 10 
+Read 28 items
+2022-12-02 19:25:16 WARN   [single.MA] : 
+   model did not converge; re-running with j.iter * 10 
+Read 28 items
+Read 28 items
+Read 28 items
+2022-12-02 19:25:27 INFO   [check_consistent] : 
+   OK!  stomatal_slope data and prior are consistent: 
+2022-12-02 19:25:27 INFO   [check_consistent] : 
+   stomatal_slope P[X<x] = 0.532704231394277 
+2022-12-02 19:25:27 INFO   [check_consistent] : 
+   OK!  SLA data and prior are consistent: 
+2022-12-02 19:25:27 INFO   [check_consistent] : 
+   SLA P[X<x] = 0.276314822633815 
+2022-12-02 19:25:28 WARN   [check_consistent] : 
+   CHECK THIS: Vcmax data and prior are inconsistent: 
+2022-12-02 19:25:28 INFO   [check_consistent] : 
+   Vcmax P[X<x] = 0.0107234090491143 
+2022-12-02 19:25:28 INFO   [check_consistent] : 
+   OK!  cuticular_cond data and prior are consistent: 
+2022-12-02 19:25:28 INFO   [check_consistent] : 
+   cuticular_cond P[X<x] = 0.896820628855657 
+2022-12-02 19:25:28 INFO   [check_consistent] : 
+   OK!  quantum_efficiency data and prior are consistent: 
+2022-12-02 19:25:28 INFO   [check_consistent] : 
+   quantum_efficiency P[X<x] = 0.471863528656095 
+2022-12-02 19:25:36 INFO   [pecan.ma.summary] : 
+   JAGS model converged for SetariaWT stomatal_slope GD MPSRF = 1.018 
+2022-12-02 19:25:51 INFO   [pecan.ma.summary] : 
+   JAGS model converged for SetariaWT SLA GD MPSRF = 1.032 
+2022-12-02 19:25:52 INFO   [pecan.ma.summary] : 
+   JAGS model converged for SetariaWT Vcmax GD MPSRF = 1.08 
+2022-12-02 19:25:54 INFO   [pecan.ma.summary] : 
+   JAGS model converged for SetariaWT cuticular_cond GD MPSRF = 1.061 
+2022-12-02 19:25:55 INFO   [pecan.ma.summary] : 
+   JAGS model converged for SetariaWT quantum_efficiency GD MPSRF = 1.009 
+2022-12-02 19:25:58 INFO   [FUN] : 
+   ------------------------------------------------------------------- 
+2022-12-02 19:25:58 INFO   [FUN] : 
+   Running meta.analysis for PFT: temperate.North_Mid_Hardwood 
+2022-12-02 19:25:58 INFO   [FUN] : 
+   ------------------------------------------------------------------- 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   OK!  c2n_leaf data and prior are consistent: 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   c2n_leaf P[X<x] = 0.870642022509356 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   OK!  fineroot2leaf data and prior are consistent: 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   fineroot2leaf P[X<x] = 0.0487838255390961 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   OK!  SLA data and prior are consistent: 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   SLA P[X<x] = 0.167840471033891 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   OK!  Vcmax data and prior are consistent: 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   Vcmax P[X<x] = 0.127334368710041 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   OK!  leaf_respiration_rate_m2 data and prior are consistent: 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   leaf_respiration_rate_m2 P[X<x] = 0.0581513943907708 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   OK!  quantum_efficiency data and prior are consistent: 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   quantum_efficiency P[X<x] = 0.0608349902714374 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   OK!  root_respiration_rate data and prior are consistent: 
+2022-12-02 19:25:59 INFO   [check_consistent] : 
+   root_respiration_rate P[X<x] = 0.0565593019246827 
+Read 28 items
+2022-12-02 19:26:01 WARN   [single.MA] : 
+   model did not converge; re-running with j.iter * 10 
+Read 28 items
+2022-12-02 19:26:27 WARN   [single.MA] : 
+   model did not converge; re-running with j.iter * 10 
+Read 28 items
+2022-12-02 19:26:33 WARN   [single.MA] : 
+   model did not converge; re-running with j.iter * 10 
+Read 28 items
+2022-12-02 19:27:01 WARN   [single.MA] : 
+   model did not converge; re-running with j.iter * 10 
+Read 28 items
+2022-12-02 19:27:10 WARN   [single.MA] : 
+   model did not converge; re-running with j.iter * 10 
+Read 28 items
+2022-12-02 19:27:24 WARN   [pecan.ma] : 
+   NO ERROR STATS PROVIDED Check meta-analysis Model Convergence and 
+   consider turning off Random Effects by setting 
+   <random.effects>FALSE</random.effects> in your pecan.xml settings file 
+Read 28 items
+2022-12-02 19:27:24 WARN   [single.MA] : 
+   model did not converge; re-running with j.iter * 10 
+2022-12-02 19:27:26 WARN   [check_consistent] : 
+   CHECK THIS: c2n_leaf data and prior are inconsistent: 
+2022-12-02 19:27:26 INFO   [check_consistent] : 
+   c2n_leaf P[X<x] = 0.982085355183731 
+2022-12-02 19:27:26 INFO   [check_consistent] : 
+   OK!  fineroot2leaf data and prior are consistent: 
+2022-12-02 19:27:26 INFO   [check_consistent] : 
+   fineroot2leaf P[X<x] = 0.27325061287266 
+2022-12-02 19:27:26 INFO   [check_consistent] : 
+   OK!  SLA data and prior are consistent: 
+2022-12-02 19:27:26 INFO   [check_consistent] : 
+   SLA P[X<x] = 0.400811687904576 
+2022-12-02 19:27:26 INFO   [check_consistent] : 
+   OK!  Vcmax data and prior are consistent: 
+2022-12-02 19:27:26 INFO   [check_consistent] : 
+   Vcmax P[X<x] = 0.173685183726842 
+2022-12-02 19:27:26 INFO   [check_consistent] : 
+   OK!  leaf_respiration_rate_m2 data and prior are consistent: 
+2022-12-02 19:27:26 INFO   [check_consistent] : 
+   leaf_respiration_rate_m2 P[X<x] = 0.0925745420093659 
+2022-12-02 19:27:26 INFO   [check_consistent] : 
+   OK!  quantum_efficiency data and prior are consistent: 
+2022-12-02 19:27:26 INFO   [check_consistent] : 
+   quantum_efficiency P[X<x] = 0.102594971249804 
+2022-12-02 19:27:26 INFO   [check_consistent] : 
+   OK!  root_respiration_rate data and prior are consistent: 
+2022-12-02 19:27:26 INFO   [check_consistent] : 
+   root_respiration_rate P[X<x] = 0.0572830157395883 
+2022-12-02 19:27:50 INFO   [pecan.ma.summary] : 
+   JAGS model converged for temperate.North_Mid_Hardwood c2n_leaf GD MPSRF 
+   = 1.179 
+2022-12-02 19:27:57 INFO   [pecan.ma.summary] : 
+   JAGS model did not converge for temperate.North_Mid_Hardwood 
+   fineroot2leaf GD MPSRF = 2.087 
+2022-12-02 19:28:24 INFO   [pecan.ma.summary] : 
+   JAGS model did not converge for temperate.North_Mid_Hardwood SLA GD 
+   MPSRF = 17.929 
+2022-12-02 19:28:34 INFO   [pecan.ma.summary] : 
+   JAGS model converged for temperate.North_Mid_Hardwood Vcmax GD MPSRF = 
+   1.126 
+2022-12-02 19:28:45 INFO   [pecan.ma.summary] : 
+   JAGS model did not converge for temperate.North_Mid_Hardwood 
+   leaf_respiration_rate_m2 GD MPSRF = 1.263 
+2022-12-02 19:28:46 INFO   [pecan.ma.summary] : 
+   JAGS model converged for temperate.North_Mid_Hardwood quantum_efficiency 
+   GD MPSRF = 1.049 
+2022-12-02 19:28:52 INFO   [pecan.ma.summary] : 
+   JAGS model converged for temperate.North_Mid_Hardwood 
+   root_respiration_rate GD MPSRF = 1.005 
+2022-12-02 19:28:52 WARN   [pecan.ma.summary] : 
+   JAGS model failed to converge for one or more trait. Discarding samples. 
+2022-12-02 19:28:52 INFO   [eval] : 
+   temperate.North_Mid_Hardwood fineroot2leaf MPSRF = 2.087 
+2022-12-02 19:28:52 INFO   [eval] : 
+   temperate.North_Mid_Hardwood SLA MPSRF = 17.929 
+2022-12-02 19:28:52 INFO   [eval] : 
+   temperate.North_Mid_Hardwood leaf_respiration_rate_m2 MPSRF = 1.263 
+2022-12-02 19:28:58 INFO   [PEcAn.uncertainty::get.parameter.samples] : 
+   Selected PFT(s): SetariaWT temperate.North_Mid_Hardwood 
+2022-12-02 19:28:59 INFO   [PEcAn.uncertainty::get.parameter.samples] : 
+   No trait.mcmc file is associated with this posterior ID. 
+2022-12-02 19:28:59 INFO   [PEcAn.uncertainty::get.parameter.samples] : 
+   No MCMC results for PFT SetariaWT 
+2022-12-02 19:28:59 INFO   [PEcAn.uncertainty::get.parameter.samples] : 
+   PFT SetariaWT will use prior distributions for mort2 growth_resp_factor 
+   leaf_turnover_rate leaf_width nonlocal_dispersal fineroot2leaf 
+   root_turnover_rate seedling_mortality stomatal_slope quantum_efficiency 
+   Vcmax r_fract cuticular_cond root_respiration_rate Vm_low_temp SLA 
+2022-12-02 19:28:59 INFO   [PEcAn.uncertainty::get.parameter.samples] : 
+   using 20000 samples per trait 
+2022-12-02 19:29:00 INFO   [PEcAn.uncertainty::get.parameter.samples] : 
+   No trait.mcmc file is associated with this posterior ID. 
+2022-12-02 19:29:00 INFO   [PEcAn.uncertainty::get.parameter.samples] : 
+   No MCMC results for PFT temperate.North_Mid_Hardwood 
+2022-12-02 19:29:00 INFO   [PEcAn.uncertainty::get.parameter.samples] : 
+   PFT temperate.North_Mid_Hardwood will use prior distributions for 
+   f_labile growth_resp_factor seedling_mortality nonlocal_dispersal 
+   fineroot2leaf r_fract mort2 leaf_width stomatal_slope Vm_low_temp 
+   root_respiration_rate root_turnover_rate Vcmax c2n_fineroot 
+   water_conductance SLA c2n_leaf quantum_efficiency 
+   leaf_respiration_rate_m2 
+2022-12-02 19:29:00 INFO   [PEcAn.uncertainty::get.parameter.samples] : 
+   using 20000 samples per trait 
+2022-12-02 19:29:00 INFO   [get.ensemble.samples] : 
+   Using lhc method for sampling 
+Loading required package: PEcAn.ED2
+2022-12-02 19:29:03 DEBUG  [PEcAn.remote::remote.execute.cmd] : 
+   ssh -T puma ls 
+   /groups/dlebauer/ed2_results/pecan_remote/2022-12-02-19-24-53/run/c.* 
+2022-12-02 19:29:04 DEBUG  [PEcAn.remote::remote.execute.cmd] : 
+   ssh -T puma ls 
+   /groups/dlebauer/ed2_results/pecan_remote/2022-12-02-19-24-53/run/ED2INc.* 
+2022-12-02 19:29:05 DEBUG  [PEcAn.remote::remote.execute.cmd] : 
+   ssh -T puma ls 
+   /groups/dlebauer/ed2_results/pecan_remote/2022-12-02-19-24-53/out/. 
+2022-12-02 19:29:10 DEBUG  [write.config.xml.ED2] : 
+   --- Using Generic ED2 History File: history.csv 
+2022-12-02 19:29:10 INFO   [write.config.ED2] : 
+   Using 
+   /home/ericrscott/.cache/R/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/PEcAn.ED2/1.7.2/f064ee2bf98a931e26d43713f177cef7/PEcAn.ED2/ED2IN.r2.2.0.github 
+   as template 
+2022-12-02 19:29:11 WARN   [read_ed2in] : 
+   Old substitution tags present in ED2IN file 
+2022-12-02 19:29:11 DEBUG  [write.config.ED2] : 
+   Running with only these PFTs (set by config.xml): 1, 10 
+2022-12-02 19:29:11 DEBUG  [write.config.xml.ED2] : 
+   --- Using Generic ED2 History File: history.csv 
+2022-12-02 19:29:11 INFO   [write.config.ED2] : 
+   Using 
+   /home/ericrscott/.cache/R/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/PEcAn.ED2/1.7.2/f064ee2bf98a931e26d43713f177cef7/PEcAn.ED2/ED2IN.r2.2.0.github 
+   as template 
+2022-12-02 19:29:11 WARN   [read_ed2in] : 
+   Old substitution tags present in ED2IN file 
+2022-12-02 19:29:11 DEBUG  [write.config.ED2] : 
+   Running with only these PFTs (set by config.xml): 1, 10 
+2022-12-02 19:29:11 DEBUG  [write.config.xml.ED2] : 
+   --- Using Generic ED2 History File: history.csv 
+2022-12-02 19:29:11 INFO   [write.config.ED2] : 
+   Using 
+   /home/ericrscott/.cache/R/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/PEcAn.ED2/1.7.2/f064ee2bf98a931e26d43713f177cef7/PEcAn.ED2/ED2IN.r2.2.0.github 
+   as template 
+2022-12-02 19:29:11 WARN   [read_ed2in] : 
+   Old substitution tags present in ED2IN file 
+2022-12-02 19:29:11 DEBUG  [write.config.ED2] : 
+   Running with only these PFTs (set by config.xml): 1, 10 
+2022-12-02 19:29:11 DEBUG  [write.config.xml.ED2] : 
+   --- Using Generic ED2 History File: history.csv 
+2022-12-02 19:29:12 INFO   [write.config.ED2] : 
+   Using 
+   /home/ericrscott/.cache/R/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/PEcAn.ED2/1.7.2/f064ee2bf98a931e26d43713f177cef7/PEcAn.ED2/ED2IN.r2.2.0.github 
+   as template 
+2022-12-02 19:29:12 WARN   [read_ed2in] : 
+   Old substitution tags present in ED2IN file 
+2022-12-02 19:29:12 DEBUG  [write.config.ED2] : 
+   Running with only these PFTs (set by config.xml): 1, 10 
+2022-12-02 19:29:12 DEBUG  [write.config.xml.ED2] : 
+   --- Using Generic ED2 History File: history.csv 
+2022-12-02 19:29:12 INFO   [write.config.ED2] : 
+   Using 
+   /home/ericrscott/.cache/R/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/PEcAn.ED2/1.7.2/f064ee2bf98a931e26d43713f177cef7/PEcAn.ED2/ED2IN.r2.2.0.github 
+   as template 
+2022-12-02 19:29:12 WARN   [read_ed2in] : 
+   Old substitution tags present in ED2IN file 
+2022-12-02 19:29:12 DEBUG  [write.config.ED2] : 
+   Running with only these PFTs (set by config.xml): 1, 10 
+2022-12-02 19:29:12 INFO   [PEcAn.workflow::run.write.configs] : 
+   ###### Finished writing model run config files ##### 
+2022-12-02 19:29:12 INFO   [PEcAn.workflow::run.write.configs] : 
+   config files samples in 
+   /home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-4538/outdir/run 
+2022-12-02 19:29:13 INFO   [PEcAn.workflow::run.write.configs] : 
+   parameter values for runs in 
+   /home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-4538/outdir/samples.RData 
+2022-12-02 19:29:13 INFO   [start_model_runs] : 
+   ------------------------------------------------------------------- 
+2022-12-02 19:29:13 INFO   [start_model_runs] : 
+   Starting model runs ED2 
+2022-12-02 19:29:13 INFO   [start_model_runs] : 
+   ------------------------------------------------------------------- 
+2022-12-02 19:29:13 DEBUG  [PEcAn.remote::remote.copy.to] : 
+   rsync '-a' '-q' '--delete' 
+   '/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-4538/outdir/run' 
+   'puma:/groups/dlebauer/ed2_results/pecan_remote/2022-12-02-19-24-53' 
+2022-12-02 19:29:14 INFO   [PEcAn.remote::remote.copy.to] : 
+   rsync status: Success 
+2022-12-02 19:29:14 DEBUG  [PEcAn.remote::remote.copy.to] : 
+   rsync "-a" "-q" "--include='*/'" "--exclude='*'" "--delete" 
+   "/home/ericrscott/ed2-mandifore/MANDIFORE_runs/MANDIFORE-PNW-4538/outdir/out" 
+   "puma:/groups/dlebauer/ed2_results/pecan_remote/2022-12-02-19-24-53" 
+2022-12-02 19:29:14 SEVERE [PEcAn.remote::remote.copy.to] : 
+   rsync status: Error in file I/O 
+There were 45 warnings (use warnings() to see them)
