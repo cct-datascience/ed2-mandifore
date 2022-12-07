@@ -46,7 +46,7 @@ pss_files <-
                full.names = TRUE)
   })
 
-pss <- map(pss_files, ~read_table(.x, col_types = cols(patch = col_character())))
+pss_list <- map(pss_files, ~read_table(.x, col_types = cols(patch = col_character())))
 
 css_files <- 
   map(sites$cohort_filename, ~{
@@ -56,19 +56,19 @@ css_files <-
       full.names = TRUE
     )
   })
-css <- map(css_files, ~read_table(.x, col_types = cols(patch = col_character())))
+css_list <- map(css_files, ~read_table(.x, col_types = cols(patch = col_character())))
 
 # modify .css
-css <- map(css, modify_css)
+css_list <- map(css_list, modify_css)
 
 # modify .pss
 
-pss <- map2(pss, css, modify_pss)
+pss_list <- map2(pss_list, css_list, modify_pss)
 
 
 # Write .css and .pss files -----------------------------------------------
-walk2(css, css_files, ~write.table(.x, .y, quote = FALSE, row.names = FALSE))
-walk2(pss, pss_files, ~write.table(.x, .y, quote = FALSE, row.names = FALSE))
+walk2(css_list, css_files, ~write.table(.x, .y, quote = FALSE, row.names = FALSE))
+walk2(pss_list, pss_files, ~write.table(.x, .y, quote = FALSE, row.names = FALSE))
 
 
 # Customize pecan.xml -----------------------------------------------------
@@ -111,7 +111,7 @@ settings <-
 
 # Add PFTs to settings
 pfts <- 
-  map(css, ~unique(.x$pft)) |>
+  map(css_list, ~unique(.x$pft)) |>
   map(match_pft) # a tibble
 
 settings <- 
@@ -149,6 +149,7 @@ map2(workflows, settings_paths, ~{
 # Need to edit ED_MET_DRIVER_HEADER to point to correct path
 # 
 # E.g. change `/data/input/NARR_ED2_site_1-18168/` to `/data/sites/mandifore/NARR_ED2_site_1-18168/`
+# TODO skip files that are already done
 walk(sites$met_filename, ~{
   file.copy(
     from = file.path("/data/input", .x),
@@ -168,7 +169,7 @@ walk(sites$met_filename, ~{
 
 
 # Copy files to HPC -------------------------------------------------------
-
+#TODO copy safely and in parallel?
 walk2(settings, sites$met_filename, ~{
   PEcAn.remote::remote.copy.to(
     .x$host,
