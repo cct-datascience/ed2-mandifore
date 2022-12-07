@@ -10,7 +10,8 @@
 #'
 #' @return tibble
 modify_pss <- function(pss, css) {
-  pss <- pss |> 
+  pss <-
+    pss |> 
     select(-site, lai = psc) |> 
     # add dummy columns
     add_column(nep = 0, gpp = 0, rh = 0) |> 

@@ -12,7 +12,7 @@
 modify_css <- function(css, dbh = 0.6, dens = 1) {
   # make sure there is a single value for each time, patch, cohort, pft
   # combination
-  css <- 
+  css <-
     css |> 
     group_by(time, patch, cohort, pft) |> 
     summarize(across(c(dbh, hite), median), 
@@ -31,13 +31,21 @@ modify_css <- function(css, dbh = 0.6, dens = 1) {
       pft = 1,
       dbh = {{dbh}},    #dbh 0.6 cm
       n = {{dens}}      #1 plant per m^2
+      # dbh = 0.6,
+      # n = 1
     ) 
   
   # Set cohort for Setaria---must be unique for the patch, but arbitary.  Sum of
   # all the other cohort numbers will be unique.
-  css <- 
+  #TODO only has to be unique for that PFT.  So could be 0 unless there's another PFT 1 already
+  css <-
     bind_rows(css, setaria) |> 
-    mutate(cohort = if_else(is.na(cohort), sum(unique(cohort), na.rm = TRUE), cohort)) 
+    mutate(cohort = if_else(is.na(cohort), sum(unique(cohort), na.rm = TRUE), cohort)) |> 
+    
+    #For debugging: only use one cohort per patch per pft
+    group_by(time, patch, pft) |> 
+    slice_head(n=1) |> 
+    ungroup()
   
   # replace obsolete PFTs
   # TODO: this replacements may not be correct!
@@ -49,6 +57,7 @@ modify_css <- function(css, dbh = 0.6, dens = 1) {
       TRUE ~ pft
     )) |> 
     # column order is important
-    select(time, patch, cohort, dbh, hite, pft, n, bdead, balive, lai)
+    select(time, patch, cohort, dbh, hite, pft, n, bdead, balive, lai) 
+    
   css
 }
