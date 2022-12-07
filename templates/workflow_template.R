@@ -41,8 +41,9 @@ exp_trait_files <- file.path(settings$pfts |> map_chr("outdir"), "trait.data.Rda
 if(!all(file.exists(exp_trait_files))) {
   settings <- runModule.get.trait.data(settings)
 }
-write.settings(settings, outputfile = "settings_checked.xml")
-
+if (!file.exists(chk_path)){
+  write.settings(settings, outputfile = "settings_checked.xml")
+}
 # Meta analysis -----------------------------------------------------------
 #skip if this was already done
 exp_meta_files <- file.path(settings$pfts |> map_chr("outdir"), "trait.mcmc.Rdata")
