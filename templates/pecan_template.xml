@@ -102,8 +102,8 @@
       <lu>/data/ed_inputs/glu/</lu>
       <thsum>/data/ed_inputs/</thsum>
     </inputs>
-
-    <start.date>2002-01-01</start.date>
+    <!-- best not to start runs in winter -->
+    <start.date>2002-06-01</start.date>
     <end.date>2003-12-31</end.date>
   </run>
   
