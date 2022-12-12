@@ -53,7 +53,8 @@ modify_css <- function(css, dbh = 0.6, dens = 1) {
     mutate(pft = case_when(
       pft == 12 ~ 9, #temperate.Early_Hardwood
       pft == 13 ~ 10, #temperate.Mid_Hardwood 
-      pft == 14 ~ 3, #broadleaf_evergreen_tropical_tree
+      pft == 14 ~ 8, #temperate.Evergreen_Hardwood
+      pft == 3 ~ 8, #temperate.Evergreen_Hardwood
       TRUE ~ pft
     )) |> 
     # column order is important
