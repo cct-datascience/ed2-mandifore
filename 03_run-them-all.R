@@ -1,7 +1,5 @@
 library(purrr)
 library(here)
-library(furrr)
-future::plan(future.callr::callr, workers = 5)
 
 # get paths to all the workflow.R files
 workflows <- list.files("MANDIFORE_runs/", pattern = "workflow.R", recursive = TRUE, full.names = TRUE)
@@ -14,6 +12,8 @@ walk(workflows, ~{
 })
 
 # # launch them all in separate R sessions and sink messages to a log
+# library(furrr)
+# future::plan(future.callr::callr, workers = 5)
 # future_walk(workflows, function(.x) {
 #   #create a log file to capture logger messages
 #   logpath <- file.path(dirname(.x), "workflow_log.txt")

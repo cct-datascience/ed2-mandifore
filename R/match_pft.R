@@ -17,7 +17,7 @@ match_pft <- function(pft, loc = c("PNW", "SEUS")) {
       #temporary.  This actually depends on whether its PNW or SEUS
       loc == "PNW" & ED == 9 ~ "temperate.Early_Hardwood", 
       loc == "PNW" & ED == 10 ~ "temperate.North_Mid_Hardwood",
-      ED == 8 ~ "temperate.Evergreen_Hardwood"
+      ED == 8 ~ "temperate.Evergreen_Hardwood",
       ED == 11 ~ "temperate.Late_Hardwood",
       TRUE ~ PEcAn
     ))
