@@ -21,8 +21,8 @@
    <ed2_pft_number>1</ed2_pft_number>
   </pft>
   <pft>
-   <name>broadleaf_evergreen_tropical_tree</name>
-   <ed2_pft_number>3</ed2_pft_number>
+   <name>temperate.Evergreen_Hardwood</name>
+   <ed2_pft_number>8</ed2_pft_number>
   </pft>
   <pft>
    <name>temperate.Early_Hardwood</name>
@@ -33,7 +33,7 @@
    <ed2_pft_number>10</ed2_pft_number>
   </pft>
   <pft>
-   <name>ebifarm.acru</name>
+   <name>temperate.Late_Hardwood</name>
    <ed2_pft_number>11</ed2_pft_number>
   </pft>
  </pfts>
