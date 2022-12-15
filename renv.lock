@@ -252,9 +252,9 @@
       "RemoteUsername": "pecanproject",
       "RemoteRepo": "pecan",
       "RemoteSubdir": "models/ed",
-      "RemoteRef": "7abbac4b4512b7fce6db930800b7b2896f736a2c",
-      "RemoteSha": "7abbac4b4512b7fce6db930800b7b2896f736a2c",
-      "Hash": "615a408edbcfe503b5799c056650d898",
+      "RemoteRef": "7185583debf31c07a9631e4388693bdf72d9d164",
+      "RemoteSha": "7185583debf31c07a9631e4388693bdf72d9d164",
+      "Hash": "ff6abf054fb017a37bdeb5b7880f6a05",
       "Requirements": [
         "PEcAn.data.atmosphere",
         "PEcAn.data.land",
@@ -1333,6 +1333,19 @@
         "uuid"
       ]
     },
+    "cowplot": {
+      "Package": "cowplot",
+      "Version": "1.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "b418e8423699d11c7f2087c2bfd07da2",
+      "Requirements": [
+        "ggplot2",
+        "gtable",
+        "rlang",
+        "scales"
+      ]
+    },
     "cpp11": {
       "Package": "cpp11",
       "Version": "0.4.3",
@@ -1741,21 +1754,6 @@
       "Hash": "7c89603d81793f0d5486d91ab1fc6f1d",
       "Requirements": []
     },
-    "furrr": {
-      "Package": "furrr",
-      "Version": "0.3.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "da7a4c32196cb2262a41dd5a25d486ff",
-      "Requirements": [
-        "future",
-        "globals",
-        "lifecycle",
-        "purrr",
-        "rlang",
-        "vctrs"
-      ]
-    },
     "future": {
       "Package": "future",
       "Version": "1.28.0",
@@ -1778,17 +1776,6 @@
       "Requirements": [
         "future",
         "globals"
-      ]
-    },
-    "future.callr": {
-      "Package": "future.callr",
-      "Version": "0.8.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "d56e31f531c20af2415a3971ca0b3c3c",
-      "Requirements": [
-        "callr",
-        "future"
       ]
     },
     "gap": {
@@ -1870,6 +1857,30 @@
       "Repository": "RSPM",
       "Hash": "ad68e3263f0bc9269aab8c2039440117",
       "Requirements": []
+    },
+    "ggforce": {
+      "Package": "ggforce",
+      "Version": "0.4.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a06503f54e227f79b45a72df2946a2d2",
+      "Requirements": [
+        "MASS",
+        "Rcpp",
+        "RcppEigen",
+        "cli",
+        "ggplot2",
+        "gtable",
+        "lifecycle",
+        "polyclip",
+        "rlang",
+        "scales",
+        "systemfonts",
+        "tidyselect",
+        "tweenr",
+        "vctrs",
+        "withr"
+      ]
     },
     "ggmap": {
       "Package": "ggmap",
@@ -3731,6 +3742,16 @@
       "Hash": "34c16f1ef796057bfa06d3f4ff818a5d",
       "Requirements": []
     },
+    "systemfonts": {
+      "Package": "systemfonts",
+      "Version": "1.0.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "90b28393209827327de889f49935140a",
+      "Requirements": [
+        "cpp11"
+      ]
+    },
     "taxize": {
       "Package": "taxize",
       "Version": "0.9.100",
@@ -3974,6 +3995,20 @@
       "Repository": "RSPM",
       "Hash": "cc8b5bfa01c930ccb56d3051e515fbd8",
       "Requirements": []
+    },
+    "tweenr": {
+      "Package": "tweenr",
+      "Version": "2.0.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "c16efcef4c72d3bff5e65031f3f1f841",
+      "Requirements": [
+        "cpp11",
+        "farver",
+        "magrittr",
+        "rlang",
+        "vctrs"
+      ]
     },
     "tzdb": {
       "Package": "tzdb",
