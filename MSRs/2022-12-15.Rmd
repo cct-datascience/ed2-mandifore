@@ -8,20 +8,55 @@ date: '2022-12-13'
 knitr::opts_chunk$set(echo = FALSE)
 library(here)
 library(tidyverse)
+library(PEcAn.ED2)
+library(tidync)
+library(lubridate)
+library(units)
+# library(arrow)
+library(furrr)
+future::plan(future.callr::callr, workers = 5)
 ```
 
 Get paths to all the runs.
 
+
 ```{r}
-base_dir <- here("completed_runs")
+# base_dir <- here("completed_runs") #for testing
+base_dir <- here("MANDIFORE_runs")
 sites <- list.dirs(base_dir, recursive = FALSE)
 head(sites)
+#for testing purposes
+# sites <- sites[c(2,5:8)]
 ```
 
-For a single run...
+Not all of the runs completed and had successful conversion to .nc files.  I'll do this manually, I guess
 
 ```{r}
-site <- sites[[1]]
+# library(furrr)
+# future::plan(future.callr::callr, workers = 5)
+# 
+# site <- sites[5]
+# ens_dirs <- 
+#     list.files(file.path(site, "outdir", "out"),
+#                pattern = "ENS-", full.names = TRUE)
+# settings <-  PEcAn.settings::read.settings(here(site, "outdir", "settings_checked.xml"))
+# #which runs don't have .nc files
+# dirs_to_do <- ens_dirs[map_lgl(ens_dirs, ~length(list.files(.x, pattern = ".nc$")) == 0)]
+# # dirs_to_do <- unique(c(dirs_to_do, ))
+# # dirs_to_do <- dirs_to_do[c(-1, -6)]
+# dirs_to_do <- dirs_to_do[c(-4, -5, -11)]
+# #run model2netcdf.ED2() in parallel
+# oldlevel <- PEcAn.logger::logger.setLevel("info")
+# safe_model2netcdf <- safely(PEcAn.ED2::model2netcdf.ED2)
+# future_map(dirs_to_do, ~{
+#   pftmapping <- pftmapping #workaround, fixed in PEcAn pr
+#   safe_model2netcdf(
+#     outdir = .x,
+#     settings = settings,
+#     process_partial = TRUE #new arg
+#   )
+# }, .options = furrr_options(seed = TRUE))
+# PEcAn.logger::logger.setLevel(oldlevel)
 ```
 
 
@@ -44,13 +79,57 @@ get_pft_names <- function(site) {
   return(pft_names)
 }
 # get_pft_names(sites[[3]])
-sites
+
 pft_names <- map_df(sites, get_pft_names)
 ```
 
 Get paths for output files and read in all the .nc files
 
 ```{r}
+# nc_file <- here(base_dir, "MANDIFORE-PNW-4538", "outdir", "out", "ENS-00006-1000020684", "2003.nc")
+  tidync(nc_file) |>
+          activate("D0,D1,D5,D6") |> #these are the dims for variables that are separated by PFT
+          hyper_tibble() |>
+          mutate(date = make_date(year, 1, 1) + days(dtime))
+```
+
+```{r}
+extract_nc <- function(nc_file) {
+  nc <- nc_open(nc_file)
+  pft <- ncvar_get(nc, varid = "PFT")
+  dtime <- ncvar_get(nc, varid = "dtime")
+  lat <- ncvar_get(nc, varid = "lat")
+  lon <- ncvar_get(nc, varid = "lon")
+  vars <- list(
+    "AGB_PFT"    = ncvar_get(nc, varid = "AGB_PFT"    ),
+    "BSEEDS"     = ncvar_get(nc, varid = "BSEEDS"     ),
+    "DBH"        = ncvar_get(nc, varid = "DBH"        ),
+    "DDBH"       = ncvar_get(nc, varid = "DDBH"       ),
+    "NPP_PFT"    = ncvar_get(nc, varid = "NPP_PFT"    ),
+    "TRANSP_PFT" = ncvar_get(nc, varid = "TRANSP_PFT" ),
+    "DENS"       = ncvar_get(nc, varid = "DENS"       )
+  )
+  
+  df <- 
+    vars |> 
+    map_df(~{
+      colnames(.x) <- pft
+      as_tibble(.x) |> 
+        add_column(dtime)
+    }, .id = "varid") |> 
+    pivot_longer(c(-varid, -dtime),
+                 names_to = "pft") |> 
+    pivot_wider(names_from = varid, values_from = value) |> 
+    add_column(lat, lon)
+  nc_close(nc)
+  df
+}
+```
+
+
+
+```{r}
+# site <- sites[[1]] #for debug
 gather_data <- function(site) {
   ens_dirs <- 
     list.files(file.path(site, "outdir", "out"),
@@ -60,8 +139,10 @@ gather_data <- function(site) {
     return(tibble())
   }
   pb <- progress::progress_bar$new(total = length(ens_dirs))
+  # .x <- ens_dirs[[6]] #for debug
   df_raw <- 
-    map_df(ens_dirs, function(.x) {
+    map_dfr(ens_dirs, function(.x) {
+      cat("processing ", .x)
       pb$tick()
       nc_files <- list.files(.x, pattern = "*.nc$", full.names = TRUE)
       if(length(nc_files) == 0 ) {
@@ -69,12 +150,14 @@ gather_data <- function(site) {
         return(tibble())
       }
       #extract and combine data from each year.nc file
-      map_df(nc_files, function(.y) {
+      map_dfr(nc_files, function(.y) {
+      # for (i in seq_along(nc_files)) {
         year <- stringr::str_remove(basename(.y), "\\.nc")
-        tidync(.y) |> 
-          activate("D0,D1,D5,D6") |> #these are the dimensions for variables that are separated by PFT
-          hyper_tibble() |> 
+        tidync(.y) |>
+          activate("D0,D1,D5,D6") |> #these are the dims for variables that are separated by PFT
+          hyper_tibble() |>
           mutate(date = make_date(year, 1, 1) + days(dtime))
+      # }
       })
     }, .id = "ensemble") |> 
     mutate(site = basename(site)) |> 
@@ -83,8 +166,15 @@ gather_data <- function(site) {
 }
 
 # df_raw <- gather_data(site)
-df_raw <- map_df(sites, gather_data)
+df_raw <- map_dfr(sites, gather_data)
 ```
+
+Save raw data
+
+```{r}
+write_csv(df_raw, here("MSRs", "2022-12-15_data-raw.csv"))
+```
+
 
 Set units with the `units` package
 
@@ -134,8 +224,8 @@ df_summary <- df |>
       c(NPP_PFT, AGB_PFT, DENS, TRANSP_PFT, WUE_PFT),
       .fns = list(
         mean = ~ mean(.x, na.rm = TRUE),
-        lower = ~ quantile(.x, 0.25),
-        upper = ~ quantile(.x, 0.75)
+        lower = ~ quantile(.x, 0.25, na.rm = TRUE),
+        upper = ~ quantile(.x, 0.75, na.rm = TRUE)
       )
     ),
     lat = first(lat),
@@ -165,12 +255,18 @@ sitemap <-
     size  = 3
   ) +
   coord_map() +
-  theme_void()
-sitemap
+  theme_void() +
+  labs(title = "Site locations for test ED2 simulations") +
+  theme(plot.title = element_text(hjust = 0.5))
+ggsave(here("MSRs", "2022-12-15_map.png"), sitemap)
 ```
 
 
 # Make plots
+
+```{r}
+source(here("R/shift_legend.R"))
+```
 
 Variables to plot:
 
@@ -188,108 +284,92 @@ We want to highlight the progress in the following areas:
 But we also want to make sure *Setaria* is visible.  This might require faceting by PFT with free Y axes or maybe making inset plots for *Setaria* using `ggforce`
 
 ```{r}
-
-# make_plot <- function(data, y, ymin, ymax) {
-#   
-# }
-
-wue_plot <- 
+make_plot <- function(df_summary, y, ymin, ymax) {
   ggplot(df_summary, aes(x = date, color = pft_name, fill = pft_name)) +
-  #uncomment to plot ensembles
-  # geom_line(data = df, aes(y = AGB_PFT, group = ensemble), alpha = 0.4) +
-  geom_line(aes(y = WUE_PFT_mean), size = 1) +
-  geom_ribbon(aes(ymin = WUE_PFT_lower, ymax = WUE_PFT_upper), color = NA, alpha = 0.4) +
-  scale_x_date(date_breaks = "3 months", date_labels = "%m") +
-  labs(
-    color = "PFT",
-    fill = "PFT",
-    y = "Water Use Efficiency",
-    x = "Date"
+    #uncomment to plot ensembles
+    # geom_line(data = df, aes(y = AGB_PFT, group = ensemble), alpha = 0.4) +
+    geom_line(aes(y = {{y}}), size = 0.7) +
+    geom_ribbon(aes(ymin = {{ymin}}, ymax = {{ymax}}),
+                color = NA, alpha = 0.4) +
+    scale_color_brewer(type = "qual", palette = "Dark2", 
+                       aesthetics = c("fill", "color")) +
+    scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+    labs(
+      color = "PFT",
+      fill = "PFT",
+      # y = "Water Use Efficiency",
+      x = "Date"
     ) +
-  theme_bw()
-wue_plot
+    theme_bw() +
+    facet_wrap(~site, scales = "free_y")
+}
+```
 
-df |> filter(WUE_PFT < -40)
+
+```{r}
+wue_plot <- 
+  make_plot(df_summary, y = WUE_PFT_mean, ymin = WUE_PFT_lower, ymax = WUE_PFT_upper) + 
+  labs(y = "Water Use Efficiency")
+
+shift_legend(wue_plot) |> plot()
 ```
 
 
 ```{r}
 agb_plot <- 
-  ggplot(df_summary, aes(x = date, color = pft_name, fill = pft_name)) +
-  #uncomment to plot ensembles
-  # geom_line(data = df, aes(y = AGB_PFT, group = ensemble), alpha = 0.4) +
-  geom_line(aes(y = AGB_PFT_mean), size = 1) +
-  geom_ribbon(aes(ymin = AGB_PFT_lower, ymax = AGB_PFT_upper), color = NA, alpha = 0.4) +
-  scale_x_date(date_breaks = "3 months") +
-  labs(
-    color = "PFT",
-    fill = "PFT",
-    y = "AGB",
-    x = "Date"
-    ) +
-  theme_bw()
-agb_plot + facet_wrap(~pft_name, scales = "free_y")
+  make_plot(df_summary, y = AGB_PFT_mean, ymin = AGB_PFT_lower, ymax = AGB_PFT_upper) + 
+  labs(y = "Aboveground Biomass")
+
+shift_legend(agb_plot) |> plot()
 ```
+
+Zoom in on setaria for 9095
+
+```{r}
+ggplot(df_summary, aes(x = date, color = pft_name, fill = pft_name)) +
+    geom_line(aes(y = AGB_PFT_mean), size = 0.7) +
+    geom_ribbon(aes(ymin = AGB_PFT_lower, ymax = {{ymax}}),
+                color = NA, alpha = 0.4) +
+    scale_color_brewer(type = "qual", palette = "Dark2", 
+                       aesthetics = c("fill", "color")) +
+    scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+    labs(
+      color = "PFT",
+      fill = "PFT",
+      # y = "Water Use Efficiency",
+      x = "Date"
+    ) +
+    theme_bw() +
+    facet_wrap(~site, scales = "free_y")
+```
+
+
+```{r}
+dens_plot <- 
+  make_plot(df_summary, y = DENS_mean, ymin = DENS_lower, ymax = DENS_upper) + 
+  labs(y = "Stem Density")
+
+shift_legend(dens_plot) |> plot()
+```
+
+```{r}
+npp_plot <- 
+  make_plot(df_summary, y = NPP_PFT_mean, ymin = NPP_PFT_lower, ymax = NPP_PFT_upper) + 
+  labs(y = "Net Primary Productivity")
+
+shift_legend(npp_plot) |> plot()
+```
+
 ```{r}
 library(ggforce)
 agb_plot + facet_zoom(y = pft_name == "SetariaWT")
 ```
 
-```{r}
-dens_plot <- 
-  ggplot(df_summary, aes(x = date, color = pft_name, fill = pft_name)) +
-  # geom_line(data = df, aes(y = AGB_PFT, group = ensemble), alpha = 0.4) +
-  geom_line(aes(y = DENS_mean), size = 1) +
-  geom_ribbon(aes(ymin = DENS_lower, ymax = DENS_upper), color = NA, alpha = 0.4) +
-  scale_x_date(date_breaks = "3 months") +
-  labs(
-    color = "PFT",
-    fill = "PFT",
-    y = "Density",
-    x = "Date"
-  ) +
-  theme_bw()
-```
-
-
-```{r}
-npp_plot <- 
-  ggplot(df_summary, aes(x = date, color = pft_name, fill = pft_name)) +
-  # geom_line(data = df, aes(y = NPP_PFT, group = ensemble), alpha = 0.4) +
-  geom_line(aes(y = NPP_PFT_mean), size = 1) +
-  geom_ribbon(aes(ymin = NPP_PFT_lower, ymax = NPP_PFT_upper), color = NA, alpha = 0.4) +
-  scale_x_date(date_breaks = "3 months") +
-  labs(
-    color = "PFT",
-    fill = "PFT",
-    y = "NPP",
-    x = "Date"
-  ) +
-  theme_bw()
-npp_plot
-
-```
-```{r}
-transp_plot <- 
-  ggplot(df_summary, aes(x = date, color = pft_name, fill = pft_name)) +
-  # geom_line(data = df, aes(y = NPP_PFT, group = ensemble), alpha = 0.4) +
-  geom_line(aes(y = TRANSP_PFT_mean), size = 1) +
-  geom_ribbon(aes(ymin = TRANSP_PFT_lower, ymax = TRANSP_PFT_upper), color = NA, alpha = 0.4) +
-  scale_x_date(date_breaks = "3 months", date_labels = "%m-%d") +
-  labs(
-    color = "PFT",
-    fill = "PFT",
-    y = "Transpiration",
-    x = "Date"
-  ) +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-transp_plot
-
-```
 
 ```{r}
 library(patchwork)
+
+
 agb_plot /
   (npp_plot | dens_plot) + 
   plot_layout(guides = "collect") + plot_annotation(tag_level = "A")
