@@ -173,6 +173,7 @@ Save raw data
 
 ```{r}
 write_csv(df_raw, here("MSRs", "2022-12-15_data-raw.csv"))
+df_raw <- read_csv(here("MSRs", "2022-12-15_data-raw.csv"))
 ```
 
 
@@ -207,23 +208,85 @@ tidy_data <- function(df_raw) {
     ) |> 
     #first date is wonky, let's just remove it
     filter(date != min(date))
+
   df
 }
 df <- tidy_data(df_raw)
 df <- left_join(df, pft_names) |> mutate(pft = as.factor(pft))
 df
+write_csv(df, here("MSRs", "2022-12-15_data.csv"))
 ```
+
+Filter out weird outliers and stuff
+
+```{r}
+
+df2 <-
+  df |> 
+  mutate(
+    ensemble = as.factor(ensemble),
+  ) |>    
+  #remove "MANDIFORE"
+  mutate(
+    site = str_remove(site, "MANDIFORE-")
+  ) |> 
+  
+  #manually filter out whacky outliers
+  mutate(DENS = case_when(
+    as.numeric(DENS) < 0 ~ NA * DENS,
+    as.numeric(DENS) > 150 & pft %in% c(8:11) ~ NA * DENS,
+    TRUE ~ DENS
+  )) |> 
+  mutate(AGB_PFT = case_when(
+    as.numeric(AGB_PFT) < 0 ~ NA * AGB_PFT,
+    as.numeric(AGB_PFT) > 100 & pft %in% (8:11) ~ NA * AGB_PFT,
+    as.numeric(AGB_PFT) > 3 & pft == 1 ~ NA * AGB_PFT,
+    TRUE ~ AGB_PFT
+  )) |> 
+  mutate(NPP_PFT = case_when(
+    as.numeric(NPP_PFT) > 5 ~ NA * NPP_PFT,
+    as.numeric(NPP_PFT) < -1 ~ NA * NPP_PFT,
+    TRUE ~ NPP_PFT
+  )) |> 
+  mutate(TRANSP_PFT = case_when(
+    as.numeric(TRANSP_PFT) > 25 ~ NA * TRANSP_PFT,
+    as.numeric(TRANSP_PFT) < 0 ~ 0 * TRANSP_PFT,
+    TRUE ~ TRANSP_PFT
+  )) |> 
+  #recalc WUE
+  mutate(
+    WUE_PFT = as.numeric(NPP_PFT / TRANSP_PFT)
+  )
+  
+  
+df2 |> 
+  group_by(site) |> 
+  group_split() |> 
+  map(\(x) {
+    site <- x$site |> unique()
+    ggplot(x, aes(x = date, y = NPP_PFT, color = pft_name, group = ensemble)) +
+      geom_line() +
+      labs(title = site) +
+      facet_wrap(~pft, scales = "free_y")
+  })
+```
+
 
 Summarize for plotting
 
 ```{r}
-df_summary <- df |> 
+df_summary <- 
+  
+  df2 |> 
+  mutate(
+    ensemble = as.factor(ensemble),
+  ) |> 
   group_by(site, pft, pft_name, date) |> 
   summarize(
     across(
-      c(NPP_PFT, AGB_PFT, DENS, TRANSP_PFT, WUE_PFT),
+      c(NPP_PFT, AGB_PFT, DENS, TRANSP_PFT, WUE_PFT, BSEEDS),
       .fns = list(
-        mean = ~ mean(.x, na.rm = TRUE),
+        median = ~ median(.x, na.rm = TRUE),
         lower = ~ quantile(.x, 0.25, na.rm = TRUE),
         upper = ~ quantile(.x, 0.75, na.rm = TRUE)
       )
@@ -301,77 +364,88 @@ make_plot <- function(df_summary, y, ymin, ymax) {
       x = "Date"
     ) +
     theme_bw() +
-    facet_wrap(~site, scales = "free_y")
+    facet_wrap(~site, scales = "free_y") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
 }
 ```
 
+Plots that look decent:
 
 ```{r}
-wue_plot <- 
-  make_plot(df_summary, y = WUE_PFT_mean, ymin = WUE_PFT_lower, ymax = WUE_PFT_upper) + 
-  labs(y = "Water Use Efficiency")
+agb_plot <- 
+  make_plot(df_summary, y = AGB_PFT_median, ymin = AGB_PFT_lower, ymax = AGB_PFT_upper) + 
+  labs(y = "Aboveground Biomass")
 
-shift_legend(wue_plot) |> plot()
+agb_plot <- shift_legend(agb_plot)
+ggsave("agb.png", agb_plot)
+```
+
+```{r}
+dens_plot <- 
+  make_plot(df_summary, y = DENS_median, ymin = DENS_lower, ymax = DENS_upper) + 
+  labs(y = "Stem Density")
+
+dens_plot <- shift_legend(dens_plot)
+ggsave("dens.png", dens_plot)
+```
+
+```{r}
+seeds_plot <- 
+  make_plot(df_summary, y = BSEEDS_median, ymin = BSEEDS_lower, ymax = BSEEDS_upper) + 
+  labs(y = "Seed Biomass")
+
+seeds_plot <- shift_legend(seeds_plot)
+ggsave("seeds.png", seeds_plot)
 ```
 
 
 ```{r}
-agb_plot <- 
-  make_plot(df_summary, y = AGB_PFT_mean, ymin = AGB_PFT_lower, ymax = AGB_PFT_upper) + 
-  labs(y = "Aboveground Biomass")
+npp_plot <- 
+  make_plot(df_summary, y = NPP_PFT_median, ymin = NPP_PFT_lower, ymax = NPP_PFT_upper) + 
+  labs(y = "Net Primary Productivity")
 
-shift_legend(agb_plot) |> plot()
+npp_plot <- shift_legend(npp_plot)
+ggsave("npp.png", npp_plot)
+```
+
+```{r}
+transp_plot <- 
+  make_plot(df_summary, y = TRANSP_PFT_median, ymin = TRANSP_PFT_lower, ymax = TRANSP_PFT_upper) + 
+  labs(y = "Transpiration")
+
+transp_plot <- shift_legend(transp_plot)
+ggsave("transp.png", transp_plot)
+```
+
+```{r}
+wue_plot <- 
+  make_plot(df_summary, y = WUE_PFT_median, ymin = WUE_PFT_lower, ymax = WUE_PFT_upper) + 
+  labs(y = "Water Use Efficiency")
+
+wue_plot <- shift_legend(wue_plot)
+ggsave("wue.png", wue_plot)
 ```
 
 Zoom in on setaria for 9095
 
 ```{r}
-ggplot(df_summary, aes(x = date, color = pft_name, fill = pft_name)) +
-    geom_line(aes(y = AGB_PFT_mean), size = 0.7) +
-    geom_ribbon(aes(ymin = AGB_PFT_lower, ymax = {{ymax}}),
-                color = NA, alpha = 0.4) +
-    scale_color_brewer(type = "qual", palette = "Dark2", 
-                       aesthetics = c("fill", "color")) +
-    scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-    labs(
-      color = "PFT",
-      fill = "PFT",
-      # y = "Water Use Efficiency",
-      x = "Date"
-    ) +
-    theme_bw() +
-    facet_wrap(~site, scales = "free_y")
-```
-
-
-```{r}
-dens_plot <- 
-  make_plot(df_summary, y = DENS_mean, ymin = DENS_lower, ymax = DENS_upper) + 
-  labs(y = "Stem Density")
-
-shift_legend(dens_plot) |> plot()
-```
-
-```{r}
-npp_plot <- 
-  make_plot(df_summary, y = NPP_PFT_mean, ymin = NPP_PFT_lower, ymax = NPP_PFT_upper) + 
-  labs(y = "Net Primary Productivity")
-
-shift_legend(npp_plot) |> plot()
-```
-
-```{r}
 library(ggforce)
-agb_plot + facet_zoom(y = pft_name == "SetariaWT")
+df_summary |> 
+  filter(site == "PNW-9095") |> 
+  ggplot(aes(x = date, color = pft_name, fill = pft_name)) +
+  geom_line(aes(y = AGB_PFT_median), size = 0.7) +
+  geom_ribbon(aes(ymin = AGB_PFT_lower, ymax = AGB_PFT_upper),
+              color = NA, alpha = 0.4) +
+  scale_color_brewer(type = "qual", palette = "Dark2", 
+                     aesthetics = c("fill", "color")) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  labs(
+    color = "PFT",
+    fill = "PFT",
+    x = "Date"
+  ) +
+  theme_bw() +
+  facet_zoom(y = pft == 1)
 ```
 
-
-```{r}
-library(patchwork)
-
-
-agb_plot /
-  (npp_plot | dens_plot) + 
-  plot_layout(guides = "collect") + plot_annotation(tag_level = "A")
-```
 
