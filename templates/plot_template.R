@@ -3,11 +3,15 @@ library(tidyverse)
 library(lubridate)
 library(units)
 library(PEcAn.settings)
+library(PEcAn.ED2)
 library(patchwork)
 
 # read in the two years of output
 # TODO: generalize and parallelize using furr_map()
-settings <- read.settings("MANDIFORE_runs/MANDIFORE-PNW-5909/outdir/settings_checked.xml")
+settings <- read.settings("completed_runs/MANDIFORE-PNW-9095/outdir/settings_checked.xml")
+sitename <- settings$info$notes
+x <- PEcAn.ED2:::extract_pfts(settings$pfts)
+pft_names <- tibble(pft = x, pft_name = names(x))
 
 ens_dirs <- list.files(file.path(settings$outdir, "out"), pattern = "ENS-", full.names = TRUE)
 
@@ -20,7 +24,7 @@ df_raw <-
     map_df(nc_files, function(.y) {
       year <- stringr::str_remove(basename(.y), "\\.nc")
       tidync(.y) |> 
-        activate("D0,D1,D5,D6") |> 
+        activate("D0,D1,D5,D6") |> #these are the dimensions for variables that are separated by PFT
         hyper_tibble() |> 
         mutate(date = make_date(year, 1, 1) + days(dtime))
     })
@@ -32,25 +36,24 @@ df_raw <-
 #   filter(Variable.Name == "NPP")
 
 # tidy, set units
+#TODO: add more variables to this step
 df <- 
   df_raw |> 
-  mutate(pft = as.factor(pft)) |> 
   #set units
   mutate(
     AGB_PFT = set_units(AGB_PFT, "kg m-2"),
-    NPP_PFT = set_units(NPP_PFT, "kg m-2 s-1")
+    NPP_PFT = set_units(NPP_PFT, "kg m-2 s-1"),
+    # DENS = set_units(DENS, "1/m^2") #TODO not sure how to do stems/m2
   ) |> 
-  mutate(pft = case_when(
-    pft == 1 ~ "Setaria WT",
-    pft == 9 ~ "Temperate Early Hardwood"
-  )) |> 
   #first date is wonky, let's just remove it
   filter(date != min(date))
+#add pft names
+df <- left_join(df, pft_names) |> mutate(pft = as.factor(pft))
 
 df_summary <- df |> 
-  group_by(pft, date) |> 
+  group_by(pft, pft_name, date) |> 
   summarize(across(
-    c(NPP_PFT, AGB_PFT),
+    c(NPP_PFT, AGB_PFT, DENS),
     .fns = list(
       mean = ~ mean(.x, na.rm = TRUE),
       lower = ~ quantile(.x, 0.025),
@@ -60,14 +63,15 @@ df_summary <- df |>
 
 
 # Plot above ground biomass and NPP
+#TODO turn this into a function with options for var and plot_ensembles
 agb_plot <- 
-  ggplot(df_summary, aes(x = date, color = pft, fill = pft)) +
+  ggplot(df_summary, aes(x = date, color = pft_name, fill = pft_name)) +
+  #uncomment to plot ensembles
   # geom_line(data = df, aes(y = AGB_PFT, group = ensemble), alpha = 0.4) +
   geom_line(aes(y = AGB_PFT_mean), size = 1) +
   geom_ribbon(aes(ymin = AGB_PFT_lower, ymax = AGB_PFT_upper), color = NA, alpha = 0.4) +
   scale_x_date(date_breaks = "3 months") +
   labs(
-    # title = "MANDIFORE-PNW-5909",
     color = "PFT",
     fill = "PFT",
     y = "AGB",
@@ -76,14 +80,28 @@ agb_plot <-
   theme_bw()
 
 
+dens_plot <- 
+  ggplot(df_summary, aes(x = date, color = pft_name, fill = pft_name)) +
+  # geom_line(data = df, aes(y = AGB_PFT, group = ensemble), alpha = 0.4) +
+  geom_line(aes(y = DENS_mean), size = 1) +
+  geom_ribbon(aes(ymin = DENS_lower, ymax = DENS_upper), color = NA, alpha = 0.4) +
+  scale_x_date(date_breaks = "3 months") +
+  labs(
+    color = "PFT",
+    fill = "PFT",
+    y = "Density [stems/m^2]",
+    x = "Date"
+  ) +
+  theme_bw()
+
+
 npp_plot <- 
-  ggplot(df_summary, aes(x = date, color = pft, fill = pft)) +
+  ggplot(df_summary, aes(x = date, color = pft_name, fill = pft_name)) +
   # geom_line(data = df, aes(y = NPP_PFT, group = ensemble), alpha = 0.4) +
   geom_line(aes(y = NPP_PFT_mean), size = 1) +
   geom_ribbon(aes(ymin = NPP_PFT_lower, ymax = NPP_PFT_upper), color = NA, alpha = 0.4) +
   scale_x_date(date_breaks = "3 months") +
   labs(
-    # title = "MANDIFORE-PNW-5909",
     color = "PFT",
     fill = "PFT",
     y = "NPP",
@@ -169,20 +187,21 @@ precip_plot <-
 
 
 # Put it all together and export
+#TODO: decide what plots to actually keep
 
 msr_plot <- 
   # (agb_plot + theme(axis.text.x = element_blank(), axis.title.x = element_blank()))/
   (npp_plot + theme(axis.text.x = element_blank(), axis.title.x = element_blank()))/
   (precip_plot + theme(axis.text.x = element_blank(), axis.title.x = element_blank())) / 
   (tmp_plot) +
-  plot_annotation(title = "MANDIFORE-PNW-5909") +
+  plot_annotation(title = sitename,) +
   plot_layout(guides = "collect")
 msr_plot
 write_csv(met_df, file.path(dirname(settings$outdir), "MSR_met.csv"))
 write_csv(df, file.path(dirname(settings$outdir), "MSR.csv"))
 ggsave("MSR.png", plot = msr_plot, path = dirname(settings$outdir), height = 7, width = 7)
 
-#another possibiolity with faceting and free scales
+#another possibility with faceting and free scales
 
 msr_plot2 <-
   (agb_plot + facet_wrap(~pft, scales = "free_y") + theme(axis.text.x = element_blank(), axis.title.x = element_blank())) /
