@@ -83,6 +83,8 @@
       <!-- turn off cohort and patch fusion. Not necessary for short runs -->
       <MAXCOHORT>0</MAXCOHORT>
       <MAXPATCH>0</MAXPATCH>
+      <!-- turn off generation of -T- files -->
+      <ITOUTPUT>0</ITOUTPUT>
     </ed2in_tags>
   </model>
 
