@@ -172,8 +172,62 @@ df_raw <- map_dfr(sites, gather_data)
 Save raw data
 
 ```{r}
-write_csv(df_raw, here("MSRs", "2022-12-15_data-raw.csv"))
-df_raw <- read_csv(here("MSRs", "2022-12-15_data-raw.csv"))
+write_csv(df_raw, here("MSRs", "2022-12-15", "2022-12-15_data-raw.csv"))
+df_raw <- read_csv(here("MSRs", "2022-12-15", "2022-12-15_data-raw.csv"))
+```
+
+## Ensemble report
+
+For each run, how many ensembles finished, why did they error, etc.?
+
+```{r}
+ensemble_report <- 
+  df_raw |> 
+  group_by(site, ensemble) |> 
+  summarize(
+    end = max(date),
+    run_duration = max(date) - min(date)
+  ) |> 
+  group_by(site) |> 
+  summarize(
+    ensembles_run = length(unique(ensemble)),
+    ensembles_completed = sum(end == max(end)),
+    min_duration = min(run_duration),
+    median_duration = median(run_duration)
+  ) |> arrange(ensembles_completed)
+ensemble_report
+```
+
+
+```{r}
+logs <- list.files(here(base_dir), "logfile\\.txt", recursive = TRUE, full.names = TRUE)
+log_ends <- logs |> 
+  map(~{
+    read_lines(.x) |> 
+      tail(30)
+  })
+finished <- log_ends |> 
+  map_lgl(~.x |> str_detect("MODEL FINISHED") |> any())
+ed_error <- log_ends |> 
+  map_lgl(~.x |> str_detect("ERROR IN MODEL RUN") |> any())
+model2netcdf_error <- log_ends |> 
+  map_lgl(~.x |> str_detect("ERROR IN model2netcdf.ED2") |> any())
+
+
+
+log_report <- 
+  tibble(path = logs, finished, ed_error, model2netcdf_error) |> 
+  mutate(ensemble = path |>  str_extract("(?<=ENS-)\\d+") |> as.numeric(),
+         site = path |> str_extract("MANDIFORE-(PNW|SEUS)-\\d+")) |> 
+  select(site, ensemble, finished, ed_error, model2netcdf_error)
+log_report
+```
+
+Check that I didn't miss any errors.  These should just have not finished because time ran out on the HPC:
+
+```{r}
+log_report |> 
+  filter(!finished & !(ed_error | model2netcdf_error))
 ```
 
 
