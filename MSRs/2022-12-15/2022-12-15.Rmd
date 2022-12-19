@@ -1,0 +1,505 @@
+---
+title: "MSR Dec 2022"
+output: html_document
+date: '2022-12-13'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(here)
+library(tidyverse)
+library(PEcAn.ED2)
+library(tidync)
+library(lubridate)
+library(units)
+# library(arrow)
+library(furrr)
+future::plan(future.callr::callr, workers = 5)
+```
+
+Get paths to all the runs.
+
+
+```{r}
+# base_dir <- here("completed_runs") #for testing
+base_dir <- here("MANDIFORE_runs")
+sites <- list.dirs(base_dir, recursive = FALSE)
+head(sites)
+#for testing purposes
+# sites <- sites[c(2,5:8)]
+```
+
+Not all of the runs completed and had successful conversion to .nc files.  I'll do this manually, I guess
+
+```{r}
+# library(furrr)
+# future::plan(future.callr::callr, workers = 5)
+# 
+# site <- sites[5]
+# ens_dirs <- 
+#     list.files(file.path(site, "outdir", "out"),
+#                pattern = "ENS-", full.names = TRUE)
+# settings <-  PEcAn.settings::read.settings(here(site, "outdir", "settings_checked.xml"))
+# #which runs don't have .nc files
+# dirs_to_do <- ens_dirs[map_lgl(ens_dirs, ~length(list.files(.x, pattern = ".nc$")) == 0)]
+# # dirs_to_do <- unique(c(dirs_to_do, ))
+# # dirs_to_do <- dirs_to_do[c(-1, -6)]
+# dirs_to_do <- dirs_to_do[c(-4, -5, -11)]
+# #run model2netcdf.ED2() in parallel
+# oldlevel <- PEcAn.logger::logger.setLevel("info")
+# safe_model2netcdf <- safely(PEcAn.ED2::model2netcdf.ED2)
+# future_map(dirs_to_do, ~{
+#   pftmapping <- pftmapping #workaround, fixed in PEcAn pr
+#   safe_model2netcdf(
+#     outdir = .x,
+#     settings = settings,
+#     process_partial = TRUE #new arg
+#   )
+# }, .options = furrr_options(seed = TRUE))
+# PEcAn.logger::logger.setLevel(oldlevel)
+```
+
+
+Get info about the run for plotting
+
+```{r}
+get_pft_names <- function(site) {
+  settings_path <- 
+    list.files(site, "settings_checked.xml", recursive = TRUE, full.names = TRUE)
+  if(length(settings_path)==0) {
+    warning("No settings file exists! Returning 0x0 tibble")
+    return(tibble())
+  }
+  settings <- PEcAn.settings::read.settings(settings_path)
+  x <- PEcAn.ED2:::extract_pfts(settings$pfts)
+  pft_names <-
+    tibble(pft = x, pft_name = names(x)) |> 
+    mutate(site = basename(site)) |> 
+    select(site, everything())
+  return(pft_names)
+}
+# get_pft_names(sites[[3]])
+
+pft_names <- map_df(sites, get_pft_names)
+```
+
+Get paths for output files and read in all the .nc files
+
+```{r}
+# nc_file <- here(base_dir, "MANDIFORE-PNW-4538", "outdir", "out", "ENS-00006-1000020684", "2003.nc")
+  tidync(nc_file) |>
+          activate("D0,D1,D5,D6") |> #these are the dims for variables that are separated by PFT
+          hyper_tibble() |>
+          mutate(date = make_date(year, 1, 1) + days(dtime))
+```
+
+```{r}
+extract_nc <- function(nc_file) {
+  nc <- nc_open(nc_file)
+  pft <- ncvar_get(nc, varid = "PFT")
+  dtime <- ncvar_get(nc, varid = "dtime")
+  lat <- ncvar_get(nc, varid = "lat")
+  lon <- ncvar_get(nc, varid = "lon")
+  vars <- list(
+    "AGB_PFT"    = ncvar_get(nc, varid = "AGB_PFT"    ),
+    "BSEEDS"     = ncvar_get(nc, varid = "BSEEDS"     ),
+    "DBH"        = ncvar_get(nc, varid = "DBH"        ),
+    "DDBH"       = ncvar_get(nc, varid = "DDBH"       ),
+    "NPP_PFT"    = ncvar_get(nc, varid = "NPP_PFT"    ),
+    "TRANSP_PFT" = ncvar_get(nc, varid = "TRANSP_PFT" ),
+    "DENS"       = ncvar_get(nc, varid = "DENS"       )
+  )
+  
+  df <- 
+    vars |> 
+    map_df(~{
+      colnames(.x) <- pft
+      as_tibble(.x) |> 
+        add_column(dtime)
+    }, .id = "varid") |> 
+    pivot_longer(c(-varid, -dtime),
+                 names_to = "pft") |> 
+    pivot_wider(names_from = varid, values_from = value) |> 
+    add_column(lat, lon)
+  nc_close(nc)
+  df
+}
+```
+
+
+
+```{r}
+# site <- sites[[1]] #for debug
+gather_data <- function(site) {
+  ens_dirs <- 
+    list.files(file.path(site, "outdir", "out"),
+               pattern = "ENS-", full.names = TRUE)
+  if(length(ens_dirs) == 0) {
+    warning("No output found! Returning 0x0 tibble")
+    return(tibble())
+  }
+  pb <- progress::progress_bar$new(total = length(ens_dirs))
+  # .x <- ens_dirs[[6]] #for debug
+  df_raw <- 
+    map_dfr(ens_dirs, function(.x) {
+      cat("processing ", .x)
+      pb$tick()
+      nc_files <- list.files(.x, pattern = "*.nc$", full.names = TRUE)
+      if(length(nc_files) == 0 ) {
+        warning("No .nc files found! Returning 0x0 tibble")
+        return(tibble())
+      }
+      #extract and combine data from each year.nc file
+      map_dfr(nc_files, function(.y) {
+      # for (i in seq_along(nc_files)) {
+        year <- stringr::str_remove(basename(.y), "\\.nc")
+        tidync(.y) |>
+          activate("D0,D1,D5,D6") |> #these are the dims for variables that are separated by PFT
+          hyper_tibble() |>
+          mutate(date = make_date(year, 1, 1) + days(dtime))
+      # }
+      })
+    }, .id = "ensemble") |> 
+    mutate(site = basename(site)) |> 
+    select(site, ensemble, everything())
+  return(df_raw)
+}
+
+# df_raw <- gather_data(site)
+df_raw <- map_dfr(sites, gather_data)
+```
+
+Save raw data
+
+```{r}
+write_csv(df_raw, here("MSRs", "2022-12-15", "2022-12-15_data-raw.csv"))
+df_raw <- read_csv(here("MSRs", "2022-12-15", "2022-12-15_data-raw.csv"))
+```
+
+## Ensemble report
+
+For each run, how many ensembles finished, why did they error, etc.?
+
+```{r}
+ensemble_report <- 
+  df_raw |> 
+  group_by(site, ensemble) |> 
+  summarize(
+    end = max(date),
+    run_duration = max(date) - min(date)
+  ) |> 
+  group_by(site) |> 
+  summarize(
+    ensembles_run = length(unique(ensemble)),
+    ensembles_completed = sum(end == max(end)),
+    min_duration = min(run_duration),
+    median_duration = median(run_duration)
+  ) |> arrange(ensembles_completed)
+ensemble_report
+```
+
+
+```{r}
+logs <- list.files(here(base_dir), "logfile\\.txt", recursive = TRUE, full.names = TRUE)
+log_ends <- logs |> 
+  map(~{
+    read_lines(.x) |> 
+      tail(30)
+  })
+finished <- log_ends |> 
+  map_lgl(~.x |> str_detect("MODEL FINISHED") |> any())
+ed_error <- log_ends |> 
+  map_lgl(~.x |> str_detect("ERROR IN MODEL RUN") |> any())
+model2netcdf_error <- log_ends |> 
+  map_lgl(~.x |> str_detect("ERROR IN model2netcdf.ED2") |> any())
+
+
+
+log_report <- 
+  tibble(path = logs, finished, ed_error, model2netcdf_error) |> 
+  mutate(ensemble = path |>  str_extract("(?<=ENS-)\\d+") |> as.numeric(),
+         site = path |> str_extract("MANDIFORE-(PNW|SEUS)-\\d+")) |> 
+  select(site, ensemble, finished, ed_error, model2netcdf_error)
+log_report
+```
+
+Check that I didn't miss any errors.  These should just have not finished because time ran out on the HPC:
+
+```{r}
+log_report |> 
+  filter(!finished & !(ed_error | model2netcdf_error))
+```
+
+
+Set units with the `units` package
+
+```{r}
+tidy_data <- function(df_raw) {
+  df <- 
+    df_raw |> 
+    #set units
+    mutate(
+      AGB_PFT = set_units(AGB_PFT, "kg m-2"),
+      NPP_PFT = set_units(NPP_PFT, "kg m-2 s-1"),
+      TRANSP_PFT = set_units(TRANSP_PFT, "kg m-2 s-1"), #TODO check this!
+      DENS = set_units(DENS, "1/m^2") #TODO not sure how to do stems/m2
+    ) |>
+    #calculate variables
+    mutate(
+      WUE_PFT = as.numeric(NPP_PFT / TRANSP_PFT)
+    ) |> 
+    mutate(
+      WUE_PFT = case_when(
+        as.numeric(NPP_PFT) <= 0 ~ 0,
+        !is.finite(WUE_PFT) & as.numeric(NPP_PFT) > 0 ~ NA_real_,
+        TRUE ~ WUE_PFT
+      )
+    ) |> 
+    #convert units
+    mutate(
+      NPP_PFT = set_units(NPP_PFT, "kg m-2 day-1"),
+      TRANSP_PFT = set_units(TRANSP_PFT, "kg m-2 day-1")
+    ) |> 
+    #first date is wonky, let's just remove it
+    filter(date != min(date))
+
+  df
+}
+df <- tidy_data(df_raw)
+df <- left_join(df, pft_names) |> mutate(pft = as.factor(pft))
+df
+write_csv(df, here("MSRs", "2022-12-15_data.csv"))
+```
+
+Filter out weird outliers and stuff
+
+```{r}
+
+df2 <-
+  df |> 
+  mutate(
+    ensemble = as.factor(ensemble),
+  ) |>    
+  #remove "MANDIFORE"
+  mutate(
+    site = str_remove(site, "MANDIFORE-")
+  ) |> 
+  
+  #manually filter out whacky outliers
+  mutate(DENS = case_when(
+    as.numeric(DENS) < 0 ~ NA * DENS,
+    as.numeric(DENS) > 150 & pft %in% c(8:11) ~ NA * DENS,
+    TRUE ~ DENS
+  )) |> 
+  mutate(AGB_PFT = case_when(
+    as.numeric(AGB_PFT) < 0 ~ NA * AGB_PFT,
+    as.numeric(AGB_PFT) > 100 & pft %in% (8:11) ~ NA * AGB_PFT,
+    as.numeric(AGB_PFT) > 3 & pft == 1 ~ NA * AGB_PFT,
+    TRUE ~ AGB_PFT
+  )) |> 
+  mutate(NPP_PFT = case_when(
+    as.numeric(NPP_PFT) > 5 ~ NA * NPP_PFT,
+    as.numeric(NPP_PFT) < -1 ~ NA * NPP_PFT,
+    TRUE ~ NPP_PFT
+  )) |> 
+  mutate(TRANSP_PFT = case_when(
+    as.numeric(TRANSP_PFT) > 25 ~ NA * TRANSP_PFT,
+    as.numeric(TRANSP_PFT) < 0 ~ 0 * TRANSP_PFT,
+    TRUE ~ TRANSP_PFT
+  )) |> 
+  #recalc WUE
+  mutate(
+    WUE_PFT = as.numeric(NPP_PFT / TRANSP_PFT)
+  )
+  
+  
+df2 |> 
+  group_by(site) |> 
+  group_split() |> 
+  map(\(x) {
+    site <- x$site |> unique()
+    ggplot(x, aes(x = date, y = NPP_PFT, color = pft_name, group = ensemble)) +
+      geom_line() +
+      labs(title = site) +
+      facet_wrap(~pft, scales = "free_y")
+  })
+```
+
+
+Summarize for plotting
+
+```{r}
+df_summary <- 
+  
+  df2 |> 
+  mutate(
+    ensemble = as.factor(ensemble),
+  ) |> 
+  group_by(site, pft, pft_name, date) |> 
+  summarize(
+    across(
+      c(NPP_PFT, AGB_PFT, DENS, TRANSP_PFT, WUE_PFT, BSEEDS),
+      .fns = list(
+        median = ~ median(.x, na.rm = TRUE),
+        lower = ~ quantile(.x, 0.25, na.rm = TRUE),
+        upper = ~ quantile(.x, 0.75, na.rm = TRUE)
+      )
+    ),
+    lat = first(lat),
+    lon = first(lon)
+  )
+```
+
+# Map
+
+```{r}
+library(maps)
+US <- map_data("state")
+sitemap <- 
+  ggplot() + 
+  geom_polygon(
+    data = US,
+    aes(x = long, y = lat, group = group),
+    color = "black",
+    fill =  "lightblue"
+  ) +
+  geom_point(
+    data = df_summary,
+    aes(x = lon, y = lat),
+    fill = "red",
+    color = "black",
+    shape = 21,
+    size  = 3
+  ) +
+  coord_map() +
+  theme_void() +
+  labs(title = "Site locations for test ED2 simulations") +
+  theme(plot.title = element_text(hjust = 0.5))
+ggsave(here("MSRs", "2022-12-15_map.png"), sitemap)
+```
+
+
+# Make plots
+
+```{r}
+source(here("R/shift_legend.R"))
+```
+
+Variables to plot:
+
+- Density
+- AGB
+- Water use efficiency
+- NPP
+
+
+We want to highlight the progress in the following areas:
+- More sites
+- Longer runs
+- Realistic communities
+
+But we also want to make sure *Setaria* is visible.  This might require faceting by PFT with free Y axes or maybe making inset plots for *Setaria* using `ggforce`
+
+```{r}
+make_plot <- function(df_summary, y, ymin, ymax) {
+  ggplot(df_summary, aes(x = date, color = pft_name, fill = pft_name)) +
+    #uncomment to plot ensembles
+    # geom_line(data = df, aes(y = AGB_PFT, group = ensemble), alpha = 0.4) +
+    geom_line(aes(y = {{y}}), size = 0.7) +
+    geom_ribbon(aes(ymin = {{ymin}}, ymax = {{ymax}}),
+                color = NA, alpha = 0.4) +
+    scale_color_brewer(type = "qual", palette = "Dark2", 
+                       aesthetics = c("fill", "color")) +
+    scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+    labs(
+      color = "PFT",
+      fill = "PFT",
+      # y = "Water Use Efficiency",
+      x = "Date"
+    ) +
+    theme_bw() +
+    facet_wrap(~site, scales = "free_y") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+}
+```
+
+Plots that look decent:
+
+```{r}
+agb_plot <- 
+  make_plot(df_summary, y = AGB_PFT_median, ymin = AGB_PFT_lower, ymax = AGB_PFT_upper) + 
+  labs(y = "Aboveground Biomass")
+
+agb_plot <- shift_legend(agb_plot)
+ggsave("agb.png", agb_plot)
+```
+
+```{r}
+dens_plot <- 
+  make_plot(df_summary, y = DENS_median, ymin = DENS_lower, ymax = DENS_upper) + 
+  labs(y = "Stem Density")
+
+dens_plot <- shift_legend(dens_plot)
+ggsave("dens.png", dens_plot)
+```
+
+```{r}
+seeds_plot <- 
+  make_plot(df_summary, y = BSEEDS_median, ymin = BSEEDS_lower, ymax = BSEEDS_upper) + 
+  labs(y = "Seed Biomass")
+
+seeds_plot <- shift_legend(seeds_plot)
+ggsave("seeds.png", seeds_plot)
+```
+
+
+```{r}
+npp_plot <- 
+  make_plot(df_summary, y = NPP_PFT_median, ymin = NPP_PFT_lower, ymax = NPP_PFT_upper) + 
+  labs(y = "Net Primary Productivity")
+
+npp_plot <- shift_legend(npp_plot)
+ggsave("npp.png", npp_plot)
+```
+
+```{r}
+transp_plot <- 
+  make_plot(df_summary, y = TRANSP_PFT_median, ymin = TRANSP_PFT_lower, ymax = TRANSP_PFT_upper) + 
+  labs(y = "Transpiration")
+
+transp_plot <- shift_legend(transp_plot)
+ggsave("transp.png", transp_plot)
+```
+
+```{r}
+wue_plot <- 
+  make_plot(df_summary, y = WUE_PFT_median, ymin = WUE_PFT_lower, ymax = WUE_PFT_upper) + 
+  labs(y = "Water Use Efficiency")
+
+wue_plot <- shift_legend(wue_plot)
+ggsave("wue.png", wue_plot)
+```
+
+Zoom in on setaria for 9095
+
+```{r}
+library(ggforce)
+df_summary |> 
+  filter(site == "PNW-9095") |> 
+  ggplot(aes(x = date, color = pft_name, fill = pft_name)) +
+  geom_line(aes(y = AGB_PFT_median), size = 0.7) +
+  geom_ribbon(aes(ymin = AGB_PFT_lower, ymax = AGB_PFT_upper),
+              color = NA, alpha = 0.4) +
+  scale_color_brewer(type = "qual", palette = "Dark2", 
+                     aesthetics = c("fill", "color")) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  labs(
+    color = "PFT",
+    fill = "PFT",
+    x = "Date"
+  ) +
+  theme_bw() +
+  facet_zoom(y = pft == 1)
+```
+
+

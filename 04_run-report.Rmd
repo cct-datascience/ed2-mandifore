@@ -1,0 +1,86 @@
+---
+title: "Run Report"
+output: html_document
+date: '2022-12-19'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+base_dir <- "MANDIFORE_runs"
+```
+
+# Logfile summary
+
+
+```{r}
+logs <- list.files(base_dir, "logfile.txt", recursive = TRUE, full.names = TRUE)
+# read in ends of log files
+log_ends <- logs |> 
+  map(~{
+    read_lines(.x) |> 
+      tail(50)
+  })
+
+#check end of logs for common patterns
+finished <- log_ends |> 
+  map_lgl(\(x) x |> str_detect("MODEL FINISHED") |> any())
+ed_error <- log_ends |> 
+  map_lgl(\(x) {
+    x |> str_detect("ERROR IN MODEL RUN") |> any() |
+      x |> str_detect("FATAL ERROR") |> any()
+    })
+ed_error_reason <- log_ends |> 
+  map_chr(\(x) {
+    out <- x[str_detect(x, "(?<=---> Reason:).+") | str_detect(x, "SIGABRT")] |> 
+      str_remove("---> Reason:") |> str_trim()
+    if(length(out) == 0) {
+      out <- NA_character_
+    }
+    out
+  })
+model2netcdf_error <- log_ends |> 
+  map_lgl(\(x) x |> str_detect("ERROR IN model2netcdf.ED2") |> any())
+```
+
+```{r}
+#make report table
+log_report <-
+  tibble(path = logs, finished, ed_error, ed_error_reason, model2netcdf_error) |>
+  mutate(
+    ensemble = path |>  str_extract("(?<=ENS-)\\d+") |> as.numeric(),
+    site = path |> str_extract("MANDIFORE-(PNW|SEUS)-\\d+")
+  ) |>
+  select(site, ensemble, everything()) |>
+  arrange(site, desc(finished), ensemble)
+```
+
+```{r}
+ensemble_report <- 
+  tibble(path = list.files(base_dir, "analysis-E-.+\\.h5", recursive = TRUE)) |> 
+  mutate(
+    ensemble = path |>  str_extract("(?<=ENS-)\\d+") |> as.numeric(),
+    site = path |> str_extract("MANDIFORE-(PNW|SEUS)-\\d+"),
+    date = path |> basename() |> str_extract("(?<=E-)\\d{4}-\\d{2}") |> lubridate::ym()
+  ) |> 
+  group_by(site, ensemble) |> 
+  summarize(
+    date_start = min(date),
+    date_end = max(date)
+  ) |>
+  full_join(log_report) |> 
+  select(-path)
+ensemble_report
+```
+
+Might want to only show errors
+
+```{r}
+ensemble_report |> filter(!finished, ed_error) |> 
+  arrange(desc(ed_error), ed_error_reason)
+```
+
+```{r}
+write_csv(ensemble_report, here("MANDIFORE_runs", "ensemble_report.csv"))
+```
+

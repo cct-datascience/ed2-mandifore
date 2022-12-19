@@ -52,7 +52,7 @@
 -->
   <ensemble>
     <!-- This should be increased for final runs -->
-    <size>5</size>
+    <size>15</size>
     <variable>NPP</variable>
     <samplingspace>
       <parameters>
@@ -90,8 +90,8 @@
     <site>
       <!-- ID, start date, and end date will be replaced -->
       <id>12345</id>
-      <met.start>2019-01-01 00:00:00</met.start>
-      <met.end>2019-12-31 23:59:59</met.end>
+      <met.start>2000-01-01 00:00:00</met.start>
+      <met.end>2015-12-31 23:59:59</met.end>
     </site>
 
     <inputs>
@@ -102,9 +102,9 @@
       <lu>/data/ed_inputs/glu/</lu>
       <thsum>/data/ed_inputs/</thsum>
     </inputs>
-
-    <start.date>2002-01-01</start.date>
-    <end.date>2003-12-31</end.date>
+    <!-- best not to start runs in winter -->
+    <start.date>2002-06-01</start.date>
+    <end.date>2012-06-01</end.date>
   </run>
   
   <host>
@@ -112,7 +112,7 @@
       <name>puma</name>
       <!-- don't edit the rest unless you know what you're doing -->
       <folder>/groups/dlebauer/ed2_results/pecan_remote</folder>
-      <qsub>sbatch --job-name=@NAME@ --account=dlebauer --ntasks=28 --nodes=3 --time=25:00:00 -o @STDOUT@ -e @STDERR@</qsub>
+      <qsub>sbatch --job-name=@NAME@ --account=dlebauer --ntasks=28 --nodes=3 --time=48:00:00 -o @STDOUT@ -e @STDERR@</qsub>
       <qsub.jobid>.* ([0-9]+)</qsub.jobid>
       <qstat>'squeue --job @JOBID@ &amp;> /dev/null || echo DONE'</qstat>
       <job.sh>module load openmpi3 R</job.sh>

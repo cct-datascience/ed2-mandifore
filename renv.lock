@@ -245,14 +245,16 @@
     },
     "PEcAn.ED2": {
       "Package": "PEcAn.ED2",
-      "Version": "1.7.2",
-      "Source": "Repository",
-      "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
-      "RemoteUrl": "https://github.com/PecanProject/pecan",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
-      "Hash": "3e88941daafec3dd0dc3da9e9e61d552",
+      "Version": "1.7.2.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "pecanproject",
+      "RemoteRepo": "pecan",
+      "RemoteSubdir": "models/ed",
+      "RemoteRef": "7185583debf31c07a9631e4388693bdf72d9d164",
+      "RemoteSha": "7185583debf31c07a9631e4388693bdf72d9d164",
+      "Hash": "ff6abf054fb017a37bdeb5b7880f6a05",
       "Requirements": [
         "PEcAn.data.atmosphere",
         "PEcAn.data.land",
@@ -279,11 +281,10 @@
       "Version": "1.7.2",
       "Source": "Repository",
       "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
       "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
-      "Hash": "91227e01670cb134833e1fe33978acc7",
+      "Hash": "cd8c3a57bffa5c1f24768dc9e7e4c193",
       "Requirements": [
         "MASS",
         "PEcAn.DB",
@@ -300,11 +301,10 @@
       "Version": "1.7.2.9000",
       "Source": "Repository",
       "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
       "RemoteSha": "33ef8cb6ac63076081e06d6774ee9a750b554f59",
-      "Hash": "4e7b3aea9758e5a0885dc1a6c4483091",
+      "Hash": "4adc60f6576c1503e773c70b6993bf5c",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.MA",
@@ -328,11 +328,10 @@
       "Version": "1.7.2",
       "Source": "Repository",
       "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
       "RemoteSha": "33ef8cb6ac63076081e06d6774ee9a750b554f59",
-      "Hash": "f8608ceef933526b1e6a6e08b6a47518",
+      "Hash": "b4aec7e6cb3ac08e8e4212c8531e2450",
       "Requirements": [
         "BayesianTools",
         "IDPmisc",
@@ -368,11 +367,10 @@
       "Version": "1.7.2",
       "Source": "Repository",
       "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
       "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
-      "Hash": "790f821e3670504cf94a0c200551671d",
+      "Hash": "895f71ed2ab0a823b2c75d1743f70404",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.logger",
@@ -401,12 +399,11 @@
       "Version": "1.7.2",
       "Source": "Repository",
       "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
-      "Remotes": "github::chuhousen/amerifluxr, github::ropensci/geonames,\n    github::ropensci/nneo",
+      "Remotes": "github::chuhousen/amerifluxr, github::ropensci/geonames,\n        github::ropensci/nneo",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
       "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
-      "Hash": "ac6310588016628e0b2c5fd161d9c23c",
+      "Hash": "8ed77c56775aeca0778dfe28052d7124",
       "Requirements": [
         "MASS",
         "PEcAn.DB",
@@ -453,11 +450,10 @@
       "Version": "1.7.2.9000",
       "Source": "Repository",
       "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
       "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
-      "Hash": "65dbe6e42bce070c2332daee71ee31d8",
+      "Hash": "bb52ef8b7e5b0a73748b00f04958523f",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.benchmark",
@@ -499,11 +495,10 @@
       "Version": "1.7.2.9000",
       "Source": "Repository",
       "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
       "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
-      "Hash": "6a526bae5261543c83e2253540507f4e",
+      "Hash": "0b0835b151284f14c5e63897352cefa3",
       "Requirements": [
         "DBI",
         "MODISTools",
@@ -529,11 +524,10 @@
       "Version": "1.7.2.9000",
       "Source": "Repository",
       "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
       "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
-      "Hash": "384d053bfffddf56a8976bf180b9aaf4",
+      "Hash": "92b7302dac0691eebca787865570021a",
       "Requirements": [
         "MCMCpack",
         "coda",
@@ -545,11 +539,10 @@
       "Version": "1.8.1.9000",
       "Source": "Repository",
       "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
       "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
-      "Hash": "7ef928bee7f68d7633b9c4bfd8d2f85a",
+      "Hash": "a5f0110a9424ce7ebabaf68a3c08ac55",
       "Requirements": [
         "stringi"
       ]
@@ -559,11 +552,10 @@
       "Version": "1.7.2",
       "Source": "Repository",
       "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
       "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
-      "Hash": "709c23ad0f3b2dbb804b7d3288fa73d2",
+      "Hash": "b148b9f50303a393b6a425c3a09ca71c",
       "Requirements": [
         "MASS",
         "PEcAn.MA",
@@ -619,11 +611,10 @@
       "Version": "1.7.2",
       "Source": "Repository",
       "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
       "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
-      "Hash": "a7e15b77c7964f65179c199fb08f1565",
+      "Hash": "dcf2b507ceaed212ec1973ecd5fe48e7",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.emulator",
@@ -646,11 +637,10 @@
       "Version": "1.7.2",
       "Source": "Repository",
       "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
       "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
-      "Hash": "48290fadc1194be6b3586f4864684d59",
+      "Hash": "d91af6b4dcbaf50db681fe3484881707",
       "Requirements": [
         "PEcAn.logger",
         "abind",
@@ -669,11 +659,10 @@
       "Version": "1.7.2",
       "Source": "Repository",
       "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteType": "repository",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
       "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
-      "Hash": "99a5315f2c41b63e369ce91898bcda58",
+      "Hash": "1511df9e92be8c8a4630e8a231f49c4a",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.logger",
@@ -697,9 +686,9 @@
       "RemoteUsername": "pecanproject",
       "RemoteRepo": "pecan",
       "RemoteSubdir": "base/workflow",
-      "RemoteRef": "f6f1e340f7880d5403ed0941fac7a5304ff23be9",
-      "RemoteSha": "f6f1e340f7880d5403ed0941fac7a5304ff23be9",
-      "Hash": "5cf61d81318842c896c935d7a8e67564",
+      "RemoteRef": "93f7155392c11fe61f51db46d7c63ba0ddcdfea7",
+      "RemoteSha": "93f7155392c11fe61f51db46d7c63ba0ddcdfea7",
+      "Hash": "903704f3e6ee6ade46bec71fb627320a",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.data.atmosphere",
@@ -1344,6 +1333,19 @@
         "uuid"
       ]
     },
+    "cowplot": {
+      "Package": "cowplot",
+      "Version": "1.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "b418e8423699d11c7f2087c2bfd07da2",
+      "Requirements": [
+        "ggplot2",
+        "gtable",
+        "rlang",
+        "scales"
+      ]
+    },
     "cpp11": {
       "Package": "cpp11",
       "Version": "0.4.3",
@@ -1752,6 +1754,21 @@
       "Hash": "7c89603d81793f0d5486d91ab1fc6f1d",
       "Requirements": []
     },
+    "furrr": {
+      "Package": "furrr",
+      "Version": "0.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "da7a4c32196cb2262a41dd5a25d486ff",
+      "Requirements": [
+        "future",
+        "globals",
+        "lifecycle",
+        "purrr",
+        "rlang",
+        "vctrs"
+      ]
+    },
     "future": {
       "Package": "future",
       "Version": "1.28.0",
@@ -1774,6 +1791,17 @@
       "Requirements": [
         "future",
         "globals"
+      ]
+    },
+    "future.callr": {
+      "Package": "future.callr",
+      "Version": "0.8.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "d56e31f531c20af2415a3971ca0b3c3c",
+      "Requirements": [
+        "callr",
+        "future"
       ]
     },
     "gap": {
@@ -1855,6 +1883,30 @@
       "Repository": "RSPM",
       "Hash": "ad68e3263f0bc9269aab8c2039440117",
       "Requirements": []
+    },
+    "ggforce": {
+      "Package": "ggforce",
+      "Version": "0.4.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a06503f54e227f79b45a72df2946a2d2",
+      "Requirements": [
+        "MASS",
+        "Rcpp",
+        "RcppEigen",
+        "cli",
+        "ggplot2",
+        "gtable",
+        "lifecycle",
+        "polyclip",
+        "rlang",
+        "scales",
+        "systemfonts",
+        "tidyselect",
+        "tweenr",
+        "vctrs",
+        "withr"
+      ]
     },
     "ggmap": {
       "Package": "ggmap",
@@ -3758,6 +3810,16 @@
       "Hash": "34c16f1ef796057bfa06d3f4ff818a5d",
       "Requirements": []
     },
+    "systemfonts": {
+      "Package": "systemfonts",
+      "Version": "1.0.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "90b28393209827327de889f49935140a",
+      "Requirements": [
+        "cpp11"
+      ]
+    },
     "taxize": {
       "Package": "taxize",
       "Version": "0.9.100",
@@ -4001,6 +4063,20 @@
       "Repository": "RSPM",
       "Hash": "cc8b5bfa01c930ccb56d3051e515fbd8",
       "Requirements": []
+    },
+    "tweenr": {
+      "Package": "tweenr",
+      "Version": "2.0.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "c16efcef4c72d3bff5e65031f3f1f841",
+      "Requirements": [
+        "cpp11",
+        "farver",
+        "magrittr",
+        "rlang",
+        "vctrs"
+      ]
     },
     "tzdb": {
       "Package": "tzdb",
