@@ -114,7 +114,7 @@
       <name>puma</name>
       <!-- don't edit the rest unless you know what you're doing -->
       <folder>/groups/dlebauer/ed2_results/pecan_remote</folder>
-      <qsub>sbatch --job-name=@NAME@ --account=dlebauer --ntasks=28 --nodes=3 --time=48:00:00 -o @STDOUT@ -e @STDERR@</qsub>
+      <qsub>sbatch --job-name=@NAME@ --account=dlebauer --ntasks=28 --nodes=3 --time=07-00:00:00 -o @STDOUT@ -e @STDERR@</qsub>
       <qsub.jobid>.* ([0-9]+)</qsub.jobid>
       <qstat>'squeue --job @JOBID@ &amp;> /dev/null || echo DONE'</qstat>
       <job.sh>module load openmpi3 R</job.sh>
