@@ -17,7 +17,7 @@ new_sites <- read_csv("data/mandifore_sites.csv")
 sites <- slice_sample(new_sites, n=5)
 
 # create working directories ----------------------------------------------
-wds <- paste("MANDIFORE_runs", sites$sitename, sep = "/")
+wds <- paste("MANDIFORE_big_run", sites$sitename, sep = "/")
 
 wds |> 
   walk(~{
@@ -81,7 +81,8 @@ settings <-
     list(settings = settings, wd = wds, s = sites |> rowwise() |> group_split()),
     \(settings, wd, s) {
       #set outdir--for testing it's in wd, not in data/ somewhere
-      settings$outdir <- file.path(wd, "outdir")
+      # settings$outdir <- file.path(wd, "outdir")
+      settings$outdir <- file.path("/data/output/pecan_runs", wd)
       # site and met info
       settings$info$notes <- s$sitename
       settings$run$site$id <- s$site_id
