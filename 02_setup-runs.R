@@ -150,8 +150,9 @@ map2(workflows, settings_paths, ~{
 # Need to edit ED_MET_DRIVER_HEADER to point to correct path
 # 
 # E.g. change `/data/input/NARR_ED2_site_1-18168/` to `/data/sites/mandifore/NARR_ED2_site_1-18168/`
-# TODO skip files that are already done
-walk(sites$met_filename, ~{
+# Skip files that are already done
+existing_met <- list.files("/data/sites/mandifore")
+walk(sites$met_filename[!sites$met_filename %in% existing_met], ~{
   file.copy(
     from = file.path("/data/input", .x),
     to = "/data/sites/mandifore",
