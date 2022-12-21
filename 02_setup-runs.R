@@ -14,7 +14,7 @@ set.seed(4444)
 
 new_sites <- read_csv("data/mandifore_sites.csv")
 #just sample 3 for now to test iteration
-sites <- slice_sample(new_sites, n=10)
+sites <- slice_sample(new_sites, n=100)
 
 # create working directories ----------------------------------------------
 wds <- paste("MANDIFORE_big_run", sites$sitename, sep = "/")
@@ -165,7 +165,7 @@ walk(sites$met_filename[!sites$met_filename %in% existing_met], ~{
   met_driver <-
     str_replace(met_driver, "/data/input/", "/data/sites/mandifore/") #fix path
   write_lines(met_driver, met_driver_path)
-}, .progress = TRUE)
+}, .progress = "Modify ED_MET_DRIVER_HEADER")
 
 
 # Copy files to HPC -------------------------------------------------------
@@ -177,7 +177,7 @@ walk2(settings, sites$met_filename,
           src = file.path("/data/sites/mandifore", met_filename),
           dst = "/groups/dlebauer/data/sites/mandifore"
         )
-      }, .progress = TRUE)
+      }, .progress = "Copy MET files to HPC")
 
 
 walk2(settings, sites$cohort_filename,
@@ -187,7 +187,7 @@ walk2(settings, sites$cohort_filename,
           src = file.path("/data/sites/mandifore", cohort_filename),
           dst = "/groups/dlebauer/data/sites/mandifore"
         )
-      }, .progress = TRUE)
+      }, .progress = "Copy cohort files to HPC")
 
 
 
