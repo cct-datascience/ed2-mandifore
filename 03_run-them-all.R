@@ -2,7 +2,7 @@ library(purrr)
 library(here)
 
 # get paths to all the workflow.R files
-workflows <- list.files("MANDIFORE_runs/", pattern = "workflow.R", recursive = TRUE, full.names = TRUE)
+workflows <- list.files("MANDIFORE_big_run/", pattern = "workflow.R", recursive = TRUE, full.names = TRUE)
 
 # launch them all as RStudio background jobs
 library(rstudioapi)
