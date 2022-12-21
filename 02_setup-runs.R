@@ -8,13 +8,13 @@ source("R/modify_css.R")
 source("R/modify_pss.R")
 source("R/match_pft.R")
 
-set.seed(1234)
+set.seed(4444)
 
 # load site info ----------------------------------------------------------
 
 new_sites <- read_csv("data/mandifore_sites.csv")
 #just sample 3 for now to test iteration
-sites <- slice_sample(new_sites, n=5)
+sites <- slice_sample(new_sites, n=10)
 
 # create working directories ----------------------------------------------
 wds <- paste("MANDIFORE_big_run", sites$sitename, sep = "/")
@@ -26,7 +26,7 @@ wds |>
               file.path(.x, "pecan.xml"))
     file.copy(file.path("templates", "workflow_template.R"),
               file.path(.x, "workflow.R"))
-  })
+  }, .progress = "Copying templates")
 
 
 # edit css and pss files --------------------------------------------------
@@ -56,14 +56,14 @@ css_files <-
       full.names = TRUE
     )
   })
-css_list <- map(css_files, ~read_table(.x, col_types = cols(patch = col_character())))
+css_list <- map(css_files, \(x) read_table(x, col_types = cols(patch = col_character())))
 
 # modify .css
-css_list <- map(css_list, modify_css)
+css_list <- map(css_list, \(x) modify_css(x), .progress = "Modifying .css files")
 
 # modify .pss
 
-pss_list <- map2(pss_list, css_list, modify_pss)
+pss_list <- map2(pss_list, css_list, \(x,y) modify_pss(x,y), .progress = "Modifying .pss files")
 
 
 # Write .css and .pss files -----------------------------------------------
@@ -135,9 +135,7 @@ walk2(settings, wds, ~write.settings(.x, "pecan.xml", outputdir = .y))
 # Edit workflow.R ---------------------------------------------------------
 
 workflows <- map(wds, ~readLines(file.path(.x, "workflow.R")))
-settings_paths <- map(sites$sitename, ~{
-  file.path("MANDIFORE_runs", .x, "pecan.xml")
-})
+settings_paths <- file.path(wds, "pecan.xml")
 
 map2(workflows, settings_paths, ~{
   repl <- paste0('inputfile <- \"', .y, '\"')
@@ -167,27 +165,29 @@ walk(sites$met_filename[!sites$met_filename %in% existing_met], ~{
   met_driver <-
     str_replace(met_driver, "/data/input/", "/data/sites/mandifore/") #fix path
   write_lines(met_driver, met_driver_path)
-})
+}, .progress = TRUE)
 
 
 # Copy files to HPC -------------------------------------------------------
-#TODO copy safely and in parallel?
-walk2(settings, sites$met_filename, ~{
-  PEcAn.remote::remote.copy.to(
-    .x$host,
-    src = file.path("/data/sites/mandifore", .y),
-    dst = "/groups/dlebauer/data/sites/mandifore"
-  )
-})
+
+walk2(settings, sites$met_filename,
+      \(settings, met_filename) {
+        PEcAn.remote::remote.copy.to(
+          settings$host,
+          src = file.path("/data/sites/mandifore", met_filename),
+          dst = "/groups/dlebauer/data/sites/mandifore"
+        )
+      }, .progress = TRUE)
 
 
-walk2(settings, sites$cohort_filename, ~{
-  PEcAn.remote::remote.copy.to(
-    .x$host,
-    src = file.path("/data/sites/mandifore", .y),
-    dst = "/groups/dlebauer/data/sites/mandifore"
-  )
-})
+walk2(settings, sites$cohort_filename,
+      \(settings, cohort_filename) {
+        PEcAn.remote::remote.copy.to(
+          settings$host,
+          src = file.path("/data/sites/mandifore", cohort_filename),
+          dst = "/groups/dlebauer/data/sites/mandifore"
+        )
+      }, .progress = TRUE)
 
 
 
