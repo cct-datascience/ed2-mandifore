@@ -113,7 +113,7 @@
       <qsub>sbatch --job-name=@NAME@ --account=dlebauer --ntasks=28 --nodes=3 --time=07-00:00:00 -o @STDOUT@ -e @STDERR@</qsub>
       <qsub.jobid>.* ([0-9]+)</qsub.jobid>
       <qstat>'squeue --job @JOBID@ &amp;> /dev/null || echo DONE'</qstat>
-      <job.sh>module load openmpi3 R</job.sh>
+      <prerun>module load openmpi3 R</prerun>
       <modellauncher>
         <binary>/groups/dlebauer/ed2_results/pecan/contrib/modellauncher/modellauncher</binary>
         <qsub.extra>--partition=standard</qsub.extra>
