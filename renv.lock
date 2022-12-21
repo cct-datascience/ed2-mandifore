@@ -252,9 +252,9 @@
       "RemoteUsername": "pecanproject",
       "RemoteRepo": "pecan",
       "RemoteSubdir": "models/ed",
-      "RemoteRef": "7185583debf31c07a9631e4388693bdf72d9d164",
-      "RemoteSha": "7185583debf31c07a9631e4388693bdf72d9d164",
-      "Hash": "ff6abf054fb017a37bdeb5b7880f6a05",
+      "RemoteRef": "57608730e13170419fca0ef30e0ede8af5e6a53d",
+      "RemoteSha": "57608730e13170419fca0ef30e0ede8af5e6a53d",
+      "Hash": "e8a89fd76dc1d23221a580d44da30825",
       "Requirements": [
         "PEcAn.data.atmosphere",
         "PEcAn.data.land",
@@ -1212,10 +1212,10 @@
     },
     "callr": {
       "Package": "callr",
-      "Version": "3.7.2",
+      "Version": "3.7.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "358689cac9fe93b1bb3a19088d2dbed8",
+      "Hash": "9b2191ede20fa29828139b9900922e51",
       "Requirements": [
         "R6",
         "processx"
@@ -1496,6 +1496,24 @@
       "Hash": "bf1cd206a5d170d132ef75c7537b9bdb",
       "Requirements": []
     },
+    "distributional": {
+      "Package": "distributional",
+      "Version": "0.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "be08f142d0b48ff1c8cfe39e1e3ac1c8",
+      "Requirements": [
+        "digest",
+        "farver",
+        "generics",
+        "ggplot2",
+        "lifecycle",
+        "numDeriv",
+        "rlang",
+        "scales",
+        "vctrs"
+      ]
+    },
     "doParallel": {
       "Package": "doParallel",
       "Version": "1.0.17",
@@ -1771,10 +1789,10 @@
     },
     "future": {
       "Package": "future",
-      "Version": "1.28.0",
+      "Version": "1.30.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "f3e26a942d4ee32cec9403e1ddd7000b",
+      "Hash": "d8a0dcbc9350c1e40edc644611d1ee15",
       "Requirements": [
         "digest",
         "globals",
@@ -1795,10 +1813,10 @@
     },
     "future.callr": {
       "Package": "future.callr",
-      "Version": "0.8.0",
+      "Version": "0.8.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "d56e31f531c20af2415a3971ca0b3c3c",
+      "Hash": "e76426c4a99a1798a9376c6fe9070a68",
       "Requirements": [
         "callr",
         "future"
@@ -1883,6 +1901,27 @@
       "Repository": "RSPM",
       "Hash": "ad68e3263f0bc9269aab8c2039440117",
       "Requirements": []
+    },
+    "ggdist": {
+      "Package": "ggdist",
+      "Version": "3.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "da5ae53a708eb6f8d2f9ec6acd188fd9",
+      "Requirements": [
+        "HDInterval",
+        "distributional",
+        "dplyr",
+        "ggplot2",
+        "glue",
+        "numDeriv",
+        "rlang",
+        "scales",
+        "tibble",
+        "tidyselect",
+        "vctrs",
+        "withr"
+      ]
     },
     "ggforce": {
       "Package": "ggforce",
@@ -3073,13 +3112,16 @@
     },
     "purrr": {
       "Package": "purrr",
-      "Version": "0.3.5",
+      "Version": "1.0.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "54842a2443c76267152eface28d9e90a",
+      "Hash": "1ad491d27989ec6c26a2918ad6df116b",
       "Requirements": [
+        "cli",
+        "lifecycle",
         "magrittr",
-        "rlang"
+        "rlang",
+        "vctrs"
       ]
     },
     "qap": {
@@ -3163,6 +3205,30 @@
       "Hash": "4b0980d0fba83d6a50e2656cb51d7a5f",
       "Requirements": [
         "assertthat"
+      ]
+    },
+    "reactR": {
+      "Package": "reactR",
+      "Version": "0.4.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "75389c8091eb14ee21c6bc87a88b3809",
+      "Requirements": [
+        "htmltools"
+      ]
+    },
+    "reactable": {
+      "Package": "reactable",
+      "Version": "0.4.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ed723387f4057a717516a98904a3701b",
+      "Requirements": [
+        "digest",
+        "htmltools",
+        "htmlwidgets",
+        "jsonlite",
+        "reactR"
       ]
     },
     "readr": {
