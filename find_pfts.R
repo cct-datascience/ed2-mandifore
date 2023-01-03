@@ -24,3 +24,13 @@ pft_count <-
 write_csv(pft_count, here::here("data/pfts.csv"))
 
 knitr::kable(pft_count)
+
+
+#find sites in the SEUS with all the PFTs in the example one Mike found (1:8)
+seus_known_pfts <- 
+  all_pfts |> 
+  filter(str_detect(sitename, "SEUS")) |> 
+  group_by(sitename) |> 
+  filter(all(pft %in% 1:8)) |> pull(sitename) |> unique()
+seus_known_pfts
+#21 sites that we think we know the PFT mapping for

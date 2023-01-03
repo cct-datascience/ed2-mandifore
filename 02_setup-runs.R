@@ -14,7 +14,19 @@ set.seed(4444)
 
 new_sites <- read_csv("data/mandifore_sites.csv")
 #just sample 3 for now to test iteration
-sites <- slice_sample(new_sites, n=100)
+# sites <- slice_sample(new_sites, n=100)
+
+sites <- new_sites |> filter(sitename %in% c(
+  #sites in the SEUS that only have PFTs %in% 1:8
+  "MANDIFORE-SEUS-3152", "MANDIFORE-SEUS-3389", "MANDIFORE-SEUS-3762", 
+  "MANDIFORE-SEUS-4194", "MANDIFORE-SEUS-5393", "MANDIFORE-SEUS-6399", 
+  "MANDIFORE-SEUS-10385", "MANDIFORE-SEUS-10557", "MANDIFORE-SEUS-10621", 
+  "MANDIFORE-SEUS-10672", "MANDIFORE-SEUS-10891", "MANDIFORE-SEUS-1765", 
+  "MANDIFORE-SEUS-3239", "MANDIFORE-SEUS-3338", "MANDIFORE-SEUS-5648", 
+  "MANDIFORE-SEUS-655", "MANDIFORE-SEUS-6617", "MANDIFORE-SEUS-6630", 
+  "MANDIFORE-SEUS-6661", "MANDIFORE-SEUS-6673", "MANDIFORE-SEUS-671"
+))
+
 
 # create working directories ----------------------------------------------
 wds <- paste("MANDIFORE_big_run", sites$sitename, sep = "/")
