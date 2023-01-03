@@ -3,6 +3,7 @@
 
 library(tidyverse)
 library(PEcAn.settings)
+library(fs)
 
 source("R/modify_css.R")
 source("R/modify_pss.R")
@@ -17,15 +18,14 @@ new_sites <- read_csv("data/mandifore_sites.csv")
 # sites <- slice_sample(new_sites, n=100)
 
 sites <- new_sites |> filter(sitename %in% c(
-  #sites in the SEUS that only have PFTs %in% 1:8
-  "MANDIFORE-SEUS-3152", "MANDIFORE-SEUS-3389", "MANDIFORE-SEUS-3762", 
-  "MANDIFORE-SEUS-4194", "MANDIFORE-SEUS-5393", "MANDIFORE-SEUS-6399", 
-  "MANDIFORE-SEUS-10385", "MANDIFORE-SEUS-10557", "MANDIFORE-SEUS-10621", 
-  "MANDIFORE-SEUS-10672", "MANDIFORE-SEUS-10891", "MANDIFORE-SEUS-1765", 
-  "MANDIFORE-SEUS-3239", "MANDIFORE-SEUS-3338", "MANDIFORE-SEUS-5648", 
-  "MANDIFORE-SEUS-655", "MANDIFORE-SEUS-6617", "MANDIFORE-SEUS-6630", 
-  "MANDIFORE-SEUS-6661", "MANDIFORE-SEUS-6673", "MANDIFORE-SEUS-671"
-))
+  "MANDIFORE-SEUS-2839", "MANDIFORE-SEUS-8423", "MANDIFORE-SEUS-1291", 
+  "MANDIFORE-SEUS-1382", "MANDIFORE-SEUS-1685", "MANDIFORE-SEUS-1983", 
+  "MANDIFORE-SEUS-3114", "MANDIFORE-SEUS-419", "MANDIFORE-SEUS-541", 
+  "MANDIFORE-SEUS-578", "MANDIFORE-SEUS-602", "MANDIFORE-SEUS-604", 
+  "MANDIFORE-SEUS-671", "MANDIFORE-SEUS-773", "MANDIFORE-SEUS-79", 
+  "MANDIFORE-SEUS-9210"
+)) |> 
+  mutate(loc = str_extract(sitename, "(SEUS|PNW)"))
 
 
 # create working directories ----------------------------------------------
@@ -33,7 +33,7 @@ wds <- paste("MANDIFORE_big_run", sites$sitename, sep = "/")
 
 wds |> 
   walk(~{
-    dir.create(.x)
+    dir_create(.x)
     file.copy(file.path("templates", "pecan_template.xml"),
               file.path(.x, "pecan.xml"))
     file.copy(file.path("templates", "workflow_template.R"),
@@ -53,18 +53,16 @@ file.copy(
 # read into R
 pss_files <- 
   map(sites$cohort_filename, ~{
-    list.files(file.path("/data/sites/mandifore", .x),
-               pattern = ".pss$",
-               full.names = TRUE)
+    dir_ls(file.path("/data/sites/mandifore", .x),
+               glob = "*.pss")
   })
 
 pss_list <- map(pss_files, ~read_table(.x, col_types = cols(patch = col_character())))
 
 css_files <- 
   map(sites$cohort_filename, ~{
-    list.files(file.path("/data/sites/mandifore", .x),
-      pattern = ".css$",
-      full.names = TRUE)
+    dir_ls(file.path("/data/sites/mandifore", .x),
+      glob = "*.css")
   })
 css_list <- map(css_files, \(x) read_table(x, col_types = cols(patch = col_character())))
 
@@ -109,7 +107,7 @@ settings <-
                   s$met_filename,
                   "ED_MET_DRIVER_HEADER")
       files <-
-        list.files(file.path(base, s$cohort_filename))
+        dir_ls(file.path(base, s$cohort_filename))
       
       settings$run$inputs$pss <-
         file.path(base, s$cohort_filename, files[str_detect(files, "\\.pss$")])
@@ -123,7 +121,10 @@ settings <-
 # Add PFTs to settings
 pfts <- 
   map(css_list, ~unique(.x$pft)) |>
-  map(match_pft) # a tibble
+  map2(.y = sites$loc, ~{
+    tibble(ED = .x) |> 
+      mutate(PEcAn = match_pft(.x, loc = .y))
+  })
 
 settings <- 
   map2(settings, pfts, ~{
@@ -159,7 +160,7 @@ map2(workflows, settings_paths, ~{
 # 
 # E.g. change `/data/input/NARR_ED2_site_1-18168/` to `/data/sites/mandifore/NARR_ED2_site_1-18168/`
 # Skip files that are already done
-existing_met <- list.files("/data/sites/mandifore")
+existing_met <- dir_ls("/data/sites/mandifore")
 walk(sites$met_filename[!sites$met_filename %in% existing_met], ~{
   file.copy(
     from = file.path("/data/input", .x),
