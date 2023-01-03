@@ -62,11 +62,9 @@ pss_list <- map(pss_files, ~read_table(.x, col_types = cols(patch = col_characte
 
 css_files <- 
   map(sites$cohort_filename, ~{
-    list.files(
-      file.path("/data/sites/mandifore", .x),
+    list.files(file.path("/data/sites/mandifore", .x),
       pattern = ".css$",
-      full.names = TRUE
-    )
+      full.names = TRUE)
   })
 css_list <- map(css_files, \(x) read_table(x, col_types = cols(patch = col_character())))
 

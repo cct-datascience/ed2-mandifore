@@ -13,14 +13,14 @@ match_pft <- function(pft, loc = c("PNW", "SEUS")) {
     group_by(ED) %>% 
     slice(1) |> 
     mutate(PEcAn = case_when(
-      loc == "SEUS" & pft == 1 ~ temperate.Evergreen_Hardwood,
-      loc == "SEUS" & pft == 2 ~ temperate.Hydric,
-      loc == "SEUS" & pft == 3 ~ temperate.Late_Conifer,
-      loc == "SEUS" & pft == 4 ~ temperate.Late_Hardwood,
-      loc == "SEUS" & pft == 5 ~ temperate.North_Mid_Hardwood,
-      loc == "SEUS" & pft == 6 ~ temperate.Southern_Pine,
-      loc == "SEUS" & pft == 7 ~ temperate.South_Mid_Hardwood,
-      loc == "SEUS" & pft == 8 ~ temperate.Early_Hardwood, # 8 is also used for temperate.Northern_Pine, but not able to figure this out currently
+      loc == "SEUS" & pft == 1 ~ "temperate.Evergreen_Hardwood",
+      loc == "SEUS" & pft == 2 ~ "temperate.Hydric",
+      loc == "SEUS" & pft == 3 ~ "temperate.Late_Conifer",
+      loc == "SEUS" & pft == 4 ~ "temperate.Late_Hardwood",
+      loc == "SEUS" & pft == 5 ~ "temperate.North_Mid_Hardwood",
+      loc == "SEUS" & pft == 6 ~ "temperate.Southern_Pine",
+      loc == "SEUS" & pft == 7 ~ "temperate.South_Mid_Hardwood",
+      loc == "SEUS" & pft == 8 ~ "temperate.Early_Hardwood", # 8 is also used for temperate.Northern_Pine, but not able to figure this out currently
       TRUE ~ NA_character_ #make all other PFTs just not work for now I guess
     ))
 }
