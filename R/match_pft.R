@@ -9,17 +9,22 @@ match_pft <- function(pft, loc = c("PNW", "SEUS")) {
   #nothing done with this arg yet, but case_when below will be conditional on it likely
   loc <- match.arg(loc)
   
-  left_join(tibble(ED = pft), PEcAn.ED2::pftmapping, by = "ED") %>%
-    group_by(ED) %>% 
-    slice(1) |> 
-    mutate(PEcAn = case_when(
-      ED == 1 ~ "SetariaWT",
-      #temporary.  This actually depends on whether its PNW or SEUS
-      loc == "PNW" & ED == 9 ~ "temperate.Early_Hardwood", 
-      loc == "PNW" & ED == 10 ~ "temperate.North_Mid_Hardwood",
-      ED == 8 ~ "temperate.Evergreen_Hardwood",
-      ED == 11 ~ "temperate.Late_Hardwood",
-      TRUE ~ PEcAn
-    ))
+  if(loc == "SEUS") {
+    
+    sapply(pft, switch,
+           "1" = "temperate.Evergreen_Hardwood",
+           "2" = "temperate.Hydric",
+           "3" = "temperate.Late_Conifer",
+           "4" = "temperate.Late_Hardwood",
+           "5" = "temperate.North_Mid_Hardwood",
+           "6" = "temperate.Southern_Pine",
+           "7" = "temperate.South_Mid_Hardwood",
+           "8" = "temperate.Early_Hardwood", # 8 is also used for temperate.Northern_Pine, but not able to figure this out currently
+           NA_character_ #make all other PFTs just not work for now I guess
+    )
+  } else {
+    stop("Don't know PNW PFT mappings yet!")
+  }
 }
-# match_pft(c(9, 14, 12))
+# match_pft(c(8, 7), loc = "SEUS")
+

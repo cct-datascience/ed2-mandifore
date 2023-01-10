@@ -49,14 +49,15 @@ modify_css <- function(css, dbh = 0.6, dens = 1) {
   
   # replace obsolete PFTs
   # TODO: this replacements may not be correct!
-  css <- css |> 
-    mutate(pft = case_when(
-      pft == 12 ~ 9, #temperate.Early_Hardwood
-      pft == 13 ~ 10, #temperate.Mid_Hardwood 
-      pft == 14 ~ 8, #temperate.Evergreen_Hardwood
-      pft == 3 ~ 8, #temperate.Evergreen_Hardwood
-      TRUE ~ pft
-    )) |> 
+  css <- 
+    css |> 
+    # mutate(pft = case_when(
+    #   pft == 12 ~ 9, #temperate.Early_Hardwood
+    #   pft == 13 ~ 10, #temperate.Mid_Hardwood 
+    #   pft == 14 ~ 8, #temperate.Evergreen_Hardwood
+    #   pft == 3 ~ 8, #temperate.Evergreen_Hardwood
+    #   TRUE ~ pft
+    # )) |> 
     # column order is important
     select(time, patch, cohort, dbh, hite, pft, n, bdead, balive, lai) 
     

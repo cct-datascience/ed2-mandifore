@@ -3,30 +3,42 @@
 
 library(tidyverse)
 library(PEcAn.settings)
+library(fs)
 
 source("R/modify_css.R")
 source("R/modify_pss.R")
 source("R/match_pft.R")
 
-set.seed(1234)
+set.seed(4444)
 
 # load site info ----------------------------------------------------------
 
 new_sites <- read_csv("data/mandifore_sites.csv")
 #just sample 3 for now to test iteration
-sites <- slice_sample(new_sites, n=5)
+# sites <- slice_sample(new_sites, n=100)
+
+sites <- new_sites |> filter(sitename %in% c(
+  "MANDIFORE-SEUS-2839", "MANDIFORE-SEUS-8423", "MANDIFORE-SEUS-1291", 
+  "MANDIFORE-SEUS-1382", "MANDIFORE-SEUS-1685", "MANDIFORE-SEUS-1983", 
+  "MANDIFORE-SEUS-3114", "MANDIFORE-SEUS-419", "MANDIFORE-SEUS-541", 
+  "MANDIFORE-SEUS-578", "MANDIFORE-SEUS-602", "MANDIFORE-SEUS-604", 
+  "MANDIFORE-SEUS-671", "MANDIFORE-SEUS-773", "MANDIFORE-SEUS-79", 
+  "MANDIFORE-SEUS-9210"
+)) |> 
+  mutate(loc = str_extract(sitename, "(SEUS|PNW)"))
+
 
 # create working directories ----------------------------------------------
-wds <- paste("MANDIFORE_runs", sites$sitename, sep = "/")
+wds <- paste("MANDIFORE_big_run", sites$sitename, sep = "/")
 
 wds |> 
   walk(~{
-    dir.create(.x)
+    dir_create(.x)
     file.copy(file.path("templates", "pecan_template.xml"),
               file.path(.x, "pecan.xml"))
     file.copy(file.path("templates", "workflow_template.R"),
               file.path(.x, "workflow.R"))
-  })
+  }, .progress = "Copying templates")
 
 
 # edit css and pss files --------------------------------------------------
@@ -41,29 +53,25 @@ file.copy(
 # read into R
 pss_files <- 
   map(sites$cohort_filename, ~{
-    list.files(file.path("/data/sites/mandifore", .x),
-               pattern = ".pss$",
-               full.names = TRUE)
+    dir_ls(file.path("/data/sites/mandifore", .x),
+               glob = "*.pss")
   })
 
 pss_list <- map(pss_files, ~read_table(.x, col_types = cols(patch = col_character())))
 
 css_files <- 
   map(sites$cohort_filename, ~{
-    list.files(
-      file.path("/data/sites/mandifore", .x),
-      pattern = ".css$",
-      full.names = TRUE
-    )
+    dir_ls(file.path("/data/sites/mandifore", .x),
+      glob = "*.css")
   })
-css_list <- map(css_files, ~read_table(.x, col_types = cols(patch = col_character())))
+css_list <- map(css_files, \(x) read_table(x, col_types = cols(patch = col_character())))
 
 # modify .css
-css_list <- map(css_list, modify_css)
+css_list <- map(css_list, \(x) modify_css(x), .progress = "Modifying .css files")
 
 # modify .pss
 
-pss_list <- map2(pss_list, css_list, modify_pss)
+pss_list <- map2(pss_list, css_list, \(x,y) modify_pss(x,y), .progress = "Modifying .pss files")
 
 
 # Write .css and .pss files -----------------------------------------------
@@ -81,7 +89,8 @@ settings <-
     list(settings = settings, wd = wds, s = sites |> rowwise() |> group_split()),
     \(settings, wd, s) {
       #set outdir--for testing it's in wd, not in data/ somewhere
-      settings$outdir <- file.path(wd, "outdir")
+      # settings$outdir <- file.path(wd, "outdir")
+      settings$outdir <- file.path("/data/output/pecan_runs", wd)
       # site and met info
       settings$info$notes <- s$sitename
       settings$run$site$id <- s$site_id
@@ -98,7 +107,7 @@ settings <-
                   s$met_filename,
                   "ED_MET_DRIVER_HEADER")
       files <-
-        list.files(file.path(base, s$cohort_filename))
+        dir_ls(file.path(base, s$cohort_filename))
       
       settings$run$inputs$pss <-
         file.path(base, s$cohort_filename, files[str_detect(files, "\\.pss$")])
@@ -112,7 +121,10 @@ settings <-
 # Add PFTs to settings
 pfts <- 
   map(css_list, ~unique(.x$pft)) |>
-  map(match_pft) # a tibble
+  map2(.y = sites$loc, ~{
+    tibble(ED = .x) |> 
+      mutate(PEcAn = match_pft(.x, loc = .y))
+  })
 
 settings <- 
   map2(settings, pfts, ~{
@@ -134,9 +146,7 @@ walk2(settings, wds, ~write.settings(.x, "pecan.xml", outputdir = .y))
 # Edit workflow.R ---------------------------------------------------------
 
 workflows <- map(wds, ~readLines(file.path(.x, "workflow.R")))
-settings_paths <- map(sites$sitename, ~{
-  file.path("MANDIFORE_runs", .x, "pecan.xml")
-})
+settings_paths <- file.path(wds, "pecan.xml")
 
 map2(workflows, settings_paths, ~{
   repl <- paste0('inputfile <- \"', .y, '\"')
@@ -149,8 +159,9 @@ map2(workflows, settings_paths, ~{
 # Need to edit ED_MET_DRIVER_HEADER to point to correct path
 # 
 # E.g. change `/data/input/NARR_ED2_site_1-18168/` to `/data/sites/mandifore/NARR_ED2_site_1-18168/`
-# TODO skip files that are already done
-walk(sites$met_filename, ~{
+# Skip files that are already done
+existing_met <- dir_ls("/data/sites/mandifore")
+walk(sites$met_filename[!sites$met_filename %in% existing_met], ~{
   file.copy(
     from = file.path("/data/input", .x),
     to = "/data/sites/mandifore",
@@ -165,27 +176,29 @@ walk(sites$met_filename, ~{
   met_driver <-
     str_replace(met_driver, "/data/input/", "/data/sites/mandifore/") #fix path
   write_lines(met_driver, met_driver_path)
-})
+}, .progress = "Modify ED_MET_DRIVER_HEADER")
 
 
 # Copy files to HPC -------------------------------------------------------
-#TODO copy safely and in parallel?
-walk2(settings, sites$met_filename, ~{
-  PEcAn.remote::remote.copy.to(
-    .x$host,
-    src = file.path("/data/sites/mandifore", .y),
-    dst = "/groups/dlebauer/data/sites/mandifore"
-  )
-})
+
+walk2(settings, sites$met_filename,
+      \(settings, met_filename) {
+        PEcAn.remote::remote.copy.to(
+          settings$host,
+          src = file.path("/data/sites/mandifore", met_filename),
+          dst = "/groups/dlebauer/data/sites/mandifore"
+        )
+      }, .progress = "Copy MET files to HPC")
 
 
-walk2(settings, sites$cohort_filename, ~{
-  PEcAn.remote::remote.copy.to(
-    .x$host,
-    src = file.path("/data/sites/mandifore", .y),
-    dst = "/groups/dlebauer/data/sites/mandifore"
-  )
-})
+walk2(settings, sites$cohort_filename,
+      \(settings, cohort_filename) {
+        PEcAn.remote::remote.copy.to(
+          settings$host,
+          src = file.path("/data/sites/mandifore", cohort_filename),
+          dst = "/groups/dlebauer/data/sites/mandifore"
+        )
+      }, .progress = "Copy cohort files to HPC")
 
 
 

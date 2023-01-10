@@ -285,28 +285,28 @@ df2 <-
     site = str_remove(site, "MANDIFORE-")
   ) |> 
   
-  #manually filter out whacky outliers
-  mutate(DENS = case_when(
-    as.numeric(DENS) < 0 ~ NA * DENS,
-    as.numeric(DENS) > 150 & pft %in% c(8:11) ~ NA * DENS,
-    TRUE ~ DENS
-  )) |> 
-  mutate(AGB_PFT = case_when(
-    as.numeric(AGB_PFT) < 0 ~ NA * AGB_PFT,
-    as.numeric(AGB_PFT) > 100 & pft %in% (8:11) ~ NA * AGB_PFT,
-    as.numeric(AGB_PFT) > 3 & pft == 1 ~ NA * AGB_PFT,
-    TRUE ~ AGB_PFT
-  )) |> 
-  mutate(NPP_PFT = case_when(
-    as.numeric(NPP_PFT) > 5 ~ NA * NPP_PFT,
-    as.numeric(NPP_PFT) < -1 ~ NA * NPP_PFT,
-    TRUE ~ NPP_PFT
-  )) |> 
-  mutate(TRANSP_PFT = case_when(
-    as.numeric(TRANSP_PFT) > 25 ~ NA * TRANSP_PFT,
-    as.numeric(TRANSP_PFT) < 0 ~ 0 * TRANSP_PFT,
-    TRUE ~ TRANSP_PFT
-  )) |> 
+  # #manually filter out whacky outliers
+  # mutate(DENS = case_when(
+  #   as.numeric(DENS) < 0 ~ NA * DENS,
+  #   as.numeric(DENS) > 100 & pft %in% c(8:11) ~ NA * DENS,
+  #   TRUE ~ DENS
+  # )) |>
+  # mutate(AGB_PFT = case_when(
+  #   as.numeric(AGB_PFT) < 0 ~ NA * AGB_PFT,
+  #   as.numeric(AGB_PFT) > 100 & pft %in% (8:11) ~ NA * AGB_PFT,
+  #   as.numeric(AGB_PFT) > 3 & pft == 1 ~ NA * AGB_PFT,
+  #   TRUE ~ AGB_PFT
+  # )) |> 
+  # mutate(NPP_PFT = case_when(
+  #   as.numeric(NPP_PFT) > 5 ~ NA * NPP_PFT,
+  #   as.numeric(NPP_PFT) < -1 ~ NA * NPP_PFT,
+  #   TRUE ~ NPP_PFT
+  # )) |>
+  # mutate(TRANSP_PFT = case_when(
+  #   as.numeric(TRANSP_PFT) > 25 ~ NA * TRANSP_PFT,
+  #   as.numeric(TRANSP_PFT) < 0 ~ 0 * TRANSP_PFT,
+  #   TRUE ~ TRANSP_PFT
+  # )) |> 
   #recalc WUE
   mutate(
     WUE_PFT = as.numeric(NPP_PFT / TRANSP_PFT)
@@ -318,10 +318,12 @@ df2 |>
   group_split() |> 
   map(\(x) {
     site <- x$site |> unique()
-    ggplot(x, aes(x = date, y = NPP_PFT, color = pft_name, group = ensemble)) +
+    ggplot(x, aes(x = date, y = as.numeric(NPP_PFT)+1, color = pft_name, group = ensemble)) +
       geom_line() +
       labs(title = site) +
-      facet_wrap(~pft, scales = "free_y")
+      scale_y_log10() +
+      facet_grid(ensemble~pft) +
+      theme(legend.position = "none")
   })
 ```
 

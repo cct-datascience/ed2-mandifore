@@ -31,7 +31,7 @@
 
   <meta.analysis>
     <!-- This should be increased to more like 50000 for final runs -->
-    <iter>3000</iter>
+    <iter>50000</iter>
     <random.effects>TRUE</random.effects>
     <threshold>1.2</threshold>
     <!-- AUTO is another possible value for <update>,
@@ -39,20 +39,16 @@
          so keep this to TRUE -->
     <update>TRUE</update>
   </meta.analysis>
-<!--
   <sensitivity.analysis>
       <quantiles>
           <sigma>-1</sigma>
           <sigma>1</sigma>
       </quantiles>
     <variable>NPP</variable>
-    <start.year>2019</start.year>
-    <end.year>2019</end.year>
   </sensitivity.analysis>
--->
   <ensemble>
     <!-- This should be increased for final runs -->
-    <size>15</size>
+    <size>500</size>
     <variable>NPP</variable>
     <samplingspace>
       <parameters>
@@ -83,6 +79,8 @@
       <!-- turn off cohort and patch fusion. Not necessary for short runs -->
       <MAXCOHORT>0</MAXCOHORT>
       <MAXPATCH>0</MAXPATCH>
+      <!-- turn off generation of -T- files -->
+      <ITOUTPUT>0</ITOUTPUT>
     </ed2in_tags>
   </model>
 
@@ -112,10 +110,10 @@
       <name>puma</name>
       <!-- don't edit the rest unless you know what you're doing -->
       <folder>/groups/dlebauer/ed2_results/pecan_remote</folder>
-      <qsub>sbatch --job-name=@NAME@ --account=dlebauer --ntasks=28 --nodes=3 --time=48:00:00 -o @STDOUT@ -e @STDERR@</qsub>
+      <qsub>sbatch --job-name=@NAME@ --account=dlebauer --ntasks=28 --nodes=3 --time=07-00:00:00 -o @STDOUT@ -e @STDERR@</qsub>
       <qsub.jobid>.* ([0-9]+)</qsub.jobid>
       <qstat>'squeue --job @JOBID@ &amp;> /dev/null || echo DONE'</qstat>
-      <job.sh>module load openmpi3 R</job.sh>
+      <prerun>module load openmpi3 R</prerun>
       <modellauncher>
         <binary>/groups/dlebauer/ed2_results/pecan/contrib/modellauncher/modellauncher</binary>
         <qsub.extra>--partition=standard</qsub.extra>
