@@ -14,19 +14,12 @@ set.seed(4444)
 # load site info ----------------------------------------------------------
 
 new_sites <- read_csv("data/mandifore_sites.csv")
-#just sample 3 for now to test iteration
-# sites <- slice_sample(new_sites, n=100)
 
-sites <- new_sites |> filter(sitename %in% c(
-  "MANDIFORE-SEUS-2839", "MANDIFORE-SEUS-8423", "MANDIFORE-SEUS-1291", 
-  "MANDIFORE-SEUS-1382", "MANDIFORE-SEUS-1685", "MANDIFORE-SEUS-1983", 
-  "MANDIFORE-SEUS-3114", "MANDIFORE-SEUS-419", "MANDIFORE-SEUS-541", 
-  "MANDIFORE-SEUS-578", "MANDIFORE-SEUS-602", "MANDIFORE-SEUS-604", 
-  "MANDIFORE-SEUS-671", "MANDIFORE-SEUS-773", "MANDIFORE-SEUS-79", 
-  "MANDIFORE-SEUS-9210"
-)) |> 
-  mutate(loc = str_extract(sitename, "(SEUS|PNW)"))
-
+sites <- new_sites %>% 
+  filter(lon > -83 & lon < -82) %>% 
+  mutate(lat_round = round(lat)) %>% 
+  group_by(lat_round) %>% 
+  slice(1)
 
 # create working directories ----------------------------------------------
 wds <- paste("MANDIFORE_big_run", sites$sitename, sep = "/")
