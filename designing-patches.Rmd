@@ -88,13 +88,22 @@ longleaf_df |>
 https://www.ncwildlife.org/Portals/0/Conserving/documents/Piedmont/P_Oak_forest_mixed_hardwoods_pine.pdf?ver=2011-08-15-161006-140
 "Usually these forests are uneven‐aged with old tress occasionally present."
 
+Vegetation inventory data: https://tes-sfa.ornl.gov/sites/default/files/MOFLUX_Inventory_User_Guide_20190308.pdf
+
+https://www.fs.usda.gov/nrs/pubs/jrnl/2018/nrs_2018_iverson_001.pdf
+Nice plot that has all the info maybe
+
 ### PFTs
 
 
 
 ## Mixed Forest
 
+
+
 ## Prairie
+
+
 
 ## Old field / early successional
 
