@@ -19,7 +19,7 @@ sites <- new_sites %>%
   filter(lon > -83 & lon < -82) %>% 
   mutate(lat_round = round(lat)) %>% 
   group_by(lat_round) %>% 
-  slice(1)
+  slice_sample(n=1)
 
 # create working directories ----------------------------------------------
 wds <- paste("MANDIFORE_big_run", sites$sitename, sep = "/")
