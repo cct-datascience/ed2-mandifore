@@ -51,3 +51,74 @@ ggplot() +
   theme_void()
 ggsave("transect_map.png")
 ```
+
+
+# Climate normals
+
+```{r}
+library(climateR)
+library(sf)
+
+sites <- transect_sites |> st_as_sf(coords = c("lon", "lat"), crs = 4326)
+sites_stack <- getTerraClimNormals(AOI = sites, param = c("prcp", "tmax", "tmin"))
+sites_data <- 
+  extract_sites(sites_stack, sites, "sitename") |> 
+  bind_rows(.id = "variable") |> 
+  mutate(variable = str_remove(variable, "terraclim_19812010_")) |> 
+  pivot_longer(c(-date, -variable), names_to = "sitename", names_prefix = "site_") |> 
+  select(sitename, month = date, variable, value) |> 
+  mutate(across(c(month, value), as.numeric)) |> 
+  pivot_wider(names_from = variable, values_from = value)
+```
+
+
+```{r}
+#add lat lon back
+plotdf <- left_join(
+  sites_data,
+  transect_sites |> 
+    ungroup() |> 
+    select(sitename, lon, lat)
+) |> 
+    mutate(date = lubridate::make_date(month = month))
+```
+
+plot precip normals
+
+```{r}
+precip_normals <- 
+  plotdf |> 
+  ggplot(aes(x = date, y = prcp)) +
+  geom_col(fill = "darkblue") +
+  facet_wrap(~round(lat), as.table = FALSE, ncol = 1) +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b") +
+  scale_y_continuous(n.breaks = 4) +
+  labs(y = "Mean Precipitation (mm)", x = "Month") +
+  theme_bw()
+```
+
+plot temp normals
+
+```{r}
+temp_normals <- plotdf |> 
+  ggplot(aes(x = date)) +
+  geom_ribbon(aes(ymin = tmin, ymax = tmax), fill = "darkred") +
+  facet_wrap(~round(lat), as.table = FALSE, ncol = 1) +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b") +
+  scale_y_continuous(n.breaks = 4) +
+  labs(y = "Temperature Range (ºC)", x = "Month") +
+  theme_bw()
+```
+
+```{r}
+library(patchwork)
+normals_plot <- 
+  (precip_normals | temp_normals) & 
+  theme(
+    text = element_text(size = 9),
+    strip.text = element_text(size = 7, margin = margin(t = 1, b = 1))
+  )
+ggsave("normals.png",plot = normals_plot, height = 6, width = 4.5)
+```
+
+
