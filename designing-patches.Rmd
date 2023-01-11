@@ -1,0 +1,100 @@
+---
+title: "Designing patches representing the ecosystems of the Southeast US"
+author: Eric R. Scott
+output: html_document
+date: '2023-01-11'
+---
+
+```{r}
+library(spatstat.data)
+library(spatstat.geom)
+library(tidyverse)
+```
+
+# Ecoregions
+
+[Southern Coastal Plain](https://bplant.org/region/134): 
+ - longleaf pine flatwoods and savannas
+ - richer forests with slash pine, pond pine, pond cypres, american sweetgum, southern magnolia, laurel oak, white oak, american beech (i.e. mix of evergreen, evergreen hardwood, and deciduous hardwood PFTs)
+ - Floodplains with bald cypres, pond cypres, water tupelo, sweetgum, green ash, water hickory ("temperate.Hydric" PFT??)
+ - Florida scrub
+ - monoculture pine plantations
+
+[Southeastern plains](https://bplant.org/region/123): 
+- more hardwoods and more closed-canopy than southern coastal plain
+- pine forests with longleaf pine and loblolly pine
+- Mixed oak-hickory-pine forests
+- southeastern mixed forest with mix of braodleaf evergreens, deciduous evergreens (SIC), and pines
+- Floodplains had deciduous forests
+- Cypress swamps
+
+[Piedmont](https://bplant.org/region/102):
+- Different bedrock / soil than other regions
+- oak-pine-hickory forest with various Carya species, shortleaf pine, loblolly pine, white oak, post oak
+- Agriculture, old-field, and early successional forest
+
+
+Can probably summarize this as:
+1. pine forest
+2. oak-hickory-pine forest (deciduous hardwood and pine)
+3. mixed forest (pine, deciduous hardwood, evergreen hardwood)
+4. prairie (c4 and c3 grass, maybe forb)
+5. old field (like above but with more forbs?) or early successional forest (like prairie but with small trees)
+
+## Pine Forest
+
+There's a longleaf pine dataset in the `spatstat.data` package that we can use.  It's 584 Longleaf pines in a 200m x 200m region in southern Georgia.  Data collected by Platt, Evans and Rathbun (1988).
+
+```{r}
+plot(longleaf)
+longleaf_df <- as.data.frame(longleaf) |> 
+  rename(dbh = marks)
+```
+
+Data needs:
+- number of cohorts (bins)
+- dbh for each cohort
+- density (stem/m^2) for each cohort
+
+```{r}
+ggplot(longleaf_df, aes(dbh)) + geom_histogram()
+```
+
+Looks like we could use 2 or 3 cohorts:
+
+Saplings (dbh 1--20 ish), mature trees (dbh 20-50 ish), old trees (50-70 ish)
+
+```{r}
+longleaf_df |> 
+  mutate(group = case_when(
+    dbh < 20 ~ "sapling",
+    dbh >=20 & dbh < 50 ~ "mature tree",
+    dbh >=50 ~ "old growth"
+  )) |> 
+  group_by(group) |> 
+  summarize(
+    n = n(),
+    median_dbh = median(dbh),
+    density = n/(200*200),
+  )
+
+```
+
+### PFTs
+
+- temperate.Southern_Pine (7)
+
+## Oak-Hickory-Pine forest
+https://www.ncwildlife.org/Portals/0/Conserving/documents/Piedmont/P_Oak_forest_mixed_hardwoods_pine.pdf?ver=2011-08-15-161006-140
+"Usually these forests are uneven‐aged with old tress occasionally present."
+
+### PFTs
+
+
+
+## Mixed Forest
+
+## Prairie
+
+## Old field / early successional
+
