@@ -7,6 +7,7 @@ output: html_document
 
 ```{r setup}
 library(tidyverse)
+library(leaflet)
 ```
 
 
@@ -84,12 +85,39 @@ new_sites <- new_sites %>%
 ```
 
 
-#TODO: Select sites
-
-Here we should select some specific sites to set up runs for
+# Write data
 
 
 ```{r}
 write_csv(new_sites, "data/mandifore_sites.csv")
 ```
+
+
+# Plot sites
+
+Plot all the sites
+
+```{r}
+leaflet(new_sites) %>% 
+  addProviderTiles(providers$Esri.WorldGrayCanvas) %>% 
+  addCircleMarkers(lng = ~lon, lat = ~lat, label = new_sites$sitename, 
+                   radius = 1, opacity = 1, fillOpacity = 1)
+```
+
+Plot NW transect throgh SEUS sites:
+
+```{r}
+set.seed(4444)
+transect_sites <- new_sites %>% 
+  filter(lon > -83 & lon < -82) %>% 
+  mutate(lat_round = round(lat)) %>% 
+  group_by(lat_round) %>% 
+  slice_sample(n=1)
+
+leaflet(transect_sites) %>% 
+  addProviderTiles(providers$Esri.WorldGrayCanvas) %>% 
+  addCircleMarkers(lng = ~lon, lat = ~lat, label = new_sites$sitename, 
+                   radius = 1, opacity = 1, fillOpacity = 1)
+```
+
 
