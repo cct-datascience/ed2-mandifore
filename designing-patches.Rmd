@@ -85,6 +85,7 @@ longleaf_df |>
 - temperate.Southern_Pine (7)
 
 ## Oak-Hickory-Pine forest
+
 https://www.ncwildlife.org/Portals/0/Conserving/documents/Piedmont/P_Oak_forest_mixed_hardwoods_pine.pdf?ver=2011-08-15-161006-140
 "Usually these forests are uneven‐aged with old tress occasionally present."
 
