@@ -3,10 +3,6 @@
     "Version": "4.1.3",
     "Repositories": [
       {
-        "Name": "Welsch",
-        "URL": "https://packagemanager.rstudio.com/all/344"
-      },
-      {
         "Name": "pecanproject",
         "URL": "https://pecanproject.r-universe.dev"
       },
@@ -246,15 +242,12 @@
     "PEcAn.ED2": {
       "Package": "PEcAn.ED2",
       "Version": "1.7.2.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "pecanproject",
-      "RemoteRepo": "pecan",
-      "RemoteSubdir": "models/ed",
-      "RemoteRef": "57608730e13170419fca0ef30e0ede8af5e6a53d",
-      "RemoteSha": "57608730e13170419fca0ef30e0ede8af5e6a53d",
-      "Hash": "e8a89fd76dc1d23221a580d44da30825",
+      "Source": "Repository",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "795b99877a7295d7b7e28328c786cccf4598d758",
+      "Hash": "b8835e0d387ed4acfb04db3f6cbfb9cc",
       "Requirements": [
         "PEcAn.data.atmosphere",
         "PEcAn.data.land",
@@ -567,15 +560,12 @@
     "PEcAn.remote": {
       "Package": "PEcAn.remote",
       "Version": "1.7.2",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "pecanproject",
-      "RemoteRepo": "pecan",
-      "RemoteSubdir": "base/remote",
-      "RemoteRef": "ff1e4af5712e07d38622da3e644a7dc04d08ee23",
-      "RemoteSha": "ff1e4af5712e07d38622da3e644a7dc04d08ee23",
-      "Hash": "0e893d55aa427e4ae32f8d487253290c",
+      "Source": "Repository",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "795b99877a7295d7b7e28328c786cccf4598d758",
+      "Hash": "dc577da09b7fc44b5a7004fd1960bf7e",
       "Requirements": [
         "PEcAn.logger",
         "httr",
@@ -680,15 +670,12 @@
     "PEcAn.workflow": {
       "Package": "PEcAn.workflow",
       "Version": "1.7.2",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "pecanproject",
-      "RemoteRepo": "pecan",
-      "RemoteSubdir": "base/workflow",
-      "RemoteRef": "93f7155392c11fe61f51db46d7c63ba0ddcdfea7",
-      "RemoteSha": "93f7155392c11fe61f51db46d7c63ba0ddcdfea7",
-      "Hash": "903704f3e6ee6ade46bec71fb627320a",
+      "Source": "Repository",
+      "Repository": "https://pecanproject.r-universe.dev",
+      "RemoteUrl": "https://github.com/PecanProject/pecan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "795b99877a7295d7b7e28328c786cccf4598d758",
+      "Hash": "2a7fac7ef95fdde2f1103a8bb8d7226d",
       "Requirements": [
         "PEcAn.DB",
         "PEcAn.data.atmosphere",
@@ -994,8 +981,8 @@
       "RemoteUsername": "chuhousen",
       "RemoteRepo": "amerifluxr",
       "RemoteRef": "master",
-      "RemoteSha": "fe85709278b3e3529ef83339fb97ea3ded2467da",
-      "Hash": "b05a24b2e32b30bcce0ab0d96e314d51",
+      "RemoteSha": "66415a3e12c560b8ee11e96d41ed8203c0158f8c",
+      "Hash": "961603d8c0b90e8689f8b8bf9507312d",
       "Requirements": [
         "RCurl",
         "heatmaply",
