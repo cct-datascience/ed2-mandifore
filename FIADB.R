@@ -26,12 +26,17 @@ oak_hickory <- left_join(plot, tbl(con, "TREE"))
 
 #summarize
 
-oak_hickory |> 
+summary <- 
+  oak_hickory |> 
   group_by(PLT_CN, PLOT, SUBP, SPCD) |> 
-  summarize(n = n(), DIA_median = median(DIA)) |> #in inches
-  arrange(desc(n), SPCD)
+  summarize(n = n(), DIA_median = median(DIA)) #in inches
+  
 #subplots are 24.0 foot radius circles, approx. 1/24 acre
 
 sp <- tbl(con, "REF_SPECIES") |> select(SPCD, COMMON_NAME, GENUS, SPECIES, SPECIES_SYMBOL)
+left_join(summary, sp) |> arrange(desc(n), SPCD) |> collect() |>  View()
 
-left_join(oak_hickory, sp) |> select(COMMON_NAME) |> collect() |>  View()
+#TODO: join REF_SPECIES earlier and summarize by Genus level instead of species
+#TODO: summarize by subplot, then by plot to get mean density and DBH.
+#TODO: convert units
+
