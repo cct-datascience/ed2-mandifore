@@ -10,3 +10,5 @@
 MANDIFORE_runs/*/outdir/
 completed_runs/*/outdir/
 errored_runs/*/outdir/
+*.db
+*.zip
