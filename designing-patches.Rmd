@@ -9,52 +9,78 @@ date: '2023-01-11'
 library(spatstat.data)
 library(spatstat.geom)
 library(tidyverse)
+library(ragg)
 ```
 
 # Ecoregions
 
-[Southern Coastal Plain](https://bplant.org/region/134): 
- - longleaf pine flatwoods and savannas
- - richer forests with slash pine, pond pine, pond cypres, american sweetgum, southern magnolia, laurel oak, white oak, american beech (i.e. mix of evergreen, evergreen hardwood, and deciduous hardwood PFTs)
- - Floodplains with bald cypres, pond cypres, water tupelo, sweetgum, green ash, water hickory ("temperate.Hydric" PFT??)
- - Florida scrub
- - monoculture pine plantations
+[Southern Coastal Plain](https://bplant.org/region/134):
 
-[Southeastern plains](https://bplant.org/region/123): 
-- more hardwoods and more closed-canopy than southern coastal plain
-- pine forests with longleaf pine and loblolly pine
-- Mixed oak-hickory-pine forests
-- southeastern mixed forest with mix of braodleaf evergreens, deciduous evergreens (SIC), and pines
-- Floodplains had deciduous forests
-- Cypress swamps
+-   longleaf pine flatwoods and savannas
+
+-   richer forests with slash pine, pond pine, pond cypres, american sweetgum, southern magnolia, laurel oak, white oak, american beech (i.e. mix of evergreen, evergreen hardwood, and deciduous hardwood PFTs)
+
+-   Floodplains with bald cypres, pond cypres, water tupelo, sweetgum, green ash, water hickory ("temperate.Hydric" PFT??)
+
+-   Florida scrub
+
+-   monoculture pine plantations
+
+[Southeastern plains](https://bplant.org/region/123):
+
+-   more hardwoods and more closed-canopy than southern coastal plain
+
+-   pine forests with longleaf pine and loblolly pine
+
+-   Mixed oak-hickory-pine forests
+
+-   southeastern mixed forest with mix of braodleaf evergreens, deciduous evergreens (SIC), and pines
+
+-   Floodplains had deciduous forests
+
+-   Cypress swamps
 
 [Piedmont](https://bplant.org/region/102):
-- Different bedrock / soil than other regions
-- oak-pine-hickory forest with various Carya species, shortleaf pine, loblolly pine, white oak, post oak
-- Agriculture, old-field, and early successional forest
 
+-   Different bedrock / soil than other regions
+
+-   oak-pine-hickory forest with various Carya species, shortleaf pine, loblolly pine, white oak, post oak
+
+-   Agriculture, old-field, and early successional forest
 
 Can probably summarize this as:
-1. pine forest
-2. oak-hickory-pine forest (deciduous hardwood and pine)
-3. mixed forest (pine, deciduous hardwood, evergreen hardwood)
-4. prairie (c4 and c3 grass, maybe forb)
-5. old field (like above but with more forbs?) or early successional forest (like prairie but with small trees)
+
+1.  pine forest
+
+2.  oak-hickory-pine forest (deciduous hardwood and pine)
+
+3.  mixed forest (pine, deciduous hardwood, evergreen hardwood)
+
+4.  prairie (c4 and c3 grass, maybe forb)
+
+5.  old field (like above but with more forbs?) or early successional forest (like prairie but with small trees)
 
 ## Pine Forest
 
-There's a longleaf pine dataset in the `spatstat.data` package that we can use.  It's 584 Longleaf pines in a 200m x 200m region in southern Georgia.  Data collected by Platt, Evans and Rathbun (1988).
+There's a longleaf pine dataset in the `spatstat.data` package that we can use.
+It's 584 Longleaf pines in a 200m x 200m region in southern Georgia.
+Data collected by Platt, Evans and Rathbun (1988).
 
 ```{r}
 plot(longleaf)
 longleaf_df <- as.data.frame(longleaf) |> 
   rename(dbh = marks)
+
+ggplot(longleaf_df) +
+  geom_circle(aes(x0 = x, y0 = y, r = dbh/2/10)) +
+  coord_equal()
 ```
 
 Data needs:
-- number of cohorts (bins)
-- dbh for each cohort
-- density (stem/m^2) for each cohort
+
+-   number of cohorts (bins)
+-   dbh for each cohort
+-   density (stem/m\^2) for each cohort
 
 ```{r}
 ggplot(longleaf_df, aes(dbh)) + geom_histogram()
@@ -82,29 +108,76 @@ longleaf_df |>
 
 ### PFTs
 
-- temperate.Southern_Pine (7)
+-   temperate.Southern_Pine (7)
 
 ## Oak-Hickory-Pine forest
 
-https://www.ncwildlife.org/Portals/0/Conserving/documents/Piedmont/P_Oak_forest_mixed_hardwoods_pine.pdf?ver=2011-08-15-161006-140
-"Usually these forests are uneven‐aged with old tress occasionally present."
+<https://www.ncwildlife.org/Portals/0/Conserving/documents/Piedmont/P_Oak_forest_mixed_hardwoods_pine.pdf?ver=2011-08-15-161006-140> "Usually these forests are uneven‐aged with old tress occasionally present."
 
-Vegetation inventory data: https://tes-sfa.ornl.gov/sites/default/files/MOFLUX_Inventory_User_Guide_20190308.pdf
+Vegetation inventory data: <https://tes-sfa.ornl.gov/sites/default/files/MOFLUX_Inventory_User_Guide_20190308.pdf>
 
-https://www.fs.usda.gov/nrs/pubs/jrnl/2018/nrs_2018_iverson_001.pdf
-Nice plot that has all the info maybe
+<https://www.fs.usda.gov/nrs/pubs/jrnl/2018/nrs_2018_iverson_001.pdf> Nice plot that has all the info maybe
 
 ### PFTs
 
+-   temperate.South_Mid_Hardwood (no default ED2 PFT, but probably can use 10)
+-   temperate.Southern_Pine (7)
 
+```{r}
+oak_hickory_pine <- tribble(
+  ~cohort, ~dbh, ~ density,
+  "mature_hardwood", 40, 0.005,
+  "sapling_hardwood", 7, 0.005,
+  "mature_pine", 40, 0.005,
+  "sapling_pine", 7, 0.005,
+)
+oak_hickory_pine
+```
+
+Try to visualize to see if it makes sense.  This isn't perfect because trees can end up on top of eachother depending on the seed.
+
+```{r}
+set.seed(123)
+library(ggforce) #for geom_circle
+
+oak_hickory_pine |> 
+  mutate(m2 = 40000) |> 
+  mutate(n = m2 * density) |> 
+  group_by(cohort) |> 
+  mutate(dbh_rand = list(rnorm(n = n, mean = dbh, sd = 5))) |> 
+  unnest(dbh_rand) |> 
+  ungroup() |> 
+  mutate(x = runif(n = n, 0, sqrt(m2)),
+         y = runif(n = n, 0, sqrt(m2))) |> 
+  mutate(r_m = dbh_rand/10/2) |> #get radius in meters from diameter in cm
+  ggplot() +
+  geom_circle(aes(x0 = x, y0 = y, r = r_m, color = cohort)) +
+  coord_equal()
+```
+
+Seems a little crowded, but not unreasonable.
 
 ## Mixed Forest
 
-
+Similar to above but include small percentage of  `temperate.Evergreen_Hardwood`
 
 ## Prairie
 
+```{r}
+prairie <- tribble(
+  ~cohort, ~dbh, ~density,
+  "c4", 0.5, 5,
+  "c3", 0.5, 5,
+  "forb", 0.5, 0.5 #density should be like 1/20 of the grasses combined?
+)
+```
 
+### PFTs
+
+-   ebifarm.c3grass (12)
+
+-   ebifarm.c4grass (14)
+
+-   ebifarm.forb (12)
 
 ## Old field / early successional
-
