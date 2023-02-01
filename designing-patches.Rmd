@@ -9,7 +9,7 @@ date: '2023-01-11'
 library(spatstat.data)
 library(spatstat.geom)
 library(tidyverse)
-library(ragg)
+library(ggforce) #for geom_circle
 ```
 
 # Ecoregions
@@ -91,7 +91,8 @@ Looks like we could use 2 or 3 cohorts:
 Saplings (dbh 1--20 ish), mature trees (dbh 20-50 ish), old trees (50-70 ish)
 
 ```{r}
-longleaf_df |> 
+pine <- 
+  longleaf_df |> 
   mutate(group = case_when(
     dbh < 20 ~ "sapling",
     dbh >=20 & dbh < 50 ~ "mature tree",
@@ -102,45 +103,44 @@ longleaf_df |>
     n = n(),
     median_dbh = median(dbh),
     density = n/(200*200),
-  )
-
+  ) |> 
+  mutate(pft = 7)
+pine
 ```
 
 ### PFTs
 
 -   temperate.Southern_Pine (7)
 
-## Oak-Hickory-Pine forest
+## Mixed forest
 
-<https://www.ncwildlife.org/Portals/0/Conserving/documents/Piedmont/P_Oak_forest_mixed_hardwoods_pine.pdf?ver=2011-08-15-161006-140> "Usually these forests are uneven‐aged with old tress occasionally present."
-
-Vegetation inventory data: <https://tes-sfa.ornl.gov/sites/default/files/MOFLUX_Inventory_User_Guide_20190308.pdf>
-
-<https://www.fs.usda.gov/nrs/pubs/jrnl/2018/nrs_2018_iverson_001.pdf> Nice plot that has all the info maybe
+Deciduous hardwood, evergreen hardwood, conifer
 
 ### PFTs
 
--   temperate.South_Mid_Hardwood (no default ED2 PFT, but probably can use 10)
+-   temperate.South_Mid_Hardwood (10)
 -   temperate.Southern_Pine (7)
+-   temperate.Evergreen_Hardwood (8)
 
 ```{r}
-oak_hickory_pine <- tribble(
-  ~cohort, ~dbh, ~ density,
-  "mature_hardwood", 40, 0.005,
-  "sapling_hardwood", 7, 0.005,
-  "mature_pine", 40, 0.005,
-  "sapling_pine", 7, 0.005,
+mixed <- tribble(
+  ~cohort, ~dbh, ~ density, ~pft,
+  "mature_hardwood", 40, 0.004, 10,
+  "sapling_hardwood", 7, 0.004, 10,
+  "mature_pine", 40, 0.004, 7,
+  "sapling_pine", 7, 0.004, 7,
+  "mature_evergreen", 40, 0.001, 8,
+  "sapling_evergreen", 7, 0.001, 8
 )
-oak_hickory_pine
+mixed
 ```
 
 Try to visualize to see if it makes sense.  This isn't perfect because trees can end up on top of eachother depending on the seed.
 
 ```{r}
 set.seed(123)
-library(ggforce) #for geom_circle
 
-oak_hickory_pine |> 
+mixed |> 
   mutate(m2 = 40000) |> 
   mutate(n = m2 * density) |> 
   group_by(cohort) |> 
@@ -157,9 +157,6 @@ oak_hickory_pine |>
 
 Seems a little crowded, but not unreasonable.
 
-## Mixed Forest
-
-Similar to above but include small percentage of  `temperate.Evergreen_Hardwood`
 
 ## Prairie
 
@@ -169,8 +166,27 @@ prairie <- tribble(
   "c4", 0.5, 5,
   "c3", 0.5, 5,
   "forb", 0.5, 0.5 #density should be like 1/20 of the grasses combined?
-)
+) |> 
+  mutate(pft = c(14, 12, 12))
+prairie
 ```
+
+```{r}
+prairie |> 
+mutate(m2 = 1000) |> 
+  mutate(n = m2 * density) |> 
+  group_by(cohort) |> 
+  mutate(dbh_rand = list(rnorm(n = n, mean = dbh, sd = 5))) |> 
+  unnest(dbh_rand) |> 
+  ungroup() |> 
+  mutate(x = runif(n = n, 0, sqrt(m2)),
+         y = runif(n = n, 0, sqrt(m2))) |> 
+  mutate(r_m = dbh_rand/10/2) |> #get radius in meters from diameter in cm
+  ggplot() +
+  geom_circle(aes(x0 = x, y0 = y, r = r_m, color = cohort)) +
+  coord_equal()
+```
+
 
 ### PFTs
 
@@ -180,4 +196,96 @@ prairie <- tribble(
 
 -   ebifarm.forb (12)
 
-## Old field / early successional
+
+# Patch File
+
+Old one:
+```{r}
+read_delim("/data/input/FIA_ED2_site_1-18/siteid1000000018.fia2000.radius0.075.lat35.9712lon-79.0934.pss")
+```
+
+
+```{r}
+pss <- 
+  tibble(
+  time = 0, #dummy
+  patch = 1:3, #pine, mixed, prairie
+  trk = 1, #TODO: not sure about this
+  age = c(50, 50, 0), #TODO: not sure about this
+  area = c(.3, .3, .4), #equal area for all three patches
+  water = 0, #dummy
+  fsc = 1, #fast soil carbon in Kg/m^2
+  stsc = 5, #structural soil carbon
+  stsl = 5, #structural soil lignin
+  ssc = 0.01, #slow soil carbon
+  lai = 0, #dummy
+  msn = 1, #mineralized soil nitrogen in Kg/m^2
+  fsn = 1, #fast soil nitrogen
+  nep = 0, #dummy
+  gpp = 0, #dummy
+  rh  = 0, #dummy
+)
+pss
+```
+# Cohort file
+
+```{r}
+pine_css <- 
+  pine |> 
+  transmute(
+    time = 0, #dummy
+    patch = 1, #must match patch file
+    cohort = 1:n(), #arbitrary unique id
+    dbh = median_dbh, #diameter at breast height
+    hite = 0, #dummy
+    pft = pft,
+    n = density,
+    bdead = 0, #dummy
+    balive = 0, #dummy
+    lai = 0 #dummy
+    )
+```
+
+
+```{r}
+mixed_css <-
+  mixed |> 
+  transmute(
+    time = 0, #dummy
+    patch = 2, #must match patch file
+    cohort = 1:n(), #arbitrary unique id
+    dbh = dbh, #diameter at breast height
+    hite = 0, #dummy
+    pft = pft,
+    n = density,
+    bdead = 0, #dummy
+    balive = 0, #dummy
+    lai = 0 #dummy
+    )
+```
+
+```{r}
+prairie_css <-
+  prairie |> 
+  transmute(
+    time = 0, #dummy
+    patch = 3, #must match patch file
+    cohort = 1:n(), #arbitrary unique id
+    dbh = dbh, #diameter at breast height
+    hite = 0, #dummy
+    pft = pft,
+    n = density,
+    bdead = 0, #dummy
+    balive = 0, #dummy
+    lai = 0 #dummy
+    )
+prairie_css
+```
+
+NOTE: need to do something to distinguis two PFT 12s.  Something in the config.xml file has to match the patch and cohort I'd guess.
+
+```{r}
+css <- bind_rows(pine_css, mixed_css, prairie_css)
+css
+```
+
