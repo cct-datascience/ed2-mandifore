@@ -90,6 +90,11 @@ Looks like we could use 2 or 3 cohorts:
 
 Saplings (dbh 1--20 ish), mature trees (dbh 20-50 ish), old trees (50-70 ish)
 
+### PFTs
+
+-   temperate.Southern_Pine (7)
+-   SetariaWT (1)
+
 ```{r}
 pine <- 
   longleaf_df |> 
@@ -104,13 +109,12 @@ pine <-
     median_dbh = median(dbh),
     density = n/(200*200),
   ) |> 
-  mutate(pft = 7)
+  mutate(pft = 7) |> 
+  add_row(group = "setaria", n = NA, median_dbh = 0.6, density = 1, pft = 1)
 pine
 ```
 
-### PFTs
 
--   temperate.Southern_Pine (7)
 
 ## Mixed forest
 
@@ -121,6 +125,7 @@ Deciduous hardwood, evergreen hardwood, conifer
 -   temperate.South_Mid_Hardwood (10)
 -   temperate.Southern_Pine (7)
 -   temperate.Evergreen_Hardwood (8)
+-   SetariaWT (1)
 
 ```{r}
 mixed <- tribble(
@@ -130,18 +135,20 @@ mixed <- tribble(
   "mature_pine", 40, 0.004, 7,
   "sapling_pine", 7, 0.004, 7,
   "mature_evergreen", 40, 0.001, 8,
-  "sapling_evergreen", 7, 0.001, 8
+  "sapling_evergreen", 7, 0.001, 8,
+  "setaria", 0.6, 1, 1
 )
 mixed
 ```
 
-Try to visualize to see if it makes sense.  This isn't perfect because trees can end up on top of eachother depending on the seed.
+Try to visualize to see if it makes sense.  This isn't perfect because trees can end up on top of each other depending on the seed.
 
 ```{r}
 set.seed(123)
 
 mixed |> 
-  mutate(m2 = 40000) |> 
+  filter(cohort != "setaria") |> 
+  mutate(m2 = 10000) |>
   mutate(n = m2 * density) |> 
   group_by(cohort) |> 
   mutate(dbh_rand = list(rnorm(n = n, mean = dbh, sd = 5))) |> 
@@ -160,23 +167,32 @@ Seems a little crowded, but not unreasonable.
 
 ## Prairie
 
+### PFTs
+
+-   ebifarm.c3grass (5)
+-   ebifarm.c4grass (14) 
+-   ebifarm.forb (12) 
+-   SetariaWT (1)
+
+ebifarm.c4grass and ebifarm.forb might cause issues because they are using weird ED2 PFTs to not overlap with the other PFTs
+
 ```{r}
 prairie <- tribble(
-  ~cohort, ~dbh, ~density,
-  "c4", 0.5, 5,
-  "c3", 0.5, 5,
-  "forb", 0.5, 0.5 #density should be like 1/20 of the grasses combined?
-) |> 
-  mutate(pft = c(14, 12, 12))
+  ~cohort, ~dbh, ~density, ~pft,
+  "c4", 0.5, 3, 14,
+  "c3", 0.5, 3, 5,
+  "forb", 0.5, 0.15, 12,  #density should be like 1/20 of the grasses combined?
+  "setaria", 0.5, 1, 1
+)
 prairie
 ```
 
 ```{r}
 prairie |> 
-mutate(m2 = 1000) |> 
+mutate(m2 = 100) |> 
   mutate(n = m2 * density) |> 
   group_by(cohort) |> 
-  mutate(dbh_rand = list(rnorm(n = n, mean = dbh, sd = 5))) |> 
+  mutate(dbh_rand = list(rnorm(n = n, mean = dbh, sd = 0.1))) |> 
   unnest(dbh_rand) |> 
   ungroup() |> 
   mutate(x = runif(n = n, 0, sqrt(m2)),
@@ -188,29 +204,21 @@ mutate(m2 = 1000) |>
 ```
 
 
-### PFTs
-
--   ebifarm.c3grass (12)
-
--   ebifarm.c4grass (14)
-
--   ebifarm.forb (12)
-
-
 # Patch File
 
 Old one:
+
 ```{r}
 read_delim("/data/input/FIA_ED2_site_1-18/siteid1000000018.fia2000.radius0.075.lat35.9712lon-79.0934.pss")
 ```
-
+This was generated with old specs though.  Follow [wiki for IED_INIT_MODE=6](https://github.com/EDmodel/ED2/wiki/Initial-conditions#files-types-and-formats-for-nlied_init_mode6)
 
 ```{r}
 pss <- 
   tibble(
   time = 0, #dummy
   patch = 1:3, #pine, mixed, prairie
-  trk = 1, #TODO: not sure about this
+  trk = c(2, 2, 0), #Tree fall for forests, pasture for prairie??
   age = c(50, 50, 0), #TODO: not sure about this
   area = c(.3, .3, .4), #equal area for all three patches
   water = 0, #dummy
@@ -279,13 +287,20 @@ prairie_css <-
     balive = 0, #dummy
     lai = 0 #dummy
     )
-prairie_css
+
 ```
 
-NOTE: need to do something to distinguis two PFT 12s.  Something in the config.xml file has to match the patch and cohort I'd guess.
+**NOTE: need to do something to distinguish two PFT 12s.  Something in the config.xml file has to match the patch and cohort I'd guess.**
 
 ```{r}
 css <- bind_rows(pine_css, mixed_css, prairie_css)
 css
+```
+
+# Write files
+
+```{r}
+write.table(pss, "templates/generic.pss", quote = FALSE, row.names = FALSE)
+write.table(css, "templates/generic.css", quote = FALSE, row.names = FALSE)
 ```
 
