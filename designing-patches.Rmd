@@ -299,8 +299,10 @@ css
 
 # Write files
 
+Writes them to /data/ shared folder.
+
 ```{r}
-write.table(pss, "templates/generic.pss", quote = FALSE, row.names = FALSE)
-write.table(css, "templates/generic.css", quote = FALSE, row.names = FALSE)
+write.table(pss, "/data/sites/generic_patches/generic.pss", quote = FALSE, row.names = FALSE)
+write.table(css, "/data/sites/generic_patches/generic.css", quote = FALSE, row.names = FALSE)
 ```
 
