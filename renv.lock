@@ -212,7 +212,7 @@
       "Repository": "https://pecanproject.r-universe.dev",
       "RemoteUrl": "https://github.com/PecanProject/pecan",
       "RemoteRef": "HEAD",
-      "RemoteSha": "c5f4e03292220065004cd44a77685b4dd23fed0c",
+      "RemoteSha": "353b4dd2eb632f5509a4dae56b6ca388c41873d8",
       "Hash": "8ab9cb6e9cb618e5066709d765f84729",
       "Requirements": [
         "DBI",
