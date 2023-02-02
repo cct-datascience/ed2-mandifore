@@ -19,19 +19,39 @@
     <dbfiles>/data/dbfiles</dbfiles>
   </database>
   <pfts>
-    <!-- For now, don't even put Setaria in -->
-    <!--
     <pft>
       <name>SetariaWT</name>
       <ed2_pft_number>1</ed2_pft_number>
     </pft>
-    -->
-    <!-- Add additional PFTs here -->
+    <pft>
+      <name>temperate.Southern_Pine</name>
+      <ed2_pft_number>7</ed2_pft_number>
+    </pft>
+    <pft>
+      <name>temperate.South_Mid_Hardwood</name>
+      <ed2_pft_number>10</ed2_pft_number>
+    </pft>
+    <pft>
+      <name>temperate.Evergreen_Hardwood</name>
+      <ed2_pft_number>8</ed2_pft_number>
+    </pft>
+    <pft>
+      <name>ebifarm.c3grass</name>
+      <ed2_pft_number>5</ed2_pft_number>
+    </pft>
+    <pft>
+      <name>ebifarm.c4grass</name>
+      <ed2_pft_number>14</ed2_pft_number>
+    </pft>
+    <pft>
+      <name>ebifarm.forb</name>
+      <ed2_pft_number>12</ed2_pft_number>
+    </pft>
   </pfts>
 
   <meta.analysis>
     <!-- This should be increased to more like 50000 for final runs -->
-    <iter>50000</iter>
+    <iter>1000</iter>
     <random.effects>TRUE</random.effects>
     <threshold>1.2</threshold>
     <!-- AUTO is another possible value for <update>,
@@ -39,6 +59,7 @@
          so keep this to TRUE -->
     <update>TRUE</update>
   </meta.analysis>
+<!--
   <sensitivity.analysis>
       <quantiles>
           <sigma>-1</sigma>
@@ -46,9 +67,10 @@
       </quantiles>
     <variable>NPP</variable>
   </sensitivity.analysis>
+-->
   <ensemble>
     <!-- This should be increased for final runs -->
-    <size>500</size>
+    <size>3</size>
     <variable>NPP</variable>
     <samplingspace>
       <parameters>
@@ -99,10 +121,12 @@
       <soil>/data/faoOLD/FAO_</soil>
       <lu>/data/ed_inputs/glu/</lu>
       <thsum>/data/ed_inputs/</thsum>
+      <pss>/data/sites/generic_patches/generic.lat0lon0.pss</pss>
+      <css>/data/sites/generic_patches/generic.lat0lon0.css</css>
     </inputs>
     <!-- best not to start runs in winter -->
     <start.date>2002-06-01</start.date>
-    <end.date>2012-06-01</end.date>
+    <end.date>2003-01-01</end.date>
   </run>
   
   <host>
