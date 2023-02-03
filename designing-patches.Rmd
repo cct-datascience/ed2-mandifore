@@ -218,7 +218,7 @@ pss <-
   tibble(
   time = 0, #dummy
   patch = 1:3, #pine, mixed, prairie
-  trk = c(2, 2, 0), #Tree fall for forests, pasture for prairie??
+  trk = c(1, 1, 1), #TODO: figure this out. Tree fall for forests, pasture for prairie??
   age = c(50, 50, 0), #TODO: not sure about this
   area = c(.3, .3, .4), #equal area for all three patches
   water = 0, #dummy
@@ -299,10 +299,20 @@ css
 
 # Write files
 
-Writes them to /data/ shared folder.
+Writes them to /data/ shared folder.  PEcAn requires that they meet this regexp: `"\\.lat.*lon.*\\.(css|pss|site)"`.  LOL
 
 ```{r}
-write.table(pss, "/data/sites/generic_patches/generic.pss", quote = FALSE, row.names = FALSE)
-write.table(css, "/data/sites/generic_patches/generic.css", quote = FALSE, row.names = FALSE)
+write.table(pss, "/data/sites/generic_patches/generic.lat0lon0.pss", quote = FALSE, row.names = FALSE)
+write.table(css, "/data/sites/generic_patches/generic.lat0lon0.css", quote = FALSE, row.names = FALSE)
+```
+
+
+For testing, do just the pine forest
+
+```{r}
+pss |> filter(patch == 1) |> 
+  write.table("/data/sites/generic_patches/pine.lat0lon0.pss",  quote = FALSE, row.names = FALSE)
+css |> filter(patch == 1) |> 
+  write.table("/data/sites/generic_patches/pine.lat0lon0.css",  quote = FALSE, row.names = FALSE)
 ```
 
