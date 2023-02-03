@@ -51,7 +51,7 @@
 
   <meta.analysis>
     <!-- This should be increased to more like 50000 for final runs -->
-    <iter>1000</iter>
+    <iter>3000</iter>
     <random.effects>TRUE</random.effects>
     <threshold>1.2</threshold>
     <!-- AUTO is another possible value for <update>,
