@@ -59,7 +59,7 @@
          so keep this to TRUE -->
     <update>TRUE</update>
   </meta.analysis>
-<!--
+
   <sensitivity.analysis>
       <quantiles>
           <sigma>-1</sigma>
@@ -67,10 +67,10 @@
       </quantiles>
     <variable>NPP</variable>
   </sensitivity.analysis>
--->
+
   <ensemble>
     <!-- This should be increased for final runs -->
-    <size>10</size>
+    <size>5</size>
     <variable>NPP</variable>
     <samplingspace>
       <parameters>
