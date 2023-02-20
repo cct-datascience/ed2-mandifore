@@ -5,6 +5,7 @@
 # Load packages -----------------------------------------------------------
 library(PEcAn.all)
 library(purrr)
+library(stringr)
 
 # Read in settings --------------------------------------------------------
 
@@ -45,21 +46,37 @@ runModule.run.write.configs(settings)
 # Modify job.sh to run R inside singularity container.  
 # This is a workaround for https://github.com/PecanProject/pecan/issues/2540
 
-job_scripts <- list.files(settings$rundir, "job.sh", recursive = TRUE, full.names = TRUE)
-#TODO: could get this from settings under the assumption that the .sh "ED binary" has same naming convention as .sif file
-container_path <- "/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-dev.sif"
+#this code also modifies the job.sh to run model2netcdf.ED2() with the
+#process_partial = TRUE option so that .nc files are created even for runs that
+#don't finish.
+
+job_scripts <-
+  list.files(settings$rundir,
+             "job.sh",
+             recursive = TRUE,
+             full.names = TRUE)
+#TODO: could get this from settings under the assumption that the .sh "ED
+#binary" has same naming convention as .sif file
+container_path <-
+  "/groups/kristinariemer/ed2_results/global_inputs/pecan-dev_ed2-dev.sif"
 
 purrr::walk(job_scripts, function(x) {
   job_sh <- readLines(x)
-  cmd <- paste0("singularity run ", container_path, " /usr/local/bin/Rscript")
+  cmd <-
+    paste0("singularity run ", container_path, " /usr/local/bin/Rscript")
   job_sh_mod <- stringr::str_replace(job_sh, "Rscript", cmd)
+  # find which line has the model2netcdf.ED2() function
+  linenum <-
+    job_sh_mod |> str_detect("model2netcdf\\.ED2\\(") |> which()
+  # add process_partial = TRUE arg
+  job_sh_mod[linenum] <- job_sh_mod[linenum] |>
+    str_replace('\\)\\"$' , ', process_partial = TRUE\\)\\"')
   writeLines(job_sh_mod, x)
 })
 
 # Start model runs --------------------------------------------------------
 
 ## This copies config files to the HPC and starts the run
-## Sometimes not everything gets copied over (still) and you'll need to run this twice.
 runModule_start_model_runs(settings, stop.on.error = FALSE)
 
 # Model analyses ----------------------------------------------------------
