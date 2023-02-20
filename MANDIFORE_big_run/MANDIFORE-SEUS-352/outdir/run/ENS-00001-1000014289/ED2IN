@@ -105,9 +105,9 @@ $ED_NL
    !---------------------------------------------------------------------------------------!
    !     End of simulation. Information must be given in UTC time.                         !
    !---------------------------------------------------------------------------------------!
-   NL%IMONTHZ = 1
+   NL%IMONTHZ = 7
    NL%IDATEZ = 1
-   NL%IYEARZ = 2003
+   NL%IYEARZ = 2012
    NL%ITIMEZ = 0
    !---------------------------------------------------------------------------------------!
 
@@ -378,8 +378,8 @@ $ED_NL
    ! FFILOUT -- Path and prefix for analysis files (all but history/restart).              !
    ! SFILOUT -- Path and prefix for history files.                                         !
    !---------------------------------------------------------------------------------------!
-   NL%FFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/out/ENS-00001-1000014289/analysis'
-   NL%SFILOUT = '/groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/out/ENS-00001-1000014289/history'
+   NL%FFILOUT = '/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/out/ENS-00001-1000014289/analysis'
+   NL%SFILOUT = '/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/out/ENS-00001-1000014289/history'
    !---------------------------------------------------------------------------------------!
 
 
@@ -456,7 +456,7 @@ $ED_NL
    !              path+prefix will be used, as the history for every grid must have come   !
    !              from the same simulation.                                                !
    !---------------------------------------------------------------------------------------!
-   NL%SFILIN = '/data/sites/generic_patches/pine.'
+   NL%SFILIN = '/data/sites/mandifore/MANDIFORE-SEUS-352/siteid1000014289.fia2000.radius0.075.'
    !---------------------------------------------------------------------------------------!
 
 
@@ -1741,7 +1741,7 @@ $ED_NL
    ! 16 - Tropical/subtropical C3 grass                                                    !
    ! 17 - (Beta) Lianas                                                                    !
    !---------------------------------------------------------------------------------------!
-   NL%INCLUDE_THESE_PFT = 1,7
+   NL%INCLUDE_THESE_PFT = 1,7,10,8,5,14,12
    NL%PASTURE_STOCK = 1
    NL%AGRI_STOCK = 1
    NL%PLANTATION_STOCK = 3
@@ -2019,8 +2019,8 @@ $ED_NL
    !               simulation.                                                             !
    ! PHENPATH   -- path and prefix of the prescribed phenology data.                       !
    !---------------------------------------------------------------------------------------!
-   NL%IEDCNFGF = '/groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/config.xml'
-   NL%EVENT_FILE = '/groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/myevents.xml'
+   NL%IEDCNFGF = '/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/config.xml'
+   NL%EVENT_FILE = '/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/myevents.xml'
    !---------------------------------------------------------------------------------------!
 
 

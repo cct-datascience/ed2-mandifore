@@ -40,9 +40,9 @@
   <phi2>0</phi2>
   <mu_bar>0</mu_bar>
   <photosyn_pathway>4</photosyn_pathway>
-  <quantum_efficiency>0.0615688338509231</quantum_efficiency>
-  <Vm0>12.3325131432011</Vm0>
-  <Vm_low_temp>9.99644537556606</Vm_low_temp>
+  <quantum_efficiency>0.0557689588572365</quantum_efficiency>
+  <Vm0>16.6836230115045</Vm0>
+  <Vm_low_temp>9.34818447032975</Vm_low_temp>
   <Vm_high_temp>45</Vm_high_temp>
   <Vm_decay_e>0.400000006</Vm_decay_e>
   <Vm_decay_a>220000</Vm_decay_a>
@@ -57,16 +57,16 @@
   <Rd_q10>2.4000000954</Rd_q10>
   <Rd0>0.4375</Rd0>
   <D0>0.0160000008</D0>
-  <stomatal_slope>3.33653931925854</stomatal_slope>
-  <cuticular_cond>11942.8745399468</cuticular_cond>
+  <stomatal_slope>3.64498471986144</stomatal_slope>
+  <cuticular_cond>6719.07266136237</cuticular_cond>
   <water_conductance>2.85199e-05</water_conductance>
-  <leaf_width>0.00566607152485992</leaf_width>
-  <growth_resp_factor>0.564575501830961</growth_resp_factor>
-  <leaf_turnover_rate>9.31453584524364</leaf_turnover_rate>
-  <root_turnover_rate>0.80967545472527</root_turnover_rate>
+  <leaf_width>0.00450522045460709</leaf_width>
+  <growth_resp_factor>0.235174005896376</growth_resp_factor>
+  <leaf_turnover_rate>14.5976001797176</leaf_turnover_rate>
+  <root_turnover_rate>0.344446930914731</root_turnover_rate>
   <storage_turnover_rate>0</storage_turnover_rate>
   <f_labile>1</f_labile>
-  <root_respiration_factor>1.71413703304543</root_respiration_factor>
+  <root_respiration_factor>2.58135003226596</root_respiration_factor>
   <rrf_low_temp>8</rrf_low_temp>
   <rrf_high_temp>45</rrf_high_temp>
   <rrf_decay_e>0.400000006</rrf_decay_e>
@@ -75,19 +75,19 @@
   <frost_mort>3</frost_mort>
   <mort0>-0.349999994</mort0>
   <mort1>2</mort1>
-  <mort2>13.6202036983235</mort2>
+  <mort2>9.89378693852153</mort2>
   <mort3>0</mort3>
   <cbr_severe_stress>-1.0628256798</cbr_severe_stress>
-  <seedling_mortality>0.982559581324621</seedling_mortality>
+  <seedling_mortality>0.965845801294871</seedling_mortality>
   <treefall_s_gt>0</treefall_s_gt>
   <treefall_s_lt>0.25</treefall_s_lt>
   <fire_s_gt>0</fire_s_gt>
   <fire_s_lt>0</fire_s_lt>
   <plant_min_temp>275.6499938965</plant_min_temp>
   <rho>0.200000003</rho>
-  <SLA>87.4782176225041</SLA>
+  <SLA>75.6424492341928</SLA>
   <horiz_branch>0.5</horiz_branch>
-  <q>2.38690638817024</q>
+  <q>1.30517063711573</q>
   <sapwood_ratio>3900</sapwood_ratio>
   <qsw>0.0058205132</qsw>
   <init_density>0.1000000015</init_density>
@@ -131,9 +131,9 @@
   <delta_c>-225.1618652344</delta_c>
   <b1Cl>0.9900000095</b1Cl>
   <b2Cl>1</b2Cl>
-  <r_fract>0.206598779186136</r_fract>
+  <r_fract>0.322735941572872</r_fract>
   <st_fract>0</st_fract>
-  <nonlocal_dispersal>0.168608614925341</nonlocal_dispersal>
+  <nonlocal_dispersal>0.289248642745349</nonlocal_dispersal>
   <repro_min_h>0</repro_min_h>
   <one_plant_c>0.020361444</one_plant_c>
   <min_recruit_size>0.0002036145</min_recruit_size>
@@ -141,9 +141,9 @@
   <seed_rain>0.0100000007</seed_rain>
   <negligible_nplant>1.48253e-05</negligible_nplant>
   <veg_hcap_min>3.6809282303</veg_hcap_min>
-  <fineroot2leaf>2.38690638817024</fineroot2leaf>
-  <Vcmax>12.3325131432011</Vcmax>
-  <root_respiration_rate>1.71413703304543</root_respiration_rate>
+  <fineroot2leaf>1.30517063711573</fineroot2leaf>
+  <Vcmax>16.6836230115045</Vcmax>
+  <root_respiration_rate>2.58135003226596</root_respiration_rate>
  </pft>
  <pft>
   <num>7</num>
@@ -178,16 +178,16 @@
   <phi2>0</phi2>
   <mu_bar>0</mu_bar>
   <photosyn_pathway>3</photosyn_pathway>
-  <quantum_efficiency>0.0457541045081842</quantum_efficiency>
-  <Vm0>45.4059341501999</Vm0>
-  <Vm_low_temp>2.13620580325091</Vm_low_temp>
+  <quantum_efficiency>0.0276388180363947</quantum_efficiency>
+  <Vm0>45.125237916388</Vm0>
+  <Vm_low_temp>5.69216093116884</Vm_low_temp>
   <Vm_high_temp>45</Vm_high_temp>
   <Vm_decay_e>0.400000006</Vm_decay_e>
   <Vm_decay_a>220000</Vm_decay_a>
   <Vm_decay_b>690</Vm_decay_b>
   <vm_hor>3000</vm_hor>
   <vm_q10>2.4000000954</vm_q10>
-  <dark_respiration_factor>0.0123723826491019</dark_respiration_factor>
+  <dark_respiration_factor>0.0151593117207255</dark_respiration_factor>
   <Rd_low_temp>4.7136998177</Rd_low_temp>
   <Rd_high_temp>45</Rd_high_temp>
   <Rd_decay_e>0.400000006</Rd_decay_e>
@@ -195,16 +195,16 @@
   <Rd_q10>2.4000000954</Rd_q10>
   <Rd0>0.1645749956</Rd0>
   <D0>0.0160000008</D0>
-  <stomatal_slope>6.70894603052126</stomatal_slope>
-  <cuticular_cond>2121.75344192876</cuticular_cond>
-  <water_conductance>0.247957462852965</water_conductance>
-  <leaf_width>0.134293144356202</leaf_width>
-  <growth_resp_factor>0.129088169932368</growth_resp_factor>
-  <leaf_turnover_rate>0.762535891204199</leaf_turnover_rate>
-  <root_turnover_rate>0.616514582550682</root_turnover_rate>
+  <stomatal_slope>7.64516384796669</stomatal_slope>
+  <cuticular_cond>5105.22355949797</cuticular_cond>
+  <water_conductance>0.000699321163887181</water_conductance>
+  <leaf_width>0.0683083143300153</leaf_width>
+  <growth_resp_factor>0.192103324857021</growth_resp_factor>
+  <leaf_turnover_rate>0.736327670306369</leaf_turnover_rate>
+  <root_turnover_rate>0.633654447607228</root_turnover_rate>
   <storage_turnover_rate>0</storage_turnover_rate>
-  <f_labile>0.400867559514619</f_labile>
-  <root_respiration_factor>24.2641858263585</root_respiration_factor>
+  <f_labile>0.884358700187826</f_labile>
+  <root_respiration_factor>21.2981548748063</root_respiration_factor>
   <rrf_low_temp>4.7136998177</rrf_low_temp>
   <rrf_high_temp>45</rrf_high_temp>
   <rrf_decay_e>0.400000006</rrf_decay_e>
@@ -212,25 +212,25 @@
   <rrf_q10>2.4000000954</rrf_q10>
   <frost_mort>3</frost_mort>
   <mort0>0</mort0>
-  <mort1>1.99653938822721</mort1>
-  <mort2>60.0536096928723</mort2>
-  <mort3>0.0109479452097098</mort3>
+  <mort1>1.81489173781258</mort1>
+  <mort2>9.69542167675776</mort2>
+  <mort3>0.00973393082066951</mort3>
   <cbr_severe_stress>-0.7971192598</cbr_severe_stress>
-  <seedling_mortality>0.999094674257184</seedling_mortality>
+  <seedling_mortality>0.78476637933806</seedling_mortality>
   <treefall_s_gt>0</treefall_s_gt>
   <treefall_s_lt>0.1000000015</treefall_s_lt>
   <fire_s_gt>0</fire_s_gt>
   <fire_s_lt>0</fire_s_lt>
-  <plant_min_temp>-71.4623751501379</plant_min_temp>
+  <plant_min_temp>-19.8723255695305</plant_min_temp>
   <rho>0</rho>
-  <SLA>12.0183311680529</SLA>
+  <SLA>40.7104955160107</SLA>
   <horiz_branch>0.6100000143</horiz_branch>
-  <q>0.619255565399655</q>
+  <q>0.32644988101457</q>
   <sapwood_ratio>3900</sapwood_ratio>
   <qsw>0.0023076923</qsw>
   <init_density>0.1000000015</init_density>
-  <b1Ht>114.869305541856</b1Ht>
-  <b2Ht>-0.19767045376763</b2Ht>
+  <b1Ht>13.6947796750563</b1Ht>
+  <b2Ht>-0.00668455241005408</b2Ht>
   <hgt_ref>1.2999999523</hgt_ref>
   <hgt_min>1.5</hgt_min>
   <hgt_max>27.112859726</hgt_max>
@@ -249,17 +249,17 @@
   <b2Bs_large>2.2379999161</b2Bs_large>
   <min_bdead>0.0017962311</min_bdead>
   <bdead_crit>1250.5089111328</bdead_crit>
-  <b1Ca>144.755072478932</b1Ca>
-  <b2Ca>0.197369609251983</b2Ca>
+  <b1Ca>0.0833922769824882</b1Ca>
+  <b2Ca>1.12450313591503</b2Ca>
   <b1WAI>0.0276500005</b1WAI>
   <b2WAI>1.9768999815</b2WAI>
   <brf_wd>0.1599999964</brf_wd>
-  <agf_bs>0.8302947193376</agf_bs>
+  <agf_bs>0.801225262525952</agf_bs>
   <b1Vol>0.0247086249</b1Vol>
   <b2Vol>2</b2Vol>
   <b1Rd>-1.1140580177</b1Rd>
   <b2Rd>0.4223014116</b2Rd>
-  <c2n_leaf>172.780491029934</c2n_leaf>
+  <c2n_leaf>204.49267078496</c2n_leaf>
   <c2n_recruit>106.0161056519</c2n_recruit>
   <phenology>0</phenology>
   <c_grn_leaf_dry>3218</c_grn_leaf_dry>
@@ -269,9 +269,9 @@
   <delta_c>-225.1618652344</delta_c>
   <b1Cl>0.3106774986</b1Cl>
   <b2Cl>1.0980000496</b2Cl>
-  <r_fract>0.280006249417157</r_fract>
+  <r_fract>0.345344570415573</r_fract>
   <st_fract>0</st_fract>
-  <nonlocal_dispersal>0.137239267166853</nonlocal_dispersal>
+  <nonlocal_dispersal>0.869231686349701</nonlocal_dispersal>
   <repro_min_h>18</repro_min_h>
   <one_plant_c>0.0024907414</one_plant_c>
   <min_recruit_size>2.49074e-05</min_recruit_size>
@@ -279,13 +279,715 @@
   <seed_rain>0.0100000007</seed_rain>
   <negligible_nplant>1e-08</negligible_nplant>
   <veg_hcap_min>0.2346830666</veg_hcap_min>
-  <fineroot2leaf>0.619255565399655</fineroot2leaf>
-  <root_respiration_rate>24.2641858263585</root_respiration_rate>
-  <Vcmax>45.4059341501999</Vcmax>
-  <c2n_fineroot>75.5829499152541</c2n_fineroot>
-  <b2Bs>1.3215482086742</b2Bs>
-  <b1Bs>0.000126874598372891</b1Bs>
-  <b2Bl>3.76160064504226</b2Bl>
-  <b1Bl>0.00543981321543009</b1Bl>
+  <fineroot2leaf>0.32644988101457</fineroot2leaf>
+  <root_respiration_rate>21.2981548748063</root_respiration_rate>
+  <Vcmax>45.125237916388</Vcmax>
+  <c2n_fineroot>45.2534485537327</c2n_fineroot>
+  <b2Bs>1.32013285702296</b2Bs>
+  <b1Bs>0.0123890397316794</b1Bs>
+  <b2Bl>2.31021935701113</b2Bl>
+  <b1Bl>0.152052847431533</b1Bl>
+ </pft>
+ <pft>
+  <num>10</num>
+  <is_tropical>0</is_tropical>
+  <is_grass>0</is_grass>
+  <include_pft>1</include_pft>
+  <include_pft_ag>0</include_pft_ag>
+  <include_pft_fp>0</include_pft_fp>
+  <clumping_factor>0.84</clumping_factor>
+  <orient_factor>0</orient_factor>
+  <leaf_emiss_tir>0.95</leaf_emiss_tir>
+  <wood_emiss_tir>0.9</wood_emiss_tir>
+  <leaf_reflect_vis>0.11</leaf_reflect_vis>
+  <leaf_reflect_nir>0.11</leaf_reflect_nir>
+  <wood_reflect_vis>0.11</wood_reflect_vis>
+  <wood_reflect_nir>0.11</wood_reflect_nir>
+  <leaf_trans_vis>0.11</leaf_trans_vis>
+  <leaf_trans_nir>0.11</leaf_trans_nir>
+  <wood_trans_vis>0.11</wood_trans_vis>
+  <wood_trans_nir>0.11</wood_trans_nir>
+  <leaf_backscatter_vis>0</leaf_backscatter_vis>
+  <leaf_backscatter_nir>0</leaf_backscatter_nir>
+  <leaf_backscatter_tir>0.625</leaf_backscatter_tir>
+  <wood_backscatter_vis>0</wood_backscatter_vis>
+  <wood_backscatter_nir>0</wood_backscatter_nir>
+  <wood_backscatter_tir>0.625</wood_backscatter_tir>
+  <leaf_scatter_vis>0</leaf_scatter_vis>
+  <leaf_scatter_nir>0</leaf_scatter_nir>
+  <wood_scatter_vis>0</wood_scatter_vis>
+  <wood_scatter_nir>0</wood_scatter_nir>
+  <phi1>0</phi1>
+  <phi2>0</phi2>
+  <mu_bar>0</mu_bar>
+  <photosyn_pathway>3</photosyn_pathway>
+  <quantum_efficiency>0.0585436404194245</quantum_efficiency>
+  <Vm0>19.1366322132395</Vm0>
+  <Vm_low_temp>7.0400988911063</Vm_low_temp>
+  <Vm_high_temp>45</Vm_high_temp>
+  <Vm_decay_e>0.400000006</Vm_decay_e>
+  <Vm_decay_a>220000</Vm_decay_a>
+  <Vm_decay_b>690</Vm_decay_b>
+  <vm_hor>3000</vm_hor>
+  <vm_q10>2.4000000954</vm_q10>
+  <dark_respiration_factor>0.0207192909943696</dark_respiration_factor>
+  <Rd_low_temp>4.7136998177</Rd_low_temp>
+  <Rd_high_temp>45</Rd_high_temp>
+  <Rd_decay_e>0.400000006</Rd_decay_e>
+  <Rd_hor>3000</Rd_hor>
+  <Rd_q10>2.4000000954</Rd_q10>
+  <Rd0>0.2530929446</Rd0>
+  <D0>0.0160000008</D0>
+  <stomatal_slope>13.1687456949619</stomatal_slope>
+  <cuticular_cond>7772.52156166367</cuticular_cond>
+  <water_conductance>0.0116924811810325</water_conductance>
+  <leaf_width>0.0840699591624204</leaf_width>
+  <growth_resp_factor>0.159981984463292</growth_resp_factor>
+  <leaf_turnover_rate>0</leaf_turnover_rate>
+  <root_turnover_rate>9.32034855813063</root_turnover_rate>
+  <storage_turnover_rate>0</storage_turnover_rate>
+  <f_labile>0.593415647340066</f_labile>
+  <root_respiration_factor>9.13416166493208</root_respiration_factor>
+  <rrf_low_temp>4.7136998177</rrf_low_temp>
+  <rrf_high_temp>45</rrf_high_temp>
+  <rrf_decay_e>0.400000006</rrf_decay_e>
+  <rrf_hor>3000</rrf_hor>
+  <rrf_q10>2.4000000954</rrf_q10>
+  <frost_mort>3</frost_mort>
+  <mort0>0</mort0>
+  <mort1>1.99460264924741</mort1>
+  <mort2>16.2803088537715</mort2>
+  <mort3>0.00530510506103302</mort3>
+  <cbr_severe_stress>-0.7971192598</cbr_severe_stress>
+  <seedling_mortality>0.933009473106144</seedling_mortality>
+  <treefall_s_gt>0</treefall_s_gt>
+  <treefall_s_lt>0.1000000015</treefall_s_lt>
+  <fire_s_gt>0</fire_s_gt>
+  <fire_s_lt>0</fire_s_lt>
+  <plant_min_temp>-92.3968148685252</plant_min_temp>
+  <rho>0</rho>
+  <SLA>37.5850348897343</SLA>
+  <horiz_branch>0.3899999857</horiz_branch>
+  <q>0.378401308610441</q>
+  <sapwood_ratio>3900</sapwood_ratio>
+  <qsw>0.0062051285</qsw>
+  <init_density>0.1000000015</init_density>
+  <b1Ht>45.6078199317058</b1Ht>
+  <b2Ht>-0.0314524168286807</b2Ht>
+  <hgt_ref>1.2999999523</hgt_ref>
+  <hgt_min>1.5</hgt_min>
+  <hgt_max>25.1548213959</hgt_max>
+  <min_dbh>0.160646826</min_dbh>
+  <dbh_crit>59.3171386719</dbh_crit>
+  <dbh_adult>10</dbh_adult>
+  <dbh_bigleaf>19.7723808289</dbh_bigleaf>
+  <b1Bl_small>0.0480000004</b1Bl_small>
+  <b1Bl_large>0.0480000004</b1Bl_large>
+  <b2Bl_small>1.4550000429</b2Bl_small>
+  <b2Bl_large>1.4550000429</b2Bl_large>
+  <bleaf_adult>0.6842444539</bleaf_adult>
+  <b1Bs_small>0.1616999954</b1Bs_small>
+  <b1Bs_large>0.1616999954</b1Bs_large>
+  <b2Bs_small>2.4572000504</b2Bs_small>
+  <b2Bs_large>2.4572000504</b2Bs_large>
+  <min_bdead>0.000904376</min_bdead>
+  <bdead_crit>1839.6638183594</bdead_crit>
+  <b1Ca>157.2664206309</b1Ca>
+  <b2Ca>0.803211434198219</b2Ca>
+  <b1WAI>0.0096000005</b1WAI>
+  <b2WAI>2.094700098</b2WAI>
+  <brf_wd>0.1599999964</brf_wd>
+  <agf_bs>0.250749665481496</agf_bs>
+  <b1Vol>0.0247086249</b1Vol>
+  <b2Vol>2</b2Vol>
+  <b1Rd>-1.1140580177</b1Rd>
+  <b2Rd>0.4223014116</b2Rd>
+  <c2n_leaf>75.108433598725</c2n_leaf>
+  <c2n_recruit>28.5154895782</c2n_recruit>
+  <phenology>2</phenology>
+  <c_grn_leaf_dry>3218</c_grn_leaf_dry>
+  <wat_dry_ratio_grn>2.5</wat_dry_ratio_grn>
+  <wat_dry_ratio_ngrn>0.6999999881</wat_dry_ratio_ngrn>
+  <c_ngrn_biom_dry>1217.3759765625</c_ngrn_biom_dry>
+  <delta_c>-225.1618652344</delta_c>
+  <b1Cl>0.3106774986</b1Cl>
+  <b2Cl>1.0980000496</b2Cl>
+  <r_fract>0.718056460654803</r_fract>
+  <st_fract>0</st_fract>
+  <nonlocal_dispersal>0.729451919273899</nonlocal_dispersal>
+  <repro_min_h>18</repro_min_h>
+  <one_plant_c>0.0044894684</one_plant_c>
+  <min_recruit_size>4.48947e-05</min_recruit_size>
+  <min_cohort_size>4.4895e-06</min_cohort_size>
+  <seed_rain>0.0100000007</seed_rain>
+  <negligible_nplant>1e-08</negligible_nplant>
+  <veg_hcap_min>0.7652710676</veg_hcap_min>
+  <fineroot2leaf>0.378401308610441</fineroot2leaf>
+  <root_respiration_rate>9.13416166493208</root_respiration_rate>
+  <Vcmax>19.1366322132395</Vcmax>
+  <c2n_fineroot>394.071137947024</c2n_fineroot>
+  <b2Bs>2.11513122294035</b2Bs>
+  <b1Bs>285.872488334781</b1Bs>
+  <b2Bl>-2.95925234206416</b2Bl>
+  <b1Bl>0.0631913642905551</b1Bl>
+ </pft>
+ <pft>
+  <num>8</num>
+  <is_tropical>0</is_tropical>
+  <is_grass>0</is_grass>
+  <include_pft>1</include_pft>
+  <include_pft_ag>0</include_pft_ag>
+  <include_pft_fp>0</include_pft_fp>
+  <clumping_factor>0.735</clumping_factor>
+  <orient_factor>0</orient_factor>
+  <leaf_emiss_tir>0.97</leaf_emiss_tir>
+  <wood_emiss_tir>0.9</wood_emiss_tir>
+  <leaf_reflect_vis>0.11</leaf_reflect_vis>
+  <leaf_reflect_nir>0.11</leaf_reflect_nir>
+  <wood_reflect_vis>0.11</wood_reflect_vis>
+  <wood_reflect_nir>0.11</wood_reflect_nir>
+  <leaf_trans_vis>0.11</leaf_trans_vis>
+  <leaf_trans_nir>0.11</leaf_trans_nir>
+  <wood_trans_vis>0.11</wood_trans_vis>
+  <wood_trans_nir>0.11</wood_trans_nir>
+  <leaf_backscatter_vis>0</leaf_backscatter_vis>
+  <leaf_backscatter_nir>0</leaf_backscatter_nir>
+  <leaf_backscatter_tir>0.625</leaf_backscatter_tir>
+  <wood_backscatter_vis>0</wood_backscatter_vis>
+  <wood_backscatter_nir>0</wood_backscatter_nir>
+  <wood_backscatter_tir>0.625</wood_backscatter_tir>
+  <leaf_scatter_vis>0</leaf_scatter_vis>
+  <leaf_scatter_nir>0</leaf_scatter_nir>
+  <wood_scatter_vis>0</wood_scatter_vis>
+  <wood_scatter_nir>0</wood_scatter_nir>
+  <phi1>0</phi1>
+  <phi2>0</phi2>
+  <mu_bar>0</mu_bar>
+  <photosyn_pathway>3</photosyn_pathway>
+  <quantum_efficiency>0.0600522060597931</quantum_efficiency>
+  <Vm0>58.6660667465167</Vm0>
+  <Vm_low_temp>1.47197985184824</Vm_low_temp>
+  <Vm_high_temp>45</Vm_high_temp>
+  <Vm_decay_e>0.400000006</Vm_decay_e>
+  <Vm_decay_a>220000</Vm_decay_a>
+  <Vm_decay_b>690</Vm_decay_b>
+  <vm_hor>3000</vm_hor>
+  <vm_q10>2.4000000954</vm_q10>
+  <dark_respiration_factor>0.020344299609147</dark_respiration_factor>
+  <Rd_low_temp>4.7136998177</Rd_low_temp>
+  <Rd_high_temp>45</Rd_high_temp>
+  <Rd_decay_e>0.400000006</Rd_decay_e>
+  <Rd_hor>3000</Rd_hor>
+  <Rd_q10>2.4000000954</Rd_q10>
+  <Rd0>0.0658299997</Rd0>
+  <D0>0.0160000008</D0>
+  <stomatal_slope>10.6443362084146</stomatal_slope>
+  <cuticular_cond>850.914354440087</cuticular_cond>
+  <water_conductance>0.19265747988321</water_conductance>
+  <leaf_width>0.191081486293733</leaf_width>
+  <growth_resp_factor>0.271252338894964</growth_resp_factor>
+  <leaf_turnover_rate>0.413559918231184</leaf_turnover_rate>
+  <root_turnover_rate>5.82709154188073</root_turnover_rate>
+  <storage_turnover_rate>0</storage_turnover_rate>
+  <f_labile>0.494702214465455</f_labile>
+  <root_respiration_factor>21.9958568541005</root_respiration_factor>
+  <rrf_low_temp>4.7136998177</rrf_low_temp>
+  <rrf_high_temp>45</rrf_high_temp>
+  <rrf_decay_e>0.400000006</rrf_decay_e>
+  <rrf_hor>3000</rrf_hor>
+  <rrf_q10>2.4000000954</rrf_q10>
+  <frost_mort>3</frost_mort>
+  <mort0>0</mort0>
+  <mort1>0.758337516317302</mort1>
+  <mort2>23.8042103026586</mort2>
+  <mort3>0.0115050105714232</mort3>
+  <cbr_severe_stress>-0.7971192598</cbr_severe_stress>
+  <seedling_mortality>0.990714155447236</seedling_mortality>
+  <treefall_s_gt>0</treefall_s_gt>
+  <treefall_s_lt>0.1000000015</treefall_s_lt>
+  <fire_s_gt>0</fire_s_gt>
+  <fire_s_lt>0</fire_s_lt>
+  <plant_min_temp>-34.8759494558164</plant_min_temp>
+  <rho>0</rho>
+  <SLA>34.5237968293888</SLA>
+  <horiz_branch>0.6100000143</horiz_branch>
+  <q>1.25649811086126</q>
+  <sapwood_ratio>3900</sapwood_ratio>
+  <qsw>0.0025641026</qsw>
+  <init_density>0.1000000015</init_density>
+  <b1Ht>54.1496029031433</b1Ht>
+  <b2Ht>-0.110640951483108</b2Ht>
+  <hgt_ref>1.2999999523</hgt_ref>
+  <hgt_min>1.5</hgt_min>
+  <hgt_max>22.7672119141</hgt_max>
+  <min_dbh>0.1983015537</min_dbh>
+  <dbh_crit>64.0400543213</dbh_crit>
+  <dbh_adult>10</dbh_adult>
+  <dbh_bigleaf>21.3466854095</dbh_bigleaf>
+  <b1Bl_small>0.0454000011</b1Bl_small>
+  <b1Bl_large>0.0454000011</b1Bl_large>
+  <b2Bl_small>1.6828999519</b2Bl_small>
+  <b2Bl_large>1.6828999519</b2Bl_large>
+  <bleaf_adult>1.0937695503</bleaf_adult>
+  <b1Bs_small>0.1616999954</b1Bs_small>
+  <b1Bs_large>0.1616999954</b1Bs_large>
+  <b2Bs_small>2.1535999775</b2Bs_small>
+  <b2Bs_large>2.1535999775</b2Bs_large>
+  <min_bdead>0.0024797136</min_bdead>
+  <bdead_crit>628.1369628906</bdead_crit>
+  <b1Ca>0.536526478682067</b1Ca>
+  <b2Ca>0.789198250434157</b2Ca>
+  <b1WAI>0.0276500005</b1WAI>
+  <b2WAI>1.9768999815</b2WAI>
+  <brf_wd>0.1599999964</brf_wd>
+  <agf_bs>0.131249119240154</agf_bs>
+  <b1Vol>0.0247086249</b1Vol>
+  <b2Vol>2</b2Vol>
+  <b1Rd>-1.1140580177</b1Rd>
+  <b2Rd>0.4223014116</b2Rd>
+  <c2n_leaf>84.0464196665895</c2n_leaf>
+  <c2n_recruit>132.0868988037</c2n_recruit>
+  <phenology>0</phenology>
+  <c_grn_leaf_dry>3218</c_grn_leaf_dry>
+  <wat_dry_ratio_grn>2.5</wat_dry_ratio_grn>
+  <wat_dry_ratio_ngrn>0.6999999881</wat_dry_ratio_ngrn>
+  <c_ngrn_biom_dry>1217.3759765625</c_ngrn_biom_dry>
+  <delta_c>-225.1618652344</delta_c>
+  <b1Cl>0.3106774986</b1Cl>
+  <b2Cl>1.0980000496</b2Cl>
+  <r_fract>0.233744503982438</r_fract>
+  <st_fract>0</st_fract>
+  <nonlocal_dispersal>0.0258940858102355</nonlocal_dispersal>
+  <repro_min_h>18</repro_min_h>
+  <one_plant_c>0.0044928668</one_plant_c>
+  <min_recruit_size>4.49287e-05</min_recruit_size>
+  <min_cohort_size>4.4929e-06</min_cohort_size>
+  <seed_rain>0.0100000007</seed_rain>
+  <negligible_nplant>1e-08</negligible_nplant>
+  <veg_hcap_min>0.6800739169</veg_hcap_min>
+  <fineroot2leaf>1.25649811086126</fineroot2leaf>
+  <root_respiration_rate>21.9958568541005</root_respiration_rate>
+  <Vcmax>58.6660667465167</Vcmax>
+  <c2n_fineroot>190.345982621063</c2n_fineroot>
+  <b2Bs>3.19646698568125</b2Bs>
+  <b1Bs>0.729821338061602</b1Bs>
+  <b2Bl>1.51119883964118</b2Bl>
+  <b1Bl>0.062793919215104</b1Bl>
+ </pft>
+ <pft>
+  <num>5</num>
+  <is_tropical>0</is_tropical>
+  <is_grass>1</is_grass>
+  <include_pft>1</include_pft>
+  <include_pft_ag>1</include_pft_ag>
+  <include_pft_fp>0</include_pft_fp>
+  <clumping_factor>0.84</clumping_factor>
+  <orient_factor>0</orient_factor>
+  <leaf_emiss_tir>0.96</leaf_emiss_tir>
+  <wood_emiss_tir>0.96</wood_emiss_tir>
+  <leaf_reflect_vis>0.11</leaf_reflect_vis>
+  <leaf_reflect_nir>0.11</leaf_reflect_nir>
+  <wood_reflect_vis>0.11</wood_reflect_vis>
+  <wood_reflect_nir>0.11</wood_reflect_nir>
+  <leaf_trans_vis>0.11</leaf_trans_vis>
+  <leaf_trans_nir>0.11</leaf_trans_nir>
+  <wood_trans_vis>0.11</wood_trans_vis>
+  <wood_trans_nir>0.11</wood_trans_nir>
+  <leaf_backscatter_vis>0</leaf_backscatter_vis>
+  <leaf_backscatter_nir>0</leaf_backscatter_nir>
+  <leaf_backscatter_tir>0.625</leaf_backscatter_tir>
+  <wood_backscatter_vis>0</wood_backscatter_vis>
+  <wood_backscatter_nir>0</wood_backscatter_nir>
+  <wood_backscatter_tir>0.625</wood_backscatter_tir>
+  <leaf_scatter_vis>0</leaf_scatter_vis>
+  <leaf_scatter_nir>0</leaf_scatter_nir>
+  <wood_scatter_vis>0</wood_scatter_vis>
+  <wood_scatter_nir>0</wood_scatter_nir>
+  <phi1>0</phi1>
+  <phi2>0</phi2>
+  <mu_bar>0</mu_bar>
+  <photosyn_pathway>3</photosyn_pathway>
+  <quantum_efficiency>0.107385670930751</quantum_efficiency>
+  <Vm0>28.2656053081919</Vm0>
+  <Vm_low_temp>4.7136998177</Vm_low_temp>
+  <Vm_high_temp>45</Vm_high_temp>
+  <Vm_decay_e>0.400000006</Vm_decay_e>
+  <Vm_decay_a>220000</Vm_decay_a>
+  <Vm_decay_b>690</Vm_decay_b>
+  <vm_hor>3000</vm_hor>
+  <vm_q10>2.4000000954</vm_q10>
+  <dark_respiration_factor>0.0243843762829813</dark_respiration_factor>
+  <Rd_low_temp>4.7136998177</Rd_low_temp>
+  <Rd_high_temp>45</Rd_high_temp>
+  <Rd_decay_e>0.400000006</Rd_decay_e>
+  <Rd_hor>3000</Rd_hor>
+  <Rd_q10>2.4000000954</Rd_q10>
+  <Rd0>0.689239155701185</Rd0>
+  <D0>0.0160000008</D0>
+  <stomatal_slope>18.9334405557719</stomatal_slope>
+  <cuticular_cond>10000</cuticular_cond>
+  <water_conductance>0.0266757792246581</water_conductance>
+  <leaf_width>0.0500000007</leaf_width>
+  <growth_resp_factor>0.0913621760988679</growth_resp_factor>
+  <leaf_turnover_rate>2</leaf_turnover_rate>
+  <root_turnover_rate>0.129742263746231</root_turnover_rate>
+  <storage_turnover_rate>0</storage_turnover_rate>
+  <f_labile>1</f_labile>
+  <root_respiration_factor>1.91542346460394</root_respiration_factor>
+  <rrf_low_temp>4.7136998177</rrf_low_temp>
+  <rrf_high_temp>45</rrf_high_temp>
+  <rrf_decay_e>0.400000006</rrf_decay_e>
+  <rrf_hor>3000</rrf_hor>
+  <rrf_q10>2.4000000954</rrf_q10>
+  <frost_mort>3</frost_mort>
+  <mort0>0</mort0>
+  <mort1>1</mort1>
+  <mort2>93.181241412466</mort2>
+  <mort3>0.0659999996</mort3>
+  <cbr_severe_stress>-0.7971192598</cbr_severe_stress>
+  <seedling_mortality>0.88272653863258</seedling_mortality>
+  <treefall_s_gt>0</treefall_s_gt>
+  <treefall_s_lt>0.25</treefall_s_lt>
+  <fire_s_gt>0</fire_s_gt>
+  <fire_s_lt>0</fire_s_lt>
+  <plant_min_temp>193.1499938965</plant_min_temp>
+  <rho>0.200000003</rho>
+  <SLA>32.945945204203</SLA>
+  <horiz_branch>0.5</horiz_branch>
+  <q>1.10217490285538</q>
+  <sapwood_ratio>3900</sapwood_ratio>
+  <qsw>0.0056410255</qsw>
+  <init_density>0.1000000015</init_density>
+  <b1Ht>0.4778000116</b1Ht>
+  <b2Ht>-0.75</b2Ht>
+  <hgt_ref>0</hgt_ref>
+  <hgt_min>0.150000006</hgt_min>
+  <hgt_max>0.4539099932</hgt_max>
+  <min_dbh>0.5023847222</min_dbh>
+  <dbh_crit>3.9943094254</dbh_crit>
+  <dbh_adult>10</dbh_adult>
+  <dbh_bigleaf>3.9943094254</dbh_bigleaf>
+  <b1Bl_small>0.0799999982</b1Bl_small>
+  <b1Bl_large>0.0799999982</b1Bl_large>
+  <b2Bl_small>1</b2Bl_small>
+  <b2Bl_large>1</b2Bl_large>
+  <bleaf_adult>0.3999999762</bleaf_adult>
+  <b1Bs_small>1e-05</b1Bs_small>
+  <b1Bs_large>1e-05</b1Bs_large>
+  <b2Bs_small>1</b2Bs_small>
+  <b2Bs_large>1</b2Bs_large>
+  <min_bdead>2.5119e-06</min_bdead>
+  <bdead_crit>1.99715e-05</bdead_crit>
+  <b1Ca>2.4901540279</b1Ca>
+  <b2Ca>0.8068805933</b2Ca>
+  <b1WAI>0</b1WAI>
+  <b2WAI>1</b2WAI>
+  <brf_wd>0</brf_wd>
+  <agf_bs>0.6999999881</agf_bs>
+  <b1Vol>0.0247086249</b1Vol>
+  <b2Vol>2</b2Vol>
+  <b1Rd>-1.1140580177</b1Rd>
+  <b2Rd>0.4223014116</b2Rd>
+  <c2n_leaf>38.0503886869601</c2n_leaf>
+  <c2n_recruit>18.3132705688</c2n_recruit>
+  <phenology>1</phenology>
+  <c_grn_leaf_dry>3218</c_grn_leaf_dry>
+  <wat_dry_ratio_grn>2.5</wat_dry_ratio_grn>
+  <wat_dry_ratio_ngrn>0.6999999881</wat_dry_ratio_ngrn>
+  <c_ngrn_biom_dry>1217.3759765625</c_ngrn_biom_dry>
+  <delta_c>-225.1618652344</delta_c>
+  <b1Cl>0.9900000095</b1Cl>
+  <b2Cl>1</b2Cl>
+  <r_fract>0.0910270766583265</r_fract>
+  <st_fract>0</st_fract>
+  <nonlocal_dispersal>1</nonlocal_dispersal>
+  <repro_min_h>0</repro_min_h>
+  <one_plant_c>0.0402102917</one_plant_c>
+  <min_recruit_size>0.0004021029</min_recruit_size>
+  <min_cohort_size>4.02103e-05</min_cohort_size>
+  <seed_rain>0.0100000007</seed_rain>
+  <negligible_nplant>2.0942e-05</negligible_nplant>
+  <veg_hcap_min>9.1655073166</veg_hcap_min>
+  <fineroot2leaf>1.10217490285538</fineroot2leaf>
+  <Vcmax>28.2656053081919</Vcmax>
+  <root_respiration_rate>1.91542346460394</root_respiration_rate>
+  <leaf_respiration_rate_m2>0.689239155701185</leaf_respiration_rate_m2>
+ </pft>
+ <pft>
+  <num>14</num>
+  <is_tropical>1</is_tropical>
+  <is_grass>1</is_grass>
+  <include_pft>1</include_pft>
+  <include_pft_ag>0</include_pft_ag>
+  <include_pft_fp>0</include_pft_fp>
+  <clumping_factor>1</clumping_factor>
+  <orient_factor>0</orient_factor>
+  <leaf_emiss_tir>0.96</leaf_emiss_tir>
+  <wood_emiss_tir>0.96</wood_emiss_tir>
+  <leaf_reflect_vis>0.100000001490116</leaf_reflect_vis>
+  <leaf_reflect_nir>0.100000001490116</leaf_reflect_nir>
+  <wood_reflect_vis>0.100000001490116</wood_reflect_vis>
+  <wood_reflect_nir>0.100000001490116</wood_reflect_nir>
+  <leaf_trans_vis>0.100000001490116</leaf_trans_vis>
+  <leaf_trans_nir>0.100000001490116</leaf_trans_nir>
+  <wood_trans_vis>0.100000001490116</wood_trans_vis>
+  <wood_trans_nir>0.100000001490116</wood_trans_nir>
+  <leaf_backscatter_vis>0</leaf_backscatter_vis>
+  <leaf_backscatter_nir>0</leaf_backscatter_nir>
+  <leaf_backscatter_tir>0.625</leaf_backscatter_tir>
+  <wood_backscatter_vis>0</wood_backscatter_vis>
+  <wood_backscatter_nir>0</wood_backscatter_nir>
+  <wood_backscatter_tir>0.625</wood_backscatter_tir>
+  <leaf_scatter_vis>0</leaf_scatter_vis>
+  <leaf_scatter_nir>0</leaf_scatter_nir>
+  <wood_scatter_vis>0</wood_scatter_vis>
+  <wood_scatter_nir>0</wood_scatter_nir>
+  <phi1>0</phi1>
+  <phi2>0</phi2>
+  <mu_bar>0</mu_bar>
+  <photosyn_pathway>4</photosyn_pathway>
+  <quantum_efficiency>0.0531713193610836</quantum_efficiency>
+  <Vm0>250.736251128361</Vm0>
+  <Vm_low_temp>8</Vm_low_temp>
+  <Vm_high_temp>45</Vm_high_temp>
+  <Vm_decay_e>0.400000006</Vm_decay_e>
+  <Vm_decay_a>220000</Vm_decay_a>
+  <Vm_decay_b>690</Vm_decay_b>
+  <vm_hor>3000</vm_hor>
+  <vm_q10>2.4000000954</vm_q10>
+  <dark_respiration_factor>0.0350000001</dark_respiration_factor>
+  <Rd_low_temp>8</Rd_low_temp>
+  <Rd_high_temp>45</Rd_high_temp>
+  <Rd_decay_e>0.400000006</Rd_decay_e>
+  <Rd_hor>3000</Rd_hor>
+  <Rd_q10>2.4000000954</Rd_q10>
+  <Rd0>0.4375</Rd0>
+  <D0>0.0160000008</D0>
+  <stomatal_slope>10.9956811981286</stomatal_slope>
+  <cuticular_cond>10000</cuticular_cond>
+  <water_conductance>0.241610965848033</water_conductance>
+  <leaf_width>0.0500000007</leaf_width>
+  <growth_resp_factor>0.339681636996201</growth_resp_factor>
+  <leaf_turnover_rate>2</leaf_turnover_rate>
+  <root_turnover_rate>0.885859417604001</root_turnover_rate>
+  <storage_turnover_rate>0</storage_turnover_rate>
+  <f_labile>1</f_labile>
+  <root_respiration_factor>1.38908217114203</root_respiration_factor>
+  <rrf_low_temp>8</rrf_low_temp>
+  <rrf_high_temp>45</rrf_high_temp>
+  <rrf_decay_e>0.400000006</rrf_decay_e>
+  <rrf_hor>3000</rrf_hor>
+  <rrf_q10>2.4000000954</rrf_q10>
+  <frost_mort>3</frost_mort>
+  <mort0>-0.349999994</mort0>
+  <mort1>2</mort1>
+  <mort2>10.8246011181716</mort2>
+  <mort3>0</mort3>
+  <cbr_severe_stress>-1.0628256798</cbr_severe_stress>
+  <seedling_mortality>0.527952487540224</seedling_mortality>
+  <treefall_s_gt>0</treefall_s_gt>
+  <treefall_s_lt>0.25</treefall_s_lt>
+  <fire_s_gt>0</fire_s_gt>
+  <fire_s_lt>0</fire_s_lt>
+  <plant_min_temp>275.6499938965</plant_min_temp>
+  <rho>0.200000003</rho>
+  <SLA>38.7570755623258</SLA>
+  <horiz_branch>0.5</horiz_branch>
+  <q>1.56115356710519</q>
+  <sapwood_ratio>3900</sapwood_ratio>
+  <qsw>0.0058205132</qsw>
+  <init_density>0.1000000015</init_density>
+  <b1Ht>0.0351999998</b1Ht>
+  <b2Ht>0.6940000057</b2Ht>
+  <hgt_ref>61.7000007629</hgt_ref>
+  <hgt_min>0.5</hgt_min>
+  <hgt_max>1.5</hgt_max>
+  <min_dbh>0.1211817637</min_dbh>
+  <dbh_crit>0.5971379876</dbh_crit>
+  <dbh_adult>10</dbh_adult>
+  <dbh_bigleaf>0.5971379876</dbh_bigleaf>
+  <b1Bl_small>0.1576947272</b1Bl_small>
+  <b1Bl_large>0.1576947272</b1Bl_large>
+  <b2Bl_small>0.9749494195</b2Bl_small>
+  <b2Bl_large>0.9749494195</b2Bl_large>
+  <bleaf_adult>0.7442804575</bleaf_adult>
+  <b1Bs_small>0.0627227873</b1Bs_small>
+  <b1Bs_large>0.0647229999</b1Bs_large>
+  <b2Bs_small>2.4323608875</b2Bs_small>
+  <b2Bs_large>2.4255735874</b2Bs_large>
+  <min_bdead>0.0001849201</min_bdead>
+  <bdead_crit>0.0089480467</bdead_crit>
+  <b1Ca>1.1257275343</b1Ca>
+  <b2Ca>1.0521197319</b2Ca>
+  <b1WAI>0.0096000005</b1WAI>
+  <b2WAI>2.094700098</b2WAI>
+  <brf_wd>0.1599999964</brf_wd>
+  <agf_bs>0.6999999881</agf_bs>
+  <b1Vol>0.0247086249</b1Vol>
+  <b2Vol>2</b2Vol>
+  <b1Rd>-1.1140580177</b1Rd>
+  <b2Rd>0.4223014116</b2Rd>
+  <c2n_leaf>48.6584826193339</c2n_leaf>
+  <c2n_recruit>25.6388263702</c2n_recruit>
+  <phenology>1</phenology>
+  <c_grn_leaf_dry>3218</c_grn_leaf_dry>
+  <wat_dry_ratio_grn>1.8500000238</wat_dry_ratio_grn>
+  <wat_dry_ratio_ngrn>0.6999999881</wat_dry_ratio_ngrn>
+  <c_ngrn_biom_dry>1217.3759765625</c_ngrn_biom_dry>
+  <delta_c>-225.1618652344</delta_c>
+  <b1Cl>0.9900000095</b1Cl>
+  <b2Cl>1</b2Cl>
+  <r_fract>0.291708278173784</r_fract>
+  <st_fract>0</st_fract>
+  <nonlocal_dispersal>1</nonlocal_dispersal>
+  <repro_min_h>0</repro_min_h>
+  <one_plant_c>0.020361444</one_plant_c>
+  <min_recruit_size>0.0002036145</min_recruit_size>
+  <min_cohort_size>2.03614e-05</min_cohort_size>
+  <seed_rain>0.0100000007</seed_rain>
+  <negligible_nplant>1.48253e-05</negligible_nplant>
+  <veg_hcap_min>3.6809282303</veg_hcap_min>
+  <fineroot2leaf>1.56115356710519</fineroot2leaf>
+  <root_respiration_rate>1.38908217114203</root_respiration_rate>
+  <Vcmax>250.736251128361</Vcmax>
+ </pft>
+ <pft>
+  <num>12</num>
+  <is_tropical>0</is_tropical>
+  <is_grass>1</is_grass>
+  <include_pft>1</include_pft>
+  <include_pft_ag>0</include_pft_ag>
+  <include_pft_fp>0</include_pft_fp>
+  <clumping_factor>0.84</clumping_factor>
+  <orient_factor>0</orient_factor>
+  <leaf_emiss_tir>0.96</leaf_emiss_tir>
+  <wood_emiss_tir>0.96</wood_emiss_tir>
+  <leaf_reflect_vis>0.11</leaf_reflect_vis>
+  <leaf_reflect_nir>0.11</leaf_reflect_nir>
+  <wood_reflect_vis>0.11</wood_reflect_vis>
+  <wood_reflect_nir>0.11</wood_reflect_nir>
+  <leaf_trans_vis>0.11</leaf_trans_vis>
+  <leaf_trans_nir>0.11</leaf_trans_nir>
+  <wood_trans_vis>0.11</wood_trans_vis>
+  <wood_trans_nir>0.11</wood_trans_nir>
+  <leaf_backscatter_vis>0</leaf_backscatter_vis>
+  <leaf_backscatter_nir>0</leaf_backscatter_nir>
+  <leaf_backscatter_tir>0.625</leaf_backscatter_tir>
+  <wood_backscatter_vis>0</wood_backscatter_vis>
+  <wood_backscatter_nir>0</wood_backscatter_nir>
+  <wood_backscatter_tir>0.625</wood_backscatter_tir>
+  <leaf_scatter_vis>0</leaf_scatter_vis>
+  <leaf_scatter_nir>0</leaf_scatter_nir>
+  <wood_scatter_vis>0</wood_scatter_vis>
+  <wood_scatter_nir>0</wood_scatter_nir>
+  <phi1>0</phi1>
+  <phi2>0</phi2>
+  <mu_bar>0</mu_bar>
+  <photosyn_pathway>3</photosyn_pathway>
+  <quantum_efficiency>0.0614635879350093</quantum_efficiency>
+  <Vm0>61.3281277036366</Vm0>
+  <Vm_low_temp>4.7136998177</Vm_low_temp>
+  <Vm_high_temp>45</Vm_high_temp>
+  <Vm_decay_e>0.400000006</Vm_decay_e>
+  <Vm_decay_a>220000</Vm_decay_a>
+  <Vm_decay_b>690</Vm_decay_b>
+  <vm_hor>3000</vm_hor>
+  <vm_q10>2.4000000954</vm_q10>
+  <dark_respiration_factor>0.0141252826031071</dark_respiration_factor>
+  <Rd_low_temp>4.7136998177</Rd_low_temp>
+  <Rd_high_temp>45</Rd_high_temp>
+  <Rd_decay_e>0.400000006</Rd_decay_e>
+  <Rd_hor>3000</Rd_hor>
+  <Rd_q10>2.4000000954</Rd_q10>
+  <Rd0>0.866277135333311</Rd0>
+  <D0>0.0160000008</D0>
+  <stomatal_slope>11.9998635059687</stomatal_slope>
+  <cuticular_cond>10000</cuticular_cond>
+  <water_conductance>0.0918390147196486</water_conductance>
+  <leaf_width>0.0500000007</leaf_width>
+  <growth_resp_factor>0.337713688823444</growth_resp_factor>
+  <leaf_turnover_rate>2</leaf_turnover_rate>
+  <root_turnover_rate>0.0364075144178514</root_turnover_rate>
+  <storage_turnover_rate>0</storage_turnover_rate>
+  <f_labile>1</f_labile>
+  <root_respiration_factor>2.45919513758532</root_respiration_factor>
+  <rrf_low_temp>4.7136998177</rrf_low_temp>
+  <rrf_high_temp>45</rrf_high_temp>
+  <rrf_decay_e>0.400000006</rrf_decay_e>
+  <rrf_hor>3000</rrf_hor>
+  <rrf_q10>2.4000000954</rrf_q10>
+  <frost_mort>3</frost_mort>
+  <mort0>0</mort0>
+  <mort1>1</mort1>
+  <mort2>34.9008686873162</mort2>
+  <mort3>0.0659999996</mort3>
+  <cbr_severe_stress>-0.7971192598</cbr_severe_stress>
+  <seedling_mortality>0.551270465379833</seedling_mortality>
+  <treefall_s_gt>0</treefall_s_gt>
+  <treefall_s_lt>0.25</treefall_s_lt>
+  <fire_s_gt>0</fire_s_gt>
+  <fire_s_lt>0</fire_s_lt>
+  <plant_min_temp>193.1499938965</plant_min_temp>
+  <rho>0.200000003</rho>
+  <SLA>26.88983973271</SLA>
+  <horiz_branch>0.5</horiz_branch>
+  <q>1.52140823200225</q>
+  <sapwood_ratio>3900</sapwood_ratio>
+  <qsw>0.0056410255</qsw>
+  <init_density>0.1000000015</init_density>
+  <b1Ht>0.4778000116</b1Ht>
+  <b2Ht>-0.75</b2Ht>
+  <hgt_ref>0</hgt_ref>
+  <hgt_min>0.150000006</hgt_min>
+  <hgt_max>0.4539099932</hgt_max>
+  <min_dbh>0.5023847222</min_dbh>
+  <dbh_crit>3.9943094254</dbh_crit>
+  <dbh_adult>10</dbh_adult>
+  <dbh_bigleaf>3.9943094254</dbh_bigleaf>
+  <b1Bl_small>0.0799999982</b1Bl_small>
+  <b1Bl_large>0.0799999982</b1Bl_large>
+  <b2Bl_small>1</b2Bl_small>
+  <b2Bl_large>1</b2Bl_large>
+  <bleaf_adult>0.3999999762</bleaf_adult>
+  <b1Bs_small>1e-05</b1Bs_small>
+  <b1Bs_large>1e-05</b1Bs_large>
+  <b2Bs_small>1</b2Bs_small>
+  <b2Bs_large>1</b2Bs_large>
+  <min_bdead>2.5119e-06</min_bdead>
+  <bdead_crit>1.99715e-05</bdead_crit>
+  <b1Ca>2.4901540279</b1Ca>
+  <b2Ca>0.8068805933</b2Ca>
+  <b1WAI>0</b1WAI>
+  <b2WAI>1</b2WAI>
+  <brf_wd>0</brf_wd>
+  <agf_bs>0.6999999881</agf_bs>
+  <b1Vol>0.0247086249</b1Vol>
+  <b2Vol>2</b2Vol>
+  <b1Rd>-1.1140580177</b1Rd>
+  <b2Rd>0.4223014116</b2Rd>
+  <c2n_leaf>35.8430059532849</c2n_leaf>
+  <c2n_recruit>18.3132705688</c2n_recruit>
+  <phenology>1</phenology>
+  <c_grn_leaf_dry>3218</c_grn_leaf_dry>
+  <wat_dry_ratio_grn>2.5</wat_dry_ratio_grn>
+  <wat_dry_ratio_ngrn>0.6999999881</wat_dry_ratio_ngrn>
+  <c_ngrn_biom_dry>1217.3759765625</c_ngrn_biom_dry>
+  <delta_c>-225.1618652344</delta_c>
+  <b1Cl>0.9900000095</b1Cl>
+  <b2Cl>1</b2Cl>
+  <r_fract>0.125524578591429</r_fract>
+  <st_fract>0</st_fract>
+  <nonlocal_dispersal>1</nonlocal_dispersal>
+  <repro_min_h>0</repro_min_h>
+  <one_plant_c>0.0402102917</one_plant_c>
+  <min_recruit_size>0.0004021029</min_recruit_size>
+  <min_cohort_size>4.02103e-05</min_cohort_size>
+  <seed_rain>0.0100000007</seed_rain>
+  <negligible_nplant>2.0942e-05</negligible_nplant>
+  <veg_hcap_min>9.1655073166</veg_hcap_min>
+  <fineroot2leaf>1.52140823200225</fineroot2leaf>
+  <Vcmax>61.3281277036366</Vcmax>
+  <root_respiration_rate>2.45919513758532</root_respiration_rate>
+  <leaf_respiration_rate_m2>0.866277135333311</leaf_respiration_rate_m2>
  </pft>
 </config>

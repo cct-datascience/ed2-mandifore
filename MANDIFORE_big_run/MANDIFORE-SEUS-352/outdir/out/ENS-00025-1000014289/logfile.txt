@@ -1,0 +1,414 @@
+Logging on 2023/02/15_12:23:03
+Lmod has detected the following error: The following module(s) are unknown:
+"singularity"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore-cache load "singularity"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00025-1000014289
++---------------- MPI parallel info: --------------------+
++  - Machnum  =      0
++  - Machsize =      1
++---------------- OMP parallel info: --------------------+
++  - thread  use:       1
++  - threads max:       1
++  - cpu     use:       1
++  - cpus    max:       1
++  Note: Max vals are for node, not sockets.
++--------------------------------------------------------+
+ + Read namelist information.
+ + Copy most namelist variables.
+ + Check whether to restore the run.
+ + Copy initialisation-dependent variables.
++------------------------------------------------------------+
+|           Ecosystem Demography Model, version 2.2           
++------------------------------------------------------------+
+|  Input namelist filename is ED2IN
+|
+|  Single process execution on INITIAL run.
++------------------------------------------------------------+
+  => Generating the land/sea mask.
+ + Work allocation, node     1;
+ + Polygon array allocation, node     1;
+ + Memory successfully allocated on none     1;
+ [+] Init_random_seed...
+ [+] Load_Ed_Ecosystem_Params...
+----------------------------------------
+  Treefall disturbance parameters:
+  - LAMBDA_REF  =  1.25000E-02
+  - LAMBDA_EFF  =  1.25000E-02
+  - TIME2CANOPY =  0.00000E+00
+----------------------------------------
+ [+] Checking for XML config...
+ count xml pft : /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00025-1000014289/config.xml
+ NPFT =            7
+ MAXPFT =           14
+ Opening ED2 XML Config file/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00025-1000014289/config.xml
+ EXTERN READ FROM FILE ::           0
+ MET READ FROM FILE ::           0
+ CAN_AIR READ FROM FILE ::           0
+ MISC READ FROM FILE ::           0
+ ED_MISC READ FROM FILE ::           1
+ Number of land use types to be read from file =     0
+ NPFT =            7
+ PFT's READ FROM FILE ::           7
+ PFTCONST READ FROM FILE ::           0
+ HYDROLOGY READ FROM FILE ::           0
+ SCENARIO READ FROM FILE ::           0
+ LAPSE READ FROM FILE ::           0
+ CANOPY RADIATION READ FROM FILE ::           1
+ BUDGET READ FROM FILE ::           0
+ SOIL READ FROM FILE ::           0
+ DECOMPOSITION READ FROM FILE ::           0
+ FUSEFISS READ FROM FILE ::           0
+ HORIZONTAL SHADING READ FROM FILE ::           0
+ DISTURBANCE READ FROM FILE ::           0
+ PHENOLOGY READ FROM FILE ::           0
+ PHYSIOLOGY READ FROM FILE ::           0
+ INITCOND READ FROM FILE ::           0
+ [+] Init_derived_params_after_xml...
+ [+] Write parameters to xml...
+ Wrote Config Record:/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/out/ENS-00025-1000014289/history.xml
+ [+] Alloc_Soilgrid...
+ [+] Set_Polygon_Coordinates...
+ [+] Sfcdata_ED...
+ [+] Load_Ecosystem_State...
+ + Doing sequential initialization over nodes.
+ + Initializing from ED restart file. Node: 001
+ [-] filelist_f: Checking prefix:  /data/sites/mandifore/MANDIFORE-SEUS-352/siteid1000014289.fia2000.radius0.075.
+                 Prefix length:       78
+ +  Showing all     2 files:
+   [-] File #:      1 /data/sites/mandifore/MANDIFORE-SEUS-352/siteid1000014289.fia2000.radius0.075.lat27.1764lon-82.1357.css
+   [-] File #:      2 /data/sites/mandifore/MANDIFORE-SEUS-352/siteid1000014289.fia2000.radius0.075.lat27.1764lon-82.1357.pss
+Using patch file: /data/sites/mandifore/MANDIFORE-SEUS-352/siteid1000014289.fia2000.radius0.075.lat27.1764lon-82.1357.pss
+Using cohort file: /data/sites/mandifore/MANDIFORE-SEUS-352/siteid1000014289.fia2000.radius0.075.lat27.1764lon-82.1357.css
+ + Initializing phenology. Node: 001
+ - Reading thermal sums.
+ + Initializing anthropogenic disturbance forcing. Node: 001
+ 
+   -------------------------------------------------------
+ Soil information:
+ 
+ Polygon name               : history
+ Longitude                  :     -82.136
+ Latitude                   :      27.176
+ Prescribed sand and clay   :           T
+ # of sites                 :           1
+ 
+ Site :           1
+   - Type :           6
+   - Clay fraction            =  3.45000E-01
+   - Sand fraction            =  5.62000E-01
+   - Silt fraction            =  9.30000E-02
+   - SOC content              =  6.00000E-02
+   - Soil pH                  =  6.00000E+00
+   - Cation exchange capacity =  5.00000E-01
+   - Dry bulk density         =  1.33000E+03
+   - Heat capacity            =  1.30959E+06
+   - Saturated hydr. conduct. =  5.44316E-06
+   - SLBS                     =  8.34790E+00
+   - SLNM                     =  1.19791E-01
+   - SLTT                     =  1.00000E+00
+ + Matric potential [m]: 
+   - Dry air soil             = -3.16112E+02
+   - Wilting point            = -1.52957E+02
+   - Fire point               = -1.42760E+02
+   - Leaf-shedding point      = -1.22366E+02
+   - Field capacity           = -4.18014E+00
+   - Bubbling point           = -1.16062E-01
+   - Saturation               = -1.16062E-01
+   - Porosity                 = -1.16062E-01
+ + Volumetric soil moisture [m3/m3]: 
+   - Residual                 =  1.59901E-01
+   - Dry air soil             =  1.59901E-01
+   - Wilting point            =  1.74429E-01
+   - Fire point               =  1.75877E-01
+   - Leaf-shedding point      =  1.79155E-01
+   - Field capacity           =  2.68471E-01
+   - Bubbling point           =  4.12431E-01
+   - Saturation               =  4.12431E-01
+   - Porosity                 =  4.12431E-01
+   -------------------------------------------------------
+ 
+ [+] Init_Met_Drivers...
+ [+] Read_Met_Drivers_Init...
+------------------------------
+ - METCYC1 =         2000
+ - METCYCF =         2015
+ - NYEARS  =           11
+------------------------------
+        IYEAR     YEAR_USE
+            1         2002
+            2         2003
+            3         2004
+            4         2005
+            5         2006
+            6         2007
+            7         2008
+            8         2009
+            9         2010
+           10         2011
+           11         2012
+------------------------------
+ 
+ [+] Update_met_drivers...
+ [+] Ed_Init_Atm...
+Grid:      1 Poly:      1 Lon:  -82.1357 Lat:    27.1764 Nplants:    3.4698 Avg. LAI:    1.47 Avg. AGB:    1.48 NPatches:      3 NCohorts:     16
+ [+] initHydrology...
+initHydrology | mynum=         1 ngrids=         1 mpolys=         1 msites=         1
+Allocated | mynum=         1 ngrids=         1 mpolys=         1 msites=         1
+Updated | mynum=         1 ngrids=         1 mpolys=         1 msites=         1
+Deallocated | mynum=         1 ngrids=         1 mpolys=         1 msites=         1
+ [+] Filltab_Alltypes...
+ [+] Find frqsum...
+
+ === Finish initialization; CPU(sec)=0.41; Wall(sec)=0.50; Time integration starts (ed_master) ===
+
+ === Time integration starts (model) ===
+ - Simulating:   06/01/2002 00:00:00 UTC
+ - Simulating:   06/02/2002 00:00:00 UTC
+ - Simulating:   06/03/2002 00:00:00 UTC
+ - Simulating:   06/04/2002 00:00:00 UTC
+ - Simulating:   06/05/2002 00:00:00 UTC
+ - Simulating:   06/06/2002 00:00:00 UTC
+ - Simulating:   06/07/2002 00:00:00 UTC
+ - Simulating:   06/08/2002 00:00:00 UTC
+ - Simulating:   06/09/2002 00:00:00 UTC
+ - Simulating:   06/10/2002 00:00:00 UTC
+ - Simulating:   06/11/2002 00:00:00 UTC
+ - Simulating:   06/12/2002 00:00:00 UTC
+ - Simulating:   06/13/2002 00:00:00 UTC
+ - Simulating:   06/14/2002 00:00:00 UTC
+ - Simulating:   06/15/2002 00:00:00 UTC
+ - Simulating:   06/16/2002 00:00:00 UTC
+ - Simulating:   06/17/2002 00:00:00 UTC
+ - Simulating:   06/18/2002 00:00:00 UTC
+ - Simulating:   06/19/2002 00:00:00 UTC
+ - Simulating:   06/20/2002 00:00:00 UTC
+ - Simulating:   06/21/2002 00:00:00 UTC
+ - Simulating:   06/22/2002 00:00:00 UTC
+ - Simulating:   06/23/2002 00:00:00 UTC
+ - Simulating:   06/24/2002 00:00:00 UTC
+ - Simulating:   06/25/2002 00:00:00 UTC
+ - Simulating:   06/26/2002 00:00:00 UTC
+ - Simulating:   06/27/2002 00:00:00 UTC
+ - Simulating:   06/28/2002 00:00:00 UTC
+ - Simulating:   06/29/2002 00:00:00 UTC
+ - Simulating:   06/30/2002 00:00:00 UTC
+ ---> Making new patch, with area=  7.45332E-03  for dist_type=     3
+ - Simulating:   07/01/2002 00:00:00 UTC
+ - Simulating:   07/02/2002 00:00:00 UTC
+ - Simulating:   07/03/2002 00:00:00 UTC
+ - Simulating:   07/04/2002 00:00:00 UTC
+ - Simulating:   07/05/2002 00:00:00 UTC
+ - Simulating:   07/06/2002 00:00:00 UTC
+ - Simulating:   07/07/2002 00:00:00 UTC
+ - Simulating:   07/08/2002 00:00:00 UTC
+ - Simulating:   07/09/2002 00:00:00 UTC
+ - Simulating:   07/10/2002 00:00:00 UTC
+ - Simulating:   07/11/2002 00:00:00 UTC
+ - Simulating:   07/12/2002 00:00:00 UTC
+ - Simulating:   07/13/2002 00:00:00 UTC
+ - Simulating:   07/14/2002 00:00:00 UTC
+ - Simulating:   07/15/2002 00:00:00 UTC
+ - Simulating:   07/16/2002 00:00:00 UTC
+ - Simulating:   07/17/2002 00:00:00 UTC
+ - Simulating:   07/18/2002 00:00:00 UTC
+ - Simulating:   07/19/2002 00:00:00 UTC
+ - Simulating:   07/20/2002 00:00:00 UTC
+ - Simulating:   07/21/2002 00:00:00 UTC
+ - Simulating:   07/22/2002 00:00:00 UTC
+ - Simulating:   07/23/2002 00:00:00 UTC
+ - Simulating:   07/24/2002 00:00:00 UTC
+ - Simulating:   07/25/2002 00:00:00 UTC
+ - Simulating:   07/26/2002 00:00:00 UTC
+ - Simulating:   07/27/2002 00:00:00 UTC
+ - Simulating:   07/28/2002 00:00:00 UTC
+ - Simulating:   07/29/2002 00:00:00 UTC
+ - Simulating:   07/30/2002 00:00:00 UTC
+ - Simulating:   07/31/2002 00:00:00 UTC
+ - Simulating:   08/01/2002 00:00:00 UTC
+ - Simulating:   08/02/2002 00:00:00 UTC
+ - Simulating:   08/03/2002 00:00:00 UTC
+ - Simulating:   08/04/2002 00:00:00 UTC
+ - Simulating:   08/05/2002 00:00:00 UTC
+ - Simulating:   08/06/2002 00:00:00 UTC
+ - Simulating:   08/07/2002 00:00:00 UTC
+ - Simulating:   08/08/2002 00:00:00 UTC
+ - Simulating:   08/09/2002 00:00:00 UTC
+ - Simulating:   08/10/2002 00:00:00 UTC
+ - Simulating:   08/11/2002 00:00:00 UTC
+ - Simulating:   08/12/2002 00:00:00 UTC
+ - Simulating:   08/13/2002 00:00:00 UTC
+ - Simulating:   08/14/2002 00:00:00 UTC
+ - Simulating:   08/15/2002 00:00:00 UTC
+ - Simulating:   08/16/2002 00:00:00 UTC
+ - Simulating:   08/17/2002 00:00:00 UTC
+ - Simulating:   08/18/2002 00:00:00 UTC
+ - Simulating:   08/19/2002 00:00:00 UTC
+ - Simulating:   08/20/2002 00:00:00 UTC
+ - Simulating:   08/21/2002 00:00:00 UTC
+ - Simulating:   08/22/2002 00:00:00 UTC
+ - Simulating:   08/23/2002 00:00:00 UTC
+ - Simulating:   08/24/2002 00:00:00 UTC
+ - Simulating:   08/25/2002 00:00:00 UTC
+ - Simulating:   08/26/2002 00:00:00 UTC
+ - Simulating:   08/27/2002 00:00:00 UTC
+ - Simulating:   08/28/2002 00:00:00 UTC
+ - Simulating:   08/29/2002 00:00:00 UTC
+ - Simulating:   08/30/2002 00:00:00 UTC
+ - Simulating:   08/31/2002 00:00:00 UTC
+ - Simulating:   09/01/2002 00:00:00 UTC
+ - Simulating:   09/02/2002 00:00:00 UTC
+ - Simulating:   09/03/2002 00:00:00 UTC
+ - Simulating:   09/04/2002 00:00:00 UTC
+ - Simulating:   09/05/2002 00:00:00 UTC
+ - Simulating:   09/06/2002 00:00:00 UTC
+ - Simulating:   09/07/2002 00:00:00 UTC
+ - Simulating:   09/08/2002 00:00:00 UTC
+ - Simulating:   09/09/2002 00:00:00 UTC
+ - Simulating:   09/10/2002 00:00:00 UTC
+ - Simulating:   09/11/2002 00:00:00 UTC
+ - Simulating:   09/12/2002 00:00:00 UTC
+ - Simulating:   09/13/2002 00:00:00 UTC
+ - Simulating:   09/14/2002 00:00:00 UTC
+ - Simulating:   09/15/2002 00:00:00 UTC
+ - Simulating:   09/16/2002 00:00:00 UTC
+ - Simulating:   09/17/2002 00:00:00 UTC
+ - Simulating:   09/18/2002 00:00:00 UTC
+ - Simulating:   09/19/2002 00:00:00 UTC
+ - Simulating:   09/20/2002 00:00:00 UTC
+ - Simulating:   09/21/2002 00:00:00 UTC
+ - Simulating:   09/22/2002 00:00:00 UTC
+ - Simulating:   09/23/2002 00:00:00 UTC
+ - Simulating:   09/24/2002 00:00:00 UTC
+ - Simulating:   09/25/2002 00:00:00 UTC
+ - Simulating:   09/26/2002 00:00:00 UTC
+ - Simulating:   09/27/2002 00:00:00 UTC
+ - Simulating:   09/28/2002 00:00:00 UTC
+ - Simulating:   09/29/2002 00:00:00 UTC
+ - Simulating:   09/30/2002 00:00:00 UTC
+ - Simulating:   10/01/2002 00:00:00 UTC
+ - Simulating:   10/02/2002 00:00:00 UTC
+ - Simulating:   10/03/2002 00:00:00 UTC
+ - Simulating:   10/04/2002 00:00:00 UTC
+ - Simulating:   10/05/2002 00:00:00 UTC
+ - Simulating:   10/06/2002 00:00:00 UTC
+ - Simulating:   10/07/2002 00:00:00 UTC
+ - Simulating:   10/08/2002 00:00:00 UTC
+ - Simulating:   10/09/2002 00:00:00 UTC
+ - Simulating:   10/10/2002 00:00:00 UTC
+ - Simulating:   10/11/2002 00:00:00 UTC
+ - Simulating:   10/12/2002 00:00:00 UTC
+ - Simulating:   10/13/2002 00:00:00 UTC
+ - Simulating:   10/14/2002 00:00:00 UTC
+ - Simulating:   10/15/2002 00:00:00 UTC
+ - Simulating:   10/16/2002 00:00:00 UTC
+ - Simulating:   10/17/2002 00:00:00 UTC
+ - Simulating:   10/18/2002 00:00:00 UTC
+ - Simulating:   10/19/2002 00:00:00 UTC
+ - Simulating:   10/20/2002 00:00:00 UTC
+ - Simulating:   10/21/2002 00:00:00 UTC
+ - Simulating:   10/22/2002 00:00:00 UTC
+ - Simulating:   10/23/2002 00:00:00 UTC
+ - Simulating:   10/24/2002 00:00:00 UTC
+ - Simulating:   10/25/2002 00:00:00 UTC
+ - Simulating:   10/26/2002 00:00:00 UTC
+ - Simulating:   10/27/2002 00:00:00 UTC
+ - Simulating:   10/28/2002 00:00:00 UTC
+ - Simulating:   10/29/2002 00:00:00 UTC
+ - Simulating:   10/30/2002 00:00:00 UTC
+ - Simulating:   10/31/2002 00:00:00 UTC
+ - Simulating:   11/01/2002 00:00:00 UTC
+-------------------------------------------------------
+ Zeta finding didn't converge!!!
+ I gave up, after    60 iterations...
+ 
+ Input values.
+ 
+rib             [   ---] =      -0.0010
+ribuse          [   ---] =      -0.0010
+zstar           [     m] =       4.4872
+rough           [     m] =       5.0940
+zoz0m           [   ---] =       0.8809
+lnzoz0m         [   ---] =      -0.1268
+zoz0h           [   ---] =       0.8809
+lnzoz0h         [   ---] =      -0.1268
+stable          [   T|F] = T
+ 
+ Last iteration outcome (zoobukhov8 values).
+zetaa           [   ---] =      -0.0013
+zetaz           [   ---] =      -0.0013
+fun             [   ---] =       0.0000
+fm              [   ---] =      -0.1260
+fh              [   ---] =      -0.1260
+funa            [   ---] =       0.0000
+funz            [   ---] =      -0.0000
+deriv           [   ---] =      -1.0069
+toler           [   ---] =   1.1921E-06
+error           [   ---] =   5.0943E-08
+zoobukhov8      [   ---] =      -0.0013
+-------------------------------------------------------
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ 
+--------------------------------------------------------------
+                     !!! FATAL ERROR !!!                      
+--------------------------------------------------------------
+    ---> File:        canopy_air_coms.f90
+    ---> Subroutine:  zoobukhov8
+    ---> Reason:      Zeta didn't converge, giving up!!!
+--------------------------------------------------------------
+ ED execution halts (see previous error message)...
+--------------------------------------------------------------
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG IEEE_DIVIDE_BY_ZERO IEEE_OVERFLOW_FLAG IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+STOP fatal_error
+double free or corruption (!prev)
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+#0  0x2b3ffaa8cd5a
+#1  0x2b3ffaa8bef5
+#2  0x2b3ffaf0f08f
+#3  0x2b3ffaf0f00b
+#4  0x2b3ffaeee858
+#5  0x2b3ffaf5926d
+#6  0x2b3ffaf612fb
+#7  0x2b3ffaf62fab
+#8  0x2b3ffb1c7b8f
+#9  0x2b3ffb2e5ca1
+#10  0x2b3ffb2e6d5e
+#11  0x2b3ffb2e7055
+#12  0x2b3ffb216de2
+#13  0x2b3ffb2d0ad9
+#14  0x2b3ffb217854
+#15  0x2b3ffb2e644d
+#16  0x2b3ffb0f7738
+#17  0x2b3ffaf128a6
+#18  0x2b3ffaf12a5f
+#19  0x2b3ffaa8ef14
+#20  0x56256d93ad08
+#21  0x56256daf86f7
+#22  0x56256daff8cf
+#23  0x56256db029b3
+#24  0x56256d9ee04b
+#25  0x56256d9f6a72
+#26  0x56256d71943d
+#27  0x56256d6b3b13
+#28  0x56256d6b2ace
+#29  0x2b3ffaef0082
+#30  0x56256d6b2afd
+#31  0xffffffffffffffff
+/groups/kristinariemer/ed2_results/global_inputs/pecan-dev_ed2-dev.sh: line 12: 92319 Aborted                 singularity run --pwd=$(pwd) --contain -B /groups/kristinariemer/ed2_results/pecan_remote:/groups/kristinariemer/ed2_results/pecan_remote -B /groups/kristinariemer/data/sites:/data/sites -B /groups/kristinariemer/ed2_results/inputs/julianp/ed_inputs:/data/ed_inputs -B /groups/kristinariemer/ed2_results/inputs/julianp/faoOLD:/data/faoOLD -B /groups/kristinariemer/ed2_results/inputs/julianp/oge2OLD:/data/oge2OLD -B /groups/kristinariemer/ed2_results/inputs/julianp/tests/ed2:/data/tests/ed2 /groups/kristinariemer/ed2_results/global_inputs/pecan-dev_ed2-dev.sif /usr/local/bin/ed.git -s
+ERROR IN MODEL RUN
+Logfile is located at '/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/out/ENS-00025-1000014289/logfile.txt'
+************************************************* End Log 2023/02/15_12:23:03
+

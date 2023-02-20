@@ -1,36 +1,77 @@
-Executing ./job.sh of every 28th line starting with line 21 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 25 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 6 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 13 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 10 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 4 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 12 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 7 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 1 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-[0] cwd=/groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
-Executing ./job.sh of every 28th line starting with line 8 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 2 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 19 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 24 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 17 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 11 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 20 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 14 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 26 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 16 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-[1] cwd=/groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00002-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
-Executing ./job.sh of every 28th line starting with line 23 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 3 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 9 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 5 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 22 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 27 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 18 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 15 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-Executing ./job.sh of every 28th line starting with line 28 of /groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00001-1000014289/joblist.txt
-[2] cwd=/groups/dlebauer/ed2_results/pecan_remote/2023-02-03-19-49-17/run/ENS-00003-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
-[0] returned 35584 as exit status.
-[2] returned 35584 as exit status.
-[1] returned 35584 as exit status.
-ERROR IN MODEL RUN
-Detailed performance metrics for this job will be available at https://metrics.hpc.arizona.edu/#job_viewer?action=show&realm=SUPREMM&resource_id=73&local_job_id=6451096 by 8am on 2023/02/04.
+Executing ./job.sh of every 28th line starting with line 28 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 20 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 22 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 23 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 24 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 19 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 25 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 26 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 18 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 27 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+[21] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00022-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+Executing ./job.sh of every 28th line starting with line 21 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+[19] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00020-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+Executing ./job.sh of every 28th line starting with line 10 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 16 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 13 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 1 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+[0] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+Executing ./job.sh of every 28th line starting with line 2 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 3 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 6 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 7 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 11 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 12 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 15 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 17 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 8 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 5 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+[15] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00016-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+Executing ./job.sh of every 28th line starting with line 9 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 14 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+Executing ./job.sh of every 28th line starting with line 4 of /groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00001-1000014289/joblist.txt
+[9] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00010-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[23] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00024-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[5] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00006-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[22] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00023-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[2] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00003-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[1] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00002-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[18] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00019-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[24] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00025-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[12] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00013-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[6] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00007-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[17] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00018-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[10] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00011-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[11] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00012-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[20] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00021-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[14] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00015-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[16] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00017-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[7] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00008-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[4] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00005-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[8] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00009-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[13] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00014-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[3] cwd=/groups/kristinariemer/ed2_results/pecan_remote/2023-02-15-19-11-58/run/ENS-00004-1000014289 exec=./job.sh 2>stderr.txt >stdout.txt
+[7] returned 256 as exit status.
+[12] returned 256 as exit status.
+[15] returned 256 as exit status.
+[8] returned 256 as exit status.
+[0] returned 256 as exit status.
+[16] returned 34304 as exit status.
+[24] returned 34304 as exit status.
+[3] returned 34304 as exit status.
+[18] returned 34304 as exit status.
+[9] returned 34304 as exit status.
+[5] returned 34304 as exit status.
+[4] returned 34304 as exit status.
+[19] returned 34304 as exit status.
+[13] returned 34304 as exit status.
+[21] returned 34304 as exit status.
+[6] returned 34304 as exit status.
+[14] returned 34304 as exit status.
+[11] returned 34304 as exit status.
+[2] returned 34304 as exit status.
+[23] returned 34304 as exit status.
+[10] returned 34304 as exit status.
+[22] returned 34304 as exit status.
+[1] returned 34304 as exit status.
+Detailed performance metrics for this job will be available at https://metrics.hpc.arizona.edu/#job_viewer?action=show&realm=SUPREMM&resource_id=73&local_job_id=6515711 by 8am on 2023/02/21.
