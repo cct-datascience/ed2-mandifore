@@ -8,7 +8,10 @@
 *.nc
 *.nc.var
 MANDIFORE_runs/*/outdir/
+MANDIFORE_big_run/*/outdir/
 completed_runs/*/outdir/
 errored_runs/*/outdir/
 *.db
 *.zip
+*.csv
+
