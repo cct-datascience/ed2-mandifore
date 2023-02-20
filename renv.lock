@@ -239,12 +239,15 @@
     "PEcAn.ED2": {
       "Package": "PEcAn.ED2",
       "Version": "1.7.2.9000",
-      "Source": "Repository",
-      "Repository": "https://pecanproject.r-universe.dev",
-      "RemoteUrl": "https://github.com/PecanProject/pecan",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "795b99877a7295d7b7e28328c786cccf4598d758",
-      "Hash": "b8835e0d387ed4acfb04db3f6cbfb9cc",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "pecanproject",
+      "RemoteRepo": "pecan",
+      "RemoteSubdir": "models/ed",
+      "RemoteRef": "develop",
+      "RemoteSha": "948f7ed42bdc6bec8d844b52d70c57aca944eb11",
+      "Hash": "6d3ec86f9037a217413df91164b7c9cc",
       "Requirements": [
         "PEcAn.data.atmosphere",
         "PEcAn.data.land",
@@ -254,6 +257,7 @@
         "PEcAn.utils",
         "XML",
         "abind",
+        "assertthat",
         "dplyr",
         "glue",
         "hdf5r",
@@ -261,6 +265,7 @@
         "magrittr",
         "ncdf4",
         "purrr",
+        "rlang",
         "stringr",
         "tibble",
         "tidyr"
@@ -1256,6 +1261,26 @@
       "Hash": "0d297d01734d2bcea40197bd4971a764",
       "Requirements": []
     },
+    "climateR": {
+      "Package": "climateR",
+      "Version": "0.1.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "mikejohnson51",
+      "RemoteRepo": "climateR",
+      "RemoteRef": "master",
+      "RemoteSha": "62d4c167ad178ec1f3fc2cc0aadc133ffe1fd60f",
+      "Hash": "43ccd52672bbe450aba8c859af2c49d6",
+      "Requirements": [
+        "RNetCDF",
+        "doParallel",
+        "foreach",
+        "httr",
+        "raster",
+        "sf"
+      ]
+    },
     "clipr": {
       "Package": "clipr",
       "Version": "0.8.0",
@@ -1542,12 +1567,13 @@
     },
     "dplyr": {
       "Package": "dplyr",
-      "Version": "1.0.10",
+      "Version": "1.1.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "539412282059f7f0c07295723d23f987",
+      "Hash": "d3c34618017e7ae252d46d79a1b9ec32",
       "Requirements": [
         "R6",
+        "cli",
         "generics",
         "glue",
         "lifecycle",
@@ -4177,10 +4203,10 @@
     },
     "vctrs": {
       "Package": "vctrs",
-      "Version": "0.5.0",
+      "Version": "0.5.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "001fd6a5ebfff8316baf9fb2b5516dc9",
+      "Hash": "e4ffa94ceed5f124d429a5a5f0f5b378",
       "Requirements": [
         "cli",
         "glue",
