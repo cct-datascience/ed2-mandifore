@@ -42,8 +42,8 @@ settings <-
     list(settings = settings, wd = wds, s = sites |> rowwise() |> group_split()),
     \(settings, wd, s) {
       #set outdir--for testing it's in wd, not in data/ somewhere
-      # settings$outdir <- file.path(wd, "outdir")
-      settings$outdir <- file.path("/data/output/pecan_runs", wd)
+      settings$outdir <- file.path(wd, "outdir")
+      # settings$outdir <- file.path("/data/output/pecan_runs", wd)
       # site and met info
       settings$info$notes <- s$sitename
       settings$run$site$id <- s$site_id
@@ -55,12 +55,43 @@ settings <-
       
       # file paths
       settings$run$inputs$met <-
-        file.path("/data/sites/mandifore",
+        fs::path("/data/sites/mandifore",
                   s$met_filename,
                   "ED_MET_DRIVER_HEADER")
+        
       settings
     }
   )
+
+# edit .css and .pss paths
+
+pss_names <-
+  dir_ls(path("/data/input", sites$cohort_filename), glob = "*.pss") |> 
+  basename()
+
+pss_paths <-
+  path("/data/sites/mandifore/",
+       sites$sitename,
+       pss_names)
+
+css_names <- 
+  dir_ls(path("/data/input", sites$cohort_filename), glob = "*.css") |> 
+  basename()
+
+css_paths <-
+  path("/data/sites/mandifore/",
+       sites$sitename,
+       css_names)
+
+settings <- pmap(
+  list(settings = settings, pss_path = pss_paths, css_path = css_paths),
+  \(settings, pss_path, css_path) {
+    settings$run$inputs$pss <- pss_path
+    settings$run$inputs$css <- css_path
+    #return:
+    settings
+  }
+)
 
 
 # write settings out
@@ -105,14 +136,41 @@ walk(sites$met_filename[!sites$met_filename %in% existing_met], ~{
 
 # Copy files to HPC -------------------------------------------------------
 
-walk2(settings, sites$met_filename,
-      \(settings, met_filename) {
+# MET files
+walk(sites$met_filename,
+      \(met_filename) {
         PEcAn.remote::remote.copy.to(
-          settings$host,
+          host = list(name = "puma"),
           src = file.path("/data/sites/mandifore", met_filename),
-          dst = "/groups/dlebauer/data/sites/mandifore"
+          dst = "/groups/kristinariemer/data/sites/mandifore"
         )
       }, .progress = "Copy MET files to HPC")
 
+# .css and .pss files
+
+walk(sites$sitename, \(sitename){
+  PEcAn.remote::remote.execute.cmd(
+    host = list(name = "puma"),
+    cmd = "mkdir",
+    args = path("/groups/kristinariemer/data/sites/mandifore/", sitename)
+  )
+})
+
+
+walk(pss_paths, \(pss_path) {
+  PEcAn.remote::remote.copy.to(
+    host = list(name = "puma"),
+    src = "/data/sites/generic_patches/generic.pss",
+    dst = path("/groups/kristinariemer", pss_path)
+  )
+})
+
+walk(css_paths, \(css_path) {
+  PEcAn.remote::remote.copy.to(
+    host = list(name = "puma"),
+    src = "/data/sites/generic_patches/generic.css",
+    dst = path("/groups/kristinariemer", css_path)
+  )
+})
 
 
