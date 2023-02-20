@@ -5,30 +5,38 @@
 # Load packages -----------------------------------------------------------
 library(PEcAn.all)
 library(purrr)
-library(stringr)
 
 # Read in settings --------------------------------------------------------
 
 #edit this path
-inputfile <- "ED2/MANDIFORE_runs/MANDIFORE-SEUS-xxxx/pecan.xml"
-chk_path <- file.path(dirname(inputfile), "outdir/settings_checked.xml")
-
-if(!(file.exists(chk_path) | file.exists(inputfile))) {
-  stop("No pecan.xml found at ", inputfile, " or ", chk_path)
-}
+inputfile <- "MANDIFORE_runs/testrun/pecan.xml"
 
 #check if settings_checked.xml exists and read that in if it does
+chk_path <- file.path(dirname(inputfile), "outdir/settings_checked.xml")
 if (file.exists(chk_path)){
   settings <- PEcAn.settings::read.settings(chk_path)
-} else {
+} else if (file.exists(inputfile)) {
+  #check that inputfile exists, because read.settings() doesn't do that!
   settings <- PEcAn.settings::read.settings(inputfile)
-  
-  # Prepare settings --------------------------------------------------------
-  settings <- prepare.settings(settings)
-  settings <- do_conversions(settings)
-  
-  # Query trait database ----------------------------------------------------
+} else {
+  stop(inputfile, " doesn't exist")
+}
+
+
+#check outdir
+settings$outdir <- "MANDIFORE_runs/testrun/outdir"
+
+# Prepare settings --------------------------------------------------------
+settings <- prepare.settings(settings)
+settings <- do_conversions(settings)
+
+# Query trait database ----------------------------------------------------
+#skip if this was already done
+exp_trait_files <- file.path(settings$pfts |> map_chr("outdir"), "trait.data.Rdata")
+if(!all(file.exists(exp_trait_files))) {
   settings <- runModule.get.trait.data(settings)
+}
+if (!file.exists(chk_path)){
   write.settings(settings, outputfile = "settings_checked.xml")
 }
 # Meta analysis -----------------------------------------------------------
@@ -46,37 +54,21 @@ runModule.run.write.configs(settings)
 # Modify job.sh to run R inside singularity container.  
 # This is a workaround for https://github.com/PecanProject/pecan/issues/2540
 
-#this code also modifies the job.sh to run model2netcdf.ED2() with the
-#process_partial = TRUE option so that .nc files are created even for runs that
-#don't finish.
-
-job_scripts <-
-  list.files(settings$rundir,
-             "job.sh",
-             recursive = TRUE,
-             full.names = TRUE)
-#TODO: could get this from settings under the assumption that the .sh "ED
-#binary" has same naming convention as .sif file
-container_path <-
-  "/groups/kristinariemer/ed2_results/global_inputs/pecan-dev_ed2-dev.sif"
+job_scripts <- list.files(settings$rundir, "job.sh", recursive = TRUE, full.names = TRUE)
+#TODO: could get this from settings under the assumption that the .sh "ED binary" has same naming convention as .sif file
+container_path <- "/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-dev.sif"
 
 purrr::walk(job_scripts, function(x) {
   job_sh <- readLines(x)
-  cmd <-
-    paste0("singularity run ", container_path, " /usr/local/bin/Rscript")
+  cmd <- paste0("singularity run ", container_path, " /usr/local/bin/Rscript")
   job_sh_mod <- stringr::str_replace(job_sh, "Rscript", cmd)
-  # find which line has the model2netcdf.ED2() function
-  linenum <-
-    job_sh_mod |> str_detect("model2netcdf\\.ED2\\(") |> which()
-  # add process_partial = TRUE arg
-  job_sh_mod[linenum] <- job_sh_mod[linenum] |>
-    str_replace('\\)\\"$' , ', process_partial = TRUE\\)\\"')
   writeLines(job_sh_mod, x)
 })
 
 # Start model runs --------------------------------------------------------
 
 ## This copies config files to the HPC and starts the run
+## Sometimes not everything gets copied over (still) and you'll need to run this twice.
 runModule_start_model_runs(settings, stop.on.error = FALSE)
 
 # Model analyses ----------------------------------------------------------

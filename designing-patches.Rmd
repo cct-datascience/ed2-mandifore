@@ -9,52 +9,78 @@ date: '2023-01-11'
 library(spatstat.data)
 library(spatstat.geom)
 library(tidyverse)
+library(ggforce) #for geom_circle
 ```
 
 # Ecoregions
 
-[Southern Coastal Plain](https://bplant.org/region/134): 
- - longleaf pine flatwoods and savannas
- - richer forests with slash pine, pond pine, pond cypres, american sweetgum, southern magnolia, laurel oak, white oak, american beech (i.e. mix of evergreen, evergreen hardwood, and deciduous hardwood PFTs)
- - Floodplains with bald cypres, pond cypres, water tupelo, sweetgum, green ash, water hickory ("temperate.Hydric" PFT??)
- - Florida scrub
- - monoculture pine plantations
+[Southern Coastal Plain](https://bplant.org/region/134):
 
-[Southeastern plains](https://bplant.org/region/123): 
-- more hardwoods and more closed-canopy than southern coastal plain
-- pine forests with longleaf pine and loblolly pine
-- Mixed oak-hickory-pine forests
-- southeastern mixed forest with mix of braodleaf evergreens, deciduous evergreens (SIC), and pines
-- Floodplains had deciduous forests
-- Cypress swamps
+-   longleaf pine flatwoods and savannas
+
+-   richer forests with slash pine, pond pine, pond cypres, american sweetgum, southern magnolia, laurel oak, white oak, american beech (i.e. mix of evergreen, evergreen hardwood, and deciduous hardwood PFTs)
+
+-   Floodplains with bald cypres, pond cypres, water tupelo, sweetgum, green ash, water hickory ("temperate.Hydric" PFT??)
+
+-   Florida scrub
+
+-   monoculture pine plantations
+
+[Southeastern plains](https://bplant.org/region/123):
+
+-   more hardwoods and more closed-canopy than southern coastal plain
+
+-   pine forests with longleaf pine and loblolly pine
+
+-   Mixed oak-hickory-pine forests
+
+-   southeastern mixed forest with mix of braodleaf evergreens, deciduous evergreens (SIC), and pines
+
+-   Floodplains had deciduous forests
+
+-   Cypress swamps
 
 [Piedmont](https://bplant.org/region/102):
-- Different bedrock / soil than other regions
-- oak-pine-hickory forest with various Carya species, shortleaf pine, loblolly pine, white oak, post oak
-- Agriculture, old-field, and early successional forest
 
+-   Different bedrock / soil than other regions
+
+-   oak-pine-hickory forest with various Carya species, shortleaf pine, loblolly pine, white oak, post oak
+
+-   Agriculture, old-field, and early successional forest
 
 Can probably summarize this as:
-1. pine forest
-2. oak-hickory-pine forest (deciduous hardwood and pine)
-3. mixed forest (pine, deciduous hardwood, evergreen hardwood)
-4. prairie (c4 and c3 grass, maybe forb)
-5. old field (like above but with more forbs?) or early successional forest (like prairie but with small trees)
+
+1.  pine forest
+
+2.  oak-hickory-pine forest (deciduous hardwood and pine)
+
+3.  mixed forest (pine, deciduous hardwood, evergreen hardwood)
+
+4.  prairie (c4 and c3 grass, maybe forb)
+
+5.  old field (like above but with more forbs?) or early successional forest (like prairie but with small trees)
 
 ## Pine Forest
 
-There's a longleaf pine dataset in the `spatstat.data` package that we can use.  It's 584 Longleaf pines in a 200m x 200m region in southern Georgia.  Data collected by Platt, Evans and Rathbun (1988).
+There's a longleaf pine dataset in the `spatstat.data` package that we can use.
+It's 584 Longleaf pines in a 200m x 200m region in southern Georgia.
+Data collected by Platt, Evans and Rathbun (1988).
 
 ```{r}
 plot(longleaf)
 longleaf_df <- as.data.frame(longleaf) |> 
   rename(dbh = marks)
+
+ggplot(longleaf_df) +
+  geom_circle(aes(x0 = x, y0 = y, r = dbh/2/10)) +
+  coord_equal()
 ```
 
 Data needs:
-- number of cohorts (bins)
-- dbh for each cohort
-- density (stem/m^2) for each cohort
+
+-   number of cohorts (bins)
+-   dbh for each cohort
+-   density (stem/m\^2) for each cohort
 
 ```{r}
 ggplot(longleaf_df, aes(dbh)) + geom_histogram()
@@ -64,8 +90,14 @@ Looks like we could use 2 or 3 cohorts:
 
 Saplings (dbh 1--20 ish), mature trees (dbh 20-50 ish), old trees (50-70 ish)
 
+### PFTs
+
+-   temperate.Southern_Pine (7)
+-   SetariaWT (1)
+
 ```{r}
-longleaf_df |> 
+pine <- 
+  longleaf_df |> 
   mutate(group = case_when(
     dbh < 20 ~ "sapling",
     dbh >=20 & dbh < 50 ~ "mature tree",
@@ -76,34 +108,221 @@ longleaf_df |>
     n = n(),
     median_dbh = median(dbh),
     density = n/(200*200),
-  )
-
+  ) |> 
+  mutate(pft = 7) |> 
+  add_row(group = "setaria", n = NA, median_dbh = 0.6, density = 1, pft = 1)
+pine
 ```
 
-### PFTs
 
-- temperate.Southern_Pine (7)
 
-## Oak-Hickory-Pine forest
-https://www.ncwildlife.org/Portals/0/Conserving/documents/Piedmont/P_Oak_forest_mixed_hardwoods_pine.pdf?ver=2011-08-15-161006-140
-"Usually these forests are uneven‐aged with old tress occasionally present."
+## Mixed forest
 
-Vegetation inventory data: https://tes-sfa.ornl.gov/sites/default/files/MOFLUX_Inventory_User_Guide_20190308.pdf
-
-https://www.fs.usda.gov/nrs/pubs/jrnl/2018/nrs_2018_iverson_001.pdf
-Nice plot that has all the info maybe
+Deciduous hardwood, evergreen hardwood, conifer
 
 ### PFTs
 
+-   temperate.South_Mid_Hardwood (10)
+-   temperate.Southern_Pine (7)
+-   temperate.Evergreen_Hardwood (8)
+-   SetariaWT (1)
 
+```{r}
+mixed <- tribble(
+  ~cohort, ~dbh, ~ density, ~pft,
+  "mature_hardwood", 40, 0.004, 10,
+  "sapling_hardwood", 7, 0.004, 10,
+  "mature_pine", 40, 0.004, 7,
+  "sapling_pine", 7, 0.004, 7,
+  "mature_evergreen", 40, 0.001, 8,
+  "sapling_evergreen", 7, 0.001, 8,
+  "setaria", 0.6, 1, 1
+)
+mixed
+```
 
-## Mixed Forest
+Try to visualize to see if it makes sense.  This isn't perfect because trees can end up on top of each other depending on the seed.
 
+```{r}
+set.seed(123)
+
+mixed |> 
+  filter(cohort != "setaria") |> 
+  mutate(m2 = 10000) |>
+  mutate(n = m2 * density) |> 
+  group_by(cohort) |> 
+  mutate(dbh_rand = list(rnorm(n = n, mean = dbh, sd = 5))) |> 
+  unnest(dbh_rand) |> 
+  ungroup() |> 
+  mutate(x = runif(n = n, 0, sqrt(m2)),
+         y = runif(n = n, 0, sqrt(m2))) |> 
+  mutate(r_m = dbh_rand/10/2) |> #get radius in meters from diameter in cm
+  ggplot() +
+  geom_circle(aes(x0 = x, y0 = y, r = r_m, color = cohort)) +
+  coord_equal()
+```
+
+Seems a little crowded, but not unreasonable.
 
 
 ## Prairie
 
+### PFTs
+
+-   ebifarm.c3grass (5)
+-   ebifarm.c4grass (14) 
+-   ebifarm.forb (12) 
+-   SetariaWT (1)
+
+ebifarm.c4grass and ebifarm.forb might cause issues because they are using weird ED2 PFTs to not overlap with the other PFTs
+
+```{r}
+prairie <- tribble(
+  ~cohort, ~dbh, ~density, ~pft,
+  "c4", 0.5, 3, 14,
+  "c3", 0.5, 3, 5,
+  "forb", 0.5, 0.15, 12,  #density should be like 1/20 of the grasses combined?
+  "setaria", 0.5, 1, 1
+)
+prairie
+```
+
+```{r}
+prairie |> 
+mutate(m2 = 100) |> 
+  mutate(n = m2 * density) |> 
+  group_by(cohort) |> 
+  mutate(dbh_rand = list(rnorm(n = n, mean = dbh, sd = 0.1))) |> 
+  unnest(dbh_rand) |> 
+  ungroup() |> 
+  mutate(x = runif(n = n, 0, sqrt(m2)),
+         y = runif(n = n, 0, sqrt(m2))) |> 
+  mutate(r_m = dbh_rand/10/2) |> #get radius in meters from diameter in cm
+  ggplot() +
+  geom_circle(aes(x0 = x, y0 = y, r = r_m, color = cohort)) +
+  coord_equal()
+```
 
 
-## Old field / early successional
+# Patch File
+
+Old one:
+
+```{r}
+read_delim("/data/input/FIA_ED2_site_1-18/siteid1000000018.fia2000.radius0.075.lat35.9712lon-79.0934.pss")
+```
+This was generated with old specs though.  Follow [wiki for IED_INIT_MODE=6](https://github.com/EDmodel/ED2/wiki/Initial-conditions#files-types-and-formats-for-nlied_init_mode6)
+
+```{r}
+pss <- 
+  tibble(
+  time = 1997, #dummy
+  patch = 1:3, #pine, mixed, prairie
+  trk = c(1, 1, 1), #TODO: figure this out. Tree fall for forests, pasture for prairie??
+  age = c(50, 50, 1), #TODO: not sure about this
+  area = c(.3, .3, .4), #equal area for all three patches
+  water = 0, #dummy
+  fsc = 1, #fast soil carbon in Kg/m^2
+  stsc = 5, #structural soil carbon
+  stsl = 5, #structural soil lignin
+  ssc = 0.01, #slow soil carbon
+  lai = 0, #dummy
+  msn = 1, #mineralized soil nitrogen in Kg/m^2
+  fsn = 1, #fast soil nitrogen
+  nep = 0, #dummy
+  gpp = 0, #dummy
+  rh  = 0, #dummy
+)
+pss
+```
+# Cohort file
+
+```{r}
+pine_css <- 
+  pine |> 
+  transmute(
+    time = 1997, #dummy
+    patch = 1, #must match patch file
+    # cohort = 1:n(), #arbitrary unique id
+    dbh = median_dbh, #diameter at breast height
+    hite = 0, #dummy
+    pft = pft,
+    n = density,
+    bdead = 0, #dummy
+    balive = 0, #dummy
+    lai = 0 #dummy
+    )
+```
+
+
+```{r}
+mixed_css <-
+  mixed |> 
+  transmute(
+    time = 1997, #dummy
+    patch = 2, #must match patch file
+    # cohort = 1:n(), #arbitrary unique id
+    dbh = dbh, #diameter at breast height
+    hite = 0, #dummy
+    pft = pft,
+    n = density,
+    bdead = 0, #dummy
+    balive = 0, #dummy
+    lai = 0 #dummy
+    )
+```
+
+```{r}
+prairie_css <-
+  prairie |> 
+  transmute(
+    time = 1997, #dummy
+    patch = 3, #must match patch file
+    # cohort = 1:n(), #arbitrary unique id
+    dbh = dbh, #diameter at breast height
+    hite = 0, #dummy
+    pft = pft,
+    n = density,
+    bdead = 0, #dummy
+    balive = 0, #dummy
+    lai = 0 #dummy
+    )
+
+```
+
+
+```{r}
+css <- bind_rows(
+  pine_css,
+  mixed_css,
+  prairie_css
+) |> 
+  mutate(cohort = 1:n(), .before = dbh)
+css
+```
+
+# Debugging
+
+For debugging, only do one patch/pft at a time:
+
+```{r}
+# # pine
+# pss <-
+#   pss |> 
+#   filter(patch == 1) |>
+#   mutate(area = area/sum(area)) #this might not quite work because of rounding ...
+# if(sum(round(pss$area, 7)) != 1) stop("adjust the patch areas manually maybe")
+# css <- css |> filter(patch == 1, pft == 7)
+```
+
+
+# Write files
+
+Writes them to /data/ shared folder. The 02-setup-runs script will copy these and re-name them appropriately for each run.
+
+```{r}
+write.table(pss, "/data/sites/generic_patches/generic.pss", quote = FALSE, row.names = FALSE)
+write.table(css, "/data/sites/generic_patches/generic.css", quote = FALSE, row.names = FALSE)
+```
+
 

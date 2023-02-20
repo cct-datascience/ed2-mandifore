@@ -1,13 +1,12 @@
-
+#TODO:
+#this script still needs to:
+# copy MET files
+# Edit <site> tag and <met> tag
 # load packages and functions -----------------------------------------------------------
 
 library(tidyverse)
 library(PEcAn.settings)
 library(fs)
-
-source("R/modify_css.R")
-source("R/modify_pss.R")
-source("R/match_pft.R")
 
 set.seed(4444)
 
@@ -33,45 +32,6 @@ wds |>
               file.path(.x, "workflow.R"))
   }, .progress = "Copying templates")
 
-
-# edit css and pss files --------------------------------------------------
-#move files from input/ to sites/mandifore/
-file.copy(
-  from = file.path("/data/input", sites$cohort_filename),
-  to = "/data/sites/mandifore",
-  recursive = TRUE,
-  copy.mode = FALSE
-)
-
-# read into R
-pss_files <- 
-  map(sites$cohort_filename, ~{
-    dir_ls(file.path("/data/sites/mandifore", .x),
-               glob = "*.pss")
-  })
-
-pss_list <- map(pss_files, ~read_table(.x, col_types = cols(patch = col_character())))
-
-css_files <- 
-  map(sites$cohort_filename, ~{
-    dir_ls(file.path("/data/sites/mandifore", .x),
-      glob = "*.css")
-  })
-css_list <- map(css_files, \(x) read_table(x, col_types = cols(patch = col_character())))
-
-# modify .css
-css_list <- map(css_list, \(x) modify_css(x), .progress = "Modifying .css files")
-
-# modify .pss
-
-pss_list <- map2(pss_list, css_list, \(x,y) modify_pss(x,y), .progress = "Modifying .pss files")
-
-
-# Write .css and .pss files -----------------------------------------------
-walk2(css_list, css_files, ~write.table(.x, .y, quote = FALSE, row.names = FALSE))
-walk2(pss_list, pss_files, ~write.table(.x, .y, quote = FALSE, row.names = FALSE))
-
-
 # Customize pecan.xml -----------------------------------------------------
 
 settings <- map(wds, ~read.settings(file.path(.x, "pecan.xml")))
@@ -82,8 +42,8 @@ settings <-
     list(settings = settings, wd = wds, s = sites |> rowwise() |> group_split()),
     \(settings, wd, s) {
       #set outdir--for testing it's in wd, not in data/ somewhere
-      # settings$outdir <- file.path(wd, "outdir")
-      settings$outdir <- file.path("/data/output/pecan_runs", wd)
+      settings$outdir <- file.path(wd, "outdir")
+      # settings$outdir <- file.path("/data/output/pecan_runs", wd)
       # site and met info
       settings$info$notes <- s$sitename
       settings$run$site$id <- s$site_id
@@ -94,43 +54,45 @@ settings <-
       #TODO: check if run start and end are between met start and end
       
       # file paths
-      base <- "/data/sites/mandifore"
       settings$run$inputs$met <-
-        file.path(base,
+        fs::path("/data/sites/mandifore",
                   s$met_filename,
                   "ED_MET_DRIVER_HEADER")
-      files <-
-        dir_ls(file.path(base, s$cohort_filename))
-      
-      settings$run$inputs$pss <-
-        file.path(base, s$cohort_filename, files[str_detect(files, "\\.pss$")])
-      settings$run$inputs$css <-
-        file.path(base, s$cohort_filename, files[str_detect(files, "\\.css$")])
+        
       settings
     }
   )
 
+# edit .css and .pss paths
 
-# Add PFTs to settings
-pfts <- 
-  map(css_list, ~unique(.x$pft)) |>
-  map2(.y = sites$loc, ~{
-    tibble(ED = .x) |> 
-      mutate(PEcAn = match_pft(.x, loc = .y))
-  })
+pss_names <-
+  dir_ls(path("/data/input", sites$cohort_filename), glob = "*.pss") |> 
+  basename()
 
-settings <- 
-  map2(settings, pfts, ~{
-    .x$pfts <- 
-      .y |> 
-      # converts pfts tibbles to a list
-      select(name = PEcAn, ed2_pft_number = ED) |>
-      rowwise() |>
-      group_split() |>
-      map(as.list) |> 
-      set_names("pft")
-    .x
-  })
+pss_paths <-
+  path("/data/sites/mandifore/",
+       sites$sitename,
+       pss_names)
+
+css_names <- 
+  dir_ls(path("/data/input", sites$cohort_filename), glob = "*.css") |> 
+  basename()
+
+css_paths <-
+  path("/data/sites/mandifore/",
+       sites$sitename,
+       css_names)
+
+settings <- pmap(
+  list(settings = settings, pss_path = pss_paths, css_path = css_paths),
+  \(settings, pss_path, css_path) {
+    settings$run$inputs$pss <- pss_path
+    settings$run$inputs$css <- css_path
+    #return:
+    settings
+  }
+)
+
 
 # write settings out
 walk2(settings, wds, ~write.settings(.x, "pecan.xml", outputdir = .y))
@@ -174,24 +136,41 @@ walk(sites$met_filename[!sites$met_filename %in% existing_met], ~{
 
 # Copy files to HPC -------------------------------------------------------
 
-walk2(settings, sites$met_filename,
-      \(settings, met_filename) {
+# MET files
+walk(sites$met_filename,
+      \(met_filename) {
         PEcAn.remote::remote.copy.to(
-          settings$host,
+          host = list(name = "puma"),
           src = file.path("/data/sites/mandifore", met_filename),
-          dst = "/groups/dlebauer/data/sites/mandifore"
+          dst = "/groups/kristinariemer/data/sites/mandifore"
         )
       }, .progress = "Copy MET files to HPC")
 
+# .css and .pss files
 
-walk2(settings, sites$cohort_filename,
-      \(settings, cohort_filename) {
-        PEcAn.remote::remote.copy.to(
-          settings$host,
-          src = file.path("/data/sites/mandifore", cohort_filename),
-          dst = "/groups/dlebauer/data/sites/mandifore"
-        )
-      }, .progress = "Copy cohort files to HPC")
+walk(sites$sitename, \(sitename){
+  PEcAn.remote::remote.execute.cmd(
+    host = list(name = "puma"),
+    cmd = "mkdir",
+    args = path("/groups/kristinariemer/data/sites/mandifore/", sitename)
+  )
+})
 
+
+walk(pss_paths, \(pss_path) {
+  PEcAn.remote::remote.copy.to(
+    host = list(name = "puma"),
+    src = "/data/sites/generic_patches/generic.pss",
+    dst = path("/groups/kristinariemer", pss_path)
+  )
+})
+
+walk(css_paths, \(css_path) {
+  PEcAn.remote::remote.copy.to(
+    host = list(name = "puma"),
+    src = "/data/sites/generic_patches/generic.css",
+    dst = path("/groups/kristinariemer", css_path)
+  )
+})
 
 

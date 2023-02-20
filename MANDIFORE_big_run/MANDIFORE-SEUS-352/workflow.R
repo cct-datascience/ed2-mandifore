@@ -10,7 +10,7 @@ library(stringr)
 # Read in settings --------------------------------------------------------
 
 #edit this path
-inputfile <- "ED2/MANDIFORE_runs/MANDIFORE-SEUS-xxxx/pecan.xml"
+inputfile <- "MANDIFORE_big_run/MANDIFORE-SEUS-352/pecan.xml"
 chk_path <- file.path(dirname(inputfile), "outdir/settings_checked.xml")
 
 if(!(file.exists(chk_path) | file.exists(inputfile))) {

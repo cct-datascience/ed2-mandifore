@@ -19,19 +19,39 @@
     <dbfiles>/data/dbfiles</dbfiles>
   </database>
   <pfts>
-    <!-- For now, don't even put Setaria in -->
-    <!--
     <pft>
       <name>SetariaWT</name>
       <ed2_pft_number>1</ed2_pft_number>
     </pft>
-    -->
-    <!-- Add additional PFTs here -->
+    <pft>
+      <name>temperate.Southern_Pine</name>
+      <ed2_pft_number>7</ed2_pft_number>
+    </pft>
+    <pft>
+      <name>temperate.South_Mid_Hardwood</name>
+      <ed2_pft_number>10</ed2_pft_number>
+    </pft>
+    <pft>
+      <name>temperate.Evergreen_Hardwood</name>
+      <ed2_pft_number>8</ed2_pft_number>
+    </pft>
+    <pft>
+      <name>ebifarm.c3grass</name>
+      <ed2_pft_number>5</ed2_pft_number>
+    </pft>
+    <pft>
+      <name>ebifarm.c4grass</name>
+      <ed2_pft_number>14</ed2_pft_number>
+    </pft>
+    <pft>
+      <name>ebifarm.forb</name>
+      <ed2_pft_number>12</ed2_pft_number>
+    </pft>
   </pfts>
 
   <meta.analysis>
     <!-- This should be increased to more like 50000 for final runs -->
-    <iter>50000</iter>
+    <iter>3000</iter>
     <random.effects>TRUE</random.effects>
     <threshold>1.2</threshold>
     <!-- AUTO is another possible value for <update>,
@@ -39,6 +59,7 @@
          so keep this to TRUE -->
     <update>TRUE</update>
   </meta.analysis>
+<!--
   <sensitivity.analysis>
       <quantiles>
           <sigma>-1</sigma>
@@ -46,9 +67,10 @@
       </quantiles>
     <variable>NPP</variable>
   </sensitivity.analysis>
+-->
   <ensemble>
     <!-- This should be increased for final runs -->
-    <size>500</size>
+    <size>10</size>
     <variable>NPP</variable>
     <samplingspace>
       <parameters>
@@ -60,7 +82,7 @@
   <model>
     <type>ED2</type>
     <!-- this is the development version of ED2 and PEcAn.ED2 -->
-    <binary>/groups/dlebauer/ed2_results/global_inputs/pecan-dev_ed2-dev.sh</binary>
+    <binary>/groups/kristinariemer/ed2_results/global_inputs/pecan-dev_ed2-dev.sh</binary>
     <id>14</id>
     <!-- ED2IN template that corresponds with dev version of ED2 -->
     <revision>2.2.0.github</revision>
@@ -92,6 +114,10 @@
       <met.end>2015-12-31 23:59:59</met.end>
     </site>
 
+<!-- 
+These are paths relative to the singularity container that ED is running in.
+They are mounted from the HPC.
+-->
     <inputs>
       <!-- This will be replaced -->
       <met>/data/sites/mandifore/sitename/ED_MET_DRIVER_HEADER</met>
@@ -99,23 +125,26 @@
       <soil>/data/faoOLD/FAO_</soil>
       <lu>/data/ed_inputs/glu/</lu>
       <thsum>/data/ed_inputs/</thsum>
+      <!-- .pss and .css paths will be replaced -->
+      <pss>/data/sites/generic_patches/generic.pss</pss>
+      <css>/data/sites/generic_patches/generic.css</css>
     </inputs>
     <!-- best not to start runs in winter -->
     <start.date>2002-06-01</start.date>
-    <end.date>2012-06-01</end.date>
+    <end.date>2005-06-30</end.date>
   </run>
   
   <host>
       <!-- edit to whatever nickname is in your .ssh/config -->
       <name>puma</name>
       <!-- don't edit the rest unless you know what you're doing -->
-      <folder>/groups/dlebauer/ed2_results/pecan_remote</folder>
-      <qsub>sbatch --job-name=@NAME@ --account=dlebauer --ntasks=28 --nodes=3 --time=07-00:00:00 -o @STDOUT@ -e @STDERR@</qsub>
+      <folder>/groups/kristinariemer/ed2_results/pecan_remote</folder>
+      <qsub>sbatch --job-name=@NAME@ --account=kristinariemer --ntasks=28 --nodes=3 --time=07-00:00:00 -o @STDOUT@ -e @STDERR@</qsub>
       <qsub.jobid>.* ([0-9]+)</qsub.jobid>
       <qstat>'squeue --job @JOBID@ &amp;> /dev/null || echo DONE'</qstat>
       <prerun>module load openmpi3 R</prerun>
       <modellauncher>
-        <binary>/groups/dlebauer/ed2_results/pecan/contrib/modellauncher/modellauncher</binary>
+        <binary>/groups/kristinariemer/ed2_results/pecan/contrib/modellauncher/modellauncher</binary>
         <qsub.extra>--partition=standard</qsub.extra>
         <mpirun>module load openmpi3; mpirun</mpirun>
       </modellauncher>
