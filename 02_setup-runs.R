@@ -18,7 +18,11 @@ sites <- new_sites %>%
   filter(lon > -83 & lon < -82) %>% 
   mutate(lat_round = round(lat)) %>% 
   group_by(lat_round) %>% 
-  slice_sample(n=1)
+  slice_sample(n=1) |> 
+  ungroup()
+
+#TODO: temporary:
+sites <- sites |> slice(1)
 
 # create working directories ----------------------------------------------
 wds <- paste("MANDIFORE_big_run", sites$sitename, sep = "/")
@@ -64,7 +68,7 @@ settings <-
   )
 
 # edit .css and .pss paths
-
+# TODO: need to actually generate 3 runs per site.  Need to decide best way to do this.
 pss_names <-
   dir_ls(path("/data/input", sites$cohort_filename), glob = "*.pss") |> 
   basename()
@@ -168,7 +172,7 @@ walk(pss_paths, \(pss_path) {
 walk(css_paths, \(css_path) {
   PEcAn.remote::remote.copy.to(
     host = list(name = "puma"),
-    src = "/data/sites/generic_patches/generic.css",
+    src = "/data/sites/generic_patches/mixed.css",
     dst = path("/groups/kristinariemer", css_path)
   )
 })
