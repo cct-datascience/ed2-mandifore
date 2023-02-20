@@ -216,10 +216,10 @@ This was generated with old specs though.  Follow [wiki for IED_INIT_MODE=6](htt
 ```{r}
 pss <- 
   tibble(
-  time = 0, #dummy
+  time = 1997, #dummy
   patch = 1:3, #pine, mixed, prairie
   trk = c(1, 1, 1), #TODO: figure this out. Tree fall for forests, pasture for prairie??
-  age = c(50, 50, 0), #TODO: not sure about this
+  age = c(50, 50, 1), #TODO: not sure about this
   area = c(.3, .3, .4), #equal area for all three patches
   water = 0, #dummy
   fsc = 1, #fast soil carbon in Kg/m^2
@@ -241,9 +241,9 @@ pss
 pine_css <- 
   pine |> 
   transmute(
-    time = 0, #dummy
+    time = 1997, #dummy
     patch = 1, #must match patch file
-    cohort = 1:n(), #arbitrary unique id
+    # cohort = 1:n(), #arbitrary unique id
     dbh = median_dbh, #diameter at breast height
     hite = 0, #dummy
     pft = pft,
@@ -259,9 +259,9 @@ pine_css <-
 mixed_css <-
   mixed |> 
   transmute(
-    time = 0, #dummy
+    time = 1997, #dummy
     patch = 2, #must match patch file
-    cohort = 1:n(), #arbitrary unique id
+    # cohort = 1:n(), #arbitrary unique id
     dbh = dbh, #diameter at breast height
     hite = 0, #dummy
     pft = pft,
@@ -276,9 +276,9 @@ mixed_css <-
 prairie_css <-
   prairie |> 
   transmute(
-    time = 0, #dummy
+    time = 1997, #dummy
     patch = 3, #must match patch file
-    cohort = 1:n(), #arbitrary unique id
+    # cohort = 1:n(), #arbitrary unique id
     dbh = dbh, #diameter at breast height
     hite = 0, #dummy
     pft = pft,
@@ -290,29 +290,39 @@ prairie_css <-
 
 ```
 
-**NOTE: need to do something to distinguish two PFT 12s.  Something in the config.xml file has to match the patch and cohort I'd guess.**
 
 ```{r}
-css <- bind_rows(pine_css, mixed_css, prairie_css)
+css <- bind_rows(
+  pine_css,
+  mixed_css,
+  prairie_css
+) |> 
+  mutate(cohort = 1:n(), .before = dbh)
 css
 ```
 
+# Debugging
+
+For debugging, only do one patch/pft at a time:
+
+```{r}
+# # pine
+# pss <-
+#   pss |> 
+#   filter(patch == 1) |>
+#   mutate(area = area/sum(area)) #this might not quite work because of rounding ...
+# if(sum(round(pss$area, 7)) != 1) stop("adjust the patch areas manually maybe")
+# css <- css |> filter(patch == 1, pft == 7)
+```
+
+
 # Write files
 
-Writes them to /data/ shared folder.  PEcAn requires that they meet this regexp: `"\\.lat.*lon.*\\.(css|pss|site)"`.  LOL
+Writes them to /data/ shared folder. The 02-setup-runs script will copy these and re-name them appropriately for each run.
 
 ```{r}
-write.table(pss, "/data/sites/generic_patches/generic.lat0lon0.pss", quote = FALSE, row.names = FALSE)
-write.table(css, "/data/sites/generic_patches/generic.lat0lon0.css", quote = FALSE, row.names = FALSE)
+write.table(pss, "/data/sites/generic_patches/generic.pss", quote = FALSE, row.names = FALSE)
+write.table(css, "/data/sites/generic_patches/generic.css", quote = FALSE, row.names = FALSE)
 ```
 
-
-For testing, do just the pine forest
-
-```{r}
-pss |> filter(patch == 1) |> 
-  write.table("/data/sites/generic_patches/pine.lat0lon0.pss",  quote = FALSE, row.names = FALSE)
-css |> filter(patch == 1) |> 
-  write.table("/data/sites/generic_patches/pine.lat0lon0.css",  quote = FALSE, row.names = FALSE)
-```
 
