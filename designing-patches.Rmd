@@ -204,23 +204,20 @@ mutate(m2 = 100) |>
 ```
 
 
-# Patch File
+# Patch Files
 
-Old one:
+We just need a single pss file because nothing really needs to differ in it between the different ecosystems.
 
-```{r}
-read_delim("/data/input/FIA_ED2_site_1-18/siteid1000000018.fia2000.radius0.075.lat35.9712lon-79.0934.pss")
-```
-This was generated with old specs though.  Follow [wiki for IED_INIT_MODE=6](https://github.com/EDmodel/ED2/wiki/Initial-conditions#files-types-and-formats-for-nlied_init_mode6)
+Followed [wiki for IED_INIT_MODE=6](https://github.com/EDmodel/ED2/wiki/Initial-conditions#files-types-and-formats-for-nlied_init_mode6) to create this:
 
 ```{r}
 pss <- 
   tibble(
   time = 1997, #dummy
-  patch = 1:3, #pine, mixed, prairie
-  trk = c(1, 1, 1), #TODO: figure this out. Tree fall for forests, pasture for prairie??
-  age = c(50, 50, 1), #TODO: not sure about this
-  area = c(.3, .3, .4), #equal area for all three patches
+  patch = c(1, 2), #start with two patches
+  trk = 1, 
+  age = c(5, 50),
+  area = c(.5, .5), #equal area for all three patches
   water = 0, #dummy
   fsc = 1, #fast soil carbon in Kg/m^2
   stsc = 5, #structural soil carbon
@@ -235,15 +232,14 @@ pss <-
 )
 pss
 ```
-# Cohort file
+
+# Cohort files
 
 ```{r}
 pine_css <- 
   pine |> 
   transmute(
     time = 1997, #dummy
-    patch = 1, #must match patch file
-    # cohort = 1:n(), #arbitrary unique id
     dbh = median_dbh, #diameter at breast height
     hite = 0, #dummy
     pft = pft,
@@ -252,6 +248,13 @@ pine_css <-
     balive = 0, #dummy
     lai = 0 #dummy
     )
+
+#make 2 identical patches to initialize run
+pine_css <-
+  bind_rows(pine_css, pine_css, .id = "patch") |> 
+  mutate(cohort = 1:n(), .before = dbh) |> 
+  relocate(patch, .before = cohort)
+pine_css
 ```
 
 
@@ -260,8 +263,6 @@ mixed_css <-
   mixed |> 
   transmute(
     time = 1997, #dummy
-    patch = 2, #must match patch file
-    # cohort = 1:n(), #arbitrary unique id
     dbh = dbh, #diameter at breast height
     hite = 0, #dummy
     pft = pft,
@@ -270,6 +271,13 @@ mixed_css <-
     balive = 0, #dummy
     lai = 0 #dummy
     )
+
+#make 2 identical patches to initialize run
+mixed_css <-
+  bind_rows(mixed_css, mixed_css, .id = "patch") |> 
+  mutate(cohort = 1:n(), .before = dbh) |> 
+  relocate(patch, .before = cohort)
+mixed_css
 ```
 
 ```{r}
@@ -277,8 +285,6 @@ prairie_css <-
   prairie |> 
   transmute(
     time = 1997, #dummy
-    patch = 3, #must match patch file
-    # cohort = 1:n(), #arbitrary unique id
     dbh = dbh, #diameter at breast height
     hite = 0, #dummy
     pft = pft,
@@ -288,31 +294,13 @@ prairie_css <-
     lai = 0 #dummy
     )
 
-```
+#make 2 identical patches to initialize run
+prairie_css <-
+  bind_rows(prairie_css, prairie_css, .id = "patch") |> 
+  mutate(cohort = 1:n(), .before = dbh) |> 
+  relocate(patch, .before = cohort)
+prairie_css
 
-
-```{r}
-css <- bind_rows(
-  pine_css,
-  mixed_css,
-  prairie_css
-) |> 
-  mutate(cohort = 1:n(), .before = dbh)
-css
-```
-
-# Debugging
-
-For debugging, only do one patch/pft at a time:
-
-```{r}
-# # pine
-# pss <-
-#   pss |> 
-#   filter(patch == 1) |>
-#   mutate(area = area/sum(area)) #this might not quite work because of rounding ...
-# if(sum(round(pss$area, 7)) != 1) stop("adjust the patch areas manually maybe")
-# css <- css |> filter(patch == 1, pft == 7)
 ```
 
 
@@ -322,7 +310,9 @@ Writes them to /data/ shared folder. The 02-setup-runs script will copy these an
 
 ```{r}
 write.table(pss, "/data/sites/generic_patches/generic.pss", quote = FALSE, row.names = FALSE)
-write.table(css, "/data/sites/generic_patches/generic.css", quote = FALSE, row.names = FALSE)
+write.table(pine_css, "/data/sites/generic_patches/pine.css", quote = FALSE, row.names = FALSE)
+write.table(mixed_css, "/data/sites/generic_patches/mixed.css", quote = FALSE, row.names = FALSE)
+write.table(prairie_css, "/data/sites/generic_patches/prairie.css", quote = FALSE, row.names = FALSE)
 ```
 
 
