@@ -44,15 +44,15 @@ extract_E_file <- function(ens_dir, do_conversions = TRUE) {
     "DBH", #diameter at breast height (cm)
     "DDBH_DT", #change in DBH (cm/plant/yr) 
     "AGB_CO", #cohort level above ground biomass (kgC/plant)
-    "MMEAN_NPPDAILY_CO", #net primary productivity (kgC/m2/yr)
-    "MMEAN_TRANSP_CO", #Monthly mean leaf transpiration (kg/m2/s)
+    "MMEAN_NPPDAILY_CO", #net primary productivity (kgC/m2/yr) (actual units kg/plant/yr)
+    "MMEAN_TRANSP_CO", #Monthly mean leaf transpiration (kg/m2/s) (actual units: probably kg/plant/s) https://github.com/EDmodel/ED2/issues/342
     "BSEEDS_CO", #seed biomass in units of (kgC/plant)
     "NPLANT", #plant density (plants/m2), required for /plant -> /m2 conversion
     "PFT" #pft numbers
   )
   
   patch_vars <- c(
-    "AREA", #patch area relative to site area (unitless)
+    "AREA", # fractional patch area relative to site area (unitless)
     "AGE", #patch age since last disturbance
     "PACO_N", #number of cohorts in each patch
     "PACO_ID" #index of the first cohort of each patch.  Needed for figuring out which patch each cohort belongs to
@@ -118,8 +118,15 @@ extract_E_file <- function(ens_dir, do_conversions = TRUE) {
     out <- raw |>
       dplyr::mutate(
         #per unit area corrections
-        dplyr::across(c(BSEEDS_CO, AGB_CO), ~.x*NPLANT),
+        dplyr::across(c(BSEEDS_CO, AGB_CO, MMEAN_NPPDAILY_CO, MMEAN_TRANSP_CO), ~.x*NPLANT),
+        #pecan standard units
         dplyr::across(c(MMEAN_NPPDAILY_CO), ~PEcAn.utils::ud_convert(.x, u1 = "kg/m2/yr", u2 = "kg/m2/s"))
+      ) |> 
+      # weight by patch area and sum across cohorts and patches
+      group_by(date, PFT) |> 
+      summarize(
+        across(c(BSEEDS_CO, AGB_CO, MMEAN_NPPDAILY_CO, MMEAN_TRANSP_CO, NPLANT),
+               ~sum(.x*AREA))
       )
     return(out)
   }
