@@ -1,7 +1,3 @@
-#TODO:
-#this script still needs to:
-# copy MET files
-# Edit <site> tag and <met> tag
 # load packages and functions -----------------------------------------------------------
 
 library(tidyverse)
@@ -18,96 +14,95 @@ sites <- new_sites %>%
   filter(lon > -83 & lon < -82) %>% 
   mutate(lat_round = round(lat)) %>% 
   group_by(lat_round) %>% 
-  slice_sample(n=1)
+  slice_sample(n=1) |> 
+  ungroup()
+
+#TODO: temporary:
+sites <- sites |> slice(2:3)
+
+# 3 ecosystems corresponding to 3 .css files
+ecosystems <- c("pine", "mixed", "prairie")
 
 # create working directories ----------------------------------------------
-wds <- paste("MANDIFORE_big_run", sites$sitename, sep = "/")
+run_df <- 
+  expand_grid(sites, ecosystem = ecosystems) |> 
+  mutate(wd = path("MANDIFORE_big_run", sitename, ecosystem))
 
-wds |> 
-  walk(~{
-    dir_create(.x)
-    file.copy(file.path("templates", "pecan_template.xml"),
-              file.path(.x, "pecan.xml"))
-    file.copy(file.path("templates", "workflow_template.R"),
-              file.path(.x, "workflow.R"))
-  }, .progress = "Copying templates")
+#create all dirs
+dir_create(run_df$wd)
+
+#copy the same workflow template to all dirs
+walk(run_df$wd, \(x) {
+  file_copy(path("templates", "workflow_template.R"), path(x, "workflow.R"))
+})
+
+#copy pecan_xml per ecosystem
+run_df <- 
+  run_df |> 
+  mutate(template = path("templates", paste0("pecan_template_", ecosystem, ".xml"))) |> 
+  mutate(settings_path = file_copy(template, path(wd, "pecan.xml"))) |> 
+  #create paths in /data/ for outdir
+  mutate(outdir = path("/data/output/pecan_runs/MANDIFORE_big_run", sitename, ecosystem))
+
+
+# Filepaths ---------------------------------------------------------------
+# File paths for cohort and patch files.  The originals are in /data/input, and
+# they'll be moved to /data/sites/mandifore/<sitename>
+init <- 
+  run_df |> 
+  select(cohort_filename) |> 
+  filter(!duplicated(cohort_filename)) |> 
+  mutate(pss = dir_ls(path("/data/input", cohort_filename), glob = "*.pss"),
+         css = dir_ls(path("/data/input", cohort_filename), glob = "*.css"))
+
+# Now we need an altered filename for the files specifying the ecosystem
+# because each will be a different css file. Even though we are using the *same*
+# pss file for each ecosystem within a site, ED2 requries that the .pss and .css
+# filenames are the same, so we'll create unique paths for both and need to copy
+# over the .pss file three times under different names.
+run_df <- left_join(run_df, init, by = join_by(cohort_filename)) |> 
+  mutate(css_dest = path("/data/sites/mandifore/", sitename, paste(ecosystem, basename(css), sep = "_")),
+         pss_dest = path("/data/sites/mandifore/", sitename, paste(ecosystem, basename(pss), sep = "_")))
 
 # Customize pecan.xml -----------------------------------------------------
 
-settings <- map(wds, ~read.settings(file.path(.x, "pecan.xml")))
+settings <- map(run_df$settings_path, read.settings)
 
 # add data from sites tibble
-settings <- 
-  pmap(
-    list(settings = settings, wd = wds, s = sites |> rowwise() |> group_split()),
-    \(settings, wd, s) {
-      #set outdir--for testing it's in wd, not in data/ somewhere
-      settings$outdir <- file.path(wd, "outdir")
-      # settings$outdir <- file.path("/data/output/pecan_runs", wd)
-      # site and met info
-      settings$info$notes <- s$sitename
-      settings$run$site$id <- s$site_id
-      settings$run$site$met.start <-
-        format(s$met_start_date, "%Y-%m-%d %H:%M:%S")
-      settings$run$site$met.end <-
-        format(s$met_end_date, "%Y-%m-%d %H:%M:%S")
-      #TODO: check if run start and end are between met start and end
-      
-      # file paths
-      settings$run$inputs$met <-
-        fs::path("/data/sites/mandifore",
-                  s$met_filename,
-                  "ED_MET_DRIVER_HEADER")
-        
-      settings
-    }
-  )
-
+for (i in seq_len(nrow(run_df))) {
+  run <- run_df |> slice(i)
+  settings[[i]]$outdir <- run_df$outdir[i]
+  settings[[i]]$info$notes <- run_df$sitename[i]
+  settings[[i]]$run$site$id <- run_df$site_id[i]
+  settings[[i]]$run$site$met.start <- 
+    format(run_df$met_start_date[i], "%Y-%m-%d %H:%M:%S")
+  settings[[i]]$run$site$met.end <-
+    format(run_df$met_end_date[i], "%Y-%m-%d %H:%M:%S")
+  
+  settings[[i]]$run$inputs$met <-
+    fs::path("/data/sites/mandifore",
+             run_df$met_filename[i],
+             "ED_MET_DRIVER_HEADER")
 # edit .css and .pss paths
-
-pss_names <-
-  dir_ls(path("/data/input", sites$cohort_filename), glob = "*.pss") |> 
-  basename()
-
-pss_paths <-
-  path("/data/sites/mandifore/",
-       sites$sitename,
-       pss_names)
-
-css_names <- 
-  dir_ls(path("/data/input", sites$cohort_filename), glob = "*.css") |> 
-  basename()
-
-css_paths <-
-  path("/data/sites/mandifore/",
-       sites$sitename,
-       css_names)
-
-settings <- pmap(
-  list(settings = settings, pss_path = pss_paths, css_path = css_paths),
-  \(settings, pss_path, css_path) {
-    settings$run$inputs$pss <- pss_path
-    settings$run$inputs$css <- css_path
-    #return:
-    settings
-  }
-)
+  settings[[i]]$run$inputs$pss <- run_df$pss_dest[i]
+  settings[[i]]$run$inputs$css <- run_df$css_dest[i]
+}
 
 
 # write settings out
-walk2(settings, wds, ~write.settings(.x, "pecan.xml", outputdir = .y))
+walk2(settings, run_df$wd, ~write.settings(.x, "pecan.xml", outputdir = .y))
 
 
 # Edit workflow.R ---------------------------------------------------------
 
-workflows <- map(wds, ~readLines(file.path(.x, "workflow.R")))
-settings_paths <- file.path(wds, "pecan.xml")
+workflows <- map(run_df$wd, ~readLines(file.path(.x, "workflow.R")))
+settings_paths <- file.path(run_df$wd, "pecan.xml")
 
 map2(workflows, settings_paths, ~{
   repl <- paste0('inputfile <- \"', .y, '\"')
   str_replace(.x, 'inputfile <- .*', replacement = repl)
 }) |> 
-  walk2(wds, ~writeLines(.x, file.path(.y, "workflow.R")))
+  walk2(run_df$wd, ~writeLines(.x, file.path(.y, "workflow.R")))
 
 
 # Modify ED_MET_DRIVER_HEADER -------------------------------------------------
@@ -115,7 +110,7 @@ map2(workflows, settings_paths, ~{
 # 
 # E.g. change `/data/input/NARR_ED2_site_1-18168/` to `/data/sites/mandifore/NARR_ED2_site_1-18168/`
 # Skip files that are already done
-existing_met <- dir_ls("/data/sites/mandifore")
+existing_met <- dir_ls("/data/sites/mandifore") |> basename()
 walk(sites$met_filename[!sites$met_filename %in% existing_met], ~{
   file.copy(
     from = file.path("/data/input", .x),
@@ -137,7 +132,7 @@ walk(sites$met_filename[!sites$met_filename %in% existing_met], ~{
 # Copy files to HPC -------------------------------------------------------
 
 # MET files
-walk(sites$met_filename,
+walk(sites$met_filename, #only need one met file per site, so can use the smaller df for this
       \(met_filename) {
         PEcAn.remote::remote.copy.to(
           host = list(name = "puma"),
@@ -148,29 +143,29 @@ walk(sites$met_filename,
 
 # .css and .pss files
 
-walk(sites$sitename, \(sitename){
+#create directories
+walk(sites$sitename, \(x){
   PEcAn.remote::remote.execute.cmd(
     host = list(name = "puma"),
     cmd = "mkdir",
-    args = path("/groups/kristinariemer/data/sites/mandifore/", sitename)
+    args = path("/groups/kristinariemer/data/sites/mandifore/", x)
   )
 })
 
-
-walk(pss_paths, \(pss_path) {
-  PEcAn.remote::remote.copy.to(
+run_df |> 
+  rowwise() |> 
+  transmute(x = PEcAn.remote::remote.copy.to(
     host = list(name = "puma"),
     src = "/data/sites/generic_patches/generic.pss",
-    dst = path("/groups/kristinariemer", pss_path)
-  )
-})
+    dst = path("/groups/kristinariemer", pss_dest)
+  ))
 
-walk(css_paths, \(css_path) {
-  PEcAn.remote::remote.copy.to(
+run_df |> 
+  mutate(css = path("/data/sites/generic_patches", paste0(ecosystem, ".css"))) |> 
+  rowwise() |> 
+  transmute(x = PEcAn.remote::remote.copy.to(
     host = list(name = "puma"),
-    src = "/data/sites/generic_patches/generic.css",
-    dst = path("/groups/kristinariemer", css_path)
-  )
-})
-
+    src = css,
+    dst = path("/groups/kristinariemer", css_dest)
+  ))
 

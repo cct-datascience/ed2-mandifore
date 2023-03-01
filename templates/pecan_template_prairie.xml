@@ -24,18 +24,6 @@
       <ed2_pft_number>1</ed2_pft_number>
     </pft>
     <pft>
-      <name>sentinel_temperate.Southern_Pine</name>
-      <ed2_pft_number>7</ed2_pft_number>
-    </pft>
-    <pft>
-      <name>sentinel_temperate.South_Mid_Hardwood</name>
-      <ed2_pft_number>10</ed2_pft_number>
-    </pft>
-    <pft>
-      <name>sentinel_temperate.Evergreen_Hardwood</name>
-      <ed2_pft_number>8</ed2_pft_number>
-    </pft>
-    <pft>
       <name>sentinel_ebifarm.c3grass</name>
       <ed2_pft_number>5</ed2_pft_number>
     </pft>
