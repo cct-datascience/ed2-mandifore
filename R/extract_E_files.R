@@ -105,7 +105,17 @@ extract_E_file <- function(ens_dir, do_conversions = TRUE) {
   
   raw <- 
     purrr::map(e_files, ~foo(.x, cohort_vars, patch_vars)) |> 
-    dplyr::bind_rows()
+    dplyr::bind_rows() |> 
+    #set units
+    mutate(
+      DBH = units::set_units(DBH, "cm"), 
+      DDBH_DT = units::set_units(DDBH_DT, "cm/plant/yr"),
+      AGB_CO = units::set_units(AGB_CO, "kg/plant"), 
+      MMEAN_NPPDAILY_CO = units::set_units(MMEAN_NPPDAILY_CO, "kg/plant/yr"),
+      MMEAN_TRANSP_CO = units::set_units(MMEAN_TRANSP_CO, "kg/plant/s"),
+      BSEEDS_CO = units::set_units(BSEEDS_CO, "kg/plant"), 
+      NPLANT = units::set_units(NPLANT, "plant/m^2")
+    )
   
   if(isFALSE(do_conversions)) {
     return(raw)
@@ -120,13 +130,14 @@ extract_E_file <- function(ens_dir, do_conversions = TRUE) {
         #per unit area corrections
         dplyr::across(c(BSEEDS_CO, AGB_CO, MMEAN_NPPDAILY_CO, MMEAN_TRANSP_CO), ~.x*NPLANT),
         #pecan standard units
-        dplyr::across(c(MMEAN_NPPDAILY_CO), ~PEcAn.utils::ud_convert(.x, u1 = "kg/m2/yr", u2 = "kg/m2/s"))
+        MMEAN_NPPDAILY_CO = units::set_units(MMEAN_NPPDAILY_CO,"kg/m^2/s")
       ) |> 
       # weight by patch area and sum across cohorts and patches
       group_by(date, PFT) |> 
       summarize(
         across(c(BSEEDS_CO, AGB_CO, MMEAN_NPPDAILY_CO, MMEAN_TRANSP_CO, NPLANT),
-               ~sum(.x*AREA))
+               ~sum(.x*AREA)),
+        DBH_mean = mean(DBH)
       )
     return(out)
   }
