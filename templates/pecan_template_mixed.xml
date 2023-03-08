@@ -53,13 +53,13 @@
           <sigma>-1</sigma>
           <sigma>1</sigma>
       </quantiles>
-    <variable>NPP</variable>
+    <variable>AGB_PFT</variable>
   </sensitivity.analysis>
 
   <ensemble>
     <!-- This should be increased for final runs -->
     <size>5</size>
-    <variable>NPP</variable>
+    <variable>AGB_PFT</variable>
     <samplingspace>
       <parameters>
         <method>lhc</method>
