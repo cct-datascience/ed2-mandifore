@@ -11,26 +11,16 @@ library(stringr)
 
 #edit this path
 inputfile <- "ED2/MANDIFORE_runs/MANDIFORE-SEUS-xxxx/pecan.xml"
-chk_path <- file.path(dirname(inputfile), "outdir/settings_checked.xml")
+settings <- PEcAn.settings::read.settings(inputfile)
 
-if(!(file.exists(chk_path) | file.exists(inputfile))) {
-  stop("No pecan.xml found at ", inputfile, " or ", chk_path)
-}
+# Prepare settings --------------------------------------------------------
+settings <- prepare.settings(settings)
+settings <- do_conversions(settings)
 
-#check if settings_checked.xml exists and read that in if it does
-if (file.exists(chk_path)){
-  settings <- PEcAn.settings::read.settings(chk_path)
-} else {
-  settings <- PEcAn.settings::read.settings(inputfile)
-  
-  # Prepare settings --------------------------------------------------------
-  settings <- prepare.settings(settings)
-  settings <- do_conversions(settings)
-  
-  # Query trait database ----------------------------------------------------
-  settings <- runModule.get.trait.data(settings)
-  write.settings(settings, outputfile = "settings_checked.xml")
-}
+# Query trait database ----------------------------------------------------
+settings <- runModule.get.trait.data(settings)
+write.settings(settings, outputfile = "settings_checked.xml")
+
 # Meta analysis -----------------------------------------------------------
 #skip if this was already done
 exp_meta_files <- file.path(settings$pfts |> map_chr("outdir"), "trait.mcmc.Rdata")
