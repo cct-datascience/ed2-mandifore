@@ -3,7 +3,8 @@
 # "Source as Local Job"
 
 # Load packages -----------------------------------------------------------
-library(PEcAn.all)
+# PEcAn.ED2 installed from PR https://github.com/PecanProject/pecan/pull/3125
+library(PEcAn.all) 
 library(purrr)
 library(stringr)
 
