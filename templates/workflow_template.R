@@ -76,3 +76,7 @@ get.results(settings)
 
 ## Run ensemble analysis on model output
 runModule.run.ensemble.analysis(settings)
+
+# Run sensitivity analysis on model output
+run.sensitivity.analysis(settings)
+
