@@ -7,6 +7,7 @@
 library(PEcAn.all) 
 library(purrr)
 library(stringr)
+library(fs)
 
 # Read in settings --------------------------------------------------------
 
@@ -64,6 +65,24 @@ purrr::walk(job_scripts, function(x) {
     str_replace('\\)\\"$' , ', process_partial = TRUE\\)\\"')
   writeLines(job_sh_mod, x)
 })
+
+## Remove sensitivity analysis runs for all PFTs except Setaria
+## TODO: Remove SA folders from run/ and out/ AND also edit (or just overwrite) runs.txt and joblist.txt
+
+rundirs <- dir_ls(settings$rundir, type = "directory")
+
+# Delete all rundirs that aren't ensemble members, setaria SA, or the SA median run
+file_delete(rundirs[!str_detect(rundirs, "ENS-|SA-SetariaWT|SA-median")])
+
+# Re-write runs.txt
+runs <- read_lines(path(settings$rundir, "runs.txt"))
+#this is just to keep everyhing in the original order
+inner_join(
+  tibble(runs),
+  tibble(runs = dir_ls(settings$rundir, type = "directory") |> 
+    fs::path_file())
+  ) |> pull(runs) |> write_lines(path(settings$rundir, "runs.txt"))
+
 
 # Start model runs --------------------------------------------------------
 
