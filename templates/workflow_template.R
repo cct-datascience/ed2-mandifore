@@ -9,6 +9,12 @@ library(purrr)
 library(stringr)
 library(fs)
 
+
+# Set logger level --------------------------------------------------------
+
+# Set to "INFO" so console isn't flooded with squeue messages
+olevel <- PEcAn.logger::logger.setLevel("INFO")
+
 # Read in settings --------------------------------------------------------
 
 #edit this path
@@ -100,3 +106,9 @@ runModule.run.ensemble.analysis(settings)
 # Run sensitivity analysis on model output
 run.sensitivity.analysis(settings)
 
+# Cleanup -----------------------------------------------------------------
+
+#TODO remove all .h5 files if all .nc files were created.
+
+# Reset logger level to original value
+PEcAn.logger::logger.setLevel(olevel)
