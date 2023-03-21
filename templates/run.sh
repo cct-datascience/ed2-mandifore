@@ -4,9 +4,8 @@
 
 nohup nice -4 R CMD BATCH workflow.R &
 
-# Save PGID somewhere so you can kill the process or check on it
+# This saves the PID for the process nohup just started
 echo $! > $PWD/pid.nohup
 
-# Kill the process with:
-##  kill -SIGTERM -- -<PGID here> 
-# A negative number kills the whole process group
+# Kill the PID and all child processes (i.e. the R session) with:
+##  pkill -STOP -P <PID>
