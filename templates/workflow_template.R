@@ -8,6 +8,8 @@ library(PEcAn.all)
 library(purrr)
 library(stringr)
 library(fs)
+library(dplyr)
+library(readr)
 
 
 # Set logger level --------------------------------------------------------
@@ -77,17 +79,21 @@ purrr::walk(job_scripts, function(x) {
 
 rundirs <- dir_ls(settings$rundir, type = "directory")
 
-# Delete all rundirs that aren't ensemble members, setaria SA, or the SA median run
+# Delete all rundirs that aren't ensemble members, setaria SA, or the SA median
+# run.
 file_delete(rundirs[!str_detect(rundirs, "ENS-|SA-SetariaWT|SA-median")])
 
 # Re-write runs.txt
 runs <- read_lines(path(settings$rundir, "runs.txt"))
-#this is just to keep everyhing in the original order
+# This join is just to keep everything in the original order, in case that is
+# important.
 inner_join(
   tibble(runs),
   tibble(runs = dir_ls(settings$rundir, type = "directory") |> 
-    fs::path_file())
-  ) |> pull(runs) |> write_lines(path(settings$rundir, "runs.txt"))
+           path_file())
+) |>
+  pull(runs) |>
+  write_lines(path(settings$rundir, "runs.txt"))
 
 
 # Start model runs --------------------------------------------------------
@@ -107,8 +113,20 @@ runModule.run.ensemble.analysis(settings)
 run.sensitivity.analysis(settings)
 
 # Cleanup -----------------------------------------------------------------
+# Remove .h5 files --------------------------------------------------------
 
-#TODO remove all .h5 files if all .nc files were created.
+# To prevent Welsch from filling up, delete .h5 files if conversion to .nc was
+# successful.
+
+# runs that finished and had successful conversion of data
+end <- settings$run$end.date |> lubridate::year()
+done <- 
+  dir_ls(settings$modeloutdir, glob = paste0("*", end, ".nc"), recurse = TRUE) |>
+  path_dir()
+
+# and delete the .h5 files
+dir_ls(done, glob = "*.h5") |> file_delete()
+
 
 # Reset logger level to original value
 PEcAn.logger::logger.setLevel(olevel)
