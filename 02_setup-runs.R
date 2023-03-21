@@ -18,7 +18,7 @@ sites <- new_sites %>%
   ungroup()
 
 #TODO: temporary:
-sites <- sites |> slice(2:3)
+# sites <- sites |> slice(2:3)
 
 # 3 ecosystems corresponding to 3 .css files
 ecosystems <- c("pine", "mixed", "prairie")
@@ -26,7 +26,7 @@ ecosystems <- c("pine", "mixed", "prairie")
 # create working directories ----------------------------------------------
 run_df <- 
   expand_grid(sites, ecosystem = ecosystems) |> 
-  mutate(wd = path("MANDIFORE_big_run", sitename, ecosystem))
+  mutate(wd = path("test_run", sitename, ecosystem))
 
 #create all dirs
 dir_create(run_df$wd)
@@ -36,13 +36,18 @@ walk(run_df$wd, \(x) {
   file_copy(path("templates", "workflow_template.R"), path(x, "workflow.R"))
 })
 
+#copy job run script to all dirs
+walk(run_df$wd, \(x) {
+  file_copy(path("templates", "run.sh"), path(x, "run.sh"))
+})
+
 #copy pecan_xml per ecosystem
 run_df <- 
   run_df |> 
   mutate(template = path("templates", paste0("pecan_template_", ecosystem, ".xml"))) |> 
   mutate(settings_path = file_copy(template, path(wd, "pecan.xml"))) |> 
   #create paths in /data/ for outdir
-  mutate(outdir = path("/data/output/pecan_runs/MANDIFORE_big_run", sitename, ecosystem))
+  mutate(outdir = path("/data/output/pecan_runs/test_run", sitename, ecosystem))
 
 
 # Filepaths ---------------------------------------------------------------
