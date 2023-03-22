@@ -115,7 +115,7 @@ They are mounted from the HPC.
     </inputs>
     <!-- best not to start runs in winter -->
     <start.date>2000-06-01</start.date>
-    <end.date>2015-06-30</end.date>
+    <end.date>2010-06-30</end.date>
   </run>
   
   <host>
