@@ -26,7 +26,7 @@ ecosystems <- c("pine", "mixed", "prairie")
 # create working directories ----------------------------------------------
 run_df <- 
   expand_grid(sites, ecosystem = ecosystems) |> 
-  mutate(wd = path("test_run", sitename, ecosystem))
+  mutate(wd = path("transect", sitename, ecosystem))
 
 #create all dirs
 dir_create(run_df$wd)
@@ -47,7 +47,7 @@ run_df <-
   mutate(template = path("templates", paste0("pecan_template_", ecosystem, ".xml"))) |> 
   mutate(settings_path = file_copy(template, path(wd, "pecan.xml"))) |> 
   #create paths in /data/ for outdir
-  mutate(outdir = path("/data/output/pecan_runs/test_run", sitename, ecosystem))
+  mutate(outdir = path("/data/output/pecan_runs/transect", sitename, ecosystem))
 
 
 # Filepaths ---------------------------------------------------------------

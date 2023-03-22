@@ -245,9 +245,9 @@
       "RemoteUsername": "pecanproject",
       "RemoteRepo": "pecan",
       "RemoteSubdir": "models/ed",
-      "RemoteRef": "8a51656977f204056328c89c7b8993a3711b7c98",
-      "RemoteSha": "8a51656977f204056328c89c7b8993a3711b7c98",
-      "Hash": "e85f8e34024edbd657f71a03fd4ddde1",
+      "RemoteRef": "f1bc7b1120abfdf7d2f1b7a306f65c78135707b0",
+      "RemoteSha": "f1bc7b1120abfdf7d2f1b7a306f65c78135707b0",
+      "Hash": "242c5f2c26b9596bcfaa3d1f16de81c3",
       "Requirements": [
         "PEcAn.data.atmosphere",
         "PEcAn.data.land",

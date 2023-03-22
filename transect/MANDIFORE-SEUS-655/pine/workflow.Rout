@@ -1,0 +1,837 @@
+
+R version 4.1.3 (2022-03-10) -- "One Push-Up"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # This may take a long time to run.  Run as a background job if you don't want
+> # to tie up your R session.  In RStudio click the "Source" drop-down and choose
+> # "Source as Local Job"
+> 
+> # Load packages -----------------------------------------------------------
+> # PEcAn.ED2 installed from PR https://github.com/PecanProject/pecan/pull/3125
+> library(PEcAn.all) 
+Loading required package: PEcAn.DB
+Loading required package: PEcAn.settings
+Loading required package: PEcAn.MA
+Loading required package: XML
+Loading required package: lattice
+Loading required package: MASS
+Loading required package: PEcAn.utils
+
+Attaching package: ‘PEcAn.utils’
+
+The following object is masked from ‘package:utils’:
+
+    download.file
+
+Loading required package: PEcAn.logger
+Loading required package: PEcAn.uncertainty
+Loading required package: PEcAn.priors
+Loading required package: ggplot2
+Loading required package: ggmap
+Google's Terms of Service: https://cloud.google.com/maps-platform/terms/.
+Please cite ggmap if you use it! See citation("ggmap") for details.
+Loading required package: gridExtra
+Loading required package: PEcAn.data.atmosphere
+Loading required package: PEcAn.data.land
+Loading required package: PEcAn.data.remote
+Loading required package: PEcAn.assim.batch
+Loading required package: PEcAn.emulator
+Loading required package: PEcAn.benchmark
+Loading required package: PEcAn.remote
+Loading required package: PEcAn.workflow
+> library(purrr)
+> library(stringr)
+> library(fs)
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following object is masked from ‘package:gridExtra’:
+
+    combine
+
+The following object is masked from ‘package:MASS’:
+
+    select
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> library(readr)
+> 
+> 
+> # Set logger level --------------------------------------------------------
+> 
+> # Set to "INFO" so console isn't flooded with squeue messages
+> olevel <- PEcAn.logger::logger.setLevel("INFO")
+> 
+> # Read in settings --------------------------------------------------------
+> 
+> #edit this path
+> inputfile <- "transect/MANDIFORE-SEUS-655/pine/pecan.xml"
+> settings <- PEcAn.settings::read.settings(inputfile)
+2023-03-22 20:05:30 WARN   [PEcAn.settings::read.settings] : 
+   transect/MANDIFORE-SEUS-655/pine/pecan.xml not found! 
+2023-03-22 20:05:30 INFO   [PEcAn.settings::read.settings] : Loading ./pecan.xml 
+> 
+> # Prepare settings --------------------------------------------------------
+> settings <- prepare.settings(settings)
+2023-03-22 20:05:30 INFO   [fix.deprecated.settings] : 
+   Fixing deprecated settings... 
+2023-03-22 20:05:30 INFO   [update.settings] : 
+   Fixing deprecated settings... 
+2023-03-22 20:05:30 INFO   [check.settings] : Checking settings... 
+2023-03-22 20:05:30 INFO   [check.database] : 
+   Successfully connected to database : PostgreSQL bety bety postgres bety 
+   FALSE 
+2023-03-22 20:05:30 WARN   [check.database.settings] : 
+   Will not write runs/configurations to database. 
+2023-03-22 20:05:30 INFO   [check.ensemble.settings] : 
+   No start date passed to ensemble - using the run date ( 2000 ). 
+2023-03-22 20:05:30 INFO   [check.ensemble.settings] : 
+   No end date passed to ensemble - using the run date ( 2010 ). 
+2023-03-22 20:05:30 INFO   [fn] : 
+   No start date passed to sensitivity.analysis - using the run date ( 2000 
+   ). 
+2023-03-22 20:05:30 INFO   [fn] : 
+   No end date passed to sensitivity.analysis - using the run date ( 2010 
+   ). 
+2023-03-22 20:05:30 INFO   [fn] : 
+   Setting site name to MANDIFORE-SEUS-655 
+2023-03-22 20:05:30 INFO   [fn] : 
+   Setting site lat to 28.3304937 
+2023-03-22 20:05:30 INFO   [fn] : 
+   Setting site lon to -82.5620174 
+2023-03-22 20:05:30 WARN   [check.model.settings] : 
+   Model revision specified in settings file does not match database. 
+2023-03-22 20:05:30 INFO   [check.model.settings] : 
+   Option to delete raw model output not set or not logical. Will keep all 
+   model output. 
+2023-03-22 20:05:30 WARN   [PEcAn.DB::dbfile.file] : 
+   no files found for 14 in database 
+2023-03-22 20:05:30 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for 
+   /data/sites/mandifore/NARR_ED2_site_1-16060/ED_MET_DRIVER_HEADER in 
+   database 
+2023-03-22 20:05:30 INFO   [fn] : 
+   path /data/sites/mandifore/NARR_ED2_site_1-16060/ED_MET_DRIVER_HEADER 
+2023-03-22 20:05:30 INFO   [fn] : 
+   path /data/sites/mandifore/NARR_ED2_site_1-16060/ED_MET_DRIVER_HEADER 
+2023-03-22 20:05:30 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for /data/ed_inputs/glu/ in database 
+2023-03-22 20:05:30 INFO   [fn] : 
+   path /data/ed_inputs/glu/ 
+2023-03-22 20:05:30 INFO   [fn] : 
+   path /data/ed_inputs/glu/ 
+2023-03-22 20:05:31 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for /data/ed_inputs/ in database 
+2023-03-22 20:05:31 INFO   [fn] : 
+   path /data/ed_inputs/ 
+2023-03-22 20:05:31 INFO   [fn] : 
+   path /data/ed_inputs/ 
+2023-03-22 20:05:31 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for /data/oge2OLD/OGE2_ in database 
+2023-03-22 20:05:31 INFO   [fn] : 
+   path /data/oge2OLD/OGE2_ 
+2023-03-22 20:05:31 INFO   [fn] : 
+   path /data/oge2OLD/OGE2_ 
+2023-03-22 20:05:31 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for /data/faoOLD/FAO_ in database 
+2023-03-22 20:05:31 INFO   [fn] : 
+   path /data/faoOLD/FAO_ 
+2023-03-22 20:05:31 INFO   [fn] : 
+   path /data/faoOLD/FAO_ 
+2023-03-22 20:05:31 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for 
+   /data/sites/mandifore/MANDIFORE-SEUS-655/pine_siteid1000016060.fia2000.radius0.075.lat28.3305lon-82.562.pss 
+   in database 
+2023-03-22 20:05:31 INFO   [fn] : 
+   path 
+   /data/sites/mandifore/MANDIFORE-SEUS-655/pine_siteid1000016060.fia2000.radius0.075.lat28.3305lon-82.562.pss 
+2023-03-22 20:05:31 INFO   [fn] : 
+   path 
+   /data/sites/mandifore/MANDIFORE-SEUS-655/pine_siteid1000016060.fia2000.radius0.075.lat28.3305lon-82.562.pss 
+2023-03-22 20:05:31 INFO   [fn] : 
+   Missing optional input : site 
+2023-03-22 20:05:31 WARN   [PEcAn.DB::dbfile.id] : 
+   no id found for 
+   /data/sites/mandifore/MANDIFORE-SEUS-655/pine_siteid1000016060.fia2000.radius0.075.lat28.3305lon-82.562.css 
+   in database 
+2023-03-22 20:05:31 INFO   [fn] : 
+   path 
+   /data/sites/mandifore/MANDIFORE-SEUS-655/pine_siteid1000016060.fia2000.radius0.075.lat28.3305lon-82.562.css 
+2023-03-22 20:05:31 INFO   [fn] : 
+   path 
+   /data/sites/mandifore/MANDIFORE-SEUS-655/pine_siteid1000016060.fia2000.radius0.075.lat28.3305lon-82.562.css 
+2023-03-22 20:05:31 INFO   [fn] : 
+   Missing optional input : initcond 
+2023-03-22 20:05:31 INFO   [check.workflow.settings] : 
+   output folder = /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine 
+2023-03-22 20:05:31 INFO   [check.settings] : 
+   Using 
+   /groups/kristinariemer/ed2_results/pecan_remote/2023-03-22-20-05-31/run 
+   to store runs on remote machine 
+2023-03-22 20:05:31 INFO   [check.settings] : 
+   Using 
+   /groups/kristinariemer/ed2_results/pecan_remote/2023-03-22-20-05-31/out 
+   to store output on remote machine 
+2023-03-22 20:05:31 INFO   [check.settings] : 
+   Storing pft SetariaWT in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/pft/SetariaWT 
+2023-03-22 20:05:31 INFO   [check.settings] : 
+   Storing pft sentinel_temperate.Southern_Pine in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/pft/sentinel_temperate.Southern_Pine 
+> settings <- do_conversions(settings)
+2023-03-22 20:05:31 INFO   [do_conversions] : PROCESSING:  met 
+2023-03-22 20:05:31 INFO   [do_conversions] : 
+   calling met.process: 
+   /data/sites/mandifore/NARR_ED2_site_1-16060/ED_MET_DRIVER_HEADER 
+2023-03-22 20:05:31 WARN   [PEcAn.data.atmosphere::met.process] : 
+   met.process only has a path provided, assuming path is model driver and 
+   skipping processing 
+2023-03-22 20:05:31 INFO   [do_conversions] : PROCESSING:  veg 
+2023-03-22 20:05:31 INFO   [do_conversions] : PROCESSING:  soil 
+2023-03-22 20:05:31 INFO   [do_conversions] : PROCESSING:  lu 
+2023-03-22 20:05:31 INFO   [do_conversions] : PROCESSING:  thsum 
+2023-03-22 20:05:31 INFO   [do_conversions] : PROCESSING:  pss 
+2023-03-22 20:05:31 INFO   [do_conversions] : PROCESSING:  css 
+> 
+> # Query trait database ----------------------------------------------------
+> settings <- runModule.get.trait.data(settings)
+2023-03-22 20:05:32 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:33 INFO   [query.trait.data] : stomatal_slope 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   Median stomatal_slope : 3.79 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:33 INFO   [query.trait.data] : SLA 
+2023-03-22 20:05:33 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2023-03-22 20:05:33 INFO   [query.trait.data] : Median SLA : 43 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:33 INFO   [query.trait.data] : Vcmax 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   Median Vcmax : 24.367 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:33 INFO   [query.trait.data] : cuticular_cond 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   Median cuticular_cond : 30546 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:33 INFO   [query.trait.data] : quantum_efficiency 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   Median quantum_efficiency : 0.062 
+2023-03-22 20:05:33 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:33 INFO   [FUN] : 
+ Number of observations per trait for PFT  'SetariaWT' :
+                trait  n
+1                SLA 52
+2              Vcmax 33
+3     cuticular_cond 33
+4 quantum_efficiency 27
+5     stomatal_slope 33 
+2023-03-22 20:05:33 INFO   [FUN] : 
+ Summary of prior distributions for PFT  'SetariaWT' :
+                         distn parama  paramb  n
+mort2                   gamma  1.470  0.0578  0
+growth_resp_factor       beta  2.630  6.5200  0
+leaf_turnover_rate      gamma  2.900  0.6300 40
+leaf_width              gamma  6.530  1.4900 17
+nonlocal_dispersal       beta 20.300 76.1000 30
+fineroot2leaf           lnorm  0.811  0.8430  0
+root_turnover_rate    weibull  1.670  0.6570 66
+seedling_mortality       beta  3.610  0.4330  0
+stomatal_slope        weibull  3.630  3.8100  4
+quantum_efficiency       norm  0.057  0.0060 56
+Vcmax                   lnorm  3.750  0.3000 12
+r_fract                  beta  2.000  4.0000  0
+cuticular_cond          lnorm  8.400  0.9000  0
+root_respiration_rate weibull  2.660  6.2900 35
+Vm_low_temp              norm 10.000  1.0200  0
+SLA                   weibull  5.000 50.0000  0 
+2023-03-22 20:05:34 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2023-03-22 20:05:34 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2023-03-22 20:05:34 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2023-03-22 20:05:34 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:34 INFO   [query.trait.data] : Vcmax 
+2023-03-22 20:05:35 INFO   [query.trait.data] : Median Vcmax : 66.5 
+2023-03-22 20:05:35 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:35 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:35 INFO   [query.trait.data] : fineroot2leaf 
+2023-03-22 20:05:35 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2023-03-22 20:05:35 INFO   [query.trait.data] : 
+   Median fineroot2leaf : 1.09 
+2023-03-22 20:05:35 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:35 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:35 INFO   [query.trait.data] : quantum_efficiency 
+2023-03-22 20:05:35 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2023-03-22 20:05:35 INFO   [query.trait.data] : 
+   Median quantum_efficiency : 0.03 
+2023-03-22 20:05:35 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:35 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:35 INFO   [query.trait.data] : SLA 
+2023-03-22 20:05:35 ERROR  [PEcAn.utils::transformstats] : 
+   data contains untransformed statistics 
+2023-03-22 20:05:35 INFO   [query.trait.data] : Median SLA : 8.71 
+2023-03-22 20:05:35 INFO   [query.trait.data] : 
+   --------------------------------------------------------- 
+2023-03-22 20:05:35 INFO   [FUN] : 
+ Number of observations per trait for PFT  'sentinel_temperate.Southern_Pine' :
+                trait n
+1                SLA 3
+2              Vcmax 4
+3      fineroot2leaf 3
+4 quantum_efficiency 4 
+2023-03-22 20:05:35 INFO   [FUN] : 
+ Summary of prior distributions for PFT  'sentinel_temperate.Southern_Pine' :
+                      distn parama  paramb  n
+quantum_efficiency weibull   8.32  0.0552 74
+cuticular_cond       lnorm   8.40  0.9000  0
+SLA                   unif   3.00 30.0000 NA
+stomatal_slope        unif   2.00 16.0000 NA
+fineroot2leaf        lnorm  -0.25  1.0000 NA
+Vcmax              weibull   1.70 80.0000  0 
+> write.settings(settings, outputfile = "settings_checked.xml")
+[1] "/data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/settings_checked.xml"
+> 
+> # Meta analysis -----------------------------------------------------------
+> #skip if this was already done
+> exp_meta_files <- file.path(settings$pfts |> map_chr("outdir"), "trait.mcmc.Rdata")
+> if(!all(file.exists(exp_meta_files))) {
++   runModule.run.meta.analysis(settings)
++ }
+2023-03-22 20:05:35 INFO   [FUN] : 
+   ------------------------------------------------------------------- 
+2023-03-22 20:05:35 INFO   [FUN] : 
+   Running meta.analysis for PFT: SetariaWT 
+2023-03-22 20:05:35 INFO   [FUN] : 
+   ------------------------------------------------------------------- 
+2023-03-22 20:05:35 INFO   [check_consistent] : 
+   OK!  stomatal_slope data and prior are consistent: 
+2023-03-22 20:05:35 INFO   [check_consistent] : 
+   stomatal_slope P[X<x] = 0.625092534591416 
+2023-03-22 20:05:35 INFO   [check_consistent] : 
+   OK!  SLA data and prior are consistent: 
+2023-03-22 20:05:35 INFO   [check_consistent] : 
+   SLA P[X<x] = 0.313847118615991 
+2023-03-22 20:05:35 INFO   [check_consistent] : 
+   OK!  Vcmax data and prior are consistent: 
+2023-03-22 20:05:35 INFO   [check_consistent] : 
+   Vcmax P[X<x] = 0.0317338489714169 
+2023-03-22 20:05:35 WARN   [check_consistent] : 
+   CHECK THIS: cuticular_cond data and prior are inconsistent: 
+2023-03-22 20:05:35 INFO   [check_consistent] : 
+   cuticular_cond P[X<x] = 0.983866968897875 
+2023-03-22 20:05:35 INFO   [check_consistent] : 
+   OK!  quantum_efficiency data and prior are consistent: 
+2023-03-22 20:05:35 INFO   [check_consistent] : 
+   quantum_efficiency P[X<x] = 0.797671619036357 
+Each meta-analysis will be run with: 
+5000 total iterations,
+4 chains, 
+a burnin of 2500 samples,
+, 
+thus the total number of samples will be 10000
+################################################
+------------------------------------------------
+starting meta-analysis for:
+
+ stomatal_slope 
+
+------------------------------------------------
+prior for stomatal_slope
+                     (using R parameterization):
+weibull(3.63, 3.81)
+data max: 5.19 
+data min: 2 
+mean: 3.65 
+n: 33
+stem plot of data points
+
+  The decimal point is at the |
+
+  2 | 02
+  2 | 6688
+  3 | 333
+  3 | 5556778888899
+  4 | 001112224
+  4 | 6
+  5 | 2
+
+stem plot of obs.prec:
+
+  The decimal point is 2 digit(s) to the right of the |
+
+   0 | 01223344445558899113999
+   2 | 40088
+   4 | 9
+   6 | 5
+   8 | 8
+  10 | 
+  12 | 
+  14 | 
+  16 | 11
+
+Read 28 items
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+Graph information:
+   Observed stochastic nodes: 66
+   Unobserved stochastic nodes: 11
+   Total graph size: 231
+
+Initializing model
+
+2023-03-22 20:05:36 WARN   [single.MA] : 
+   model did not converge; re-running with j.iter * 10 
+
+Iterations = 6005:56000
+Thinning interval = 5 
+Number of chains = 4 
+Sample size per chain = 10000 
+
+1. Empirical mean and standard deviation for each variable,
+   plus standard error of the mean:
+
+                 Mean      SD  Naive SE Time-series SE
+beta.ghs[2]   0.74561 1.42264 0.0071132      6.645e-02
+beta.o        3.48735 0.56725 0.0028363      2.306e-02
+beta.site[1] -0.36979 0.57016 0.0028508      2.328e-02
+beta.site[2]  0.51653 0.57961 0.0028981      2.272e-02
+beta.site[3]  0.07636 1.28687 0.0064344      6.484e-02
+beta.trt[2]   0.56236 0.15445 0.0007723      1.016e-03
+beta.trt[3]  -0.02254 0.20185 0.0010092      1.032e-03
+beta.trt[4]   0.16487 0.16178 0.0008089      9.856e-04
+sd.site       1.05676 1.31005 0.0065502      4.356e-02
+sd.trt        0.51686 0.41844 0.0020922      2.235e-03
+sd.y          0.41102 0.01834 0.0000917      9.221e-05
+
+2. Quantiles for each variable:
+
+                2.5%      25%       50%      75%  97.5%
+beta.ghs[2]  -2.1595  0.19808  0.781591  1.36336 3.4801
+beta.o        2.1734  3.20433  3.515767  3.80870 4.5951
+beta.site[1] -1.5073 -0.68859 -0.383819 -0.08559 0.9324
+beta.site[2] -0.5829  0.18149  0.470218  0.80821 1.8637
+beta.site[3] -2.1943 -0.45760  0.006068  0.49360 2.7573
+beta.trt[2]   0.2579  0.45851  0.562281  0.66740 0.8634
+beta.trt[3]  -0.4212 -0.15476 -0.022944  0.10871 0.3785
+beta.trt[4]  -0.1418  0.05361  0.159994  0.27321 0.4915
+sd.site       0.2343  0.47089  0.730148  1.21262 3.8379
+sd.trt        0.1633  0.29863  0.417020  0.60200 1.4497
+sd.y          0.3762  0.39852  0.410506  0.42313 0.4480
+
+################################################
+------------------------------------------------
+starting meta-analysis for:
+
+ SLA 
+
+------------------------------------------------
+prior for SLA
+                     (using R parameterization):
+weibull(5, 50)
+data max: 76.93 
+data min: 15.08 
+mean: 41.5 
+n: 15
+stem plot of data points
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  0 | 5
+  2 | 472278
+  4 | 1468957
+  6 | 7
+
+stem plot of obs.prec:
+
+  The decimal point is 1 digit(s) to the left of the |
+
+  0 | 000000113
+  0 | 55
+  1 | 0
+  1 | 7
+
+Read 28 items
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+Graph information:
+   Observed stochastic nodes: 28
+   Unobserved stochastic nodes: 19
+   Total graph size: 147
+
+Initializing model
+
+2023-03-22 20:05:47 WARN   [single.MA] : 
+   model did not converge; re-running with j.iter * 10 
+
+Iterations = 6005:56000
+Thinning interval = 5 
+Number of chains = 4 
+Sample size per chain = 10000 
+
+1. Empirical mean and standard deviation for each variable,
+   plus standard error of the mean:
+
+                Mean      SD Naive SE Time-series SE
+beta.ghs[2]   -5.024  9.6921 0.048460       0.241115
+beta.o        40.772  9.0026 0.045013       0.601886
+beta.site[1]  14.689  9.0392 0.045196       0.601447
+beta.site[2] -16.690  9.2861 0.046430       0.586015
+beta.site[3] -20.324 13.1879 0.065939       0.541333
+beta.trt[10]  16.097  2.4679 0.012339       0.012519
+beta.trt[2]  -13.968  1.6643 0.008321       0.009784
+beta.trt[3]  -22.346  3.6750 0.018375       0.019274
+beta.trt[4]  -22.531  1.8297 0.009148       0.010505
+beta.trt[5]  -10.914  2.0751 0.010375       0.011409
+beta.trt[6]  -13.655  3.6737 0.018369       0.019042
+beta.trt[7]   -7.186  2.0798 0.010399       0.011682
+beta.trt[8]   -6.392  2.0832 0.010416       0.011612
+beta.trt[9]   21.208  2.0678 0.010339       0.011268
+sd.site       27.051 20.8395 0.104197       0.289549
+sd.trt        17.676  4.9404 0.024702       0.024805
+sd.y           3.532  0.2447 0.001223       0.001223
+
+2. Quantiles for each variable:
+
+                2.5%     25%     50%     75%    97.5%
+beta.ghs[2]  -23.163 -11.813  -5.250   1.501  14.4828
+beta.o        23.709  34.596  40.099  46.587  59.6604
+beta.site[1]  -4.266   8.896  15.326  20.868  31.7579
+beta.site[2] -36.165 -22.674 -16.054 -10.306   0.7491
+beta.site[3] -48.658 -28.676 -19.432 -11.054   3.1667
+beta.trt[10]  11.249  14.445  16.099  17.766  20.8608
+beta.trt[2]  -17.231 -15.087 -13.980 -12.847 -10.6882
+beta.trt[3]  -29.511 -24.825 -22.348 -19.911 -15.1221
+beta.trt[4]  -26.124 -23.743 -22.527 -21.309 -18.9206
+beta.trt[5]  -14.986 -12.306 -10.895  -9.533  -6.8403
+beta.trt[6]  -20.806 -16.142 -13.681 -11.191  -6.4200
+beta.trt[7]  -11.230  -8.583  -7.192  -5.795  -3.1058
+beta.trt[8]  -10.455  -7.793  -6.414  -5.002  -2.2544
+beta.trt[9]   17.168  19.831  21.207  22.587  25.2613
+sd.site        9.184  15.441  21.531  31.561  79.4652
+sd.trt        10.873  14.262  16.759  20.082  30.0303
+sd.y           3.073   3.363   3.524   3.694   4.0258
+
+################################################
+------------------------------------------------
+starting meta-analysis for:
+
+ Vcmax 
+
+------------------------------------------------
+prior for Vcmax
+                     (using R parameterization):
+lnorm(3.75, 0.3)
+data max: 33.587 
+data min: 14.572 
+mean: 24 
+n: 33
+stem plot of data points
+
+  The decimal point is at the |
+
+  14 | 67
+  16 | 3993
+  18 | 024
+  20 | 80567
+  22 | 14
+  24 | 49069
+  26 | 235
+  28 | 3
+  30 | 06758
+  32 | 486
+
+stem plot of obs.prec:
+
+  The decimal point is 2 digit(s) to the left of the |
+
+  0 | 00000000111111111111222234
+  0 | 55
+  1 | 
+  1 | 689
+  2 | 
+  2 | 
+  3 | 3
+  3 | 
+  4 | 2
+
+Read 28 items
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+Graph information:
+   Observed stochastic nodes: 66
+   Unobserved stochastic nodes: 11
+   Total graph size: 231
+
+Initializing model
+
+
+Iterations = 1002:6000
+Thinning interval = 2 
+Number of chains = 4 
+Sample size per chain = 2500 
+
+1. Empirical mean and standard deviation for each variable,
+   plus standard error of the mean:
+
+                Mean     SD Naive SE Time-series SE
+beta.ghs[2]   6.4218 5.8560 0.058560        0.36714
+beta.o       22.3889 3.6147 0.036147        0.34281
+beta.site[1] -1.0268 3.2712 0.032712        0.29796
+beta.site[2] -3.3728 4.0500 0.040500        0.37661
+beta.site[3]  0.6540 4.3061 0.043061        0.20407
+beta.trt[2]   8.9592 1.6805 0.016805        0.03873
+beta.trt[3]  -3.2257 2.4344 0.024344        0.03050
+beta.trt[4]   0.2229 1.8213 0.018213        0.03753
+sd.site       4.1948 5.6648 0.056648        0.33655
+sd.trt        7.8813 7.3723 0.073723        0.07510
+sd.y          4.5418 0.3194 0.003194        0.00374
+
+2. Quantiles for each variable:
+
+                 2.5%     25%      50%     75%   97.5%
+beta.ghs[2]   -9.7260  4.2671  7.76114 10.0157 14.7208
+beta.o        17.8899 19.9454 21.25395 24.0988 31.4363
+beta.site[1]  -9.6570 -1.9164 -0.08003  0.5901  3.6217
+beta.site[2] -13.4240 -5.5225 -1.86870 -0.2288  0.7766
+beta.site[3]  -7.7821 -0.7247  0.10368  1.7369 11.1374
+beta.trt[2]    5.7276  7.7910  8.94457 10.0898 12.2762
+beta.trt[3]   -8.0207 -4.8273 -3.21977 -1.6211  1.5259
+beta.trt[4]   -3.3447 -1.0035  0.19713  1.4277  3.7890
+sd.site        0.1155  0.6945  2.36255  5.5512 18.9012
+sd.trt         2.8662  4.6482  6.40411  9.0761 21.7040
+sd.y           3.9234  4.3232  4.53858  4.7586  5.1902
+
+################################################
+------------------------------------------------
+starting meta-analysis for:
+
+ cuticular_cond 
+
+------------------------------------------------
+prior for cuticular_cond
+                     (using R parameterization):
+lnorm(8.4, 0.9)
+data max: 105286 
+data min: 157 
+mean: 32900 
+n: 33
+stem plot of data points
+
+  The decimal point is 4 digit(s) to the right of the |
+
+   0 | 084556799
+   2 | 1111390112225599
+   4 | 36625
+   6 | 22
+   8 | 
+  10 | 5
+
+stem plot of obs.prec:
+
+  The decimal point is 9 digit(s) to the left of the |
+
+  0 | 000000000000000000000000000000000
+
+Read 28 items
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+Graph information:
+   Observed stochastic nodes: 66
+   Unobserved stochastic nodes: 11
+   Total graph size: 231
+
+Initializing model
+
+
+Iterations = 1002:6000
+Thinning interval = 2 
+Number of chains = 4 
+Sample size per chain = 2500 
+
+1. Empirical mean and standard deviation for each variable,
+   plus standard error of the mean:
+
+                   Mean       SD Naive SE Time-series SE
+beta.ghs[2]   2.278e-01    10.09   0.1009         0.1033
+beta.o        1.574e+04 10523.01 105.2301       839.7585
+beta.site[1]  2.578e+04 11364.92 113.6492       877.1406
+beta.site[2]  7.094e+03 10679.55 106.7955       785.1603
+beta.site[3]  8.006e+03 10809.06 108.0906       767.8740
+beta.trt[2]  -1.108e+04  4804.84  48.0484       176.4392
+beta.trt[3]  -3.686e+03  5672.74  56.7274        77.1492
+beta.trt[4]   2.508e+03  4291.49  42.9149        63.7408
+sd.site       2.461e+04 21687.88 216.8788       823.0197
+sd.trt        1.092e+04  9212.04  92.1204       165.3143
+sd.y          1.262e+04   505.09   5.0509         5.4573
+
+2. Quantiles for each variable:
+
+                  2.5%        25%        50%      75%    97.5%
+beta.ghs[2]     -19.11     -6.631  3.194e-01     7.00    19.87
+beta.o         1212.22   5887.893  1.479e+04 24526.09 35597.96
+beta.site[1]   4635.78  16619.802  2.669e+04 35457.18 43970.84
+beta.site[2] -12779.60  -1282.101  7.457e+03 15708.18 25400.97
+beta.site[3] -12101.34   -469.074  8.276e+03 16642.56 27002.97
+beta.trt[2]  -20112.00 -14334.877 -1.116e+04 -7938.77   -42.44
+beta.trt[3]  -15901.51  -7262.798 -3.244e+03    10.47  6573.59
+beta.trt[4]   -6135.42   -158.336  2.436e+03  5276.84 10982.72
+sd.site        5006.82  11975.443  1.937e+04 29816.80 76597.02
+sd.trt          598.06   6044.603  8.860e+03 12975.12 32590.53
+sd.y          11653.15  12275.094  1.261e+04 12954.44 13631.93
+
+################################################
+------------------------------------------------
+starting meta-analysis for:
+
+ quantum_efficiency 
+
+------------------------------------------------
+prior for quantum_efficiency
+                     (using R parameterization):
+norm(0.057, 0.006)
+data max: 0.077 
+data min: 0.049 
+mean: 0.0611 
+n: 27
+stem plot of data points
+
+  The decimal point is 2 digit(s) to the left of the |
+
+  4 | 9
+  5 | 1113444
+  5 | 6779
+  6 | 02244
+  6 | 556899
+  7 | 012
+  7 | 7
+
+stem plot of obs.prec:
+
+  The decimal point is 9 digit(s) to the right of the |
+
+   0 | 1224440000000000000
+   2 | 1111111
+   4 | 
+   6 | 
+   8 | 
+  10 | 
+  12 | 
+  14 | 6
+
+Read 28 items
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+Graph information:
+   Observed stochastic nodes: 54
+   Unobserved stochastic nodes: 8
+   Total graph size: 164
+
+Initializing model
+
+
+Iterations = 1002:6000
+Thinning interval = 2 
+Number of chains = 4 
+Sample size per chain = 2500 
+
+1. Empirical mean and standard deviation for each variable,
+   plus standard error of the mean:
+
+                   Mean        SD  Naive SE Time-series SE
+beta.o        5.661e-02 0.0031820 3.182e-05      1.211e-04
+beta.site[1] -4.350e-04 0.0033416 3.342e-05      1.073e-04
+beta.site[2]  6.622e-05 0.0032630 3.263e-05      1.247e-04
+beta.trt[2]   9.036e-03 0.0022201 2.220e-05      3.947e-05
+beta.trt[3]   2.213e-03 0.0024239 2.424e-05      3.748e-05
+sd.site       5.920e-03 0.0111916 1.119e-04      1.392e-04
+sd.trt        1.245e-02 0.0203105 2.031e-04      2.042e-04
+sd.y          6.307e-03 0.0003854 3.854e-06      4.338e-06
+
+2. Quantiles for each variable:
+
+                  2.5%        25%        50%      75%    97.5%
+beta.o        0.049928  0.0548015  0.0565141 0.058449 0.063131
+beta.site[1] -0.007532 -0.0022333 -0.0003785 0.001440 0.006475
+beta.site[2] -0.006640 -0.0016852  0.0001074 0.001813 0.007214
+beta.trt[2]   0.004592  0.0075719  0.0090635 0.010543 0.013279
+beta.trt[3]  -0.002396  0.0005632  0.0021880 0.003829 0.007030
+sd.site       0.001278  0.0023928  0.0037429 0.006316 0.022934
+sd.trt        0.002975  0.0056337  0.0083045 0.013263 0.047295
+sd.y          0.005593  0.0060376  0.0062940 0.006558 0.007108
+
+2023-03-22 20:05:59 INFO   [check_consistent] : 
+   OK!  stomatal_slope data and prior are consistent: 
+2023-03-22 20:05:59 INFO   [check_consistent] : 
+   stomatal_slope P[X<x] = 0.526193604403675 
+2023-03-22 20:05:59 INFO   [check_consistent] : 
+   OK!  SLA data and prior are consistent: 
+2023-03-22 20:05:59 INFO   [check_consistent] : 
+   SLA P[X<x] = 0.282345432379222 
+2023-03-22 20:05:59 WARN   [check_consistent] : 
+   CHECK THIS: Vcmax data and prior are inconsistent: 
+2023-03-22 20:05:59 INFO   [check_consistent] : 
+   Vcmax P[X<x] = 0.00990047443603367 
+2023-03-22 20:05:59 INFO   [check_consistent] : 
+   OK!  cuticular_cond data and prior are consistent: 
+2023-03-22 20:05:59 INFO   [check_consistent] : 
+   cuticular_cond P[X<x] = 0.900462629498582 
+2023-03-22 20:05:59 INFO   [check_consistent] : 
+   OK!  quantum_efficiency data and prior are consistent: 
+2023-03-22 20:05:59 INFO   [check_consistent] : 
+   quantum_efficiency P[X<x] = 0.470150341595323 
+2023-03-22 20:06:07 INFO   [pecan.ma.summary] : 
+   JAGS model converged for SetariaWT stomatal_slope GD MPSRF = 1.008 

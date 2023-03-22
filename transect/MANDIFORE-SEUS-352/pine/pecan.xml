@@ -3,7 +3,7 @@
  <info>
   <notes>MANDIFORE-SEUS-352</notes>
  </info>
- <outdir>MANDIFORE_big_run/MANDIFORE-SEUS-352/outdir</outdir>
+ <outdir>/data/output/pecan_runs/transect/MANDIFORE-SEUS-352/pine</outdir>
  <database>
   <bety>
    <driver>PostgreSQL</driver>
@@ -21,39 +21,30 @@
    <ed2_pft_number>1</ed2_pft_number>
   </pft>
   <pft>
-   <name>temperate.Southern_Pine</name>
+   <name>sentinel_temperate.Southern_Pine</name>
    <ed2_pft_number>7</ed2_pft_number>
-  </pft>
-  <pft>
-   <name>temperate.South_Mid_Hardwood</name>
-   <ed2_pft_number>10</ed2_pft_number>
-  </pft>
-  <pft>
-   <name>temperate.Evergreen_Hardwood</name>
-   <ed2_pft_number>8</ed2_pft_number>
-  </pft>
-  <pft>
-   <name>ebifarm.c3grass</name>
-   <ed2_pft_number>5</ed2_pft_number>
-  </pft>
-  <pft>
-   <name>ebifarm.c4grass</name>
-   <ed2_pft_number>14</ed2_pft_number>
-  </pft>
-  <pft>
-   <name>ebifarm.forb</name>
-   <ed2_pft_number>12</ed2_pft_number>
   </pft>
  </pfts>
  <meta.analysis>
-  <iter>3000</iter>
+  <iter>5000</iter>
   <random.effects>TRUE</random.effects>
   <threshold>1.2</threshold>
   <update>TRUE</update>
  </meta.analysis>
+ <sensitivity.analysis>
+  <quantiles>
+   <sigma>-1</sigma>
+   <sigma>1</sigma>
+   <sigma>-2</sigma>
+   <sigma>2</sigma>
+   <sigma>-3</sigma>
+   <sigma>3</sigma>
+  </quantiles>
+  <variable>AGB_PFT</variable>
+ </sensitivity.analysis>
  <ensemble>
-  <size>25</size>
-  <variable>NPP</variable>
+  <size>20</size>
+  <variable>AGB_PFT</variable>
   <samplingspace>
    <parameters>
     <method>lhc</method>
@@ -94,16 +85,16 @@
    <soil>/data/faoOLD/FAO_</soil>
    <lu>/data/ed_inputs/glu/</lu>
    <thsum>/data/ed_inputs/</thsum>
-   <pss>/data/sites/mandifore/MANDIFORE-SEUS-352/siteid1000014289.fia2000.radius0.075.lat27.1764lon-82.1357.pss</pss>
-   <css>/data/sites/mandifore/MANDIFORE-SEUS-352/siteid1000014289.fia2000.radius0.075.lat27.1764lon-82.1357.css</css>
+   <pss>/data/sites/mandifore/MANDIFORE-SEUS-352/pine_siteid1000014289.fia2000.radius0.075.lat27.1764lon-82.1357.pss</pss>
+   <css>/data/sites/mandifore/MANDIFORE-SEUS-352/pine_siteid1000014289.fia2000.radius0.075.lat27.1764lon-82.1357.css</css>
   </inputs>
-  <start.date>2002-06-01</start.date>
-  <end.date>2012-07-01</end.date>
+  <start.date>2000-06-01</start.date>
+  <end.date>2010-06-30</end.date>
  </run>
  <host>
   <name>puma</name>
   <folder>/groups/kristinariemer/ed2_results/pecan_remote</folder>
-  <qsub>sbatch --job-name=@NAME@ --account=kristinariemer --ntasks=28 --nodes=3 --time=07-00:00:00 -o @STDOUT@ -e @STDERR@</qsub>
+  <qsub>sbatch --job-name=@NAME@ --account=kristinariemer --ntasks=120 --nodes=2 --time=07-00:00:00 -o @STDOUT@ -e @STDERR@</qsub>
   <qsub.jobid>.* ([0-9]+)</qsub.jobid>
   <qstat>&apos;squeue --job @JOBID@ &amp;&gt; /dev/null || echo DONE&apos;</qstat>
   <prerun>module load openmpi3 R</prerun>
