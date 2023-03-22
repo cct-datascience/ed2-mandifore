@@ -16,15 +16,13 @@ plan("multisession", workers = 5) #probably could use more workers, but not sure
 #change this to the outdir you want (dir that contains out/ run/ and pft/)
 outdir <- "/data/output/pecan_runs/MANDIFORE_big_run/MANDIFORE-SEUS-1123/prairie/"
 
-safe_model2netcdf.ED2 <- purrr::possibly(model2netcdf.ED2)
-
 outdirs <- dir_ls(path(outdir, "out/"))
 outdirs |> 
   future_walk(
     
     ###### IMPORTANT #####
     ###### EDIT THIS #####
-    ~ safe_model2netcdf.ED2(
+    ~ model2netcdf.ED2(
       .x,
       29.365195,
       -82.810137,
