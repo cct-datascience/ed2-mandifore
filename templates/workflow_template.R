@@ -75,13 +75,12 @@ purrr::walk(job_scripts, function(x) {
 })
 
 ## Remove sensitivity analysis runs for all PFTs except Setaria
-## TODO: Remove SA folders from run/ and out/ AND also edit (or just overwrite) runs.txt and joblist.txt
-
-rundirs <- dir_ls(settings$rundir, type = "directory")
-
 # Delete all rundirs that aren't ensemble members, setaria SA, or the SA median
 # run.
+rundirs <- dir_ls(settings$rundir, type = "directory")
+modeloutdirs <- dir_ls(settings$modeloutdir, type = "directory")
 file_delete(rundirs[!str_detect(rundirs, "ENS-|SA-SetariaWT|SA-median")])
+file_delete(modeloutdirs[!str_detect(modeloutdirs, "ENS-|SA-SetariaWT|SA-median")])
 
 # Re-write runs.txt
 runs <- read_lines(path(settings$rundir, "runs.txt"))
