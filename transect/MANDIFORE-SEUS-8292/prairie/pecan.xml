@@ -17,7 +17,7 @@
  </database>
  <pfts>
   <pft>
-   <name>SetariaWT</name>
+   <name>SetariaWT2</name>
    <ed2_pft_number>1</ed2_pft_number>
   </pft>
   <pft>
@@ -43,10 +43,6 @@
   <quantiles>
    <sigma>-1</sigma>
    <sigma>1</sigma>
-   <sigma>-2</sigma>
-   <sigma>2</sigma>
-   <sigma>-3</sigma>
-   <sigma>3</sigma>
   </quantiles>
   <variable>AGB_PFT</variable>
  </sensitivity.analysis>
@@ -97,12 +93,12 @@
    <css>/data/sites/mandifore/MANDIFORE-SEUS-8292/prairie_siteid1000017385.fia2000.radius0.075.lat34.5966lon-82.5813.css</css>
   </inputs>
   <start.date>2000-06-01</start.date>
-  <end.date>2000-08-30</end.date>
+  <end.date>2010-06-30</end.date>
  </run>
  <host>
   <name>puma</name>
   <folder>/groups/kristinariemer/ed2_results/pecan_remote</folder>
-  <qsub>sbatch --job-name=@NAME@ --account=kristinariemer --ntasks=120 --nodes=2 --time=12:00:00 -o @STDOUT@ -e @STDERR@</qsub>
+  <qsub>sbatch --job-name=@NAME@ --account=kristinariemer --ntasks=43 --nodes=1 --time=07-00:00:00 -o @STDOUT@ -e @STDERR@</qsub>
   <qsub.jobid>.* ([0-9]+)</qsub.jobid>
   <qstat>&apos;squeue --job @JOBID@ &amp;&gt; /dev/null || echo DONE&apos;</qstat>
   <prerun>module load openmpi3 R</prerun>

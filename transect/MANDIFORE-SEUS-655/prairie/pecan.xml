@@ -17,7 +17,7 @@
  </database>
  <pfts>
   <pft>
-   <name>SetariaWT</name>
+   <name>SetariaWT2</name>
    <ed2_pft_number>1</ed2_pft_number>
   </pft>
   <pft>
@@ -43,10 +43,6 @@
   <quantiles>
    <sigma>-1</sigma>
    <sigma>1</sigma>
-   <sigma>-2</sigma>
-   <sigma>2</sigma>
-   <sigma>-3</sigma>
-   <sigma>3</sigma>
   </quantiles>
   <variable>AGB_PFT</variable>
  </sensitivity.analysis>
@@ -102,13 +98,13 @@
  <host>
   <name>puma</name>
   <folder>/groups/kristinariemer/ed2_results/pecan_remote</folder>
-  <qsub>sbatch --job-name=@NAME@ --ntasks=120 --nodes=2 --time=07-00:00:00 -o @STDOUT@ -e @STDERR@</qsub>
+  <qsub>sbatch --job-name=@NAME@ --account=kristinariemer --ntasks=43 --nodes=1 --time=07-00:00:00 -o @STDOUT@ -e @STDERR@</qsub>
   <qsub.jobid>.* ([0-9]+)</qsub.jobid>
   <qstat>&apos;squeue --job @JOBID@ &amp;&gt; /dev/null || echo DONE&apos;</qstat>
   <prerun>module load openmpi3 R</prerun>
   <modellauncher>
    <binary>/groups/kristinariemer/ed2_results/pecan/contrib/modellauncher/modellauncher</binary>
-   <qsub.extra>--partition=windfall</qsub.extra>
+   <qsub.extra>--partition=standard</qsub.extra>
    <mpirun>module load openmpi3; mpirun</mpirun>
   </modellauncher>
  </host>

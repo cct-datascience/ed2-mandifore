@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <pecan>
  <info>
-  <notes>MANDIFORE-SEUS-5687</notes>
+  <notes>MANDIFORE-SEUS-352</notes>
  </info>
- <outdir>/data/output/pecan_runs/transect/MANDIFORE-SEUS-5687/pine</outdir>
+ <outdir>/data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed</outdir>
  <database>
   <bety>
    <driver>PostgreSQL</driver>
@@ -17,12 +17,20 @@
  </database>
  <pfts>
   <pft>
-   <name>SetariaWT2</name>
+   <name>SetariaWT</name>
    <ed2_pft_number>1</ed2_pft_number>
   </pft>
   <pft>
    <name>sentinel_temperate.Southern_Pine</name>
    <ed2_pft_number>7</ed2_pft_number>
+  </pft>
+  <pft>
+   <name>sentinel_temperate.South_Mid_Hardwood</name>
+   <ed2_pft_number>10</ed2_pft_number>
+  </pft>
+  <pft>
+   <name>sentinel_temperate.Evergreen_Hardwood</name>
+   <ed2_pft_number>8</ed2_pft_number>
   </pft>
  </pfts>
  <meta.analysis>
@@ -35,6 +43,10 @@
   <quantiles>
    <sigma>-1</sigma>
    <sigma>1</sigma>
+   <sigma>-2</sigma>
+   <sigma>2</sigma>
+   <sigma>-3</sigma>
+   <sigma>3</sigma>
   </quantiles>
   <variable>AGB_PFT</variable>
  </sensitivity.analysis>
@@ -71,18 +83,18 @@
  </model>
  <run>
   <site>
-   <id>1000003047</id>
+   <id>1000014289</id>
    <met.start>2000-01-01 00:00:00</met.start>
    <met.end>2015-12-31 00:00:00</met.end>
   </site>
   <inputs>
-   <met>/data/sites/mandifore/NARR_ED2_site_1-3047/ED_MET_DRIVER_HEADER</met>
+   <met>/data/sites/mandifore/NARR_ED2_site_1-14289/ED_MET_DRIVER_HEADER</met>
    <veg>/data/oge2OLD/OGE2_</veg>
    <soil>/data/faoOLD/FAO_</soil>
    <lu>/data/ed_inputs/glu/</lu>
    <thsum>/data/ed_inputs/</thsum>
-   <pss>/data/sites/mandifore/MANDIFORE-SEUS-5687/pine_siteid1000003047.fia2000.radius0.075.lat32.5074lon-82.5039.pss</pss>
-   <css>/data/sites/mandifore/MANDIFORE-SEUS-5687/pine_siteid1000003047.fia2000.radius0.075.lat32.5074lon-82.5039.css</css>
+   <pss>/data/sites/mandifore/MANDIFORE-SEUS-352/mixed_siteid1000014289.fia2000.radius0.075.lat27.1764lon-82.1357.pss</pss>
+   <css>/data/sites/mandifore/MANDIFORE-SEUS-352/mixed_siteid1000014289.fia2000.radius0.075.lat27.1764lon-82.1357.css</css>
   </inputs>
   <start.date>2000-06-01</start.date>
   <end.date>2010-06-30</end.date>
@@ -90,7 +102,7 @@
  <host>
   <name>puma</name>
   <folder>/groups/kristinariemer/ed2_results/pecan_remote</folder>
-  <qsub>sbatch --job-name=@NAME@ --account=kristinariemer --ntasks=43 --nodes=1 --time=50:00:00 -o @STDOUT@ -e @STDERR@</qsub>
+  <qsub>sbatch --job-name=@NAME@ --account=kristinariemer --ntasks=120 --nodes=2 --time=07-00:00:00 -o @STDOUT@ -e @STDERR@</qsub>
   <qsub.jobid>.* ([0-9]+)</qsub.jobid>
   <qstat>&apos;squeue --job @JOBID@ &amp;&gt; /dev/null || echo DONE&apos;</qstat>
   <prerun>module load openmpi3 R</prerun>

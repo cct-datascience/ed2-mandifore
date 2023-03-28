@@ -1,4 +1,4 @@
-setwd(here::here())
+setwd(here::here()) #for run.sh to work. Shouldn't impact running interactively
 source(".Rprofile")
 # This may take a long time to run.  Run as a background job if you don't want
 # to tie up your R session.  In RStudio click the "Source" drop-down and choose
@@ -17,7 +17,7 @@ library(readr)
 # Set logger level --------------------------------------------------------
 
 # Set to "INFO" so console isn't flooded with squeue messages
-# olevel <- PEcAn.logger::logger.setLevel("INFO")
+olevel <- PEcAn.logger::logger.setLevel("INFO")
 
 # Read in settings --------------------------------------------------------
 
@@ -130,4 +130,4 @@ dir_ls(done, glob = "*.h5") |> file_delete()
 
 
 # Reset logger level to original value
-# PEcAn.logger::logger.setLevel(olevel)
+PEcAn.logger::logger.setLevel(olevel)
