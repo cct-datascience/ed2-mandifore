@@ -2043,3 +2043,1559 @@ Joining with `by = join_by(runs)`
 2023-03-22 20:06:59 INFO   [start_model_runs] : 
    ------------------------------------------------------------------- 
   |                                                                              |                                                                      |   0%
+  |                                                                              |======================================================================| 100%There were 50 or more warnings (use warnings() to see the first 50)
+> 
+> # Model analyses ----------------------------------------------------------
+> 
+> ## Get results of model runs
+> get.results(settings)
+2023-03-24 13:57:29 WARN   [get.results] : 
+   Currently performing sensitivity analysis on variable AGB_PFT) 
+2023-03-24 13:57:29 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-mort2-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-mort2-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:29 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:29 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-mort2-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-mort2-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:29 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:29 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-mort2-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-mort2-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:29 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:29 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:30 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:30 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-mort2-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-mort2-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:30 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:30 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-mort2-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-mort2-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:30 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:30 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-mort2-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-mort2-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:30 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:30 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait mort2 
+2023-03-24 13:57:30 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-growth_resp_factor-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-growth_resp_factor-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:30 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:30 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-growth_resp_factor-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-growth_resp_factor-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:30 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:30 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-growth_resp_factor-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-growth_resp_factor-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:30 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:30 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-growth_resp_factor-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-growth_resp_factor-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-growth_resp_factor-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-growth_resp_factor-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-growth_resp_factor-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-growth_resp_factor-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait growth_resp_factor 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-leaf_turnover_rate-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-leaf_turnover_rate-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-leaf_turnover_rate-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-leaf_turnover_rate-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-leaf_turnover_rate-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-leaf_turnover_rate-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-leaf_turnover_rate-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-leaf_turnover_rate-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-leaf_turnover_rate-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-leaf_turnover_rate-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-leaf_turnover_rate-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-leaf_turnover_rate-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait leaf_turnover_rate 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-leaf_width-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-leaf_width-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-leaf_width-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-leaf_width-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-leaf_width-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-leaf_width-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-leaf_width-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-leaf_width-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-leaf_width-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-leaf_width-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-leaf_width-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-leaf_width-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait leaf_width 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-nonlocal_dispersal-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-nonlocal_dispersal-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-nonlocal_dispersal-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-nonlocal_dispersal-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-nonlocal_dispersal-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-nonlocal_dispersal-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-nonlocal_dispersal-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-nonlocal_dispersal-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-nonlocal_dispersal-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-nonlocal_dispersal-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-nonlocal_dispersal-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-nonlocal_dispersal-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait nonlocal_dispersal 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-fineroot2leaf-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-fineroot2leaf-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-fineroot2leaf-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-fineroot2leaf-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-fineroot2leaf-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-fineroot2leaf-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:31 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-fineroot2leaf-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-fineroot2leaf-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-fineroot2leaf-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-fineroot2leaf-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-fineroot2leaf-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-fineroot2leaf-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait fineroot2leaf 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-root_turnover_rate-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-root_turnover_rate-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-root_turnover_rate-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-root_turnover_rate-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-root_turnover_rate-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-root_turnover_rate-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-root_turnover_rate-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-root_turnover_rate-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-root_turnover_rate-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-root_turnover_rate-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-root_turnover_rate-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-root_turnover_rate-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait root_turnover_rate 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-seedling_mortality-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-seedling_mortality-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-seedling_mortality-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-seedling_mortality-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-seedling_mortality-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-seedling_mortality-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-seedling_mortality-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-seedling_mortality-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-seedling_mortality-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-seedling_mortality-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-seedling_mortality-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-seedling_mortality-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait seedling_mortality 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-stomatal_slope-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-stomatal_slope-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-stomatal_slope-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-stomatal_slope-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-stomatal_slope-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-stomatal_slope-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:32 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-stomatal_slope-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-stomatal_slope-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-stomatal_slope-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-stomatal_slope-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-stomatal_slope-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-stomatal_slope-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait stomatal_slope 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-quantum_efficiency-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-quantum_efficiency-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-quantum_efficiency-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-quantum_efficiency-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-quantum_efficiency-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-quantum_efficiency-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-quantum_efficiency-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-quantum_efficiency-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-quantum_efficiency-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-quantum_efficiency-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-quantum_efficiency-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-quantum_efficiency-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait quantum_efficiency 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-Vcmax-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-Vcmax-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-Vcmax-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-Vcmax-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-Vcmax-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-Vcmax-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-Vcmax-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-Vcmax-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-Vcmax-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-Vcmax-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-Vcmax-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-Vcmax-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait Vcmax 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-r_fract-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-r_fract-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-r_fract-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-r_fract-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-r_fract-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-r_fract-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-r_fract-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-r_fract-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-r_fract-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-r_fract-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-r_fract-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-r_fract-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait r_fract 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-cuticular_cond-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-cuticular_cond-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-cuticular_cond-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-cuticular_cond-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-cuticular_cond-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-cuticular_cond-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:33 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-cuticular_cond-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-cuticular_cond-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-cuticular_cond-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-cuticular_cond-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-cuticular_cond-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-cuticular_cond-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait cuticular_cond 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-root_respiration_rate-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-root_respiration_rate-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-root_respiration_rate-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-root_respiration_rate-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-root_respiration_rate-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-root_respiration_rate-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-root_respiration_rate-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-root_respiration_rate-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-root_respiration_rate-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-root_respiration_rate-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-root_respiration_rate-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-root_respiration_rate-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait root_respiration_rate 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-Vm_low_temp-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-Vm_low_temp-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-Vm_low_temp-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-Vm_low_temp-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-Vm_low_temp-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-Vm_low_temp-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-Vm_low_temp-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-Vm_low_temp-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-Vm_low_temp-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-Vm_low_temp-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-Vm_low_temp-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-Vm_low_temp-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait Vm_low_temp 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-SLA-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-SLA-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-SLA-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-SLA-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-SLA-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-SLA-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-SLA-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-SLA-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-SLA-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-SLA-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-SetariaWT-SLA-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-SetariaWT-SLA-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait SLA 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-quantum_efficiency-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-quantum_efficiency-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-quantum_efficiency-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-quantum_efficiency-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-quantum_efficiency-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-quantum_efficiency-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:34 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-quantum_efficiency-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-quantum_efficiency-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-quantum_efficiency-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-quantum_efficiency-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-quantum_efficiency-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-quantum_efficiency-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait quantum_efficiency 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-cuticular_cond-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-cuticular_cond-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-cuticular_cond-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-cuticular_cond-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-cuticular_cond-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-cuticular_cond-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-cuticular_cond-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-cuticular_cond-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-cuticular_cond-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-cuticular_cond-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-cuticular_cond-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-cuticular_cond-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait cuticular_cond 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-SLA-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-SLA-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-SLA-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-SLA-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-SLA-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-SLA-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-SLA-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-SLA-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-SLA-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-SLA-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-SLA-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-SLA-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait SLA 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-stomatal_slope-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-stomatal_slope-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-stomatal_slope-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-stomatal_slope-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-stomatal_slope-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-stomatal_slope-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-stomatal_slope-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-stomatal_slope-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-stomatal_slope-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-stomatal_slope-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-stomatal_slope-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-stomatal_slope-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait stomatal_slope 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-fineroot2leaf-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-fineroot2leaf-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-fineroot2leaf-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-fineroot2leaf-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-fineroot2leaf-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-fineroot2leaf-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:35 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-fineroot2leaf-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-fineroot2leaf-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-fineroot2leaf-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-fineroot2leaf-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-fineroot2leaf-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-fineroot2leaf-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait fineroot2leaf 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-Vcmax-0.001 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-Vcmax-0.001 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-Vcmax-0.023 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-Vcmax-0.023 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-Vcmax-0.159 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-Vcmax-0.159 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-median/2010.nc 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 1.19   1.05 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-Vcmax-0.841 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-Vcmax-0.841 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-Vcmax-0.977 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-Vcmax-0.977 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   SA-sentinel_temperate.Southern_Pine-Vcmax-0.999 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/SA-sentinel_temperate.Southern_Pine-Vcmax-0.999 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait Vcmax 
+2023-03-24 13:57:36 WARN   [get.results] : 
+   Currently performing ensemble analysis on variable AGB_PFT) 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00001-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00001-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00001-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00002-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00002-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00002-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00003-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00003-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00003-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00004-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00004-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00004-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00005-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00005-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00005-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00006-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00006-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00006-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00007-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00007-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00007-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00008-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00008-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00008-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00009-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00009-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00009-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00010-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00010-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00010-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00011-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00011-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00011-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00012-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00012-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00012-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00013-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00013-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00013-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00014-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00014-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00014-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00015-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00015-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00015-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00016-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00016-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00016-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00017-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00017-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00017-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00018-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00018-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00018-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00019-1000016060 
+2023-03-24 13:57:36 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00019-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00019-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+2023-03-24 13:57:36 INFO   [PEcAn.uncertainty::read.ensemble.output] : 
+   reading ensemble output from run id: ENS-00020-1000016060 
+2023-03-24 13:57:37 WARN   [PEcAn.utils::read.output] : 
+   read.output: no netCDF files of model output present for runid = 
+   ENS-00020-1000016060 in 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-655/pine/out/ENS-00020-1000016060 
+   for years 2000 : 2010 . Returning NA. 
+2023-03-24 13:57:37 INFO   [PEcAn.utils::read.output] : 
+   No files found. Returning all NA. 
+There were 50 or more warnings (use warnings() to see the first 50)
+> 
+> ## Run ensemble analysis on model output
+> runModule.run.ensemble.analysis(settings)
+2023-03-24 13:57:37 WARN   [run.ensemble.analysis] : 
+   Currently performing ensemble analysis on variable AGB_PFT 
+[1] "----- Variable: AGB_PFT"
+2023-03-24 13:57:37 WARN   [run.ensemble.analysis] : 
+   no data in ensemble.output 
+NULL
+> 
+> # Run sensitivity analysis on model output
+> run.sensitivity.analysis(settings)
+2023-03-24 13:57:37 WARN   [run.sensitivity.analysis] : 
+   Currently performing sensitivity analysis on variable AGB_PFT 
+Error in stats::splinefun(quantiles.input, quantiles.output, method = "monoH.FC") : 
+  length(m) must be at least two
+Calls: run.sensitivity.analysis ... sapply -> lapply -> FUN -> sa.splinefun -> <Anonymous>
+In addition: Warning message:
+In run.sensitivity.analysis(settings) :
+  missing >2 runs for 'mort2','growth_resp_factor','leaf_turnover_rate','leaf_width','nonlocal_dispersal','fineroot2leaf','root_turnover_rate','seedling_mortality','stomatal_slope','quantum_efficiency','Vcmax','r_fract','cuticular_cond','root_respiration_rate','Vm_low_temp','SLA' 
+ sensitivity analysis or variance decomposition will be performed on these trait(s) 
+ it is likely that the runs did not complete, this should be fixed !!!!!!
+Execution halted

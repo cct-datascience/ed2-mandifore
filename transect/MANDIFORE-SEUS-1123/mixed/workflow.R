@@ -1,3 +1,5 @@
+setwd(here::here())
+source(".Rprofile")
 # This may take a long time to run.  Run as a background job if you don't want
 # to tie up your R session.  In RStudio click the "Source" drop-down and choose
 # "Source as Local Job"

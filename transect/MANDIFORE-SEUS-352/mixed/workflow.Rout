@@ -3058,3 +3058,646 @@ Joining with `by = join_by(runs)`
 2023-03-22 20:02:55 INFO   [start_model_runs] : 
    ------------------------------------------------------------------- 
   |                                                                              |                                                                      |   0%
+  |                                                                              |======================================================================| 100%There were 50 or more warnings (use warnings() to see the first 50)
+> 
+> # Model analyses ----------------------------------------------------------
+> 
+> ## Get results of model runs
+> get.results(settings)
+2023-03-28 12:07:55 WARN   [get.results] : 
+   Currently performing sensitivity analysis on variable AGB_PFT) 
+2023-03-28 12:07:56 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.001/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.001/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.001/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.001/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.001/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.001/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.001/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.001/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.001/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.001/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.001/2010.nc 
+2023-03-28 12:07:57 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:07:57 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.023/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.023/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.023/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.023/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.023/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.023/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.023/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.023/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.023/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.023/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.023/2010.nc 
+2023-03-28 12:07:57 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:07:58 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.159/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.159/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.159/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.159/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.159/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.159/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.159/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.159/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.159/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.159/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.159/2010.nc 
+2023-03-28 12:07:58 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:07:58 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2010.nc 
+2023-03-28 12:07:58 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:07:58 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.841/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.841/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.841/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.841/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.841/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.841/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.841/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.841/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.841/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.841/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.841/2010.nc 
+2023-03-28 12:07:59 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:07:59 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.977/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.977/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.977/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.977/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.977/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.977/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.977/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.977/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.977/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.977/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.977/2010.nc 
+2023-03-28 12:08:00 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:00 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.999/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.999/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.999/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.999/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.999/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.999/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.999/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.999/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.999/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.999/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-mort2-0.999/2010.nc 
+2023-03-28 12:08:01 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:01 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait mort2 
+2023-03-28 12:08:01 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.001/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.001/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.001/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.001/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.001/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.001/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.001/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.001/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.001/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.001/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.001/2010.nc 
+2023-03-28 12:08:01 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:01 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.023/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.023/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.023/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.023/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.023/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.023/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.023/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.023/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.023/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.023/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.023/2010.nc 
+2023-03-28 12:08:02 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:02 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.159/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.159/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.159/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.159/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.159/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.159/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.159/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.159/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.159/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.159/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.159/2010.nc 
+2023-03-28 12:08:03 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:03 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2010.nc 
+2023-03-28 12:08:03 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:03 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.841/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.841/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.841/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.841/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.841/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.841/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.841/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.841/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.841/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.841/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.841/2010.nc 
+2023-03-28 12:08:04 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:04 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.977/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.977/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.977/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.977/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.977/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.977/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.977/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.977/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.977/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.977/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.977/2010.nc 
+2023-03-28 12:08:05 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.17   3.11 
+2023-03-28 12:08:05 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.999/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.999/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.999/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.999/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.999/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.999/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.999/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.999/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.999/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.999/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-growth_resp_factor-0.999/2010.nc 
+2023-03-28 12:08:06 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.17    3.1 
+2023-03-28 12:08:06 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait growth_resp_factor 
+2023-03-28 12:08:06 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.001/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.001/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.001/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.001/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.001/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.001/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.001/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.001/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.001/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.001/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.001/2010.nc 
+2023-03-28 12:08:06 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:06 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.023/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.023/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.023/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.023/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.023/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.023/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.023/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.023/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.023/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.023/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.023/2010.nc 
+2023-03-28 12:08:07 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:07 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.159/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.159/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.159/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.159/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.159/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.159/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.159/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.159/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.159/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.159/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.159/2010.nc 
+2023-03-28 12:08:08 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:08 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2010.nc 
+2023-03-28 12:08:08 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:08 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.841/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.841/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.841/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.841/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.841/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.841/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.841/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.841/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.841/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.841/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.841/2010.nc 
+2023-03-28 12:08:08 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:08 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.977/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.977/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.977/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.977/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.977/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.977/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.977/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.977/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.977/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.977/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.977/2010.nc 
+2023-03-28 12:08:09 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.17    3.1 
+2023-03-28 12:08:09 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.999/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.999/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.999/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.999/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.999/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.999/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.999/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.999/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.999/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.999/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_turnover_rate-0.999/2010.nc 
+2023-03-28 12:08:09 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.17    3.1 
+2023-03-28 12:08:09 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait leaf_turnover_rate 
+2023-03-28 12:08:09 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.001/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.001/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.001/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.001/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.001/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.001/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.001/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.001/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.001/2008.nc 
+2023-03-28 12:08:09 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.08   3.01 
+2023-03-28 12:08:09 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.023/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.023/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.023/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.023/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.023/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.023/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.023/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.023/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.023/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.023/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.023/2010.nc 
+2023-03-28 12:08:10 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:10 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.159/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.159/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.159/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.159/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.159/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.159/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.159/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.159/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.159/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.159/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.159/2010.nc 
+2023-03-28 12:08:10 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:10 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2010.nc 
+2023-03-28 12:08:10 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:10 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.841/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.841/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.841/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.841/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.841/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.841/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.841/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.841/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.841/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.841/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.841/2010.nc 
+2023-03-28 12:08:11 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:11 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.977/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.977/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.977/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.977/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.977/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.977/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.977/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.977/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.977/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.977/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.977/2010.nc 
+2023-03-28 12:08:12 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:12 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.999/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.999/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.999/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.999/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.999/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.999/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.999/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.999/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.999/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.999/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-leaf_width-0.999/2010.nc 
+2023-03-28 12:08:13 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:13 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait leaf_width 
+2023-03-28 12:08:13 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.001/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.001/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.001/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.001/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.001/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.001/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.001/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.001/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.001/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.001/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.001/2010.nc 
+2023-03-28 12:08:13 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:13 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.023/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.023/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.023/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.023/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.023/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.023/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.023/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.023/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.023/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.023/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.023/2010.nc 
+2023-03-28 12:08:13 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:13 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.159/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.159/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.159/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.159/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.159/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.159/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.159/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.159/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.159/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.159/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.159/2010.nc 
+2023-03-28 12:08:14 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:14 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2010.nc 
+2023-03-28 12:08:14 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:14 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.841/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.841/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.841/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.841/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.841/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.841/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.841/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.841/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.841/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.841/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.841/2010.nc 
+2023-03-28 12:08:14 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:14 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.977/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.977/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.977/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.977/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.977/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.977/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.977/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.977/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.977/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.977/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.977/2010.nc 
+2023-03-28 12:08:15 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:15 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.999/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.999/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.999/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.999/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.999/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.999/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.999/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.999/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.999/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.999/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-nonlocal_dispersal-0.999/2010.nc 
+2023-03-28 12:08:15 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:15 INFO   [read.sa.output] : 
+   reading sensitivity analysis output for model run at 0.135 2.275 15.866 
+   50 84.134 97.725 99.865 quantiles of trait nonlocal_dispersal 
+2023-03-28 12:08:15 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.001/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.001/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.001/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.001/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.001/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.001/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.001/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.001/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.001/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.001/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.001/2010.nc 
+2023-03-28 12:08:16 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.17   3.09 
+2023-03-28 12:08:16 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.023/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.023/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.023/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.023/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.023/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.023/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.023/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.023/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.023/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.023/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.023/2010.nc 
+2023-03-28 12:08:17 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.17    3.1 
+2023-03-28 12:08:17 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.159/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.159/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.159/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.159/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.159/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.159/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.159/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.159/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.159/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.159/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-SetariaWT-fineroot2leaf-0.159/2010.nc 
+2023-03-28 12:08:17 INFO   [PEcAn.utils::read.output] : Result summary:
+         Mean Median
+AGB_PFT 3.18   3.11 
+2023-03-28 12:08:17 INFO   [PEcAn.utils::read.output] : 
+   Reading the following files: 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2000.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2001.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2002.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2003.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2004.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2005.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2006.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2007.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2008.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2009.nc 
+   /data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/out/SA-median/2010.nc 
+2023-03-28 12:08:17 INFO   [PEcAn.utils::read.output] : Result 
