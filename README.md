@@ -20,7 +20,7 @@ Scripts 00 and 01 have already been run and have generated the data in `data/`. 
 
 ### Job Start Checklist
 
-Do all of this before starting the next run!
+Do all of this before starting the next job!
 
 - [ ] Is the R output being saved to workflow.Rout?
 - [ ] Are all the expected `run/` and `out/` folders created locally?
@@ -28,4 +28,13 @@ Do all of this before starting the next run!
 - [ ] Are all the expected `run/` and `out/` folders created on the HPC?
 - [ ] Once the job starts on the HPC, **record the SLURM job ID**.  It is not printed anywhere in the logs, so you will need to manually copy and paste it somewhere (e.g. into the pid.nohup file that has the local PID)
 - [ ] Spot-check the log files for multiple runs to see that simulation has started
-- [ ] 
+
+...now you can start another job.
+
+### Job analytics
+
+If you want to know how long a job took on the HPC you can use:
+
+``` bash
+sacct -j <jobid> -o Start,End,Elapsed
+```
