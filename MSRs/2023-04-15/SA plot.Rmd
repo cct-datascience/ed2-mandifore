@@ -1,0 +1,62 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Plots
+
+-   One elasticisity lolipop plot for each ecosystem with CI around point
+
+-   Variance decomposition can't be combined
+
+Try making SA plots for transpiration and npp post hoc
+
+-   Edit settings_checked.xml and re-run sensitivity analysis part of workflow.R
+
+Next steps:
+
+-   Prototype code to wrangle sensitivity output
+
+## Get all the data
+
+```{r}
+library(fs)
+library(tidyverse)
+```
+
+```{r}
+base_path <- "/data/output/pecan_runs/transect"
+
+```
+
+Get all the data
+
+```{r}
+sites <- dir_ls(base_path, recurse = 1, regexp = "mixed$|prairie$|pine$")
+
+sa_output <- 
+  map(sites, \(.x) {
+    sa_results <- .x |> 
+      dir_ls(regexp = "sensitivity\\.results") 
+    if(length(sa_results)==1) {
+      load(sa_results)
+      sensitivity.results$SetariaWT2$variance.decomposition.output |>
+        bind_rows(.id = "x") |>
+        pivot_longer(-x, names_to = "trait") |>
+        pivot_wider(names_from = x, values_from = value)
+    }
+  }) |> 
+  bind_rows(.id = "dir") |> 
+  mutate(ecosystem = dir |> path_split() |> map_chr(-1),
+         site = dir |> path_split() |> map_chr(-2)) |> 
+  select(site, ecosystem, everything()) |> 
+  select(-dir)
+
+
+sa_output |> 
+  ggplot(aes(x = elasticities, y = trait, color = site)) +
+  geom_point() +
+  geom_segment(aes(xend = elasticities, x = 0, y = trait, yend = trait)) +
+  facet_grid(ecosystem~site, scales = "free") +
+  theme_bw()
+```
