@@ -103,7 +103,7 @@ inner_join(
 runModule_start_model_runs(settings, stop.on.error = FALSE)
 
 # Model analyses ----------------------------------------------------------
-
+# settings <- read.settings("/data/output/pecan_runs/transect/MANDIFORE-SEUS-655/prairie/settings_checked.xml")
 ## Get results of model runs
 get.results(settings)
 
@@ -111,7 +111,7 @@ get.results(settings)
 runModule.run.ensemble.analysis(settings)
 
 # Run sensitivity analysis on model output
-run.sensitivity.analysis(settings)
+run.sensitivity.analysis(settings, pfts = "SetariaWT2")
 
 # Cleanup -----------------------------------------------------------------
 # Remove .h5 files --------------------------------------------------------

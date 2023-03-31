@@ -111,7 +111,7 @@ get.results(settings)
 runModule.run.ensemble.analysis(settings)
 
 # Run sensitivity analysis on model output
-run.sensitivity.analysis(settings)
+run.sensitivity.analysis(settings, pfts = "SetariaWT2")
 
 # Cleanup -----------------------------------------------------------------
 # Remove .h5 files --------------------------------------------------------
