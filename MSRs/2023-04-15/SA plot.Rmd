@@ -1,6 +1,6 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output: html_document
 ---
 
 Plots
@@ -22,19 +22,18 @@ Next steps:
 ```{r}
 library(fs)
 library(tidyverse)
+theme_set(theme_bw())
 ```
 
 ```{r}
 base_path <- "/data/output/pecan_runs/transect"
-
+sites <- dir_ls(base_path, recurse = 1, regexp = "mixed$|prairie$|pine$")
 ```
 
 Get all the data
 
 ```{r}
-sites <- dir_ls(base_path, recurse = 1, regexp = "mixed$|prairie$|pine$")
-
-sa_output <- 
+sa_output <-
   map(sites, \(.x) {
     sa_results <- .x |> 
       dir_ls(regexp = "sensitivity\\.results") 
@@ -47,16 +46,134 @@ sa_output <-
     }
   }) |> 
   bind_rows(.id = "dir") |> 
-  mutate(ecosystem = dir |> path_split() |> map_chr(-1),
-         site = dir |> path_split() |> map_chr(-2)) |> 
-  select(site, ecosystem, everything()) |> 
-  select(-dir)
+  mutate(
+    ecosystem = dir |> path_split() |> map_chr(7),
+         site = dir |> path_split() |> map_chr(6)
+    ) |> 
+  select(site, ecosystem, everything()) |>
+  select(-dir) |> 
+  mutate(trait = case_when(
+    trait == "leaf_turnover_rate"   ~ "Leaf turnover rate",
+    trait == "nonlocal_dispersal"   ~ "Seed dispersal",
+    trait == "fineroot2leaf"        ~ "Fine root allocation",
+    trait == "root_turnover_rate"   ~ "Root turnover rate",
+    trait == "seedling_mortality"   ~ "Seedling mortality",
+    trait == "stomatal_slope"       ~ "Stomatal slope",
+    trait == "quantum_efficiency"   ~ "Quantum efficiency",
+    trait == "Vcmax"                ~ "Vcmax",
+    trait == "r_fract"              ~ "Reproductive allocation",
+    trait == "cuticular_cond"       ~ "Cuticular conductance",
+    trait == "SLA"                  ~ "Specific leaf area",
+    TRUE ~ trait
+  ))
 
 
 sa_output |> 
-  ggplot(aes(x = elasticities, y = trait, color = site)) +
+  mutate(site = str_remove(site, "MANDIFORE-SEUS-")) |> 
+  ggplot(aes(x = elasticities, y = trait)) +
   geom_point() +
   geom_segment(aes(xend = elasticities, x = 0, y = trait, yend = trait)) +
-  facet_grid(ecosystem~site, scales = "free") +
+  facet_grid(ecosystem~site, labeller = label_both) +
   theme_bw()
+```
+
+Average across 9 sites and plot mean ± SE ?
+
+```{r}
+library(ggdist)
+sem <- function(x) {
+  sd(x) / sqrt(length(x))
+}
+
+sa_summary <- 
+  sa_output |>
+  group_by(ecosystem, trait) |> 
+  summarize(across(c("coef.vars", "elasticities", "sensitivities"), .fns = list("mean" = mean, "SE" = sem)))
+
+ggplot(sa_summary, aes(y = trait)) +
+  geom_pointinterval(
+    aes(
+      x = elasticities_mean,
+      xmin = elasticities_mean - elasticities_SE,
+      xmax = elasticities_mean + elasticities_SE
+    )
+  ) +
+  geom_vline(xintercept = 0, alpha = .5, linetype = 3) +
+  facet_grid(~ecosystem) +
+  labs(caption = "means ± SE for 9 sites (eventually)", x = "Elasticity", y="")
+```
+
+## Timeseries plots
+
+These will require reading in the "raw" data from .nc files I believe, but might be able to get something from the `ensemble.output` file
+
+```{r}
+# load("/data/output/pecan_runs/transect/MANDIFORE-SEUS-352/prairie/ensemble.output.NOENSEMBLEID.AGB_PFT.2000.2010.Rdata")
+# sa_output
+# ensemble.output
+# sa_summary
+#nope, not timeseries
+```
+
+```{r}
+library(tidync)
+library(lubridate)
+library(furrr)
+library(future.callr)
+plan(callr, workers = 3)
+ens_out_raw <-
+  #get all the paths to ensemble .nc files
+  sites |> 
+  path("out") |>
+  dir_ls(regex = "ENS-") |> 
+  dir_ls(glob = "*.nc") |> 
+  #for each .nc file, extract the data into a tibble
+  future_map(\(nc_file) {
+    tidync(nc_file) |> 
+      activate("D0,D1,D2,D3") |> 
+      hyper_tibble() |> 
+      # get data from file name into tibble
+      mutate(
+        year = path_file(nc_file) |> str_remove("\\.nc"),
+        ensemble = path_split(nc_file) |> map_chr(9),
+        ecosystem = path_split(nc_file) |> map_chr(7),
+        site = path_split(nc_file) |> map_chr(6),
+        date = (make_date(year, month = 1, day = 1) + days(dtime)) |>
+          # I don't think PEcAn knows about leap years
+          floor_date(unit = "month")
+      )
+  }, .progress = TRUE) |> bind_rows()
+
+```
+
+```{r}
+ens_plot_df <- 
+  ens_out_raw |> 
+  group_by(site, lat, ecosystem, date, pft) |> 
+  summarize(across(c(AGB_PFT, NPP_PFT, TRANSP_PFT, DENS),
+                   .fns = list(
+                     "median" = median,
+                     "lower" = ~quantile(., 0.25),
+                     "upper" = ~quantile(., 0.75)
+                   )), .groups = "drop") |> 
+  arrange(desc(lat)) |> 
+  mutate(lat = round(lat, 2) |> as.character() |> fct_inorder(),
+         site = str_remove(site, "MANDIFORE-SEUS-"),
+         pft_name = case_when(
+           pft==1  ~ "SetariaWT",
+           pft==7  ~ "Southern_pine",
+           pft==10 ~  "South_Mid_Hardwood",
+           pft==8  ~ "Evergreen_Hardwood",
+           pft==5  ~ "c3grass",
+           pft==16 ~  "c4grass",
+           pft==12 ~  "forb"
+         ))
+ens_plot_df |> 
+  # filter(pft == 1) |> 
+  ggplot(aes(x = date, y = DENS_median)) +
+  geom_line(aes(color = pft_name)) +
+  geom_ribbon(aes(ymin = DENS_lower, ymax = DENS_upper, fill = pft_name),
+              alpha = 0.3) +
+  facet_grid(lat+site~ecosystem, labeller = label_both) +
+  labs(y = "Density", x = "Simulation Time", color = "PFT", fill = "PFT")
 ```
