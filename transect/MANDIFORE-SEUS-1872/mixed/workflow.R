@@ -103,7 +103,7 @@ inner_join(
 runModule_start_model_runs(settings, stop.on.error = FALSE)
 
 # Model analyses ----------------------------------------------------------
-
+settings <- read.settings("/data/output/pecan_runs/transect/MANDIFORE-SEUS-1872/mixed/settings_checked.xml")
 ## Get results of model runs
 get.results(settings)
 
