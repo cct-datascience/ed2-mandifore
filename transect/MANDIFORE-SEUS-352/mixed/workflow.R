@@ -102,20 +102,7 @@ inner_join(
 ## This copies config files to the HPC and starts the run
 runModule_start_model_runs(settings, stop.on.error = FALSE)
 
-# Model analyses ----------------------------------------------------------
-# settings <- read.settings("/data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/settings_checked.xml")
-## Get results of model runs
-get.results(settings)
-
-## Run ensemble analysis on model output
-runModule.run.ensemble.analysis(settings)
-
-# Run sensitivity analysis on model output
-run.sensitivity.analysis(settings)
-
 # Cleanup -----------------------------------------------------------------
-# Remove .h5 files --------------------------------------------------------
-
 # To prevent Welsch from filling up, delete .h5 files if conversion to .nc was
 # successful.
 
@@ -128,6 +115,16 @@ done <-
 # and delete the .h5 files
 dir_ls(done, glob = "*.h5") |> file_delete()
 
+# Model analyses ----------------------------------------------------------
+# settings <- read.settings("/data/output/pecan_runs/transect/MANDIFORE-SEUS-352/mixed/settings_checked.xml")
+## Get results of model runs
+get.results(settings)
+
+## Run ensemble analysis on model output
+runModule.run.ensemble.analysis(settings)
+
+# Run sensitivity analysis on model output
+run.sensitivity.analysis(settings, pfts = "SetariaWT2")
 
 # Reset logger level to original value
 PEcAn.logger::logger.setLevel(olevel)

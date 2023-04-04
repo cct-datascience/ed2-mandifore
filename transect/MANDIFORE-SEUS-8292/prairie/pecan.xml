@@ -98,7 +98,7 @@
  <host>
   <name>puma</name>
   <folder>/groups/kristinariemer/ed2_results/pecan_remote</folder>
-  <qsub>sbatch --job-name=@NAME@ --account=kristinariemer --ntasks=43 --nodes=1 --time=07-00:00:00 -o @STDOUT@ -e @STDERR@</qsub>
+  <qsub>sbatch --job-name=@NAME@ --account=kristinariemer --ntasks=43 --nodes=1 --time=04-00:00:00 -o @STDOUT@ -e @STDERR@</qsub>
   <qsub.jobid>.* ([0-9]+)</qsub.jobid>
   <qstat>&apos;squeue --job @JOBID@ &amp;&gt; /dev/null || echo DONE&apos;</qstat>
   <prerun>module load openmpi3 R</prerun>
