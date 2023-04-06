@@ -22,6 +22,14 @@ Next steps:
 ```{r}
 library(fs)
 library(tidyverse)
+library(ggdist)
+library(tidync)
+library(lubridate)
+library(furrr)
+library(future.callr)
+library(units)
+
+plan(callr, workers = 3)
 theme_set(theme_bw())
 ```
 
@@ -80,7 +88,6 @@ sa_output |>
 Average across 9 sites and plot mean ± SE ?
 
 ```{r}
-library(ggdist)
 sem <- function(x) {
   sd(x) / sqrt(length(x))
 }
@@ -105,41 +112,33 @@ ggplot(sa_summary, aes(y = trait)) +
 
 ## Timeseries plots
 
-These will require reading in the "raw" data from .nc files I believe, but might be able to get something from the `ensemble.output` file
-
-```{r}
-# load("/data/output/pecan_runs/transect/MANDIFORE-SEUS-352/prairie/ensemble.output.NOENSEMBLEID.AGB_PFT.2000.2010.Rdata")
-# sa_output
-# ensemble.output
-# sa_summary
-#nope, not timeseries
-```
-
 Wrangle data one ensemble at a time and write to disk as one .csv per ensemble. This will allow `arrow` to open the data as a partitioned .csv file which is very fast to work with. Each .csv file needs to be in the ensemble directory and only needs to contain the data. Site, ecosystem, and ensemble will be inferred from directory structure.
 
-```{r}
-library(tidync)
-library(lubridate)
-library(furrr)
-library(future.callr)
-plan(callr, workers = 3)
-```
-
-For one ensemble
 
 ```{r}
-site <- sites[1]
-ensembles <- dir_ls(path(site, "out"), regexp = "ENS-")
-ensemble <- ensembles[1]
+ensembles <- dir_ls(path(sites, "out"), regexp = "ENS-")
 
+#TODO, move to R/, document
 write_run_csv <- function(ensemble, overwrite = FALSE) {
   if(file_exists(path(ensemble, "run_data.csv"))) {
     if(overwrite) {
-      warning()
+      warning("Overwriting run_data.csv")
+    } else {
+      warning("run_data.csv already exists")
+      return(path(ensemble, "run_data.csv"))
     }
   }
-  ensemble |>
-    dir_ls(glob = "*.nc") |> 
+  
+  nc_files <- ensemble |>
+    dir_ls(glob = "*.nc") 
+  
+  #check that nc_files exist
+  if(length(nc_files) == 0) {
+    warning("No .nc files found!")
+    return(NA)
+  }
+  
+  nc_files|> 
     map(\(nc_file) {
       tidync(nc_file) |> 
         activate("D0,D1,D2,D3") |> 
@@ -160,54 +159,21 @@ write_run_csv <- function(ensemble, overwrite = FALSE) {
   return(path(ensemble, "run_data.csv"))
 }
 
-paths <- map_chr(ensembles, write_run_csv)
+
+paths <- 
+  map_chr(ensembles, \(x) write_run_csv(x, overwrite = FALSE), .progress = TRUE) |>
+  discard(is.na) 
 
 ```
 
-```{r}
-library(arrow)
-open_csv_dataset(
-  paths,
-  hive_style = FALSE,
-  partitioning = c("site", "ecosystem", "out", "ensemble"),
-  factory_options = list(exclude_invalid_files = TRUE)
-) |> collect()
-```
+Read csv files in
 
 ```{r}
+ens_data_raw <- 
+  read_csv(paths)
 
-
-sites
-
-
-ens_out_raw <-
-  #get all the paths to ensemble .nc files
-  sites |> 
-  path("out") |>
-  dir_ls(regex = "ENS-") |> 
-  dir_ls(glob = "*.nc") |> 
-  #for each .nc file, extract the data into a tibble
-  future_map(\(nc_file) {
-    tidync(nc_file) |> 
-      activate("D0,D1,D2,D3") |> 
-      hyper_tibble() |> 
-      # get data from file name into tibble
-      mutate(
-        year = path_file(nc_file) |> str_remove("\\.nc"),
-        ensemble = path_split(nc_file) |> map_chr(9),
-        ecosystem = path_split(nc_file) |> map_chr(7),
-        site = path_split(nc_file) |> map_chr(6),
-        date = (make_date(year, month = 1, day = 1) + days(dtime)) |>
-          # I don't think PEcAn knows about leap years
-          floor_date(unit = "month")
-      )
-  }, .progress = TRUE) |> bind_rows()
-
-```
-
-```{r}
 ens_plot_df <- 
-  ens_out_raw |> 
+  ens_data_raw |> 
   group_by(site, lat, ecosystem, date, pft) |> 
   summarize(across(c(AGB_PFT, NPP_PFT, TRANSP_PFT, DENS),
                    .fns = list(
@@ -227,7 +193,23 @@ ens_plot_df <-
            pft==16 ~  "c4grass",
            pft==12 ~  "forb"
          ))
-ens_plot_df |> 
+# add units
+units::install_unit("plants", def = "unitless")
+ens_plot_df <- 
+  ens_plot_df |> 
+  mutate(
+    across(starts_with("AGB_PFT_"), \(x) set_units(x, "kg/m^2")),
+    across(starts_with("NPP_PFT_"), \(x) set_units(x, "kg/m^2/s")),
+    across(starts_with("TRANSP_PFT_"), \(x) set_units(x, "kg/m^2/s")),
+    across(starts_with("DENS_"), \(x) set_units(x, "plants/m^2"))
+  )
+```
+
+Make and save plots
+
+```{r}
+p_dens <-
+  ens_plot_df |> 
   # filter(pft == 1) |> 
   ggplot(aes(x = date, y = DENS_median)) +
   geom_line(aes(color = pft_name)) +
@@ -235,4 +217,91 @@ ens_plot_df |>
               alpha = 0.3) +
   facet_grid(lat+site~ecosystem, labeller = label_both) +
   labs(y = "Density", x = "Simulation Time", color = "PFT", fill = "PFT")
+
+ggsave(here::here("MSRs", "2023-04-15", "dens.png"), p_dens)
+
+p_dens_setaria <-
+  ens_plot_df |> 
+  filter(pft == 1) |>
+  ggplot(aes(x = date, y = DENS_median)) +
+  geom_line() +
+  geom_ribbon(aes(ymin = DENS_lower, ymax = DENS_upper),
+              alpha = 0.3) +
+  facet_grid(lat+site~ecosystem, labeller = label_both) +
+  labs(y = "Density", x = "Simulation Time")
+
+ggsave(here::here("MSRs", "2023-04-15", "dens_setaria.png"), p_dens_setaria)
+
+p_agb <-
+  ens_plot_df |> 
+  # filter(pft == 1) |> 
+  ggplot(aes(x = date, y = AGB_PFT_median)) +
+  geom_line(aes(color = pft_name)) +
+  geom_ribbon(aes(ymin = AGB_PFT_lower, ymax = AGB_PFT_upper, fill = pft_name),
+              alpha = 0.3) +
+  facet_grid(lat+site~ecosystem, labeller = label_both) +
+  labs(y = "AGB", x = "Simulation Time", color = "PFT", fill = "PFT")
+
+ggsave(here::here("MSRs", "2023-04-15", "agb.png"), p_agb)
+
+p_agb_setaria <-
+  ens_plot_df |> 
+  filter(pft == 1) |>
+  ggplot(aes(x = date, y = AGB_PFT_median)) +
+  geom_line() +
+  geom_ribbon(aes(ymin = AGB_PFT_lower, ymax = AGB_PFT_upper),
+              alpha = 0.3) +
+  facet_grid(lat+site~ecosystem, labeller = label_both) +
+  labs(y = "AGB", x = "Simulation Time")
+
+ggsave(here::here("MSRs", "2023-04-15", "agb_setaria.png"), p_agb_setaria)
+
+p_npp <-
+  ens_plot_df |> 
+  # filter(pft == 1) |> 
+  ggplot(aes(x = date, y = NPP_PFT_median)) +
+  geom_line(aes(color = pft_name)) +
+  geom_ribbon(aes(ymin = NPP_PFT_lower, ymax = NPP_PFT_upper, fill = pft_name),
+              alpha = 0.3) +
+  facet_grid(lat+site~ecosystem, labeller = label_both) +
+  labs(y = "NPP", x = "Simulation Time", color = "PFT", fill = "PFT")
+
+ggsave(here::here("MSRs", "2023-04-15", "npp.png"), p_npp)
+
+p_npp_setaria <-
+  ens_plot_df |> 
+  filter(pft == 1) |>
+  ggplot(aes(x = date, y = NPP_PFT_median)) +
+  geom_line() +
+  geom_ribbon(aes(ymin = NPP_PFT_lower, ymax = NPP_PFT_upper),
+              alpha = 0.3) +
+  facet_grid(lat+site~ecosystem, labeller = label_both) +
+  labs(y = "NPP", x = "Simulation Time")
+
+ggsave(here::here("MSRs", "2023-04-15", "npp_setaria.png"), p_npp_setaria)
+
+p_transp <-
+  ens_plot_df |> 
+  # filter(pft == 1) |> 
+  ggplot(aes(x = date, y = TRANSP_PFT_median)) +
+  geom_line(aes(color = pft_name)) +
+  geom_ribbon(aes(ymin = TRANSP_PFT_lower, ymax = TRANSP_PFT_upper, fill = pft_name),
+              alpha = 0.3) +
+  facet_grid(lat+site~ecosystem, labeller = label_both) +
+  labs(y = "Transpiration", x = "Simulation Time", color = "PFT", fill = "PFT")
+
+ggsave(here::here("MSRs", "2023-04-15", "transp.png"), p_transp)
+
+p_transp_setaria <-
+  ens_plot_df |> 
+  filter(pft == 1) |>
+  ggplot(aes(x = date, y = TRANSP_PFT_median)) +
+  geom_line() +
+  geom_ribbon(aes(ymin = TRANSP_PFT_lower, ymax = TRANSP_PFT_upper),
+              alpha = 0.3) +
+  facet_grid(lat+site~ecosystem, labeller = label_both) +
+  labs(y = "Transpiration", x = "Simulation Time")
+
+ggsave(here::here("MSRs", "2023-04-15", "transp_setaria.png"), p_transp_setaria)
+
 ```
