@@ -99,7 +99,7 @@ ggplot(sa_summary, aes(y = trait)) +
     )
   ) +
   geom_vline(xintercept = 0, alpha = .5, linetype = 3) +
-  facet_grid(~ecosystem) +
+  facet_grid(~ecosystem, scales = "free") +
   labs(caption = "means ± SE for 9 sites (eventually)", x = "Elasticity", y="")
 ```
 
@@ -115,12 +115,71 @@ These will require reading in the "raw" data from .nc files I believe, but might
 #nope, not timeseries
 ```
 
+Wrangle data one ensemble at a time and write to disk as one .csv per ensemble. This will allow `arrow` to open the data as a partitioned .csv file which is very fast to work with. Each .csv file needs to be in the ensemble directory and only needs to contain the data. Site, ecosystem, and ensemble will be inferred from directory structure.
+
 ```{r}
 library(tidync)
 library(lubridate)
 library(furrr)
 library(future.callr)
 plan(callr, workers = 3)
+```
+
+For one ensemble
+
+```{r}
+site <- sites[1]
+ensembles <- dir_ls(path(site, "out"), regexp = "ENS-")
+ensemble <- ensembles[1]
+
+write_run_csv <- function(ensemble, overwrite = FALSE) {
+  if(file_exists(path(ensemble, "run_data.csv"))) {
+    if(overwrite) {
+      warning()
+    }
+  }
+  ensemble |>
+    dir_ls(glob = "*.nc") |> 
+    map(\(nc_file) {
+      tidync(nc_file) |> 
+        activate("D0,D1,D2,D3") |> 
+        hyper_tibble() |> 
+        # get data from file name into tibble
+        mutate(
+          ensemble = path_split(nc_file) |> map_chr(-2),
+          ecosystem = path_split(nc_file) |> map_chr(-4),
+          site = path_split(nc_file) |> map_chr(-5),
+          year = path_file(nc_file) |> str_remove("\\.nc"),
+          date = (make_date(year, month = 1, day = 1) + days(dtime)) |>
+            # I don't think PEcAn knows about leap years
+            floor_date(unit = "month")
+        ) |> 
+        select(-dtime, -year)
+    }) |> bind_rows() |> 
+    write_csv(path(ensemble, "run_data.csv"))
+  return(path(ensemble, "run_data.csv"))
+}
+
+paths <- map_chr(ensembles, write_run_csv)
+
+```
+
+```{r}
+library(arrow)
+open_csv_dataset(
+  paths,
+  hive_style = FALSE,
+  partitioning = c("site", "ecosystem", "out", "ensemble"),
+  factory_options = list(exclude_invalid_files = TRUE)
+) |> collect()
+```
+
+```{r}
+
+
+sites
+
+
 ens_out_raw <-
   #get all the paths to ensemble .nc files
   sites |> 
