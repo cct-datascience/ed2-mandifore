@@ -199,8 +199,8 @@ ens_plot_df <-
   ens_plot_df |> 
   mutate(
     across(starts_with("AGB_PFT_"), \(x) set_units(x, "kg/m^2")),
-    across(starts_with("NPP_PFT_"), \(x) set_units(x, "kg/m^2/s")),
-    across(starts_with("TRANSP_PFT_"), \(x) set_units(x, "kg/m^2/s")),
+    across(starts_with("NPP_PFT_"), \(x) set_units(x, "kg/m^2/s") |> set_units("g/m^2/month")),
+    across(starts_with("TRANSP_PFT_"), \(x) set_units(x, "kg/m^2/s") |> set_units("g/m^2/month")),
     across(starts_with("DENS_"), \(x) set_units(x, "plants/m^2"))
   )
 ```
