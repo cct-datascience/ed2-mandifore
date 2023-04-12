@@ -1,25 +1,9 @@
 ---
-title: "R Notebook"
+title: "MSR plots for April"
 output: html_document
 ---
 
-Plots
-
--   One elasticisity lolipop plot for each ecosystem with CI around point
-
--   Variance decomposition can't be combined
-
-Try making SA plots for transpiration and npp post hoc
-
--   Edit settings_checked.xml and re-run sensitivity analysis part of workflow.R
-
-Next steps:
-
--   Prototype code to wrangle sensitivity output
-
-## Get all the data
-
-```{r}
+```{r setup}
 library(fs)
 library(tidyverse)
 library(ggdist)
@@ -31,14 +15,25 @@ library(units)
 
 plan(callr, workers = 3)
 theme_set(theme_bw())
+
+# define util functions
+
+## Standard Error of the Mean
+sem <- function(x) {
+  sd(x) / sqrt(length(x))
+}
+
+source(here::here("R", "write_run_csv.R"))
 ```
+
+## Sensitivity Analysis
 
 ```{r}
 base_path <- "/data/output/pecan_runs/transect"
 sites <- dir_ls(base_path, recurse = 1, regexp = "mixed$|prairie$|pine$")
 ```
 
-Get all the data
+Collect all the sensitivity analysis results from the .Rdata files.  Requires dumping list of dataframes into environment, row-binding them, and doing some wrangling.
 
 ```{r}
 sa_output <-
@@ -74,8 +69,12 @@ sa_output <-
     trait == "SLA"                  ~ "Specific leaf area",
     TRUE ~ trait
   ))
+```
 
 
+### Plot of every site
+
+```{r}
 sa_output |> 
   mutate(site = str_remove(site, "MANDIFORE-SEUS-")) |> 
   ggplot(aes(x = elasticities, y = trait)) +
@@ -85,13 +84,11 @@ sa_output |>
   theme_bw()
 ```
 
-Average across 9 sites and plot mean ± SE ?
+Most site-to-site variation is in prairie.  Most trait variation is in seedling mortality it looks like.
+
+### Average across 9 sites and plot mean ± SE
 
 ```{r}
-sem <- function(x) {
-  sd(x) / sqrt(length(x))
-}
-
 sa_summary <- 
   sa_output |>
   group_by(ecosystem, trait) |> 
@@ -107,66 +104,24 @@ ggplot(sa_summary, aes(y = trait)) +
   ) +
   geom_vline(xintercept = 0, alpha = .5, linetype = 3) +
   facet_grid(~ecosystem, scales = "free") +
-  labs(caption = "means ± SE for 9 sites (eventually)", x = "Elasticity", y="")
+  labs(caption = "Means ± SE for 9 sites", x = "Elasticity", y="", title = "Above Ground Biomass Elasticity Analysis")
+
+ggsave("elasticities.png")
 ```
 
 ## Timeseries plots
 
-Wrangle data one ensemble at a time and write to disk as one .csv per ensemble. This will allow `arrow` to open the data as a partitioned .csv file which is very fast to work with. Each .csv file needs to be in the ensemble directory and only needs to contain the data. Site, ecosystem, and ensemble will be inferred from directory structure.
-
+Wrangle data one ensemble at a time and write to disk as one .csv per ensemble.
 
 ```{r}
 ensembles <- dir_ls(path(sites, "out"), regexp = "ENS-")
 
-#TODO, move to R/, document
-write_run_csv <- function(ensemble, overwrite = FALSE) {
-  if(file_exists(path(ensemble, "run_data.csv"))) {
-    if(overwrite) {
-      warning("Overwriting run_data.csv")
-    } else {
-      warning("run_data.csv already exists")
-      return(path(ensemble, "run_data.csv"))
-    }
-  }
-  
-  nc_files <- ensemble |>
-    dir_ls(glob = "*.nc") 
-  
-  #check that nc_files exist
-  if(length(nc_files) == 0) {
-    warning("No .nc files found!")
-    return(NA)
-  }
-  
-  nc_files|> 
-    map(\(nc_file) {
-      tidync(nc_file) |> 
-        activate("D0,D1,D2,D3") |> 
-        hyper_tibble() |> 
-        # get data from file name into tibble
-        mutate(
-          ensemble = path_split(nc_file) |> map_chr(-2),
-          ecosystem = path_split(nc_file) |> map_chr(-4),
-          site = path_split(nc_file) |> map_chr(-5),
-          year = path_file(nc_file) |> str_remove("\\.nc"),
-          date = (make_date(year, month = 1, day = 1) + days(dtime)) |>
-            # I don't think PEcAn knows about leap years
-            floor_date(unit = "month")
-        ) |> 
-        select(-dtime, -year)
-    }) |> bind_rows() |> 
-    write_csv(path(ensemble, "run_data.csv"))
-  return(path(ensemble, "run_data.csv"))
-}
-
-
 paths <- 
   map_chr(ensembles, \(x) write_run_csv(x, overwrite = FALSE), .progress = TRUE) |>
   discard(is.na) 
-
 ```
 
-Read csv files in
+Read csv files in and wrangle for plotting.
 
 ```{r}
 ens_data_raw <- 
@@ -199,13 +154,16 @@ ens_plot_df <-
   ens_plot_df |> 
   mutate(
     across(starts_with("AGB_PFT_"), \(x) set_units(x, "kg/m^2")),
-    across(starts_with("NPP_PFT_"), \(x) set_units(x, "kg/m^2/s") |> set_units("g/m^2/month")),
-    across(starts_with("TRANSP_PFT_"), \(x) set_units(x, "kg/m^2/s") |> set_units("g/m^2/month")),
+    #convert from PEcAn standard to more relatable units for plotting
+    across(starts_with("NPP_PFT_"), \(x) set_units(x, "kg/m^2/s") |>
+             set_units("g/m^2/month")),
+    across(starts_with("TRANSP_PFT_"), \(x) set_units(x, "kg/m^2/s") |>
+             set_units("g/m^2/month")),
     across(starts_with("DENS_"), \(x) set_units(x, "plants/m^2"))
   )
 ```
 
-Make and save plots
+Make and save timeseries plots for all output variables.  One plot with all PFTs and one with just SetariaWT
 
 ```{r}
 p_dens <-

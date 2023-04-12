@@ -115,7 +115,7 @@ run.sensitivity.analysis(settings)
 
 # Cleanup -----------------------------------------------------------------
 # Remove .h5 files --------------------------------------------------------
-
+settings <- read.settings("/data/output/pecan_runs/transect/MANDIFORE-SEUS-655/mixed/settings_checked.xml")
 # To prevent Welsch from filling up, delete .h5 files if conversion to .nc was
 # successful.
 

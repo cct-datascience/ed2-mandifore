@@ -105,7 +105,13 @@ runModule_start_model_runs(settings, stop.on.error = FALSE)
 # Cleanup -----------------------------------------------------------------
 # To prevent Welsch from filling up, delete .h5 files if conversion to .nc was
 # successful.
-
+# settings <- read.settings("/data/output/pecan_runs/transect/MANDIFORE-SEUS-5687/pine/settings_checked.xml")
+# 
+# remote.copy.from(
+#   host = settings$host,
+#   src = settings$host$outdir,
+#   dst = dirname(settings$modeloutdir)
+# )
 # runs that finished and had successful conversion of data
 end <- settings$run$end.date |> lubridate::year()
 done <- 
