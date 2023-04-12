@@ -269,20 +269,30 @@ We also discussed a plot of AGB at the end of 10 years.  I'll take a median for 
 
 ```{r}
 library(ggdist)
+library(ggtext)
 df <- ens_data_raw |> 
   filter(year(date) >= 2010, pft == 1) |> 
   group_by(site, lat, ecosystem, ensemble) |> 
   summarize(AGB_2010 = median(AGB_PFT, na.rm = TRUE)) |> 
   group_by(site, lat, ecosystem) |> 
-  mutate(AGB_2010 = set_units(AGB_2010, "kg/m^2")) 
+  mutate(AGB_2010 = set_units(AGB_2010, "kg/m^2")) |> 
+  #remove ensembles where setaria is effectively dead
+  filter(AGB_2010 > set_units(0.005, "kg/m^2"))
   
     
     
 ggplot(df, aes(x = AGB_2010, y = ecosystem, fill = ecosystem)) +
   stat_slab(aes(thickness = after_stat(pdf*n)), scale = 0.7) +
-  stat_dotsinterval(aes(slab_color = ecosystem), side = "bottom", scale = 0.7) +
+  stat_dotsinterval(aes(slab_color = ecosystem), side = "bottom", scale = 0.7, .width = c(0.5, 0.95)) +
   scale_fill_brewer(palette = "Set2", aesthetics = c("fill", "slab_color")) +
-  labs(x = "Above Ground Biomass", y = "", caption = "Distribution of median biomass of Setaria in last year of simulation across ensembles and sites") +
-  theme(legend.position = "none")
+  labs(
+    x = "Above Ground Biomass",
+    y = "",
+    caption = "Distribution of median aboveground biomass (AGB) of *Setaria* in the last year of a 10 year simulation across ensembles and sites. Points represent the (binned) median value of monthly AGB across the year for individual ensemble members.  Only data where AGB is greater than 0.005 kg/m^2^ are shown. The median (point), interquartile range (thick line) and 95th percentile (thin line) are shown in black."
+  ) +
+  theme(
+    legend.position = "none",
+    plot.caption = element_textbox_simple(padding = margin(t = 10))
+  )
 ```
 
