@@ -140,13 +140,13 @@ ens_plot_df <-
   mutate(lat = round(lat, 2) |> as.character() |> fct_inorder(),
          site = str_remove(site, "MANDIFORE-SEUS-"),
          pft_name = case_when(
-           pft==1  ~ "SetariaWT",
-           pft==7  ~ "Southern_pine",
-           pft==10 ~  "South_Mid_Hardwood",
-           pft==8  ~ "Evergreen_Hardwood",
-           pft==5  ~ "c3grass",
-           pft==16 ~  "c4grass",
-           pft==12 ~  "forb"
+           pft==1  ~ "Setaria",
+           pft==7  ~ "Southern Pine",
+           pft==10 ~ "Mid-successional Hardwood",
+           pft==8  ~ "Evergreen Hardwood",
+           pft==5  ~ "C3 Grass",
+           pft==16 ~  "C4 Grass",
+           pft==12 ~  "Forb"
          ))
 # add units
 units::install_unit("plants", def = "unitless")
@@ -263,3 +263,26 @@ p_transp_setaria <-
 ggsave(here::here("MSRs", "2023-04-15", "transp_setaria.png"), p_transp_setaria)
 
 ```
+## End of Simulation
+
+We also discussed a plot of AGB at the end of 10 years.  I'll take a median for 2010 at each ensemble, then average across ensembles.  Plot will show raw data (means for 2010 at each ensemble) as well as median ± IQR at each site.  (boxplot + raw data).
+
+```{r}
+library(ggdist)
+df <- ens_data_raw |> 
+  filter(year(date) >= 2010, pft == 1) |> 
+  group_by(site, lat, ecosystem, ensemble) |> 
+  summarize(AGB_2010 = median(AGB_PFT, na.rm = TRUE)) |> 
+  group_by(site, lat, ecosystem) |> 
+  mutate(AGB_2010 = set_units(AGB_2010, "kg/m^2")) 
+  
+    
+    
+ggplot(df, aes(x = AGB_2010, y = ecosystem, fill = ecosystem)) +
+  stat_slab(aes(thickness = after_stat(pdf*n)), scale = 0.7) +
+  stat_dotsinterval(aes(slab_color = ecosystem), side = "bottom", scale = 0.7) +
+  scale_fill_brewer(palette = "Set2", aesthetics = c("fill", "slab_color")) +
+  labs(x = "Above Ground Biomass", y = "", caption = "Distribution of median biomass of Setaria in last year of simulation across ensembles and sites") +
+  theme(legend.position = "none")
+```
+
