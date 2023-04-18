@@ -12,6 +12,8 @@ library(lubridate)
 library(furrr)
 library(future.callr)
 library(units)
+library(ggdist)
+library(ggtext)
 
 plan(callr, workers = 3)
 theme_set(theme_bw())
@@ -168,16 +170,41 @@ Make and save timeseries plots for all output variables.  One plot with all PFTs
 ```{r}
 p_dens <-
   ens_plot_df |> 
-  # filter(pft == 1) |> 
   ggplot(aes(x = date, y = DENS_median)) +
   geom_line(aes(color = pft_name)) +
   geom_ribbon(aes(ymin = DENS_lower, ymax = DENS_upper, fill = pft_name),
               alpha = 0.3) +
-  facet_grid(lat+site~ecosystem, labeller = label_both) +
-  labs(y = "Density", x = "Simulation Time", color = "PFT", fill = "PFT")
+  facet_grid(ecosystem ~ lat, scales = "free_y") +
+  labs(y = "Density", x = "Simulation Year", color = "PFT", fill = "PFT") +
+  theme(
+    legend.position = "top",
+    axis.text.x = element_text(angle = 45, hjust = 1),
+  )
 
-ggsave(here::here("MSRs", "2023-04-15", "dens.png"), p_dens)
+ggsave(here::here("MSRs", "2023-04-15", "dens.png"), p_dens, width = 9, height = 4)
+```
 
+```{r}
+p_dens_log10 <-
+  ens_plot_df |> 
+  ggplot(aes(x = date, y = drop_units(DENS_median))) +
+  geom_line(aes(color = pft_name)) +
+  geom_ribbon(aes(ymin = drop_units(DENS_lower), ymax = drop_units(DENS_upper), fill = pft_name),
+              alpha = 0.3) +
+  facet_grid(ecosystem ~ lat, scales = "free_y") +
+  scale_y_log10() +
+  labs(y = "Density [plants/m^2^]", x = "Simulation Year", color = "PFT", fill = "PFT") +
+  theme(
+    legend.position = "top",
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.title.y = element_markdown()
+  )
+
+ggsave(here::here("MSRs", "2023-04-15", "dens_log10.png"), p_dens_log10, width = 9, height = 4)
+```
+
+
+```{r}
 p_dens_setaria <-
   ens_plot_df |> 
   filter(pft == 1) |>
@@ -185,23 +212,30 @@ p_dens_setaria <-
   geom_line() +
   geom_ribbon(aes(ymin = DENS_lower, ymax = DENS_upper),
               alpha = 0.3) +
-  facet_grid(lat+site~ecosystem, labeller = label_both) +
-  labs(y = "Density", x = "Simulation Time")
+  facet_grid(ecosystem ~ lat, labeller = label_both, scales = "free_y") +
+  labs(y = "Density", x = "Simulation Year") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave(here::here("MSRs", "2023-04-15", "dens_setaria.png"), p_dens_setaria)
+ggsave(here::here("MSRs", "2023-04-15", "dens_setaria.png"), p_dens_setaria, width = 8, height = 6)
+```
 
+
+```{r}
 p_agb <-
   ens_plot_df |> 
-  # filter(pft == 1) |> 
   ggplot(aes(x = date, y = AGB_PFT_median)) +
   geom_line(aes(color = pft_name)) +
   geom_ribbon(aes(ymin = AGB_PFT_lower, ymax = AGB_PFT_upper, fill = pft_name),
               alpha = 0.3) +
-  facet_grid(lat+site~ecosystem, labeller = label_both) +
-  labs(y = "AGB", x = "Simulation Time", color = "PFT", fill = "PFT")
+  facet_grid(ecosystem~lat, labeller = label_both, scales = "free_y") +
+  labs(y = "AGB", x = "Simulation Year", color = "PFT", fill = "PFT") +
+  theme(legend.position = "top", axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave(here::here("MSRs", "2023-04-15", "agb.png"), p_agb)
+ggsave(here::here("MSRs", "2023-04-15", "agb.png"), p_agb, width = 8, height = 6)
+```
 
+
+```{r}
 p_agb_setaria <-
   ens_plot_df |> 
   filter(pft == 1) |>
@@ -209,23 +243,30 @@ p_agb_setaria <-
   geom_line() +
   geom_ribbon(aes(ymin = AGB_PFT_lower, ymax = AGB_PFT_upper),
               alpha = 0.3) +
-  facet_grid(lat+site~ecosystem, labeller = label_both) +
-  labs(y = "AGB", x = "Simulation Time")
+  facet_grid(ecosystem ~ lat, labeller = label_both, scales = "free_y") +
+  labs(y = "AGB", x = "Simulation Year") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave(here::here("MSRs", "2023-04-15", "agb_setaria.png"), p_agb_setaria)
+ggsave(here::here("MSRs", "2023-04-15", "agb_setaria.png"), p_agb_setaria, width = 8, height = 6)
+```
 
+
+```{r}
 p_npp <-
   ens_plot_df |> 
-  # filter(pft == 1) |> 
   ggplot(aes(x = date, y = NPP_PFT_median)) +
   geom_line(aes(color = pft_name)) +
   geom_ribbon(aes(ymin = NPP_PFT_lower, ymax = NPP_PFT_upper, fill = pft_name),
               alpha = 0.3) +
-  facet_grid(lat+site~ecosystem, labeller = label_both) +
-  labs(y = "NPP", x = "Simulation Time", color = "PFT", fill = "PFT")
+  facet_grid(ecosystem ~ lat, labeller = label_both, scales = "free_y") +
+  labs(y = "NPP", x = "Simulation Year", color = "PFT", fill = "PFT") +
+  theme(legend.position = "top", axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave(here::here("MSRs", "2023-04-15", "npp.png"), p_npp)
+ggsave(here::here("MSRs", "2023-04-15", "npp.png"), p_npp, width = 8, height = 6)
+```
 
+
+```{r}
 p_npp_setaria <-
   ens_plot_df |> 
   filter(pft == 1) |>
@@ -233,23 +274,30 @@ p_npp_setaria <-
   geom_line() +
   geom_ribbon(aes(ymin = NPP_PFT_lower, ymax = NPP_PFT_upper),
               alpha = 0.3) +
-  facet_grid(lat+site~ecosystem, labeller = label_both) +
-  labs(y = "NPP", x = "Simulation Time")
+  facet_grid(ecosystem ~ lat, labeller = label_both, scales = "free_y") +
+  labs(y = "NPP", x = "Simulation Year") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave(here::here("MSRs", "2023-04-15", "npp_setaria.png"), p_npp_setaria)
+ggsave(here::here("MSRs", "2023-04-15", "npp_setaria.png"), p_npp_setaria, width = 8, height = 6)
+```
 
+
+```{r}
 p_transp <-
   ens_plot_df |> 
-  # filter(pft == 1) |> 
   ggplot(aes(x = date, y = TRANSP_PFT_median)) +
   geom_line(aes(color = pft_name)) +
   geom_ribbon(aes(ymin = TRANSP_PFT_lower, ymax = TRANSP_PFT_upper, fill = pft_name),
               alpha = 0.3) +
-  facet_grid(lat+site~ecosystem, labeller = label_both) +
-  labs(y = "Transpiration", x = "Simulation Time", color = "PFT", fill = "PFT")
+  facet_grid(ecosystem ~ lat, labeller = label_both, scales = "free_y") +
+  labs(y = "Transpiration", x = "Simulation Year", color = "PFT", fill = "PFT") +
+  theme(legend.position = "top", axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave(here::here("MSRs", "2023-04-15", "transp.png"), p_transp)
+ggsave(here::here("MSRs", "2023-04-15", "transp.png"), p_transp, width = 8, height = 6)
+```
 
+
+```{r}
 p_transp_setaria <-
   ens_plot_df |> 
   filter(pft == 1) |>
@@ -257,10 +305,11 @@ p_transp_setaria <-
   geom_line() +
   geom_ribbon(aes(ymin = TRANSP_PFT_lower, ymax = TRANSP_PFT_upper),
               alpha = 0.3) +
-  facet_grid(lat+site~ecosystem, labeller = label_both) +
-  labs(y = "Transpiration", x = "Simulation Time")
+  facet_grid(ecosystem ~ lat, labeller = label_both, scales = "free_y") +
+  labs(y = "Transpiration", x = "Simulation Time") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave(here::here("MSRs", "2023-04-15", "transp_setaria.png"), p_transp_setaria)
+ggsave(here::here("MSRs", "2023-04-15", "transp_setaria.png"), p_transp_setaria, width = 8, height = 6)
 
 ```
 ## End of Simulation
@@ -268,31 +317,41 @@ ggsave(here::here("MSRs", "2023-04-15", "transp_setaria.png"), p_transp_setaria)
 We also discussed a plot of AGB at the end of 10 years.  I'll take a median for 2010 at each ensemble, then average across ensembles.  Plot will show raw data (means for 2010 at each ensemble) as well as median ± IQR at each site.  (boxplot + raw data).
 
 ```{r}
-library(ggdist)
-library(ggtext)
 df <- ens_data_raw |> 
   filter(year(date) >= 2010, pft == 1) |> 
   group_by(site, lat, ecosystem, ensemble) |> 
   summarize(AGB_2010 = median(AGB_PFT, na.rm = TRUE)) |> 
   group_by(site, lat, ecosystem) |> 
-  mutate(AGB_2010 = set_units(AGB_2010, "kg/m^2")) |> 
-  #remove ensembles where setaria is effectively dead
-  filter(AGB_2010 > set_units(0.005, "kg/m^2"))
-  
+  # mutate(AGB_2010 = set_units(AGB_2010, "kg/m^2")) |> 
+  #remove ensembles where Setaria is effectively locally extinct
+  # filter(AGB_2010 > set_units(0.005, "kg/m^2"))
+  filter(AGB_2010 > 0.005)
+
+#' Density of 1e-4 is one plant / 1000 m^2
+#' What can we consider locally "extinct"?
+#' Could be just runs that have fewer plants than they started with after 10 yrs
+
+nrow(df)
+
+ens_data_raw |> filter(AGB_PFT < 0.005) |> arrange(DENS)
     
     
 ggplot(df, aes(x = AGB_2010, y = ecosystem, fill = ecosystem)) +
-  stat_slab(aes(thickness = after_stat(pdf*n)), scale = 0.7) +
+  stat_slab(aes(thickness = after_stat(pdf*n)), scale = 0.7, trim = FALSE) +
   stat_dotsinterval(aes(slab_color = ecosystem), side = "bottom", scale = 0.7, .width = c(0.5, 0.95)) +
   scale_fill_brewer(palette = "Set2", aesthetics = c("fill", "slab_color")) +
   labs(
-    x = "Above Ground Biomass",
+    x = 'Above Ground Biomass (kg/m^2^)',
     y = "",
-    caption = "Distribution of median aboveground biomass (AGB) of *Setaria* in the last year of a 10 year simulation across ensembles and sites. Points represent the (binned) median value of monthly AGB across the year for individual ensemble members.  Only data where AGB is greater than 0.005 kg/m^2^ are shown. The median (point), interquartile range (thick line) and 95th percentile (thin line) are shown in black."
+    caption = "Distribution of median aboveground biomass (AGB) of *Setaria* in the last year of a 10 year simulation across ensembles and sites. Data is shown for ensembles with a median AGB greater than 0.005 kg/m^2^ (n=434/531). Points represent the (binned) median value of monthly AGB across the year for individual ensemble members. The median (point), interquartile range (thick line) and 95th percentile (thin line) are shown in black."
   ) +
   theme(
     legend.position = "none",
-    plot.caption = element_textbox_simple(padding = margin(t = 10))
-  )
+    plot.caption = element_textbox_simple(padding = margin(t = 10)),
+    axis.title.x = element_markdown()
+  ) +
+  xlim(0, NA)
+ggsave("raincloud.png")
 ```
+
 
