@@ -62,11 +62,13 @@ run_df <- left_join(run_df, init, by = join_by(cohort_filename)) |>
 
 settings_list <- map(run_df$settings_path, read.settings)
 
-# turn off ensemble analysis
+# can't completely turn off ensemble analysis because of a bug:
+# https://github.com/PecanProject/pecan/issues/3024
+# Instead I'll set ensemble members to 1
 settings_list<- 
   map(settings_list, \(x) {
-    x$ensemble <- NULL
-    compact(x) #removes NULLs
+    x$ensemble$size <- "1"
+    x
   })
 
 # add data from sites tibble
