@@ -38,3 +38,9 @@ If you want to know how long a job took on the HPC you can use:
 ``` bash
 sacct -j <jobid> -o Start,End,Elapsed
 ```
+
+To check remaining compute hours:
+
+``` bash
+va
+```
