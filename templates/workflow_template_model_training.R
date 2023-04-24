@@ -82,7 +82,7 @@ rundirs <- dir_ls(settings$rundir, type = "directory")
 modeloutdirs <- dir_ls(settings$modeloutdir, type = "directory")
 
 dir_ls(
-  settings$modeloutdir,
+  c(settings$modeloutdir, settings$rundir),
   type = "directory", #only dirs
   regexp = "SA-median$|stomatal_slope-0.159$|quantum_efficiency-0.159$|fineroot2leaf-0.841$",
   invert = TRUE #all dirs that don't match regexp
