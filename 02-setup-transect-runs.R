@@ -9,16 +9,13 @@ set.seed(4444)
 # load site info ----------------------------------------------------------
 
 # NS transect of 9 sites
-# new_sites <- read_csv("data/mandifore_sites.csv")
-# sites <- new_sites %>% 
-#   filter(lon > -83 & lon < -82) %>% 
-#   mutate(lat_round = round(lat)) %>% 
-#   group_by(lat_round) %>% 
-#   slice_sample(n=1) |> 
-#   ungroup()
-
-# LHS sample of 20 sites
-sites <- read_csv("data/seus_sample20.csv")
+new_sites <- read_csv("data/mandifore_sites.csv")
+sites <- new_sites %>%
+  filter(lon > -83 & lon < -82) %>%
+  mutate(lat_round = round(lat)) %>%
+  group_by(lat_round) %>%
+  slice_sample(n=1) |>
+  ungroup()
 
 
 # 3 ecosystems corresponding to 3 .css files
@@ -27,7 +24,7 @@ ecosystems <- c("pine", "mixed", "prairie")
 # create working directories ----------------------------------------------
 run_df <- 
   expand_grid(sites, ecosystem = ecosystems) |> 
-  mutate(wd = path("seus_sample", sitename, ecosystem))
+  mutate(wd = path("transect", sitename, ecosystem))
 
 #create all dirs
 dir_create(run_df$wd)
@@ -48,7 +45,7 @@ run_df <-
   mutate(template = path("templates", paste0("pecan_template_", ecosystem, ".xml"))) |> 
   mutate(settings_path = file_copy(template, path(wd, "pecan.xml"))) |> 
   #create paths in /data/ for outdir
-  mutate(outdir = path("/data/output/pecan_runs/seus_sample", sitename, ecosystem))
+  mutate(outdir = path("/data/output/pecan_runs/transect", sitename, ecosystem))
 
 
 # Filepaths ---------------------------------------------------------------
