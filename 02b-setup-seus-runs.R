@@ -71,6 +71,17 @@ settings_list<-
     x
   })
 
+# Should only need 4 cores for these jobs:
+# SA-median and the three pseudo-genotypes (the one ensemble gets deleted in
+# worflow.R)
+
+settings_list <-
+  map(settings_list, \(x) {
+    x$host$qsub <-
+      str_replace(x$host$qsub, pattern = "--ntasks=\\d+", replacement = "--ntasks=4")
+    x  
+  })
+
 # add data from sites tibble
 for (i in seq_len(nrow(run_df))) {
   run <- run_df |> slice(i)
